@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4c3efbc7cbd8f94e9831ca2f34871cf
+guid: a5ce6acd437c76644a62b20a26e32036
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,148 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DogBody
+      name: ElephantHead
       rect:
         serializedVersion: 2
         x: 8
-        y: 743
-        width: 388
-        height: 217
+        y: 340
+        width: 287
+        height: 397
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b802b71bbe18374587fa5919825c950
-      internalID: -373794613
+      spriteID: baf1c408bf4d1844ba8eeaf810c743c8
+      internalID: -193914846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogTail
+      name: ElephantBody
       rect:
         serializedVersion: 2
-        x: 52
-        y: 576
-        width: 180
-        height: 171
+        x: 417
+        y: 453
+        width: 328
+        height: 243
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5469615c6c215545813ca2099796f9b
-      internalID: 920426419
+      spriteID: 7269f70af3d4a8b4cbfe3346cadc2d97
+      internalID: -30328700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFL
+      name: ElephantTail
       rect:
         serializedVersion: 2
-        x: 74
-        y: 306
-        width: 123
-        height: 237
+        x: 911
+        y: 445
+        width: 103
+        height: 201
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2071df5b086d3419abade2ad45f256
-      internalID: -444291124
+      spriteID: 904147ef88205cf4fbb22f9722610520
+      internalID: -1288436980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBL
+      name: ElephantFL
       rect:
         serializedVersion: 2
-        x: 236
-        y: 473
-        width: 167
-        height: 234
+        x: 62
+        y: 5
+        width: 109
+        height: 222
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ddb2db876572424b921a4ffbc345c7e
-      internalID: -1983412139
+      spriteID: a3390b755f5d3fc4e9da4ac206614aa8
+      internalID: 2001342305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFR
+      name: ElephantFR
       rect:
         serializedVersion: 2
-        x: 72
-        y: 52
-        width: 111
-        height: 216
+        x: 305
+        y: 5
+        width: 109
+        height: 222
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ca300990bd1ca04cab675ff99cfd52e
-      internalID: -2058726433
+      spriteID: b3e3d33b780f18a46912229d3a5a12e3
+      internalID: 838181909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBR
+      name: ElephantBR
       rect:
         serializedVersion: 2
-        x: 282
-        y: 235
-        width: 160
-        height: 219
+        x: 547
+        y: 5
+        width: 130
+        height: 278
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c4bae597d87cae428c7971f763e9b86
-      internalID: 1915919946
+      spriteID: ce6e528eb29e0904c9f2db64c80ca2ca
+      internalID: 21895047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogHead
+      name: ElephantBL
       rect:
         serializedVersion: 2
-        x: 272
-        y: 10
-        width: 195
-        height: 190
+        x: 810
+        y: 5
+        width: 130
+        height: 278
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d0082dae2387de4b9f10a4f28eedb2a
-      internalID: -1593104543
+      spriteID: f7a663cfad8c2b342a26db3ab6c920d9
+      internalID: -277988320
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DogHead: -1593104543
-      DogFL: -444291124
-      DogBR: 1915919946
-      DogTail: 920426419
-      DogBody: -373794613
-      DogBL: -1983412139
-      DogFR: -2058726433
+      ElephantFL: 2001342305
+      ElephantBody: -30328700
+      ElephantHead: -193914846
+      ElephantTail: -1288436980
+      ElephantFR: 838181909
+      ElephantBL: -277988320
+      ElephantBR: 21895047
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4c3efbc7cbd8f94e9831ca2f34871cf
+guid: 224209888fa6e1c4183fd1363e23176f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,148 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DogBody
+      name: UnicornHead
       rect:
         serializedVersion: 2
-        x: 8
-        y: 743
-        width: 388
-        height: 217
+        x: 6
+        y: 560
+        width: 333
+        height: 276
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b802b71bbe18374587fa5919825c950
-      internalID: -373794613
+      spriteID: 9aa4d16d25df82b46aaecb8e3f08a9aa
+      internalID: 544347882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogTail
+      name: UnicornBody
       rect:
         serializedVersion: 2
-        x: 52
-        y: 576
-        width: 180
-        height: 171
+        x: 443
+        y: 553
+        width: 373
+        height: 174
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5469615c6c215545813ca2099796f9b
-      internalID: 920426419
+      spriteID: 433ec0ccbcd3d1f47b6f2df924f5c84a
+      internalID: -95608122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFL
+      name: UnicornTail
       rect:
         serializedVersion: 2
-        x: 74
-        y: 306
-        width: 123
-        height: 237
+        x: 888
+        y: 403
+        width: 200
+        height: 326
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2071df5b086d3419abade2ad45f256
-      internalID: -444291124
+      spriteID: aa595611ed99e4a40bb7113ff5e06ff7
+      internalID: -267138413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBL
+      name: UnicornFL
       rect:
         serializedVersion: 2
-        x: 236
-        y: 473
-        width: 167
-        height: 234
+        x: 81
+        y: 46
+        width: 73
+        height: 283
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ddb2db876572424b921a4ffbc345c7e
-      internalID: -1983412139
+      spriteID: 9e5636b560008e34ba762260a94beb8b
+      internalID: 293959926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFR
+      name: UnicornFR
       rect:
         serializedVersion: 2
-        x: 72
-        y: 52
-        width: 111
-        height: 216
+        x: 349
+        y: 46
+        width: 73
+        height: 283
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ca300990bd1ca04cab675ff99cfd52e
-      internalID: -2058726433
+      spriteID: bf781a318a489ea41b8fae31cfd630dc
+      internalID: -884846290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBR
+      name: UnicornBR
       rect:
         serializedVersion: 2
-        x: 282
-        y: 235
-        width: 160
-        height: 219
+        x: 618
+        y: 4
+        width: 131
+        height: 326
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c4bae597d87cae428c7971f763e9b86
-      internalID: 1915919946
+      spriteID: aaee186fdfe16ea42839496a0998de16
+      internalID: 681627789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogHead
+      name: UnicornBL
       rect:
         serializedVersion: 2
-        x: 272
-        y: 10
-        width: 195
-        height: 190
+        x: 946
+        y: 3
+        width: 132
+        height: 327
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d0082dae2387de4b9f10a4f28eedb2a
-      internalID: -1593104543
+      spriteID: 1ddb4c1407384c042b88a01935380ae3
+      internalID: 1115971500
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DogHead: -1593104543
-      DogFL: -444291124
-      DogBR: 1915919946
-      DogTail: 920426419
-      DogBody: -373794613
-      DogBL: -1983412139
-      DogFR: -2058726433
+      UnicornFR: -884846290
+      UnicornBL: 1115971500
+      UnicornBR: 681627789
+      UnicornFL: 293959926
+      UnicornHead: 544347882
+      UnicornBody: -95608122
+      UnicornTail: -267138413
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
