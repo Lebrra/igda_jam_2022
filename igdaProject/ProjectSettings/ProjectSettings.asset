@@ -155,6 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.MyProject
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Standalone: 0
@@ -249,8 +250,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: android.keystore'
-  AndroidKeyaliasName: dist
+  AndroidKeystoreName: '{inproject}: PaperGame.keystore'
+  AndroidKeyaliasName: papergame
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
