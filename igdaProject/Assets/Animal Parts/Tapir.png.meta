@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4c3efbc7cbd8f94e9831ca2f34871cf
+guid: ac98899402a225f4ba947e4b80d32fce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,148 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DogBody
+      name: TapirHead
       rect:
         serializedVersion: 2
-        x: 8
-        y: 743
-        width: 388
-        height: 217
+        x: 5
+        y: 301
+        width: 216
+        height: 250
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b802b71bbe18374587fa5919825c950
-      internalID: -373794613
+      spriteID: 9fc3b535f2d236e4da381b673c81454d
+      internalID: 1053753632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogTail
+      name: TapirBody
       rect:
         serializedVersion: 2
-        x: 52
-        y: 576
-        width: 180
-        height: 171
+        x: 368
+        y: 370
+        width: 412
+        height: 221
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5469615c6c215545813ca2099796f9b
-      internalID: 920426419
+      spriteID: 265de7edbb58c9444be211337a5ad0d0
+      internalID: 1656817410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFL
+      name: TapirTail
       rect:
         serializedVersion: 2
-        x: 74
-        y: 306
+        x: 902
+        y: 433
+        width: 61
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b98ea99e1795c548969cee69284e50d
+      internalID: 640188913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TapirFL
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 5
         width: 123
-        height: 237
+        height: 228
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2071df5b086d3419abade2ad45f256
-      internalID: -444291124
+      spriteID: 02a27f5341063854caae34544f330597
+      internalID: -598674148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBL
-      rect:
-        serializedVersion: 2
-        x: 236
-        y: 473
-        width: 167
-        height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ddb2db876572424b921a4ffbc345c7e
-      internalID: -1983412139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DogFR
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 52
-        width: 111
-        height: 216
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ca300990bd1ca04cab675ff99cfd52e
-      internalID: -2058726433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DogBR
+      name: TapirFR
       rect:
         serializedVersion: 2
         x: 282
-        y: 235
-        width: 160
-        height: 219
+        y: 5
+        width: 123
+        height: 228
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c4bae597d87cae428c7971f763e9b86
-      internalID: 1915919946
+      spriteID: b2ac9a8bc99b45b44a2bb8f7285fd8c3
+      internalID: 797331989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogHead
+      name: TapirBR
       rect:
         serializedVersion: 2
-        x: 272
-        y: 10
-        width: 195
-        height: 190
+        x: 500
+        y: 5
+        width: 141
+        height: 230
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d0082dae2387de4b9f10a4f28eedb2a
-      internalID: -1593104543
+      spriteID: a456f73cb6f65a94c9d65204fc922c04
+      internalID: -1542476102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TapirBL
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 5
+        width: 141
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3901415f9d43ac4409237cc181c9e040
+      internalID: -1206837482
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DogHead: -1593104543
-      DogFL: -444291124
-      DogBR: 1915919946
-      DogTail: 920426419
-      DogBody: -373794613
-      DogBL: -1983412139
-      DogFR: -2058726433
+      TapirFL: -598674148
+      TapirBR: -1542476102
+      TapirTail: 640188913
+      TapirBL: -1206837482
+      TapirHead: 1053753632
+      TapirBody: 1656817410
+      TapirFR: 797331989
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

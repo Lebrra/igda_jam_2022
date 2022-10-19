@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4c3efbc7cbd8f94e9831ca2f34871cf
+guid: 857eaec75feb4b5448f013cb5d3da6d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,148 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DogBody
+      name: LemurHead
       rect:
         serializedVersion: 2
-        x: 8
-        y: 743
-        width: 388
+        x: 62
+        y: 421
+        width: 157
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ce92c79abbc144e9fe0b6cd312619d
+      internalID: -1227858891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LemurBody
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 384
+        width: 358
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64291fc1382983d4db5bf79f62eca2da
+      internalID: 269791394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LemurTail
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 306
+        width: 396
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fcfe8bacc8d5446822a88810b185f2
+      internalID: 217628180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LemurFL
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 38
+        width: 123
         height: 217
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b802b71bbe18374587fa5919825c950
-      internalID: -373794613
+      spriteID: 03efeb7550fa93540bf8f831e4f23936
+      internalID: -298850045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogTail
+      name: LemurFR
       rect:
         serializedVersion: 2
-        x: 52
-        y: 576
-        width: 180
-        height: 171
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5469615c6c215545813ca2099796f9b
-      internalID: 920426419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DogFL
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 306
+        x: 318
+        y: 38
         width: 123
-        height: 237
+        height: 217
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2071df5b086d3419abade2ad45f256
-      internalID: -444291124
+      spriteID: 88f2b97fe633f0d468cb0e8d0cd9f19a
+      internalID: 788332904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogBL
+      name: LemurBR
       rect:
         serializedVersion: 2
-        x: 236
-        y: 473
-        width: 167
-        height: 234
+        x: 629
+        y: 4
+        width: 117
+        height: 251
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ddb2db876572424b921a4ffbc345c7e
-      internalID: -1983412139
+      spriteID: 0a250206d5e2bc8478b6151a2bf9c0b0
+      internalID: -1853370252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DogFR
+      name: LemurBL
       rect:
         serializedVersion: 2
-        x: 72
-        y: 52
-        width: 111
-        height: 216
+        x: 934
+        y: 4
+        width: 117
+        height: 251
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ca300990bd1ca04cab675ff99cfd52e
-      internalID: -2058726433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DogBR
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 235
-        width: 160
-        height: 219
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c4bae597d87cae428c7971f763e9b86
-      internalID: 1915919946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DogHead
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 10
-        width: 195
-        height: 190
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d0082dae2387de4b9f10a4f28eedb2a
-      internalID: -1593104543
+      spriteID: 1e7eb98820ba3204f8e7a0d908aff136
+      internalID: -2056339780
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DogHead: -1593104543
-      DogFL: -444291124
-      DogBR: 1915919946
-      DogTail: 920426419
-      DogBody: -373794613
-      DogBL: -1983412139
-      DogFR: -2058726433
+      LemurBody: 269791394
+      LemurBL: -2056339780
+      LemurFR: 788332904
+      LemurTail: 217628180
+      LemurHead: -1227858891
+      LemurFL: -298850045
+      LemurBR: -1853370252
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
