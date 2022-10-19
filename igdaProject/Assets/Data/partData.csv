@@ -1,0 +1,9 @@
+id,Animal,Part,AnimalNamePart,Biome,AbilityName,AbilityCost,Health
+lion_head,Lion,Head,lio,Savana,FakeAbility1,0,5
+lion_body,Lion,Body,io,Savana,FakeAbility2,0,5
+lion_legs,Lion,Legs,io,Savana,FakeAbility3,0,5
+lion_tail,Lion,Tail,on,Savana,FakeAbility4,0,5
+alligator_head,Alligator,Head,alli,Swamp,FakeAbility1,0,5
+alligator_body,Alligator,Body,gato,Swamp,FakeAbility2,0,5
+alligator_legs,Alligator,Legs,gato,Swamp,FakeAbility3,0,5
+alligator_tail,Alligator,Tail,ator,Swamp,FakeAbility4,0,5
