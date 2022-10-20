@@ -6,14 +6,7 @@ using UnityEngine;
 public class AnimalPart : ScriptableObject
 {
     #region Related Types
-    public enum BodyPart
-    {
-        Head,
-        Body,
-        Legs,
-        Tail,
-        None
-    }
+    
 
     [Serializable]
     public struct AnimalPartData
@@ -63,3 +56,4 @@ public class AnimalPart : ScriptableObject
     }
     #endregion
 }
+
