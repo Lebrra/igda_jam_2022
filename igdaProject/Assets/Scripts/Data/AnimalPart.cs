@@ -39,7 +39,7 @@ public class AnimalPart : ScriptableObject
     {
         AnimalPart asset = CreateInstance<AnimalPart>();
         asset.LoadData(newPartData);
-        AssetDatabase.CreateAsset(asset, "Assets/Data/AnimalParts/" + asset.partData.id + ".asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Resources/Parts/Data/" + asset.partData.id + ".asset");
         Debug.Log("Asset created: " + asset.partData.id);
     }
 
