@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &41041603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -718,8 +718,8 @@ RectTransform:
   - {fileID: 2051051556}
   - {fileID: 1347813996}
   - {fileID: 685769732}
-  - {fileID: 298254581}
   - {fileID: 492478630}
+  - {fileID: 298254581}
   m_Father: {fileID: 1494433859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1908,10 +1908,10 @@ RectTransform:
   m_Father: {fileID: 1347813996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.32, y: -60}
-  m_SizeDelta: {x: 258.64, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 164.32, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249881762
 MonoBehaviour:
@@ -2332,13 +2332,13 @@ RectTransform:
   - {fileID: 1670391833}
   - {fileID: 1044753033}
   m_Father: {fileID: 59383095}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: 259}
-  m_SizeDelta: {x: 720.9855, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 780.4928, y: 259}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &298254582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2771,7 +2771,19 @@ MonoBehaviour:
   m_Group: {fileID: 59383096}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1494433860}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TailInfoStatus
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1001 &402917588
 PrefabInstance:
@@ -3344,7 +3356,7 @@ GameObject:
   - component: {fileID: 492478632}
   - component: {fileID: 492478631}
   m_Layer: 5
-  m_Name: LegPanel
+  m_Name: LegsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3365,13 +3377,13 @@ RectTransform:
   - {fileID: 502130960}
   - {fileID: 1277310278}
   m_Father: {fileID: 59383095}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: 63}
-  m_SizeDelta: {x: 720.9855, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 780.4928, y: 63}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &492478631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,10 +3516,10 @@ RectTransform:
   m_Father: {fileID: 492478630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 228.73, y: -60}
-  m_SizeDelta: {x: 357.46, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 228.73, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502130961
 MonoBehaviour:
@@ -4354,7 +4366,19 @@ MonoBehaviour:
   m_Group: {fileID: 59383096}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1494433860}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HeadInfoStatus
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &522606628
 GameObject:
@@ -4594,7 +4618,19 @@ MonoBehaviour:
   m_Group: {fileID: 59383096}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1494433860}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BodyInfoStatus
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1001 &553409359
 PrefabInstance:
@@ -5559,9 +5595,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 489.5, y: 63}
-  m_SizeDelta: {x: 715.9855, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 131.50726, y: 63}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &685769733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8514,10 +8550,10 @@ RectTransform:
   m_Father: {fileID: 298254581}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380.49274, y: -137.5}
-  m_SizeDelta: {x: 660.9855, y: 82.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 515.0035, y: 82.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044753034
 MonoBehaviour:
@@ -8539,8 +8575,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
-    dolor sit amet, consectetur adipiscing elit dou. elit dou.elit dou. elit dou.
+  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
+    dolor sit amet, consectetur adipiscing elit dou. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
@@ -9435,10 +9471,10 @@ RectTransform:
   m_Father: {fileID: 685769732}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 154.16, y: -60}
-  m_SizeDelta: {x: 238.32, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 154.16, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246897595
 MonoBehaviour:
@@ -9698,10 +9734,10 @@ RectTransform:
   m_Father: {fileID: 492478630}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380.49274, y: -137.5}
-  m_SizeDelta: {x: 660.9855, y: 82.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 504.8658, y: 82.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277310279
 MonoBehaviour:
@@ -9723,8 +9759,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
-    dolor sit amet, consectetur adipiscing elit dou. elit dou.elit dou. elit dou.
+  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
+    dolor sit amet, consectetur adipiscing elit dou. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
@@ -10161,9 +10197,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 489.5, y: 262}
-  m_SizeDelta: {x: 715.9855, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 131.50726, y: 262}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1347813997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11265,6 +11301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1494433859}
+  - component: {fileID: 1494433860}
   m_Layer: 5
   m_Name: MainMenuAnimator
   m_TagString: Untagged
@@ -11294,6 +11331,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1494433860
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494433858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0d92b815bba01347aba4a089ef17f39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1497445724
 GameObject:
   m_ObjectHideFlags: 0
@@ -11435,10 +11492,10 @@ RectTransform:
   m_Father: {fileID: 685769732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365.49274, y: -137.5}
-  m_SizeDelta: {x: 660.9855, y: 82.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 550.7264, y: 82.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506858467
 MonoBehaviour:
@@ -11461,7 +11518,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
-    dolor sit amet, consectetur adipiscing elit dou. elit dou.elit dou. elit dou.
+    dolor sit amet, consectetur adipiscing elit dou.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
@@ -12679,10 +12736,10 @@ RectTransform:
   m_Father: {fileID: 298254581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 148.175, y: -60}
-  m_SizeDelta: {x: 196.35, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 148.175, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670391834
 MonoBehaviour:
@@ -14603,10 +14660,10 @@ RectTransform:
   m_Father: {fileID: 1347813996}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365.49274, y: -137.5}
-  m_SizeDelta: {x: 660.9855, y: 82.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 554.2511, y: 82.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826571000
 MonoBehaviour:
@@ -14629,7 +14686,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit dou. Lorem ipsum
-    dolor sit amet, consectetur adipiscing elit dou. elit dou.elit dou. elit dou.
+    dolor sit amet, consectetur adipiscing elit dou.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
@@ -15910,7 +15967,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 607.9, y: 50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988474879
 MonoBehaviour:
@@ -16896,7 +16953,7 @@ GameObject:
   - component: {fileID: 2051051556}
   - component: {fileID: 2051051557}
   m_Layer: 5
-  m_Name: LegsBodyInfo
+  m_Name: LegsInfoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16971,7 +17028,19 @@ MonoBehaviour:
   m_Group: {fileID: 59383096}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1494433860}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LegInfoStatus
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2052115305
 GameObject:
