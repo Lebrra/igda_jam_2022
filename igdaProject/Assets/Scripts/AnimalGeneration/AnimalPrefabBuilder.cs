@@ -18,7 +18,10 @@ public class AnimalPrefabBuilder : MonoBehaviour
     AnimalPartUI legsFRPart;
     AnimalPartUI legsBRPart;
 
-    public void CreateAnimal(AnimalPartsObject animal)
+    Routine partSwapper;
+    public bool IsTransitioning { get => partSwapper.Exists(); }
+
+    public void CreateAnimal(AnimalPartsObject animal, bool zeroOut = false)
     {
         // get all prefab references
         headPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.headID);
@@ -63,6 +66,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tailPart.transform.SetAsLastSibling();      // 4
         legsBLPart.transform.SetAsLastSibling();    // 5
         legsFLPart.transform.SetAsLastSibling();    // 6
+
+        if (zeroOut)
+        {
+            bodyPart.transform.localScale = Vector2.zero;
+            headPart.transform.localScale = Vector2.zero;
+            tailPart.transform.localScale = Vector2.zero;
+            legsFLPart.transform.localScale = Vector2.zero;
+            legsBLPart.transform.localScale = Vector2.zero;
+            legsFRPart.transform.localScale = Vector2.zero;
+            legsBRPart.transform.localScale = Vector2.zero;
+        }
     }
 
     public void ChangeBodyPart(string newpart)
@@ -76,17 +90,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
         }
         switch (data.partData.bodyPart)
         {
-            case BodyPart.Head: 
-                ChangeHead(newpart);
+            case BodyPart.Head:
+                partSwapper.Replace(ChangeHead(newpart));
                 break;
             case BodyPart.Body:
-                ChangeBody(newpart);
+                partSwapper.Replace(ChangeBody(newpart));
                 break;
             case BodyPart.Tail:
-                ChangeTail(newpart);
+                partSwapper.Replace(ChangeTail(newpart));
                 break;
             case BodyPart.Legs:
-                ChangeLeg(newpart);
+                partSwapper.Replace(ChangeLegs(newpart));
                 break;
             default:
                 Debug.LogError($"Part {newpart} not found, cannot import. ");
@@ -94,13 +108,12 @@ public class AnimalPrefabBuilder : MonoBehaviour
         }
     }
 
-    void ChangeHead(string part)
+    IEnumerator ChangeHead(string part)
     {
         if (headPart)
         {
             // destroy it!
-            Destroy(headPart.gameObject);
-            headPart = null;
+            yield return ShrinkDestroyObject(headPart.GetComponent<RectTransform>());
         }
 
         headPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part);
@@ -108,9 +121,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
         headPart.FindMyPart(part);
         headPart.transform.SetParent(animalTransform);
         headPart.transform.SetSiblingIndex(3);
+        headPart.transform.localScale = Vector2.zero;
+        yield return GrowSpawnObject(headPart.GetComponent<RectTransform>());
     }
 
-    void ChangeBody(string part)
+    IEnumerator ChangeBody(string part)
     {
         // oof
 
@@ -120,17 +135,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
         recreatedAnim.legsID = legsFLPart.id;
         recreatedAnim.bodyID = part;
 
-        DestroyAnimal();
-        CreateAnimal(recreatedAnim);
+        yield return ShrinkDestroyAll();
+        CreateAnimal(recreatedAnim, true);
+        yield return GrowSpawnAll();
     }
 
-    void ChangeTail(string part)
+    IEnumerator ChangeTail(string part)
     {
         if (tailPart)
         {
             // destroy it!
-            Destroy(tailPart.gameObject);
-            tailPart = null;
+            yield return ShrinkDestroyObject(tailPart.GetComponent<RectTransform>());
         }
 
         tailPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part);
@@ -138,74 +153,56 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tailPart.FindMyPart(part);
         tailPart.transform.SetParent(animalTransform);
         tailPart.transform.SetSiblingIndex(4);
+        tailPart.transform.localScale = Vector2.zero;
+        yield return GrowSpawnObject(tailPart.GetComponent<RectTransform>());
     }
 
-    void ChangeLeg(string part)
+    IEnumerator ChangeLegs(string part)
     {
         // x4
 
-        if (legsFLPart)
-        {
-            // destroy it!
-            Destroy(legsFLPart.gameObject);
-            legsFLPart = null;
-        }
+        yield return Routine.Combine(ShrinkDestroyObject(legsFLPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsBLPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()));
 
         legsFLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_FL");
         legsFLPart = Instantiate(legsFLPart, bodyPart.legFL);
         legsFLPart.FindMyPart(part);
         legsFLPart.transform.SetParent(animalTransform);
         legsFLPart.transform.SetSiblingIndex(6);
-
-        if (legsBLPart)
-        {
-            // destroy it!
-            Destroy(legsBLPart.gameObject);
-            legsBLPart = null;
-        }
+        legsFLPart.transform.localScale = Vector2.zero;
 
         legsBLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_BL");
         legsBLPart = Instantiate(legsBLPart, bodyPart.legBL);
         legsBLPart.FindMyPart(part);
         legsBLPart.transform.SetParent(animalTransform);
         legsBLPart.transform.SetSiblingIndex(5);
-
-        if (legsFRPart)
-        {
-            // destroy it!
-            Destroy(legsFRPart.gameObject);
-            legsFRPart = null;
-        }
+        legsBLPart.transform.localScale = Vector2.zero;
 
         legsFRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_FR");
         legsFRPart = Instantiate(legsFRPart, bodyPart.legFR);
         legsFRPart.FindMyPart(part);
         legsFRPart.transform.SetParent(animalTransform);
         legsFRPart.transform.SetSiblingIndex(0);
-
-        if (legsBRPart)
-        {
-            // destroy it!
-            Destroy(legsBRPart.gameObject);
-            legsBRPart = null;
-        }
+        legsFRPart.transform.localScale = Vector2.zero;
 
         legsBRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_BR");
         legsBRPart = Instantiate(legsBRPart, bodyPart.legBR);
         legsBRPart.FindMyPart(part);
         legsBRPart.transform.SetParent(animalTransform);
         legsBRPart.transform.SetSiblingIndex(1);
+        legsBRPart.transform.localScale = Vector2.zero;
+
+        yield return Routine.Combine(GrowSpawnObject(legsFLPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsBLPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsFRPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsBRPart.GetComponent<RectTransform>()));
     }
 
     public void DestroyAnimal()
     {
-        if (headPart) Destroy(headPart.gameObject);
-        if (bodyPart) Destroy(bodyPart.gameObject);
-        if (tailPart) Destroy(tailPart.gameObject);
-        if (legsFLPart) Destroy(legsFLPart.gameObject);
-        if (legsBLPart) Destroy(legsBLPart.gameObject);
-        if (legsFRPart) Destroy(legsFRPart.gameObject);
-        if (legsBRPart) Destroy(legsBRPart.gameObject);
+        partSwapper.Replace(ShrinkDestroyAll());
 
         headPart =
         tailPart =
@@ -233,5 +230,39 @@ public class AnimalPrefabBuilder : MonoBehaviour
         ChangeBodyPart("alligator_legs");
         yield return 2F;
         ChangeBodyPart("alligator_tail");
+        //partSwapper.Replace(ShrinkDestroyObject(tailPart.GetComponent<RectTransform>()));
+    }
+
+    IEnumerator ShrinkDestroyAll()
+    {
+        yield return Routine.Combine(ShrinkDestroyObject(headPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(bodyPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(tailPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsBLPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsFLPart.GetComponent<RectTransform>()),
+            ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()));
+    }
+
+    IEnumerator GrowSpawnAll()
+    {
+        yield return Routine.Combine(GrowSpawnObject(headPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(bodyPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(tailPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsBLPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsBRPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsFLPart.GetComponent<RectTransform>()),
+            GrowSpawnObject(legsFRPart.GetComponent<RectTransform>()));
+    }
+
+    IEnumerator ShrinkDestroyObject(RectTransform obj, float duration = 0.2F)
+    {
+        yield return obj.ScaleTo(Vector2.zero, duration);
+        Destroy(obj.gameObject);
+    }
+
+    IEnumerator GrowSpawnObject(RectTransform obj, float duration = 0.3F)
+    {
+        yield return obj.ScaleTo(Vector2.one, duration);
     }
 }
