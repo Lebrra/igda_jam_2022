@@ -512,10 +512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 534009828}
   testAnimal:
-    headID: alligator_head
+    headID: cardinal_head
     bodyID: cardinal_body
-    legsID: alligator_legs
-    tailID: alligator_tail
+    legsID: cardinal_legs
+    tailID: cardinal_tail
 --- !u!1 &575086524
 GameObject:
   m_ObjectHideFlags: 0

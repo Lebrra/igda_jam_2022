@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   myPart: {fileID: 0}
+  animalIcon: {fileID: 1669827132013461747}
