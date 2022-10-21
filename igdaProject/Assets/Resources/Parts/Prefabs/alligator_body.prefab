@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: alligator_body
   myPart: {fileID: 0}
+  animalIcon: {fileID: 2475975910952717560}
   headPoint: {fileID: 6263115376482676790}
   tailPoint: {fileID: 2655055243718680744}
   legFR: {fileID: 4419514973889007056}

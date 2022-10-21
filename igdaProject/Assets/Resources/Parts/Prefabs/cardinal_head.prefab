@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   myPart: {fileID: 0}
+  animalIcon: {fileID: 4030965553202653784}
 --- !u!1 &4030965553202653786
 GameObject:
   m_ObjectHideFlags: 0

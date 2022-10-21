@@ -205,3 +205,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: alligator_legs
   myPart: {fileID: 0}
+  animalIcon: {fileID: 130981367427539038}

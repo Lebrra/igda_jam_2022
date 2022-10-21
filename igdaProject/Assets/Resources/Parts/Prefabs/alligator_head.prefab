@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: alligator_head
   myPart: {fileID: 0}
+  animalIcon: {fileID: 4229931927593222975}
 --- !u!1 &3359903161612675806
 GameObject:
   m_ObjectHideFlags: 0

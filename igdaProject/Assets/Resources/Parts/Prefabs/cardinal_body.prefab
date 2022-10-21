@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   myPart: {fileID: 0}
+  animalIcon: {fileID: 800729649972001413}
   headPoint: {fileID: 2960535396245915104}
   tailPoint: {fileID: 5535909619990030979}
   legFR: {fileID: 6012432206744011760}
