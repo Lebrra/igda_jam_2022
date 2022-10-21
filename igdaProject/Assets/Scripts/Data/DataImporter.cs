@@ -28,7 +28,7 @@ public class DataImporter : Editor
         Debug.Log("Completed import.");
     }
 
-    //string[] headerNames = new string[8] { "id", "Animal", "Part", "AnimalNamePart", "Biome", "AbilityName", "AbilityCost", "Health" };
+    //string[] headerNames = new string[8] { "id", "Animal", "Part", "AnimalNamePart", "Biome", "AbilityName", "AbilityCost", "Health", "Description" };
     static AnimalPart.AnimalPartData ArrayToAnimalPartData(string[] lineList)
     {
         AnimalPart.AnimalPartData newPartData;
@@ -40,6 +40,7 @@ public class DataImporter : Editor
         newPartData.abilityName = lineList[5];
         int.TryParse(lineList[6], out newPartData.abilityCost);
         int.TryParse(lineList[7], out newPartData.health);
+        newPartData.description = lineList[8];
 
         return newPartData;
     }
