@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombatManager : MonoBehaviour
+public class Entity : MonoBehaviour
 {
+    [Header("Stats")]
+    [SerializeField] float healthMax, manaMax, dodgeMax, speedMax, accuracyMax; //max values
 
-    public static PlayerCombatManager instance; //singleton
+    float health, mana, dodge, speed, accuracy; //current values
 
+    [Header("Ability Names")]
     [SerializeField] private string HeadAbility;
     [SerializeField] private string BodyAbility;
     [SerializeField] private string LegsAbility;
     [SerializeField] private string TailAbility;
-    
-    private void Awake() {
-        if (instance == null) instance = this;
-        else Destroy(this.gameObject);
+
+
+    public void ResetStats() {
+        health = healthMax;
+        mana = manaMax;
+        dodge = dodgeMax;
+        speed = speedMax;
+        accuracy = accuracyMax;
     }
-    
+
     public void UpdateAbility(AnimalPart part) {
         switch (part.partData.bodyPart) {
             case BodyPart.Head:
@@ -49,5 +56,7 @@ public class PlayerCombatManager : MonoBehaviour
     public void Use_TailAbility() {
         Debug.Log("I used " + TailAbility);
     }
+
+
 
 }
