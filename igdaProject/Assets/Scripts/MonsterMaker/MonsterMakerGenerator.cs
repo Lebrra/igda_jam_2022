@@ -21,9 +21,13 @@ public class MonsterMakerGenerator : MonoBehaviour
     {
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
-        UpdatePetParts();
+        foreach(GameObject o in head.GetComponentsInChildren<GameObject>())
+        {
+            //Destroy(this);
+        }
+        //UpdatePetParts();
     }
-    void UpdatePetParts()
+    void UpdatePetParts(GameObject part)
     {
         foreach (KeyValuePair<string, bool> inst in InventoryManager.instance.getDict())
         {
@@ -32,6 +36,10 @@ public class MonsterMakerGenerator : MonoBehaviour
 
             }
         }
+    }
+    void instantiateButton(AnimalPart p)
+    {
+
     }
     // Update is called once per frame
     void Update()
