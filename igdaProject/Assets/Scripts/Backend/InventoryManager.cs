@@ -2,14 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
     Dictionary<String, bool> partDict = new Dictionary<String, bool>();
+    [SerializeField]
     bool Testing;
     [SerializeField]
-    bool hasPart = false;
+    bool hasPart;
     AnimalPart[] partlist;
     bool newGame = true;
     //Exportable as String for Save Data
@@ -32,11 +33,21 @@ public class InventoryManager : MonoBehaviour
         }
         if (!newGame)
         {
-            ConvertFromString();
+            //ConvertFromString(); // String gotten from
         }
         DontDestroyOnLoad(this);
     }
+    private void Update()
+    {
+        //Destroys itself if in menu
+        /*
+        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("Title")))
+        {
+            Destroy(this);
+        }
+        */
 
+    }
     private void productionFill()
     {
         hasPart = false;
@@ -53,13 +64,13 @@ public class InventoryManager : MonoBehaviour
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         for (int i = 0; i < partlist.Length; i++)
         {
-            Debug.Log(partlist[i]);
+            //Debug.Log(partlist[i]);
             partDict.Add(partlist[i].partData.id, hasPart);
-        }
+        }/*
         foreach (KeyValuePair<String, bool> i in partDict)
         {
-            Debug.Log("Dictionary " +i.Key + "," + i.Value);
-        }
+            //Debug.Log("Dictionary " +i.Key + "," + i.Value);
+        }*/
        
             
     }
@@ -73,22 +84,26 @@ public class InventoryManager : MonoBehaviour
         String str = "";
         foreach (KeyValuePair<String, bool> i in partDict)
         {
-           // Debug.Log("Dictionary " + i.Key + "," + i.Value);
             str += i.Key + "," + i.Value + ",";
         }
-        /*
-        String[] strrr = str.ToString().Split(',');
-        print(strrr.Length + "Strrrr Length");
-        for (int i = 0; i < strrr.Length; i++)
-        {
-            Debug.Log(strrr[i]);
-        }
-        */
+        
         return str;
     }
-    void ConvertFromString()
+    public void ConvertFromString(string str)
     {
-
+        
+        string[] strrr = str.ToString().Split(',');
+        print(strrr.Length + "Strrrr Length");
+        bool tf;
+        for (int i = 0; i < strrr.Length; i = i+2)
+        {
+            if (strrr[i + 1] == "true")
+                tf = true;
+            else
+                tf = false;
+            partDict.Add(strrr[i],  tf);
+        }
+        
     }
     public void updateInventory(String part)
     {

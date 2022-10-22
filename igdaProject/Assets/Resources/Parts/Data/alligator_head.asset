@@ -20,3 +20,4 @@ MonoBehaviour:
     abilityName: FakeAbility1
     abilityCost: 0
     health: 5
+    description: 

@@ -18,6 +18,7 @@ public class AnimalPart : ScriptableObject
         public string abilityName;
         public int abilityCost;
         public int health;
+        public string description;
     }
     #endregion
 
@@ -33,6 +34,7 @@ public class AnimalPart : ScriptableObject
         partData.abilityName = newPartData.abilityName;
         partData.abilityCost = newPartData.abilityCost;
         partData.health = newPartData.health;
+        partData.description = newPartData.description;
     }
 
     public static void CreateAsset(AnimalPartData newPartData)

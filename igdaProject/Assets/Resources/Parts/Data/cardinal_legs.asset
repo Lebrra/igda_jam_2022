@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c62090bbb10234bb48fdd58e4e2be3, type: 3}
+  m_Name: cardinal_legs
+  m_EditorClassIdentifier: 
+  partData:
+    id: cardinal_legs
+    animal: Cardinal
+    namePart: 
+    bodyPart: 2
+    abilityName: FakeAbility3
+    abilityCost: 0
+    health: 5
+    description: 
