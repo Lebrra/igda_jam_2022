@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
+    public bool sfxEnabled = true;
+    public bool musicEnabled = true;
+
     // everything that needs to be saved here
 
     public string inventoryStr;

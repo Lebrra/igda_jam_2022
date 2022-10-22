@@ -29,6 +29,7 @@ public class GameDirector : MonoBehaviour
 
     public void OpenTitle()
     {
+        menuAnim.SetBool("UiStatus", false);
         titleMan.Open();
     }
 }
