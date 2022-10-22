@@ -19,6 +19,7 @@ public class AnimalPart : ScriptableObject
         public int abilityCost;
         public int health;
         public string description;
+        public Sprite image;
     }
     #endregion
 

@@ -20,9 +20,17 @@ public class MonsterMakerGenerator : MonoBehaviour
     Dictionary<string,AnimalPartUI> partListObjectDict = new Dictionary<string, AnimalPartUI>();
     [SerializeField]
     GameObject ButtonTemplate;
+    public static MonsterMakerGenerator instance;
+
+    Dictionary< string, bool> apple = new Dictionary<string, bool>();
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null)
+        instance = this;
+        else
+            Destroy(this);
+        DontDestroyOnLoad(this);
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
@@ -73,7 +81,6 @@ public class MonsterMakerGenerator : MonoBehaviour
         Setup();
         //UpdatePetParts();
     }
-    
     void fillDictionaries()
     {
         try
@@ -82,11 +89,6 @@ public class MonsterMakerGenerator : MonoBehaviour
             {
                 if(!partListdict.ContainsKey(partlist[i].partData.id))
                 partListdict.Add(partlist[i].partData.id, partlist[i]);
-            }
-            for (int j = 0; j < partObjectList.Length; j++)
-            {
-                if(!partListObjectDict.ContainsKey(partObjectList[j].GetComponent<AnimalPartUI>().id))
-                partListObjectDict.Add(partObjectList[j].GetComponent<AnimalPartUI>().id, partObjectList[j].GetComponent<AnimalPartUI>());
             }
         }
         catch (Exception ex)
@@ -100,8 +102,6 @@ public class MonsterMakerGenerator : MonoBehaviour
         try
         {
             AnimalPart part= new AnimalPart();
-            AnimalPartUI partUI = new AnimalPartUI();
-            print("made it to setup.");
             print(InventoryManager.instance.getDict());
             foreach (KeyValuePair<string, bool> inst in InventoryManager.instance.getDict())
             {
@@ -112,9 +112,9 @@ public class MonsterMakerGenerator : MonoBehaviour
                     string id = inst.Key;
                     if(partListdict.ContainsKey(id))
                     part = partListdict[id];
-                    if(partListObjectDict.ContainsKey(id))
-                    partUI = partListObjectDict[id];
-                    UpdatePetParts(part, partUI);
+                    //if(partListObjectDict.ContainsKey(id))
+                    //partUI = partListObjectDict[id];
+                    UpdatePetParts(part);
                     
                 }
             }
@@ -124,22 +124,21 @@ public class MonsterMakerGenerator : MonoBehaviour
             Debug.LogException(ex);
         }
     }
-    void UpdatePetParts(AnimalPart part, AnimalPartUI partUI)
+    public void UpdatePetParts(AnimalPart part)
     {
-        print("update pet parts");
         switch(part.partData.bodyPart)
         {
             case BodyPart.Body:
-                instantiateButton(part, partUI, body);
+                instantiateButton(part, body);
                 break;
             case BodyPart.Head:
-                instantiateButton(part, partUI, head);
+                instantiateButton(part, head);
                 break;
             case BodyPart.Legs:
-                instantiateButton(part, partUI, Leg);
+                instantiateButton(part, Leg);
                 break;
             case BodyPart.Tail:
-                instantiateButton(part, partUI, tail);
+                instantiateButton(part, tail);
                 break;
             default:
                 Debug.Log("this doesn't exist");
@@ -147,26 +146,28 @@ public class MonsterMakerGenerator : MonoBehaviour
 
         }
     }
-    void instantiateButton(AnimalPart p , AnimalPartUI pUI, GameObject place)
+    void instantiateButton(AnimalPart p, GameObject place)
     {
         try
         {
-            print("I made it");
-            print(ButtonTemplate);
             GameObject tmp = Instantiate(ButtonTemplate);
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
-            GameObject[] children = tmp.GetComponentsInChildren<GameObject>();
-            GameObject child = new GameObject();
+            Image[] children = tmp.transform.GetComponentsInChildren<Image>();
+
+            print("got children");
+            int child =0;
             for (int i = 0; i < children.Length; i++)
             {
-                if (children[i].name.Equals("Icon"))
+                if (children[i].gameObject.name.Equals("Icon"))
                 {
-                    child = children[i];
+                    child = i;
                 }
             }
-            child.GetComponent<Image>().sprite = pUI.animalIcon;
+            children[child].GetComponent<Image>().sprite = p.partData.image;
+            
         }
+        
         catch (Exception e)
         {
             //In the case that pUI doesn't exist'

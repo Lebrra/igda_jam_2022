@@ -21,3 +21,4 @@ MonoBehaviour:
     abilityCost: 0
     health: 5
     description: 
+    image: {fileID: 210256135, guid: acfaa3a9d45e7b74582bc2427bd6bb63, type: 3}

@@ -41,6 +41,7 @@ public class DataImporter : Editor
         int.TryParse(lineList[6], out newPartData.abilityCost);
         int.TryParse(lineList[7], out newPartData.health);
         newPartData.description = lineList[8];
+        newPartData.image = null;
 
         return newPartData;
     }
