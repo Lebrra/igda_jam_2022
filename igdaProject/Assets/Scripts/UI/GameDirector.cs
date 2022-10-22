@@ -22,18 +22,13 @@ public class GameDirector : MonoBehaviour
         instance = this;
     }
 
-    IEnumerator LoadGameAsync()
+    public void OpenMainMenu()
     {
-        // write a script for importing data async
-        yield return 1F;
-
         menuAnim.SetBool("UiStatus", true);
     }
 
-    public void LoadTitle()
+    public void OpenTitle()
     {
-        // TODO: change this to animator triggers when existing
-        titleMan.gameObject.SetActive(true);
         titleMan.Open();
     }
 }
