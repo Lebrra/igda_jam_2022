@@ -15,6 +15,8 @@ public class GameDirector : MonoBehaviour
 
     [SerializeField]
     Animator menuAnim;
+    [SerializeField]
+    MainMenuManager menuMan;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class GameDirector : MonoBehaviour
     public void OpenMainMenu()
     {
         menuAnim.SetBool("UiStatus", true);
+        menuMan.LoadMenu();
     }
 
     public void OpenTitle()

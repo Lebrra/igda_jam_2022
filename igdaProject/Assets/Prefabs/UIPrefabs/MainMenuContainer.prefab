@@ -577,7 +577,7 @@ RectTransform:
   - {fileID: 5325305264647594453}
   - {fileID: 5325305264907858625}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1222,6 +1222,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5325305264329463318}
+  - {fileID: 4501913047926041056}
   - {fileID: 5325305264202159295}
   - {fileID: 5325305263044153868}
   - {fileID: 5325305262905184404}
@@ -1290,7 +1291,7 @@ RectTransform:
   - {fileID: 5325305263888532363}
   - {fileID: 5325305262999560093}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1937,7 +1938,7 @@ RectTransform:
   - {fileID: 5325305264072068146}
   - {fileID: 5325305264372428886}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2681,7 +2682,7 @@ RectTransform:
   - {fileID: 5325305263427171084}
   - {fileID: 5325305263775776742}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5090,14 +5091,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1882353, g: 0.22352941, b: 0.32156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1004524721, guid: 64def77c39020544ea503b1d2fc94e54, type: 3}
+  m_Sprite: {fileID: 384566728, guid: 2b393a811e2acfe4491e870e339d89ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7463,14 +7464,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1882353, g: 0.22352941, b: 0.32156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3555482, guid: 6308ce98aa57ec34e8eeb3247877798a, type: 3}
+  m_Sprite: {fileID: -1953089415, guid: 2b393a811e2acfe4491e870e339d89ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7821,6 +7822,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389c623eddb75c4fabe499089f03493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  presetSnapButtons:
+  - {fileID: 5325305263117007242}
+  - {fileID: 5325305264015387821}
+  - {fileID: 5325305262950507865}
+  presetLeft: {fileID: 5325305263861582182}
+  presetRight: {fileID: 5325305264647594454}
+  headHeader: {fileID: 5325305264384470315}
+  headDesc: {fileID: 5325305263880457072}
+  bodyHeader: {fileID: 5325305263250582580}
+  bodyDesc: {fileID: 5325305263024200811}
+  legsHeader: {fileID: 5325305264166822042}
+  legsDesc: {fileID: 5325305263356493007}
+  tailHeader: {fileID: 5325305263665947027}
+  tailDesc: {fileID: 5325305264659112706}
+  animalBuilder: {fileID: 2414855318764176928}
 --- !u!1 &5325305264202159294
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,7 +7875,7 @@ RectTransform:
   - {fileID: 5325305264173820206}
   - {fileID: 5325305263962753405}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -8766,14 +8782,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1882353, g: 0.22352941, b: 0.32156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -483177819, guid: ae429b38f3b4adb4aad01a46c6bacc88, type: 3}
+  m_Sprite: {fileID: -1082206389, guid: 2b393a811e2acfe4491e870e339d89ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9312,14 +9328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1882353, g: 0.22352941, b: 0.32156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1352536830, guid: 7cf68092b43ee9644828a6dfc14da8cd, type: 3}
+  m_Sprite: {fileID: -2013197784, guid: 2b393a811e2acfe4491e870e339d89ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11132,7 +11148,7 @@ RectTransform:
   - {fileID: 5325305263454155201}
   - {fileID: 5325305264781897337}
   m_Father: {fileID: 5325305263036615115}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11443,3 +11459,58 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8797938870713941744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4501913047926041056}
+  - component: {fileID: 2414855318764176928}
+  m_Layer: 5
+  m_Name: PetHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4501913047926041056
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797938870713941744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5325305263036615115}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -256}
+  m_SizeDelta: {x: 837.4206, y: 631.02}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2414855318764176928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797938870713941744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ecb785f8b621d4b9bda522f6fb1137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalTransform: {fileID: 4501913047926041056}
+  testAnimal:
+    headID: 
+    bodyID: 
+    legsID: 
+    tailID: 

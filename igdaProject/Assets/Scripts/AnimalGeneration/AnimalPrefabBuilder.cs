@@ -21,7 +21,33 @@ public class AnimalPrefabBuilder : MonoBehaviour
     Routine partSwapper;
     public bool IsTransitioning { get => partSwapper.Exists(); }
 
-    public void CreateAnimal(AnimalPartsObject animal, bool zeroOut = false)
+    IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
+    {
+        if (bodyPart != null)
+        {
+            if (animated) yield return ShrinkDestroyAll();
+            else DestroyAnimal();
+        }
+
+        GenerateAnimal(animal);
+
+        if (zeroOut)
+        {
+            if (!animated) Debug.LogWarning("All animal parts will be too small to see! Don't check zeroOut without animated!");
+
+            bodyPart.transform.localScale = Vector2.zero;
+            headPart.transform.localScale = Vector2.zero;
+            tailPart.transform.localScale = Vector2.zero;
+            legsFLPart.transform.localScale = Vector2.zero;
+            legsBLPart.transform.localScale = Vector2.zero;
+            legsFRPart.transform.localScale = Vector2.zero;
+            legsBRPart.transform.localScale = Vector2.zero;
+        }
+
+        if (animated) yield return GrowSpawnAll();
+    }
+
+    void GenerateAnimal(AnimalPartsObject animal)
     {
         // get all prefab references
         headPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.headID);
@@ -66,17 +92,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tailPart.transform.SetAsLastSibling();      // 4
         legsBLPart.transform.SetAsLastSibling();    // 5
         legsFLPart.transform.SetAsLastSibling();    // 6
+    }
 
-        if (zeroOut)
-        {
-            bodyPart.transform.localScale = Vector2.zero;
-            headPart.transform.localScale = Vector2.zero;
-            tailPart.transform.localScale = Vector2.zero;
-            legsFLPart.transform.localScale = Vector2.zero;
-            legsBLPart.transform.localScale = Vector2.zero;
-            legsFRPart.transform.localScale = Vector2.zero;
-            legsBRPart.transform.localScale = Vector2.zero;
-        }
+    public void CreateAnimal(AnimalPartsObject animal, bool animated = true, bool zeroOut = false)
+    {
+        partSwapper.Replace(CreateWithValidation(animal, animated, zeroOut));
     }
 
     public void ChangeBodyPart(string newpart)
@@ -211,12 +231,6 @@ public class AnimalPrefabBuilder : MonoBehaviour
         legsFRPart =
         legsBRPart = null;
         bodyPart = null;
-    }
-
-    private void Start()
-    {
-        //CreateAnimal(testAnimal);
-        Routine.Start(TestingAllParts());
     }
 
     IEnumerator TestingAllParts()

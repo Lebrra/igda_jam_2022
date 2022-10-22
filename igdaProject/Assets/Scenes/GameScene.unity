@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleMan: {fileID: 316907034}
   menuAnim: {fileID: 914105817}
+  menuMan: {fileID: 1128003500}
 --- !u!1 &252193599
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,20 +660,22 @@ MonoBehaviour:
   continueButton: {fileID: 252193601}
   newButton: {fileID: 76791799}
   defaultSave:
+    sfxEnabled: 1
+    musicEnabled: 1
     inventoryStr: stuff
     animalPresets:
     - headID: cardinal_head
       bodyID: cardinal_body
       legsID: cardinal_legs
       tailID: cardinal_tail
-    - headID: cardinal_head
-      bodyID: cardinal_body
+    - headID: alligator_head
+      bodyID: alligator_body
       legsID: cardinal_legs
       tailID: cardinal_tail
     - headID: cardinal_head
       bodyID: cardinal_body
-      legsID: cardinal_legs
-      tailID: cardinal_tail
+      legsID: alligator_legs
+      tailID: alligator_tail
 --- !u!1 &377311762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 154.16
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1161,7 +1164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 148.175
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1253,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 228.73
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1385,7 +1388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 164.32
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1923,6 +1926,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5325305263036615116, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
   m_PrefabInstance: {fileID: 532983504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1128003500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7330516622129941771, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
+  m_PrefabInstance: {fileID: 532983504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b389c623eddb75c4fabe499089f03493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1582310562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerdata:
+    sfxEnabled: 1
+    musicEnabled: 1
     inventoryStr: 
     animalPresets: []
   GeneralPopup: {fileID: 540652273}
