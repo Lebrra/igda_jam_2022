@@ -1410,7 +1410,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5325305264970295789}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1975,7 +1975,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5325305264739346790}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6947,7 +6947,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5325305264970295789}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7259,7 +7259,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5325305264739346790}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7780,6 +7780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5325305264192206667}
+  - component: {fileID: 7330516622129941771}
   m_Layer: 5
   m_Name: MainMenuContainer
   m_TagString: Untagged
@@ -7808,6 +7809,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7330516622129941771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325305264192206666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b389c623eddb75c4fabe499089f03493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5325305264202159294
 GameObject:
   m_ObjectHideFlags: 0
@@ -10030,8 +10043,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5325305263178433270}
   - {fileID: 5325305264131994381}
+  - {fileID: 5325305263178433270}
   m_Father: {fileID: 5325305264660638149}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10082,7 +10095,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   toggleTransition: 1
-  graphic: {fileID: 5325305264131994382}
+  graphic: {fileID: 5325305263178433271}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -11096,6 +11109,7 @@ GameObject:
   - component: {fileID: 5325305264948698245}
   - component: {fileID: 5325305264948698244}
   - component: {fileID: 5325305264948698246}
+  - component: {fileID: 6665476078244173147}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -11175,6 +11189,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6665476078244173147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325305264948698242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c12a9973d6482c43b8647102b2b38f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxButton: {fileID: 5325305264739346791}
+  musicButton: {fileID: 5325305264970295790}
+  titleButton: {fileID: 5325305263330049142}
 --- !u!1 &5325305264960812367
 GameObject:
   m_ObjectHideFlags: 0
@@ -11280,8 +11309,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5325305264106522504}
   - {fileID: 5325305263073452675}
+  - {fileID: 5325305264106522504}
   m_Father: {fileID: 5325305264660638149}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11332,7 +11361,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   toggleTransition: 1
-  graphic: {fileID: 5325305263073452676}
+  graphic: {fileID: 5325305264106522505}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
