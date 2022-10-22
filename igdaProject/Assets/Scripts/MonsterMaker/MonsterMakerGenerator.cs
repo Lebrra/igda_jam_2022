@@ -21,8 +21,12 @@ public class MonsterMakerGenerator : MonoBehaviour
     [SerializeField]
     GameObject ButtonTemplate;
     public static MonsterMakerGenerator instance;
-
+    bool isFirst = true;
     Dictionary< string, bool> apple = new Dictionary<string, bool>();
+    bool head1 = true;
+    bool body1 = true;
+    bool tail1 = true;
+    bool leg1 = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,7 @@ public class MonsterMakerGenerator : MonoBehaviour
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
+        isFirst = true;
         foreach(RectTransform o in head.GetComponentsInChildren<RectTransform>())
         {
             if (!done)
@@ -155,6 +160,9 @@ public class MonsterMakerGenerator : MonoBehaviour
             GameObject tmp = Instantiate(ButtonTemplate);
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
+            
+            firstPart(p, tmp);
+
             Image[] children = tmp.transform.GetComponentsInChildren<Image>();
 
             print("got children");
@@ -168,18 +176,47 @@ public class MonsterMakerGenerator : MonoBehaviour
             }
 
             children[child].sprite = p.partData.image;
-            tmp.GetComponent<Button>().onClick.AddListener(() =>
+            tmp.transform.gameObject.AddComponent<Button>();
+            tmp.GetComponent<Toggle>().onValueChanged.AddListener((e) =>
             {
-                AnimalPrefabBuilder thing = new AnimalPrefabBuilder();
+                AnimalPrefabBuilder thing = this.GetComponent<AnimalPrefabBuilder>();
                 thing.ChangeBodyPart(p.partData.id);
+                print("button press");
             });
         }
-        
         catch (Exception e)
         {
             //In the case that pUI doesn't exist'
             print(e);
             print("Image Doesn't Exist yet");
+        }
+    }
+    void firstPart(AnimalPart p, GameObject tmp)
+    {
+        
+        if (!head1 && p.partData.bodyPart == BodyPart.Head) { tmp.GetComponent<Toggle>().isOn = false; }
+        else if (!body1 && p.partData.bodyPart == BodyPart.Body) { tmp.GetComponent<Toggle>().isOn = false; }
+        else if (!leg1 && p.partData.bodyPart == BodyPart.Legs) { tmp.GetComponent<Toggle>().isOn = false; }
+        else if (!tail1 && p.partData.bodyPart == BodyPart.Tail) { tmp.GetComponent<Toggle>().isOn = false; }
+        else if (head1 && p.partData.bodyPart == BodyPart.Head)
+        {
+            head1 = false;
+            tmp.GetComponent<Toggle>().isOn = true;
+        }
+        else if (body1 && p.partData.bodyPart == BodyPart.Body)
+        {
+            body1 = false;
+            tmp.GetComponent<Toggle>().isOn = true;
+        }
+        else if (tail1 && p.partData.bodyPart == BodyPart.Tail)
+        {
+            tail1 = false;
+            tmp.GetComponent<Toggle>().isOn = true;
+        }
+        else if (leg1 && p.partData.bodyPart == BodyPart.Legs)
+        {
+            leg1 = false;
+            tmp.GetComponent<Toggle>().isOn = true;
         }
     }
 }

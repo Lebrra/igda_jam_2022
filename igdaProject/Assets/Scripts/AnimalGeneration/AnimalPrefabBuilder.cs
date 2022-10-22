@@ -212,13 +212,13 @@ public class AnimalPrefabBuilder : MonoBehaviour
         legsBRPart = null;
         bodyPart = null;
     }
-
+    
     private void Start()
     {
-        //CreateAnimal(testAnimal);
-        Routine.Start(TestingAllParts());
+        CreateAnimal(testAnimal);
+        //Routine.Start(TestingAllParts());
     }
-
+    
     IEnumerator TestingAllParts()
     {
         CreateAnimal(testAnimal);
