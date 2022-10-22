@@ -57,6 +57,20 @@ public class AnimalPart : ScriptableObject
         }
         return BodyPart.None;
     }
+
+    public static AnimalPartsObject AnimalToPartsObj(string animal)
+    {
+        string formatedAnim = animal.ToLower().Replace(" ", "");
+
+        var animalObj = new AnimalPartsObject();
+        animalObj.headID = formatedAnim + "_head";
+        animalObj.bodyID = formatedAnim + "_body";
+        animalObj.legsID = formatedAnim + "_legs";
+        animalObj.tailID = formatedAnim + "_tail";
+
+        return animalObj;
+    }
+
     #endregion
 }
 
