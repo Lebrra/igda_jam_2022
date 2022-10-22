@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1282f3b48413548b067bdc5b0d2569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Testing: 0
+  Testing: 1
   hasPart: 0
 --- !u!4 &654697157
 Transform:
@@ -367,6 +367,11 @@ Transform:
 --- !u!1 &857754887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8290123939316415536, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
+  m_PrefabInstance: {fileID: 1451336507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &987038496 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8690949068267744248, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
   m_PrefabInstance: {fileID: 1451336507}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1451336507
@@ -2094,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8290123938313405498, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290123938313405498, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2384,6 +2389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550877158}
   - component: {fileID: 1550877157}
+  - component: {fileID: 1550877159}
   m_Layer: 0
   m_Name: MonsterUIManger
   m_TagString: Untagged
@@ -2423,6 +2429,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550877159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550877156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ecb785f8b621d4b9bda522f6fb1137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalTransform: {fileID: 987038496}
+  testAnimal:
+    headID: alligator_head
+    bodyID: alligator_body
+    legsID: cat_legs
+    tailID: dog_tail
 --- !u!224 &1575196040 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8290123938313405498, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
