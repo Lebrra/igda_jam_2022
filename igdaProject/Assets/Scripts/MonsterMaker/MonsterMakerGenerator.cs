@@ -27,12 +27,14 @@ public class MonsterMakerGenerator : MonoBehaviour
     bool body1 = true;
     bool tail1 = true;
     bool leg1 = true;
-    AnimalPrefabBuilder thing; 
+    AnimalPrefabBuilder thing;
+    bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
         
         thing = this.GetComponent<AnimalPrefabBuilder>();
+        thing.CreateAnimal(this.GetComponent<AnimalPrefabBuilder>().testAnimal);
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
@@ -87,6 +89,7 @@ public class MonsterMakerGenerator : MonoBehaviour
             instance = this;
         else
             Destroy(this);
+        initialized = true;
         DontDestroyOnLoad(this);
     }
     void fillDictionaries()
@@ -164,9 +167,6 @@ public class MonsterMakerGenerator : MonoBehaviour
             GameObject tmp = Instantiate(ButtonTemplate);
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
-            
-            //firstPart(p, tmp);
-            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
             Image[] children = tmp.transform.GetComponentsInChildren<Image>();
 
             print("got children");
@@ -183,6 +183,7 @@ public class MonsterMakerGenerator : MonoBehaviour
 
             tmp.GetComponent<Toggle>().onValueChanged.AddListener((e) =>
             {
+                if(initialized)
                 thing.ChangeBodyPart(p.partData.id);
             });
         }
@@ -192,33 +193,4 @@ public class MonsterMakerGenerator : MonoBehaviour
             print(e);
         }
     }
-    void firstPart(AnimalPart p, GameObject tmp)
-    {
-        
-        if (!head1 && p.partData.bodyPart == BodyPart.Head) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
-        else if (!body1 && p.partData.bodyPart == BodyPart.Body) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
-        else if (!leg1 && p.partData.bodyPart == BodyPart.Legs) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
-        else if (!tail1 && p.partData.bodyPart == BodyPart.Tail) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
-        else if (head1 && p.partData.bodyPart == BodyPart.Head)
-        {
-            head1 = false;
-            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        }
-        else if (body1 && p.partData.bodyPart == BodyPart.Body)
-        {
-            body1 = false;
-            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        }
-        else if (tail1 && p.partData.bodyPart == BodyPart.Tail)
-        {
-            tail1 = false;
-            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        }
-        else if (leg1 && p.partData.bodyPart == BodyPart.Legs)
-        {
-            leg1 = false;
-            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        }
-    }
-
 }
