@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class TitleManager : MonoBehaviour
 
     public void Open()
     {
+        // TODO: change this to animator triggers when existing
+        gameObject.SetActive(true);
+
         hasSave = JSONEditor.DoesFileExist(GameManager.SAVE_NAME);
 
         if (hasSave)
@@ -39,6 +43,8 @@ public class TitleManager : MonoBehaviour
     {
         continueButton.onClick.RemoveListener(ContinueGame);
         newButton.onClick.RemoveListener(NewGameWarning);
+        // TODO: animate 
+        gameObject.SetActive(false);
     }
 
     void ContinueGame()
@@ -53,7 +59,10 @@ public class TitleManager : MonoBehaviour
         else
         {
             var popup = GameManager.instance.GeneralPopup;
-            popup.FillContent("Starting a new game will delete your old save, are you sure?", NewGame, popup.Close);
+            popup.FillContent("Starting a new game will delete your old save, are you sure?", () => {
+                NewGame();
+                popup.Close();
+                }, popup.Close);
             popup.Open();
         }
     }
@@ -67,7 +76,7 @@ public class TitleManager : MonoBehaviour
 
     void LoadGame()
     {
-        // go to game scene 
         Close();
+        GameManager.ToGame();
     }
 }

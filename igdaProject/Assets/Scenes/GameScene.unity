@@ -1073,7 +1073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 154.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148.175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1253,7 +1253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1385,7 +1385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 164.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2036,6 +2036,7 @@ GameObject:
   - component: {fileID: 1598505006}
   - component: {fileID: 1598505008}
   - component: {fileID: 1598505007}
+  - component: {fileID: 1598505009}
   m_Layer: 0
   m_Name: TempLoading
   m_TagString: Untagged
@@ -2101,6 +2102,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598505005}
   m_CullTransparentMesh: 1
+--- !u!95 &1598505009
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598505005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1599242619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2409,7 @@ MonoBehaviour:
     inventoryStr: 
     animalPresets: []
   GeneralPopup: {fileID: 540652273}
+  LoadingScreen: {fileID: 1598505009}
 --- !u!4 &1770889448
 Transform:
   m_ObjectHideFlags: 0

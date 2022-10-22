@@ -36,7 +36,7 @@ public class GenericPopupLogic : MonoBehaviour
 
     IEnumerator DelayClose()
     {
-        yield return 0.5F;
+        yield return 0.4F;
         gameObject.SetActive(false);
     }
 
