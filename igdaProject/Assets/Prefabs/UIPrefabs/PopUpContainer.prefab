@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 9207630308150417895}
   - component: {fileID: 9207630308150417894}
   - component: {fileID: 9207630308150417889}
+  - component: {fileID: 7540902189482536426}
   m_Layer: 5
   m_Name: PopUpContainer
   m_TagString: Untagged
@@ -780,6 +781,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7540902189482536426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207630308150417891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e3306d3b0ac774eab62c0895c13272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPanel: {fileID: 9207630308150417891}
+  popupAnim: {fileID: 9207630308331551622}
+  promptText: {fileID: 9207630309368736876}
+  yesButton: {fileID: 9207630307444046902}
+  yesText: {fileID: 9207630307843614484}
+  noButton: {fileID: 9207630308769086356}
+  noText: {fileID: 9207630307659350779}
 --- !u!1 &9207630308331551616
 GameObject:
   m_ObjectHideFlags: 0

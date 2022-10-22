@@ -8,8 +8,6 @@ using BeauRoutine;
 public class GenericPopupLogic : MonoBehaviour
 {
     [SerializeField]
-    GameObject popupPanel;
-    [SerializeField]
     Animator popupAnim;
     [SerializeField]
     TextMeshProUGUI promptText;
@@ -26,20 +24,20 @@ public class GenericPopupLogic : MonoBehaviour
 
     public void Open()
     {
-        popupPanel.SetActive(true);
-        popupAnim.SetBool("Enabled", true);
+        gameObject.SetActive(true);
+        popupAnim.SetBool("Status", true);
     }
 
     public void Close()
     {
-        popupAnim.SetBool("Enabled", false);
+        popupAnim.SetBool("Status", false);
         Routine.Start(DelayClose());
     }
 
     IEnumerator DelayClose()
     {
-        yield return new WaitForSeconds(0.5F);
-        popupPanel.SetActive(false);
+        yield return 0.5F;
+        gameObject.SetActive(false);
     }
 
     public void FillContent(string prompt, Action yesAction, Action noAction, string yesPrompt = "Yes", string noPrompt = "No")

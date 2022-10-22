@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
-    public Button continueButton;
-    public Button newButton;
-    public GenericPopupLogic newGameWarning;
+    [SerializeField]
+    Button continueButton;
+    [SerializeField]
+    Button newButton;
 
     // animal loader for continue button
 
@@ -16,7 +17,7 @@ public class TitleManager : MonoBehaviour
 
     bool hasSave = false;
 
-    private void Start()
+    public void Open()
     {
         hasSave = JSONEditor.DoesFileExist(GameManager.SAVE_NAME);
 
@@ -34,6 +35,12 @@ public class TitleManager : MonoBehaviour
         newButton.onClick.AddListener(NewGameWarning);
     }
 
+    public void Close()
+    {
+        continueButton.onClick.RemoveListener(ContinueGame);
+        newButton.onClick.RemoveListener(NewGameWarning);
+    }
+
     void ContinueGame()
     {
         GameManager.instance.playerdata = JSONEditor.JSONToData<SaveData>(GameManager.SAVE_NAME);
@@ -45,8 +52,9 @@ public class TitleManager : MonoBehaviour
         if (!hasSave) NewGame();
         else
         {
-            newGameWarning.FillContent("Starting a new game will delete your old save, are you sure?", NewGame, newGameWarning.Close);
-            newGameWarning.Open();
+            var popup = GameManager.instance.GeneralPopup;
+            popup.FillContent("Starting a new game will delete your old save, are you sure?", NewGame, popup.Close);
+            popup.Open();
         }
     }
 
@@ -60,6 +68,6 @@ public class TitleManager : MonoBehaviour
     void LoadGame()
     {
         // go to game scene 
-        Debug.Log("GO TO GAME");
+        Close();
     }
 }
