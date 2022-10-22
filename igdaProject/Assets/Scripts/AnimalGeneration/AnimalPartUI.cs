@@ -6,7 +6,7 @@ public class AnimalPartUI : MonoBehaviour
 {
     public string id;
     public AnimalPart myPart;
-    public Image animalIcon;
+    public Sprite animalIcon;
     public void FindMyPart(string myID)
     {
         id = myID;

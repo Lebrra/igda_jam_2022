@@ -7,9 +7,10 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
     Dictionary<String, bool> partDict = new Dictionary<String, bool>();
+    [SerializeField]
     bool Testing;
     [SerializeField]
-    bool hasPart = false;
+    bool hasPart;
     AnimalPart[] partlist;
     bool newGame = true;
     //Exportable as String for Save Data
@@ -63,13 +64,13 @@ public class InventoryManager : MonoBehaviour
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         for (int i = 0; i < partlist.Length; i++)
         {
-            Debug.Log(partlist[i]);
+            //Debug.Log(partlist[i]);
             partDict.Add(partlist[i].partData.id, hasPart);
-        }
+        }/*
         foreach (KeyValuePair<String, bool> i in partDict)
         {
-            Debug.Log("Dictionary " +i.Key + "," + i.Value);
-        }
+            //Debug.Log("Dictionary " +i.Key + "," + i.Value);
+        }*/
        
             
     }
