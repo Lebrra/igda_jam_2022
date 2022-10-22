@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class MonsterMakerGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -27,11 +27,12 @@ public class MonsterMakerGenerator : MonoBehaviour
     bool body1 = true;
     bool tail1 = true;
     bool leg1 = true;
+    AnimalPrefabBuilder thing; 
     // Start is called before the first frame update
     void Start()
     {
         
-        
+        thing = this.GetComponent<AnimalPrefabBuilder>();
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
@@ -112,6 +113,8 @@ public class MonsterMakerGenerator : MonoBehaviour
             print(InventoryManager.instance.getDict());
             foreach (KeyValuePair<string, bool> inst in InventoryManager.instance.getDict())
             {
+                if (inst.Key.Equals("redpanda_body"))
+                    break;
                 if (inst.Value)
                 {
                     //print(inst);
@@ -133,6 +136,7 @@ public class MonsterMakerGenerator : MonoBehaviour
     }
     public void UpdatePetParts(AnimalPart part)
     {
+
         switch(part.partData.bodyPart)
         {
             case BodyPart.Body:
@@ -161,8 +165,8 @@ public class MonsterMakerGenerator : MonoBehaviour
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
             
-            firstPart(p, tmp);
-
+            //firstPart(p, tmp);
+            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
             Image[] children = tmp.transform.GetComponentsInChildren<Image>();
 
             print("got children");
@@ -176,47 +180,45 @@ public class MonsterMakerGenerator : MonoBehaviour
             }
 
             children[child].sprite = p.partData.image;
-            tmp.transform.gameObject.AddComponent<Button>();
+
             tmp.GetComponent<Toggle>().onValueChanged.AddListener((e) =>
             {
-                AnimalPrefabBuilder thing = this.GetComponent<AnimalPrefabBuilder>();
                 thing.ChangeBodyPart(p.partData.id);
-                print("button press");
             });
         }
         catch (Exception e)
         {
             //In the case that pUI doesn't exist'
             print(e);
-            print("Image Doesn't Exist yet");
         }
     }
     void firstPart(AnimalPart p, GameObject tmp)
     {
         
-        if (!head1 && p.partData.bodyPart == BodyPart.Head) { tmp.GetComponent<Toggle>().isOn = false; }
-        else if (!body1 && p.partData.bodyPart == BodyPart.Body) { tmp.GetComponent<Toggle>().isOn = false; }
-        else if (!leg1 && p.partData.bodyPart == BodyPart.Legs) { tmp.GetComponent<Toggle>().isOn = false; }
-        else if (!tail1 && p.partData.bodyPart == BodyPart.Tail) { tmp.GetComponent<Toggle>().isOn = false; }
+        if (!head1 && p.partData.bodyPart == BodyPart.Head) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
+        else if (!body1 && p.partData.bodyPart == BodyPart.Body) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
+        else if (!leg1 && p.partData.bodyPart == BodyPart.Legs) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
+        else if (!tail1 && p.partData.bodyPart == BodyPart.Tail) { tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(false); }
         else if (head1 && p.partData.bodyPart == BodyPart.Head)
         {
             head1 = false;
-            tmp.GetComponent<Toggle>().isOn = true;
+            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
         }
         else if (body1 && p.partData.bodyPart == BodyPart.Body)
         {
             body1 = false;
-            tmp.GetComponent<Toggle>().isOn = true;
+            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
         }
         else if (tail1 && p.partData.bodyPart == BodyPart.Tail)
         {
             tail1 = false;
-            tmp.GetComponent<Toggle>().isOn = true;
+            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
         }
         else if (leg1 && p.partData.bodyPart == BodyPart.Legs)
         {
             leg1 = false;
-            tmp.GetComponent<Toggle>().isOn = true;
+            tmp.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
         }
     }
+
 }

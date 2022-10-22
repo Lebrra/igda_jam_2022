@@ -212,12 +212,23 @@ public class AnimalPrefabBuilder : MonoBehaviour
         legsBRPart = null;
         bodyPart = null;
     }
-    
-    private void Start()
+    void Start()
+    {
+        StartCoroutine(LateStart(5));
+        CreateAnimal(testAnimal);
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        //Your Function You Want to Call
+    }
+    /*
+    private void lateStart()
     {
         CreateAnimal(testAnimal);
         //Routine.Start(TestingAllParts());
-    }
+    }*/
     
     IEnumerator TestingAllParts()
     {
