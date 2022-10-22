@@ -427,10 +427,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 986008295}
   testAnimal:
-    headID: cat_head
-    bodyID: elephant_body
-    legsID: cat_legs
-    tailID: cat_tail
+    headID: polarbear_head
+    bodyID: polarbear_body
+    legsID: polarbear_legs
+    tailID: polarbear_tail
 --- !u!1 &2016150157
 GameObject:
   m_ObjectHideFlags: 0
