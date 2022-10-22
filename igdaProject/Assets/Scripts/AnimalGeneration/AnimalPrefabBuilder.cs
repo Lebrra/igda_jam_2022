@@ -21,6 +21,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
     Routine partSwapper;
     public bool IsTransitioning { get => partSwapper.Exists(); }
 
+    [SerializeField]
+    bool easyTesting = false;
+    [SerializeField]
+    string animal;
+
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
         if (bodyPart != null)
@@ -278,5 +283,13 @@ public class AnimalPrefabBuilder : MonoBehaviour
     IEnumerator GrowSpawnObject(RectTransform obj, float duration = 0.3F)
     {
         yield return obj.ScaleTo(Vector2.one, duration);
+    }
+
+    private void Start()
+    {
+        if (easyTesting)
+        {
+            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true);
+        }
     }
 }
