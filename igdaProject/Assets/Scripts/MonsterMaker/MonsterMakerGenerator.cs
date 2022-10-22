@@ -26,11 +26,8 @@ public class MonsterMakerGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(instance == null)
-        instance = this;
-        else
-            Destroy(this);
-        DontDestroyOnLoad(this);
+        
+        
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
@@ -80,6 +77,11 @@ public class MonsterMakerGenerator : MonoBehaviour
         fillDictionaries();
         Setup();
         //UpdatePetParts();
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
+        DontDestroyOnLoad(this);
     }
     void fillDictionaries()
     {
@@ -110,7 +112,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     //print(inst);
                     //if you have the part
                     string id = inst.Key;
-                    if(partListdict.ContainsKey(id))
+                    //if(partListdict.ContainsKey(id))
                     part = partListdict[id];
                     //if(partListObjectDict.ContainsKey(id))
                     //partUI = partListObjectDict[id];
@@ -164,8 +166,13 @@ public class MonsterMakerGenerator : MonoBehaviour
                     child = i;
                 }
             }
-            children[child].GetComponent<Image>().sprite = p.partData.image;
-            
+
+            children[child].sprite = p.partData.image;
+            tmp.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                AnimalPrefabBuilder thing = new AnimalPrefabBuilder();
+                thing.ChangeBodyPart(p.partData.id);
+            });
         }
         
         catch (Exception e)
