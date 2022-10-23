@@ -426,13 +426,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 986008295}
+  easyTesting: 1
+  animal: wyvern
+  partsTesting: 0
   testAnimal:
-    headID: manatee_head
-    bodyID: manatee_body
-    legsID: turkey_legs
-    tailID: manatee_tail
-  easyTesting: 0
-  animal: manatee
+    headID: 
+    bodyID: 
+    legsID: 
+    tailID: cat_tail
 --- !u!1 &2016150157
 GameObject:
   m_ObjectHideFlags: 0
