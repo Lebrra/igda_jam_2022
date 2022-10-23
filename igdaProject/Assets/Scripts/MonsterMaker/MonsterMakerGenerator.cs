@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BeauRoutine;
+
 public class MonsterMakerGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -184,8 +186,12 @@ public class MonsterMakerGenerator : MonoBehaviour
             tmp.GetComponent<Toggle>().onValueChanged.AddListener((e) =>
             {
                 if (initialized) {
-                    thing.ChangeBodyPart(p.partData.id);
-                    StartCoroutine(NameGeneratorAsync(thing.GetCreatedAnimal()));
+                    if (e)
+                    {
+                        Debug.Log(p.name);
+                        thing.ChangeBodyPart(p.partData.id);
+                        Routine.Start(NameGeneratorAsync());
+                    }
                 }
                 
             });
@@ -197,14 +203,8 @@ public class MonsterMakerGenerator : MonoBehaviour
         }
     }
 
-    public IEnumerator NameGeneratorAsync(AnimalPartsObject animal) {
-        var i = 0f;
-        //var rate = 1f / 2f;
-        while (i < 2f) {
-            i += Time.deltaTime;
-            yield return null;
-        }
-
-        GameManager.instance.NameGenerator(animal);
+    public IEnumerator NameGeneratorAsync() {
+        yield return 0.7F;
+        GameManager.instance.NameGenerator(thing.GetCreatedAnimal());
     }
 }
