@@ -199,14 +199,14 @@ public class AnimalPrefabBuilder : MonoBehaviour
         legsFLPart = Instantiate(legsFLPart, bodyPart.legFL);
         legsFLPart.FindMyPart(part);
         legsFLPart.transform.SetParent(animalTransform);
-        legsFLPart.transform.SetSiblingIndex(6);
+        legsFLPart.transform.SetSiblingIndex(5);
         legsFLPart.transform.localScale = Vector2.zero;
 
         legsBLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_BL");
         legsBLPart = Instantiate(legsBLPart, bodyPart.legBL);
         legsBLPart.FindMyPart(part);
         legsBLPart.transform.SetParent(animalTransform);
-        legsBLPart.transform.SetSiblingIndex(5);
+        legsBLPart.transform.SetSiblingIndex(6);
         legsBLPart.transform.localScale = Vector2.zero;
 
         legsFRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_FR");
