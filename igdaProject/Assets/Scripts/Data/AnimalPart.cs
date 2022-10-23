@@ -26,7 +26,7 @@ public class AnimalPart : ScriptableObject
     public AnimalPartData partData;
 
     #region Asset Creation/Parsing
-    void LoadData(AnimalPartData newPartData)
+    void LoadData(AnimalPartData newPartData, Sprite sprite)
     {
         partData.id = newPartData.id;
         partData.animal = newPartData.animal;
@@ -36,12 +36,16 @@ public class AnimalPart : ScriptableObject
         partData.abilityCost = newPartData.abilityCost;
         partData.health = newPartData.health;
         partData.description = newPartData.description;
+        partData.image = sprite;
     }
 
     public static void CreateAsset(AnimalPartData newPartData)
     {
+        Sprite savedSprite = Resources.Load<AnimalPart>("Parts/Data/" + newPartData.id).partData.image;
+
+        // TODO: if asset exists save sprite and put it back 
         AnimalPart asset = CreateInstance<AnimalPart>();
-        asset.LoadData(newPartData);
+        asset.LoadData(newPartData, savedSprite);
         AssetDatabase.CreateAsset(asset, "Assets/Resources/Parts/Data/" + asset.partData.id + ".asset");
         Debug.Log("Asset created: " + asset.partData.id);
     }

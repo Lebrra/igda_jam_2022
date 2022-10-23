@@ -12,6 +12,12 @@ public class SaveData
 
     public string inventoryStr;
     public AnimalPartsObject[] animalPresets;   // default these, always 3
+    public int selectedPreset = 0;
+
+    public AnimalPartsObject GetActiveAnimal()
+    {
+        return animalPresets[selectedPreset];
+    }
 
     // progress saving
 }

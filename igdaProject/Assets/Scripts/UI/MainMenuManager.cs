@@ -50,8 +50,8 @@ public class MainMenuManager : MonoBehaviour
         presetLeft.onClick.AddListener(DecrementPreset);
         presetRight.onClick.AddListener(IncrementPreset);
 
-        currentPreset = -1;
-        LoadAnimalPreset(0);
+        currentPreset = GameManager.instance.playerdata.selectedPreset;
+        LoadAnimalPreset(currentPreset, true);
     }
 
     public void Close()
@@ -80,17 +80,20 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    public void LoadAnimalPreset(int index)
+    public void LoadAnimalPreset(int index, bool forceLoad = true)
     {
-        if (index < 0 || index > 2)
+        if (!forceLoad)
         {
-            Debug.LogError("Invalid preset index: " + index);
-            return;
+            if (index < 0 || index > 2)
+            {
+                Debug.LogError("Invalid preset index: " + index);
+                return;
+            }
+            else if (index == currentPreset) return;
         }
-        else if (index == currentPreset) return;
 
         Debug.Log("Setting toggle index : " + index);
-        currentPreset = index;
+        currentPreset = GameManager.instance.playerdata.selectedPreset = index;
         ForceToggleState(currentPreset);
 
         animalBuilder.CreateAnimal(presets[index], true, true);
