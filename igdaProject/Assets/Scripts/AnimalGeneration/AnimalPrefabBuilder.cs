@@ -28,7 +28,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
     [SerializeField]
     bool partsTesting = false;
     [SerializeField]
-    AnimalPartsObject testAnimal;
+    public AnimalPartsObject testAnimal;
 
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
