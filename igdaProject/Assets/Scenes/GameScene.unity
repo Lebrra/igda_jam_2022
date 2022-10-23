@@ -293,6 +293,16 @@ MonoBehaviour:
       legsID: dog_legs
       tailID: dog_tail
     selectedPreset: 0
+    currentLevel:
+      activeRun: 0
+      selectedStages: []
+      currentGeneratedOpponent:
+        headID: 
+        bodyID: 
+        legsID: 
+        tailID: 
+      currentStage: 0
+      currentMatch: 0
 --- !u!1 &334467632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 1375731410}
+  nameText: {fileID: 737747365}
   easyTesting: 0
   animal: 
   partsTesting: 0
@@ -3059,6 +3070,16 @@ MonoBehaviour:
     inventoryStr: 
     animalPresets: []
     selectedPreset: 0
+    currentLevel:
+      activeRun: 0
+      selectedStages: []
+      currentGeneratedOpponent:
+        headID: 
+        bodyID: 
+        legsID: 
+        tailID: 
+      currentStage: 0
+      currentMatch: 0
   GeneralPopup: {fileID: 540652273}
   LoadingScreen: {fileID: 1598505009}
 --- !u!4 &1770889448
