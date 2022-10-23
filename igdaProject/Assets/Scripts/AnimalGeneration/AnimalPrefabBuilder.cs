@@ -270,6 +270,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
         yield return obj.ScaleTo(Vector2.one, duration);
     }
 
+    public AnimalPartsObject GetCreatedAnimal()
+    {
+        AnimalPartsObject animal = new AnimalPartsObject();
+        animal.headID = headPart.id;
+        animal.bodyID = bodyPart.id;
+        animal.legsID = legsBLPart.id;
+        animal.tailID = tailPart.id;
+
+        return animal;
+    }
+
     private void Start()
     {
         if (partsTesting)
