@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     bool Testing;
     [SerializeField]
+    bool GenerateDefaultInventory = false;
+    [SerializeField]
     bool hasPart;
     AnimalPart[] partlist;
     bool newGame = true;
@@ -26,7 +28,10 @@ public class InventoryManager : MonoBehaviour
         {
             testFill();
         }
-        
+        else if (GenerateDefaultInventory)
+        {
+            getDefaultPartResource();
+        }
         else
         {
             productionFill();
@@ -71,9 +76,21 @@ public class InventoryManager : MonoBehaviour
         {
             //Debug.Log("Dictionary " +i.Key + "," + i.Value);
         }*/
-       
-            
     }
+
+    private void getDefaultPartResource()
+    {
+        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
+        for (int i = 0; i < partlist.Length; i++)
+        {
+            //Debug.Log(partlist[i]);
+            var animal = partlist[i].partData.animal.ToLower().Trim(' ');
+            if (animal == "cat" || animal == "dog") partDict.Add(partlist[i].partData.id, true);
+            else partDict.Add(partlist[i].partData.id, false);
+        }
+        Debug.Log(ConvertToString());
+    }
+
     public void updateNewGame(bool a)
     {
         newGame = a;

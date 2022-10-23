@@ -165,7 +165,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         recreatedAnim.bodyID = part;
 
         yield return ShrinkDestroyAll();
-        CreateAnimal(recreatedAnim, true);
+        CreateAnimal(recreatedAnim, true, true);
         yield return GrowSpawnAll();
     }
 
