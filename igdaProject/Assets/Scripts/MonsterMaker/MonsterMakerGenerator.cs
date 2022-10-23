@@ -183,8 +183,11 @@ public class MonsterMakerGenerator : MonoBehaviour
 
             tmp.GetComponent<Toggle>().onValueChanged.AddListener((e) =>
             {
-                if(initialized)
-                thing.ChangeBodyPart(p.partData.id);
+                if (initialized) {
+                    thing.ChangeBodyPart(p.partData.id);
+                    StartCoroutine(NameGeneratorAsync(thing.GetCreatedAnimal()));
+                }
+                
             });
         }
         catch (Exception e)
@@ -192,5 +195,16 @@ public class MonsterMakerGenerator : MonoBehaviour
             //In the case that pUI doesn't exist'
             print(e);
         }
+    }
+
+    public IEnumerator NameGeneratorAsync(AnimalPartsObject animal) {
+        var i = 0f;
+        //var rate = 1f / 2f;
+        while (i < 2f) {
+            i += Time.deltaTime;
+            yield return null;
+        }
+
+        GameManager.instance.NameGenerator(animal);
     }
 }

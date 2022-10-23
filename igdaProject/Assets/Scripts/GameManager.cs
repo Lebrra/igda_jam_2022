@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ToTitle();
+       // ToTitle();
     }
 
     public static void SaveData()
@@ -33,6 +33,40 @@ public class GameManager : MonoBehaviour
         JSONEditor.DataToJSON(instance.playerdata, SAVE_NAME);
         Debug.Log("PLAYER DATA SAVED");
     }
+
+    
+    public string NameGenerator(AnimalPartsObject animal) {
+
+       
+        string name = "";
+
+        AnimalPart head, body, legs, tail;
+        head = Resources.Load<AnimalPart>("Parts/Data/" + animal.headID);
+        body = Resources.Load<AnimalPart>("Parts/Data/" + animal.bodyID);
+        legs = Resources.Load<AnimalPart>("Parts/Data/" + animal.legsID);
+        tail = Resources.Load<AnimalPart>("Parts/Data/" + animal.tailID);
+
+        char[] temp = head.partData.namePart.ToCharArray();
+        string capital = "";
+
+        for (int i = 0; i < temp.Length; i++) {
+            if (i == 0) {
+                capital += temp[i].ToString().ToUpper();
+            }
+            else {
+                capital += temp[i].ToString();
+            }
+        }
+
+        name += capital;
+        name += body.partData.namePart;
+        name += legs.partData.namePart;
+        name += tail.partData.namePart;
+        Debug.Log(name);
+
+        return name;
+    }
+
 
     #region Menu Transitions
 
