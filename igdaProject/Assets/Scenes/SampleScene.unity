@@ -426,9 +426,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 986008295}
+  nameText: {fileID: 0}
   easyTesting: 1
-  animal: wyvern
-  partsTesting: 0
+  animal: beetle
+  partsTesting: 1
   testAnimal:
     headID: 
     bodyID: 
@@ -467,7 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipAudioSource: {fileID: 2016150161}
   musicAudioSource: {fileID: 2016150160}
-  audioClips: []
+  audioClips:
+  - clipName: 
+    audioClip: {fileID: 0}
 --- !u!4 &2016150159
 Transform:
   m_ObjectHideFlags: 0
