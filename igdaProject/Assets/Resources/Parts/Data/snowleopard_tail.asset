@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: snowleopard_tail
     animal: Snow Leopard
-    namePart: 
+    namePart: pard
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Leopard Tail
     image: {fileID: -1060825005, guid: 4ad6b8b89b13e994590e508aace2af77, type: 3}

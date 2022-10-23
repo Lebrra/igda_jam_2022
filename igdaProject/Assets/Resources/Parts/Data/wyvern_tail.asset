@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: wyvern_tail
     animal: Wyvern
-    namePart: 
+    namePart: ern
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Tail Whip
     image: {fileID: -159079854, guid: 7cf68092b43ee9644828a6dfc14da8cd, type: 3}

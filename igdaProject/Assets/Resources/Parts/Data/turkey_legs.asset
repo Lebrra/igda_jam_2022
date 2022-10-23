@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: turkey_legs
     animal: Turkey
-    namePart: 
+    namePart: ke
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Wing Slash
     image: {fileID: -1092952915, guid: acfaa3a9d45e7b74582bc2427bd6bb63, type: 3}

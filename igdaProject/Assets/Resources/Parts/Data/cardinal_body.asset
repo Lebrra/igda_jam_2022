@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: cardinal_body
     animal: Cardinal
-    namePart: 
+    namePart: ard
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Hollow Bones
     image: {fileID: 1326719527, guid: edb89de8208e8bf4ca7968412a410ce6, type: 3}

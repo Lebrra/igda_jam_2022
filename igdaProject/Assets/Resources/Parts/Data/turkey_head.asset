@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: turkey_head
     animal: Turkey
-    namePart: 
+    namePart: tur
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Gobble
     image: {fileID: 210256135, guid: acfaa3a9d45e7b74582bc2427bd6bb63, type: 3}

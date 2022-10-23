@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: turkey_tail
     animal: Turkey
-    namePart: 
+    namePart: key
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Flaunt
     image: {fileID: 932982580, guid: acfaa3a9d45e7b74582bc2427bd6bb63, type: 3}

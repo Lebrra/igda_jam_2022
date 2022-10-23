@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: lemur_legs
     animal: Lemur
-    namePart: 
+    namePart: ur
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Slap
     image: {fileID: -1853370252, guid: 857eaec75feb4b5448f013cb5d3da6d5, type: 3}

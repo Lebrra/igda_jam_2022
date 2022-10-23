@@ -17,8 +17,5 @@ MonoBehaviour:
     animal: Lion
     namePart: io
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Heart of the Lion
     image: {fileID: 1048084252, guid: a1eb73832b55e154db1602f5acbefea2, type: 3}

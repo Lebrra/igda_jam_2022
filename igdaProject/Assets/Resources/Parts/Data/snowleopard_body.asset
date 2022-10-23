@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: snowleopard_body
     animal: Snow Leopard
-    namePart: 
+    namePart: leo
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Sneaky
     image: {fileID: -1203097234, guid: 4ad6b8b89b13e994590e508aace2af77, type: 3}

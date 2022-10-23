@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapejara_body
     animal: Tapejara
-    namePart: 
+    namePart: eja
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Glide
     image: {fileID: 787949836, guid: 6acb39bde2342e0459cded77f254611f, type: 3}

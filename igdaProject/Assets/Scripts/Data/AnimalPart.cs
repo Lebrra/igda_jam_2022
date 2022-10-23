@@ -16,9 +16,6 @@ public class AnimalPart : ScriptableObject
         public string namePart;
         public BodyPart bodyPart;
         public string abilityName;
-        public int abilityCost;
-        public int health;
-        public string description;
         public Sprite image;
     }
     #endregion
@@ -33,15 +30,14 @@ public class AnimalPart : ScriptableObject
         partData.namePart = newPartData.namePart;
         partData.bodyPart = newPartData.bodyPart;
         partData.abilityName = newPartData.abilityName;
-        partData.abilityCost = newPartData.abilityCost;
-        partData.health = newPartData.health;
-        partData.description = newPartData.description;
         partData.image = sprite;
     }
 
     public static void CreateAsset(AnimalPartData newPartData)
     {
-        Sprite savedSprite = Resources.Load<AnimalPart>("Parts/Data/" + newPartData.id).partData.image;
+        var prevData = Resources.Load<AnimalPart>("Parts/Data/" + newPartData.id);
+        Sprite savedSprite = null;
+        if (prevData) savedSprite = prevData.partData.image;
 
         // TODO: if asset exists save sprite and put it back 
         AnimalPart asset = CreateInstance<AnimalPart>();

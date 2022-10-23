@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: turtle_body
     animal: Turtle
-    namePart: 
+    namePart: ur
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Turtle Shield
     image: {fileID: -483177819, guid: ae429b38f3b4adb4aad01a46c6bacc88, type: 3}

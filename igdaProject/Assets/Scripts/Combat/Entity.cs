@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float healthMax, manaMax, dodgeMax, speedMax, accuracyMax; //max values
 
-    float health, mana, dodge, speed, accuracy; //current values
+    float health, mana, dodge, speed, crit, attack; //current values
 
     [Header("Ability Names")]
     [SerializeField] private string HeadAbility;
@@ -16,12 +16,43 @@ public class Entity : MonoBehaviour
     [SerializeField] private string TailAbility;
 
 
+    /// <summary>
+    /// Affects this entity's health. For reducing the value, use a negative int.
+    /// </summary>
+    /// <param name="num"></param>
+    public void AffectHealth(int num) {
+        health += num;
+    }
+
+    /// <summary>
+    /// Affects this entity's mana. For reducing the value, use a negative int.
+    /// </summary>
+    /// <param name="num"></param>
+    public void AffectMana(int num) {
+        mana += num;
+    }
+
+    /// <summary>
+    /// Affects this entity's dodge value. For reducing the value, use a negative int.
+    /// </summary>
+    /// <param name="num"></param>
+    public void AffectDodge(int num) {
+        dodge += num;
+    }
+
+    /// <summary>
+    /// Affects this entity's speed value. For reducing the value, use a negative int.
+    /// </summary>
+    /// <param name="num"></param>
+    public void AffectSpeed(int num) {
+        speed += num;
+    }
+
     public void ResetStats() {
         health = healthMax;
         mana = manaMax;
         dodge = dodgeMax;
         speed = speedMax;
-        accuracy = accuracyMax;
     }
 
     public void UpdateAbility(AnimalPart part) {

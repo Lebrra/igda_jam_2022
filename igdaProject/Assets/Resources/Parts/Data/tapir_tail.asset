@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapir_tail
     animal: Tapir
-    namePart: 
+    namePart: ir
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Tapir Tail
     image: {fileID: 640188913, guid: ac98899402a225f4ba947e4b80d32fce, type: 3}

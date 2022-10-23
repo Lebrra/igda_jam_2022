@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: fox_legs
     animal: Fox
-    namePart: 
+    namePart: o
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Claw Swipe
     image: {fileID: 1187594806, guid: 51fff4e21b50d834896440c40280d694, type: 3}

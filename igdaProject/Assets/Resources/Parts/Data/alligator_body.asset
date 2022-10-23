@@ -17,8 +17,5 @@ MonoBehaviour:
     animal: Alligator
     namePart: gato
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Thick Scales
     image: {fileID: 1313814287, guid: aeff3387836be1049b0cc283aa5f2a92, type: 3}

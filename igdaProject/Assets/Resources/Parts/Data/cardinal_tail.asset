@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: cardinal_tail
     animal: Cardinal
-    namePart: 
+    namePart: nal
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Cardinal Tail
     image: {fileID: -1963695220, guid: edb89de8208e8bf4ca7968412a410ce6, type: 3}

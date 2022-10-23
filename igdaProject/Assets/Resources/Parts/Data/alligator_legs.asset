@@ -17,8 +17,5 @@ MonoBehaviour:
     animal: Alligator
     namePart: gato
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Stomp
     image: {fileID: 1200891313, guid: aeff3387836be1049b0cc283aa5f2a92, type: 3}

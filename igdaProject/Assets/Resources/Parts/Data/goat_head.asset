@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: goat_head
     animal: Goat
-    namePart: 
+    namePart: go
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Charge
     image: {fileID: 1985831015, guid: e17cbd9c85867ed4598bf8734d2eb875, type: 3}

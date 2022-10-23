@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: shark_body
     animal: Shark
-    namePart: 
+    namePart: har
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Big Jaw
     image: {fileID: -360193284, guid: 6308ce98aa57ec34e8eeb3247877798a, type: 3}

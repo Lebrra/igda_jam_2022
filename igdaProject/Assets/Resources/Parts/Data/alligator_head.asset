@@ -17,8 +17,5 @@ MonoBehaviour:
     animal: Alligator
     namePart: alli
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Chomp
     image: {fileID: -644203702, guid: aeff3387836be1049b0cc283aa5f2a92, type: 3}

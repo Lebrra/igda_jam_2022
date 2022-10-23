@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: shark_tail
     animal: Shark
-    namePart: 
+    namePart: rk
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Tail Whip
     image: {fileID: -3555482, guid: 6308ce98aa57ec34e8eeb3247877798a, type: 3}
