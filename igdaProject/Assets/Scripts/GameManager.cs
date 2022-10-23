@@ -47,16 +47,29 @@ public class GameManager : MonoBehaviour
         SetLoadingScreen(true);
 
         // TODO: load data here
-        yield return 1F;
+        yield return 0.7F;
 
         GameDirector.instance.OpenMainMenu();
 
         SetLoadingScreen(false);
     }
 
-    public static void ToTitle()
+    public static void ToTitle(bool delayed = false)
     {
+        GameDirector.instance.CloseMainMenu();
+        if (delayed) instance.loading.Replace(DelayedLoadTitle());
+        else GameDirector.instance.OpenTitle();
+    }
+
+    static IEnumerator DelayedLoadTitle()
+    {
+        SetLoadingScreen(true);
+
+        yield return 0.8F;
+
         GameDirector.instance.OpenTitle();
+
+        SetLoadingScreen(false);
     }
 
     public static void SetLoadingScreen(bool enabled)

@@ -7,6 +7,14 @@ using System;
 
 public class MainMenuManager : MonoBehaviour
 {
+    bool isOpen = false;
+
+    [SerializeField]
+    Animator menuAnim;
+
+    [SerializeField]
+    Button settingsButton;
+
     [Header("Preset Swapping")]
     [SerializeField]
     Toggle[] presetSnapButtons;
@@ -39,16 +47,24 @@ public class MainMenuManager : MonoBehaviour
     AnimalPartsObject[] presets;
     int currentPreset = 0;
 
-    public void LoadMenu()
+    private void Start()
     {
-        presets = GameManager.instance.playerdata.animalPresets;
-
         presetSnapButtons[0].onValueChanged.AddListener((value) => LoadAnimalPreset(0));
         presetSnapButtons[1].onValueChanged.AddListener((value) => LoadAnimalPreset(1));
         presetSnapButtons[2].onValueChanged.AddListener((value) => LoadAnimalPreset(2));
-
         presetLeft.onClick.AddListener(DecrementPreset);
         presetRight.onClick.AddListener(IncrementPreset);
+
+        settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
+    }
+
+    public void Open()
+    {
+        if (isOpen) return;
+        isOpen = true;
+
+        menuAnim.SetBool("UiStatus", true);
+        presets = GameManager.instance.playerdata.animalPresets;
 
         currentPreset = GameManager.instance.playerdata.selectedPreset;
         LoadAnimalPreset(currentPreset, true);
@@ -56,9 +72,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void Close()
     {
-        foreach (var button in presetSnapButtons) button.onValueChanged.RemoveAllListeners();
-        presetLeft.onClick.RemoveListener(DecrementPreset);
-        presetRight.onClick.RemoveListener(IncrementPreset);
+        if (!isOpen) return;
+
+        menuAnim.SetBool("UiStatus", false);
+        animalBuilder.DestroyAnimal();
+
+        isOpen = false;
     }
 
     public void IncrementPreset()

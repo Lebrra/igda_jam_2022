@@ -7822,6 +7822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389c623eddb75c4fabe499089f03493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuAnim: {fileID: 5325305263036615116}
+  settingsButton: {fileID: 5325305263775776743}
   presetSnapButtons:
   - {fileID: 5325305263117007242}
   - {fileID: 5325305264015387821}
@@ -11220,6 +11222,7 @@ MonoBehaviour:
   sfxButton: {fileID: 5325305264739346791}
   musicButton: {fileID: 5325305264970295790}
   titleButton: {fileID: 5325305263330049142}
+  settingsAnim: {fileID: 5325305263036615116}
 --- !u!1 &5325305264960812367
 GameObject:
   m_ObjectHideFlags: 0
@@ -11509,6 +11512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 4501913047926041056}
+  easyTesting: 0
+  animal: 
+  partsTesting: 0
   testAnimal:
     headID: 
     bodyID: 

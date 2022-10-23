@@ -232,28 +232,6 @@ public class AnimalPrefabBuilder : MonoBehaviour
     public void DestroyAnimal()
     {
         partSwapper.Replace(ShrinkDestroyAll());
-
-        headPart =
-        tailPart =
-        legsFLPart =
-        legsBLPart =
-        legsFRPart =
-        legsBRPart = null;
-        bodyPart = null;
-    }
-
-    IEnumerator TestingAllParts()
-    {
-        CreateAnimal(testAnimal);
-        yield return 2F;
-        ChangeBodyPart("alligator_head");
-        yield return 2F;
-        ChangeBodyPart("alligator_body");
-        yield return 2F;
-        ChangeBodyPart("alligator_legs");
-        yield return 2F;
-        ChangeBodyPart("alligator_tail");
-        //partSwapper.Replace(ShrinkDestroyObject(tailPart.GetComponent<RectTransform>()));
     }
 
     IEnumerator ShrinkDestroyAll()
@@ -265,6 +243,9 @@ public class AnimalPrefabBuilder : MonoBehaviour
             ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsFLPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()));
+
+        headPart = tailPart = legsFLPart = legsBLPart = legsFRPart = legsBRPart = null;
+        bodyPart = null;
     }
 
     IEnumerator GrowSpawnAll()
