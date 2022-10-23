@@ -4,38 +4,10 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-
     List<AnimalPart> headList = new List<AnimalPart>();
     List<AnimalPart> bodyList = new List<AnimalPart>();
     List<AnimalPart> legsList = new List<AnimalPart>();
     List<AnimalPart> tailList = new List<AnimalPart>();
-
-
-    public void Start() {
-        InitializeEnemy();
-    }
-
-    private void InitializeEnemy() {
-        var animalPartList = Resources.LoadAll<AnimalPart>("Parts/Data/");
-
-        //generate all 4 lists
-        foreach (AnimalPart part in animalPartList) {
-            switch (part.partData.bodyPart) {
-                case BodyPart.Head:
-                    headList.Add(part);
-                    break;
-                case BodyPart.Body:
-                    bodyList.Add(part);
-                    break;
-                case BodyPart.Legs:
-                    legsList.Add(part);
-                    break;
-                case BodyPart.Tail:
-                    tailList.Add(part);
-                    break;
-            }
-        }
-    }
     public void RandomizeBuild() {
 
         int headIndex = Random.Range(0, headList.Count);

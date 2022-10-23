@@ -4,16 +4,47 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-
+    public static CombatManager instance;
     public Player player;
     public Enemy enemy;
+
+    List<AnimalPart> headList = new List<AnimalPart>();
+    List<AnimalPart> bodyList = new List<AnimalPart>();
+    List<AnimalPart> legsList = new List<AnimalPart>();
+    List<AnimalPart> tailList = new List<AnimalPart>();
+
+    private void Awake() {
+        if (instance == null) instance = this;
+        else Destroy(this);
+    }
     public void Start() {
-        Invoke("InitializeCombat", 2);
+        InitializeLists();
     }
 
-    private void InitializeCombat() {
-        enemy.RandomizeBuild();
+    private void InitializeLists() {
+        var animalPartList = Resources.LoadAll<AnimalPart>("Parts/Data/");
+
+        //generate all 4 lists
+        foreach (AnimalPart part in animalPartList) {
+            switch (part.partData.bodyPart) {
+                case BodyPart.Head:
+                    headList.Add(part);
+                    break;
+                case BodyPart.Body:
+                    bodyList.Add(part);
+                    break;
+                case BodyPart.Legs:
+                    legsList.Add(part);
+                    break;
+                case BodyPart.Tail:
+                    tailList.Add(part);
+                    break;
+            }
+        }
     }
+
+
+
     private void NewRound() {
         /*
          * DEFINITION OF ROUND

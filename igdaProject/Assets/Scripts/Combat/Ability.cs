@@ -13,7 +13,7 @@ public class Ability : ScriptableObject
         public AbilityType type;
 
         public int health, mana, dodge, speed, crit, attack;
-
+        public string targetOpponent;
     }
 
     public AbilityData abilityData;
