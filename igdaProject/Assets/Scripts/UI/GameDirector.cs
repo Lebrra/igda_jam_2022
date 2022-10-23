@@ -16,6 +16,8 @@ public class GameDirector : MonoBehaviour
     MainMenuManager menuMan;
     [SerializeField]
     SettingsManager settingsMan;
+    [SerializeField]
+    InventoryManager inventoryMan;
 
     private void Awake()
     {
@@ -46,5 +48,29 @@ public class GameDirector : MonoBehaviour
     public void OpenEditor()
     {
         // open editor
+        Routine.Start(DelayOpenEditor());
+    }
+    IEnumerator DelayOpenEditor()
+    {
+        CloseMainMenu();
+        yield return 0.5F;
+        inventoryMan.Open();
+    }
+
+    public void CloseEditor(bool save)
+    {
+        Routine.Start(DelayCloseEditor(save));
+    }
+    IEnumerator DelayCloseEditor(bool save)
+    {
+        if (save) inventoryMan.SaveAndClose();
+        else inventoryMan.ForceClose();
+        yield return 0.5F;
+        OpenMainMenu();
+    }
+
+    public IEnumerator LoadingStuff()
+    {
+        yield return inventoryMan.Initialize(GameManager.instance.playerdata.inventoryStr);
     }
 }

@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
 
         // TODO: load data here
         yield return 0.7F;
+        yield return GameDirector.instance.LoadingStuff();
 
         GameDirector.instance.OpenMainMenu();
 

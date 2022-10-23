@@ -22,6 +22,18 @@ public class AnimalPart : ScriptableObject
 
     public AnimalPartData partData;
 
+    public Ability GetAbility()
+    {
+        string parsedName = partData.abilityName.Trim(' ').Trim('!').Trim('?').ToLower();
+        Ability ability = Resources.Load<Ability>("Abilities/" + parsedName);
+        if (ability) return ability;
+        else
+        {
+            Debug.LogError("Unable to find ability: " + parsedName);
+            return null;
+        }
+    }
+
     #region Asset Creation/Parsing
     void LoadData(AnimalPartData newPartData, Sprite sprite)
     {

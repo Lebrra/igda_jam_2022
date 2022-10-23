@@ -20,6 +20,7 @@ public class MonsterMakerGenerator : MonoBehaviour
     Dictionary<string,AnimalPart> partListdict= new Dictionary<string, AnimalPart>();
     GameObject[] partObjectList;
     Dictionary<string,AnimalPartUI> partListObjectDict = new Dictionary<string, AnimalPartUI>();
+    Dictionary<string, Toggle> inventoryToggles = new Dictionary<string, Toggle>();
     [SerializeField]
     GameObject ButtonTemplate;
     public static MonsterMakerGenerator instance;
@@ -31,25 +32,27 @@ public class MonsterMakerGenerator : MonoBehaviour
     bool leg1 = true;
     AnimalPrefabBuilder thing;
     bool initialized = false;
-    // Start is called before the first frame update
-    void Start()
+
+
+    public IEnumerator Initialize()
     {
-        
         thing = this.GetComponent<AnimalPrefabBuilder>();
-        thing.CreateAnimal(this.GetComponent<AnimalPrefabBuilder>().testAnimal);
+        //thing.CreateAnimal(this.GetComponent<AnimalPrefabBuilder>().testAnimal);
         partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
         partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
         bool done = false;
         isFirst = true;
+        List<GameObject> toDelete = new List<GameObject>();
         foreach(RectTransform o in head.GetComponentsInChildren<RectTransform>())
         {
             if (!done)
                 done = true;
             else
             {
-                Destroy(o.gameObject);
+                toDelete.Add(o.gameObject);
                 done = true;
             }
+            yield return null;
         }
         done = false;
         foreach (RectTransform o in tail.GetComponentsInChildren<RectTransform>())
@@ -58,9 +61,10 @@ public class MonsterMakerGenerator : MonoBehaviour
                 done = true;
             else
             {
-                Destroy(o.gameObject);
+                toDelete.Add(o.gameObject);
                 done = true;
             }
+            yield return null;
         }
         done = false;
         foreach (RectTransform o in body.GetComponentsInChildren<RectTransform>())
@@ -69,9 +73,10 @@ public class MonsterMakerGenerator : MonoBehaviour
                 done = true;
             else
             {
-                Destroy(o.gameObject);
+                toDelete.Add(o.gameObject);
                 done = true;
             }
+            yield return null;
         }
         done = false;
         foreach (RectTransform o in Leg.GetComponentsInChildren<RectTransform>())
@@ -80,10 +85,12 @@ public class MonsterMakerGenerator : MonoBehaviour
                 done = true;
             else
             {
-                Destroy(o.gameObject);
+                toDelete.Add(o.gameObject);
                 done = true;
             }
+            yield return null;
         }
+        foreach (var o in toDelete) Destroy(o);
         fillDictionaries();
         Setup();
         //UpdatePetParts();
@@ -195,6 +202,8 @@ public class MonsterMakerGenerator : MonoBehaviour
                 }
                 
             });
+            if (!inventoryToggles.ContainsKey(p.partData.id)) inventoryToggles.Add(p.partData.id, tmp.GetComponent<Toggle>());
+            else Debug.LogWarning("Multiple buttons of same name found!");
         }
         catch (Exception e)
         {
@@ -207,4 +216,22 @@ public class MonsterMakerGenerator : MonoBehaviour
     //    yield return 0.7F;
     //    GameManager.instance.NameGenerator(thing.GetCreatedAnimal());
     //}
+
+    public void LoadAnimal(AnimalPartsObject animal)
+    {
+        // TODO: set toggle states without notify
+        foreach (var toggle in inventoryToggles.Values) toggle.SetIsOnWithoutNotify(false);
+        inventoryToggles[animal.headID].SetIsOnWithoutNotify(true);
+        inventoryToggles[animal.bodyID].SetIsOnWithoutNotify(true);
+        inventoryToggles[animal.legsID].SetIsOnWithoutNotify(true);
+        inventoryToggles[animal.tailID].SetIsOnWithoutNotify(true);
+
+        thing.CreateAnimal(animal, true, true);
+    }
+
+    public void CloseAnimal(bool save)    // called when closed
+    {
+        if (GameManager.instance && save) GameManager.instance.playerdata.SaveActiveAnimal(thing.GetCreatedAnimal());
+        thing.DestroyAnimal();
+    }
 }
