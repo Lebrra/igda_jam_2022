@@ -2420,7 +2420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Accuracy
+  m_text: Dodge
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
@@ -6493,7 +6493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5325305264069038065}
   m_Layer: 5
-  m_Name: Accuracy
+  m_Name: Dodge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6519,7 +6519,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 304.1731, y: 100}
+  m_SizeDelta: {x: 265.9971, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5325305264070899902
 GameObject:
@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13338fb2774b20f4e85602d1679bd1c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7792dadf79fdce84b93a34a31e845c85, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
