@@ -70,7 +70,12 @@ public class DataImporter : Editor
         int.TryParse(list[1], out d.abilityCost);
         d.description = list[2];
         d.type = Ability.StringToAbility(list[3]);
-        int.TryParse(list[4], out d.amount);
+        int.TryParse(list[4], out d.health);
+        int.TryParse(list[5], out d.mana);
+        int.TryParse(list[6], out d.dodge);
+        int.TryParse(list[7], out d.speed);
+        int.TryParse(list[8], out d.crit);
+        int.TryParse(list[9], out d.attack);
 
         return d;
     }

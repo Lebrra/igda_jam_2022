@@ -11,7 +11,9 @@ public class Ability : ScriptableObject
         public int abilityCost;
         public string description;
         public AbilityType type;
-        public int amount; //amount for the ability to affect
+
+        public int health, mana, dodge, speed, crit, attack;
+
     }
 
     public AbilityData abilityData;
@@ -20,7 +22,12 @@ public class Ability : ScriptableObject
         abilityData.name = data.name;
         abilityData.abilityCost = data.abilityCost;
         abilityData.description = data.description;
-        abilityData.amount = data.amount;
+        abilityData.health = data.health;
+        abilityData.mana = data.mana;
+        abilityData.dodge = data.dodge;
+        abilityData.speed = data.speed;
+        abilityData.crit = data.crit;
+        abilityData.attack = data.attack;
 
     }
 
