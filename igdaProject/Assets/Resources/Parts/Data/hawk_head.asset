@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: hawk_head
     animal: Hawk
-    namePart: 
+    namePart: ha
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Peck
     image: {fileID: -1515826869, guid: 8b06d59465d857c44a6af1bce3cd465c, type: 3}

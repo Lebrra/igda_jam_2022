@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: hawk_legs
     animal: Hawk
-    namePart: 
+    namePart: aw
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Wing Slash
     image: {fileID: 34115927, guid: 8b06d59465d857c44a6af1bce3cd465c, type: 3}

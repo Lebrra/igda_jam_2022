@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: goat_body
     animal: Goat
-    namePart: 
+    namePart: oa
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: The Greatest
     image: {fileID: 877026483, guid: e17cbd9c85867ed4598bf8734d2eb875, type: 3}

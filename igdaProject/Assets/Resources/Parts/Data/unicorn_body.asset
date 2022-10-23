@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: unicorn_body
     animal: Unicorn
-    namePart: 
+    namePart: ico
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Power of Friendship
     image: {fileID: -95608122, guid: 224209888fa6e1c4183fd1363e23176f, type: 3}

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: wyvern_head
     animal: Wyvern
-    namePart: 
+    namePart: wyve
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Fire Breath
     image: {fileID: 1352536830, guid: 7cf68092b43ee9644828a6dfc14da8cd, type: 3}

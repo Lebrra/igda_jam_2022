@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: dog_tail
     animal: Dog
-    namePart: 
+    namePart: og
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Best Friend
     image: {fileID: 920426419, guid: c4c3efbc7cbd8f94e9831ca2f34871cf, type: 3}

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: spinosarus_body
     animal: Spinosarus
-    namePart: 
+    namePart: osa
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Spinosaurus Sail
     image: {fileID: 408879083, guid: 64def77c39020544ea503b1d2fc94e54, type: 3}

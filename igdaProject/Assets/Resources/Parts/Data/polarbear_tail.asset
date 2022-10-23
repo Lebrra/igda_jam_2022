@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: polarbear_tail
     animal: Polar Bear
-    namePart: 
+    namePart: bear
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bear Rage
     image: {fileID: -488438908, guid: aea7d7a18370251428d5d520de2b8dc6, type: 3}

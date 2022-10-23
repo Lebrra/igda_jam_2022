@@ -14,10 +14,11 @@ public class SaveData
     public AnimalPartsObject[] animalPresets;   // default these, always 3
     public int selectedPreset = 0;
 
+    // progress saving
+    public LevelData currentLevel;
+
     public AnimalPartsObject GetActiveAnimal()
     {
         return animalPresets[selectedPreset];
     }
-
-    // progress saving
 }

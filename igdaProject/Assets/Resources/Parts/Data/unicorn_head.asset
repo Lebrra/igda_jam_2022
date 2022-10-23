@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: unicorn_head
     animal: Unicorn
-    namePart: 
+    namePart: uni
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Magic Horn
     image: {fileID: 544347882, guid: 224209888fa6e1c4183fd1363e23176f, type: 3}

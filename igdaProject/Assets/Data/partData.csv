@@ -1,89 +1,136 @@
-id,Animal,Part,AnimalNamePart,Biome,AbilityName,AbilityCost,Health,Description
-lion_head,Lion,Head,lio,Savana,FakeAbility1,0,5,
-lion_body,Lion,Body,io,Savana,FakeAbility2,0,5,
-lion_legs,Lion,Legs,io,Savana,FakeAbility3,0,5,
-lion_tail,Lion,Tail,on,Savana,FakeAbility4,0,5,
-elephant_head,Elephant,Head,,Savana,FakeAbility1,0,5,
-elephant_body,Elephant,Body,,Savana,FakeAbility2,0,5,
-elephant_legs,Elephant,Legs,,Savana,FakeAbility3,0,5,
-elephant_tail,Elephant,Tail,,Savana,FakeAbility4,0,5,
-alligator_head,Alligator,Head,alli,Swamp,FakeAbility1,0,5,
-alligator_body,Alligator,Body,gato,Swamp,FakeAbility2,0,5,
-alligator_legs,Alligator,Legs,gato,Swamp,FakeAbility3,0,5,
-alligator_tail,Alligator,Tail,ator,Swamp,FakeAbility4,0,5,
-tapir_head,Tapir,Head,,Swamp,FakeAbility1,0,5,
-tapir_body,Tapir,Body,,Swamp,FakeAbility2,0,5,
-tapir_legs,Tapir,Legs,,Swamp,FakeAbility3,0,5,
-tapir_tail,Tapir,Tail,,Swamp,FakeAbility4,0,5,
-cardinal_head,Cardinal,Head,,Sky,FakeAbility1,0,5,
-cardinal_body,Cardinal,Body,,Sky,FakeAbility2,0,5,
-cardinal_legs,Cardinal,Legs,,Sky,FakeAbility3,0,5,
-cardinal_tail,Cardinal,Tail,,Sky,FakeAbility4,0,5,
-hawk_head,Hawk,Head,,Sky,FakeAbility1,0,5,
-hawk_body,Hawk,Body,,Sky,FakeAbility2,0,5,
-hawk_legs,Hawk,Legs,,Sky,FakeAbility3,0,5,
-hawk_tail,Hawk,Tail,,Sky,FakeAbility4,0,5,
-goat_head,Goat,Head,,Mountains,FakeAbility1,0,5,
-goat_body,Goat,Body,,Mountains,FakeAbility2,0,5,
-goat_legs,Goat,Legs,,Mountains,FakeAbility3,0,5,
-goat_tail,Goat,Tail,,Mountains,FakeAbility4,0,5,
-snowleopard_head,Snow Leopard ,Head,,Mountains,FakeAbility1,0,5,
-snowleopard_body,Snow Leopard ,Body,,Mountains,FakeAbility2,0,5,
-snowleopard_legs,Snow Leopard ,Legs,,Mountains,FakeAbility3,0,5,
-snowleopard_tail,Snow Leopard ,Tail,,Mountains,FakeAbility4,0,5,
-fox_head,Fox,Head,,Forest,FakeAbility1,0,5,
-fox_body,Fox,Body,,Forest,FakeAbility2,0,5,
-fox_legs,Fox,Legs,,Forest,FakeAbility3,0,5,
-fox_tail,Fox,Tail,,Forest,FakeAbility4,0,5,
-turkey_head,Turkey,Head,,Forest,FakeAbility1,0,5,
-turkey_body,Turkey,Body,,Forest,FakeAbility2,0,5,
-turkey_legs,Turkey,Legs,,Forest,FakeAbility3,0,5,
-turkey_tail,Turkey,Tail,,Forest,FakeAbility4,0,5,
-shark_head,Shark,Head,,Ocean,FakeAbility1,0,5,
-shark_body,Shark,Body,,Ocean,FakeAbility2,0,5,
-shark_legs,Shark,Legs,,Ocean,FakeAbility3,0,5,
-shark_tail,Shark,Tail,,Ocean,FakeAbility4,0,5,
-turtle_head,Turtle,Head,,Ocean,FakeAbility1,0,5,
-turtle_body,Turtle,Body,,Ocean,FakeAbility2,0,5,
-turtle_legs,Turtle,Legs,,Ocean,FakeAbility3,0,5,
-turtle_tail,Turtle,Tail,,Ocean,FakeAbility4,0,5,
-moose_head,Moose,Head,,Arctic,FakeAbility1,0,5,
-moose_body,Moose,Body,,Arctic,FakeAbility2,0,5,
-moose_legs,Moose,Legs,,Arctic,FakeAbility3,0,5,
-moose_tail,Moose,Tail,,Arctic,FakeAbility4,0,5,
-polarbear_head,Polar Bear,Head,,Arctic,FakeAbility1,0,5,
-polarbear_body,Polar Bear,Body,,Arctic,FakeAbility2,0,5,
-polarbear_legs,Polar Bear,Legs,,Arctic,FakeAbility3,0,5,
-polarbear_tail,Polar Bear,Tail,,Arctic,FakeAbility4,0,5,
-dog_head,Dog,Head,,House,FakeAbility1,0,5,
-dog_body,Dog,Body,,House,FakeAbility2,0,5,
-dog_legs,Dog,Legs,,House,FakeAbility3,0,5,
-dog_tail,Dog,Tail,,House,FakeAbility4,0,5,
-cat_head,Cat,Head,,House,FakeAbility1,0,5,
-cat_body,Cat,Body,,House,FakeAbility2,0,5,
-cat_legs,Cat,Legs,,House,FakeAbility3,0,5,
-cat_tail,Cat,Tail,,House,FakeAbility4,0,5,
-redpanda_head,Red Panda,Head,,Jungle,FakeAbility1,0,5,
-redpanda_body,Red Panda,Body,,Jungle,FakeAbility2,0,5,
-redpanda_legs,Red Panda,Legs,,Jungle,FakeAbility3,0,5,
-redpanda_tail,Red Panda,Tail,,Jungle,FakeAbility4,0,5,
-lemur_head,Lemur,Head,,Jungle,FakeAbility1,0,5,
-lemur_body,Lemur,Body,,Jungle,FakeAbility2,0,5,
-lemur_legs,Lemur,Legs,,Jungle,FakeAbility3,0,5,
-lemur_tail,Lemur,Tail,,Jungle,FakeAbility4,0,5,
-tapejara_head,Tapejara,Head,,Dinosaur,FakeAbility1,0,5,
-tapejara_body,Tapejara,Body,,Dinosaur,FakeAbility2,0,5,
-tapejara_legs,Tapejara,Legs,,Dinosaur,FakeAbility3,0,5,
-tapejara_tail,Tapejara,Tail,,Dinosaur,FakeAbility4,0,5,
-spinosarus_head,Spinosarus,Head,,Dinosaur,FakeAbility1,0,5,
-spinosarus_body,Spinosarus,Body,,Dinosaur,FakeAbility2,0,5,
-spinosarus_legs,Spinosarus,Legs,,Dinosaur,FakeAbility3,0,5,
-spinosarus_tail,Spinosarus,Tail,,Dinosaur,FakeAbility4,0,5,
-wyvern_head,Wyvern,Head,,Fantasy,FakeAbility1,0,5,
-wyvern_body,Wyvern,Body,,Fantasy,FakeAbility2,0,5,
-wyvern_legs,Wyvern,Legs,,Fantasy,FakeAbility3,0,5,
-wyvern_tail,Wyvern,Tail,,Fantasy,FakeAbility4,0,5,
-unicorn_head,Unicorn,Head,,Fantasy,FakeAbility1,0,5,
-unicorn_body,Unicorn,Body,,Fantasy,FakeAbility2,0,5,
-unicorn_legs,Unicorn,Legs,,Fantasy,FakeAbility3,0,5,
-unicorn_tail,Unicorn,Tail,,Fantasy,FakeAbility4,0,5,
+id,Animal,Part,AnimalNamePart,Biome,AbilityName
+dog_head,Dog,Head,do,House,Bark
+dog_body,Dog,Body,o,House,Good Boy
+dog_legs,Dog,Legs,o,House,Claw Swipe
+dog_tail,Dog,Tail,og,House,Best Friend
+cat_head,Cat,Head,ca,House,Bite
+cat_body,Cat,Body,a,House,Box
+cat_legs,Cat,Legs,a,House,Claw Swipe
+cat_tail,Cat,Tail,at,House,Meow
+lion_head,Lion,Head,lio,Savana,Roar
+lion_body,Lion,Body,io,Savana,Heart of the Lion
+lion_legs,Lion,Legs,io,Savana,Claw Swipe
+lion_tail,Lion,Tail,on,Savana,Brave Tail
+elephant_head,Elephant,Head,ele,Savana,Charge
+elephant_body,Elephant,Body,epha,Savana,Sturdy
+elephant_legs,Elephant,Legs,epha,Savana,Stomp
+elephant_tail,Elephant,Tail,ephant,Savana,Elephant Tail
+hyena_head,Hyena,Head,hy,Savana,Cackle
+hyena_body,Hyena,Body,yen,Savana,Hunt in Three's
+hyena_legs,Hyena,Legs,yen,Savana,Claw Swipe
+hyena_tail,Hyena,Tail,na,Savana,Hyena Tail
+alligator_head,Alligator,Head,alli,Swamp,Chomp
+alligator_body,Alligator,Body,gato,Swamp,Thick Scales
+alligator_legs,Alligator,Legs,gato,Swamp,Stomp
+alligator_tail,Alligator,Tail,ator,Swamp,Tail Whip
+tapir_head,Tapir,Head,tap,Swamp,Tapir Trunk
+tapir_body,Tapir,Body,api,Swamp,Sturdy
+tapir_legs,Tapir,Legs,api,Swamp,Kick
+tapir_tail,Tapir,Tail,ir,Swamp,Tapir Tail
+manatee_head,Manatee,Head,man,Swamp,Graze
+manatee_body,Manatee,Body,ana,Swamp,Sturdy
+manatee_legs,Manatee,Legs,na,Swamp,Sea Cow
+manatee_tail,Manatee,Tail,tee,Swamp,Tail Whip
+cardinal_head,Cardinal,Head,card,Sky,Soothing Song
+cardinal_body,Cardinal,Body,ard,Sky,Hollow Bones
+cardinal_legs,Cardinal,Legs,in,Sky,Wing Slash
+cardinal_tail,Cardinal,Tail,nal,Sky,Cardinal Tail
+hawk_head,Hawk,Head,ha,Sky,Peck
+hawk_body,Hawk,Body,haw,Sky,Bird of Prey
+hawk_legs,Hawk,Legs,aw,Sky,Wing Slash
+hawk_tail,Hawk,Tail,awk,Sky,Precision Hunter
+booby_head,Booby,Head,boo,Sky,Peck
+booby_body,Booby,Body,o,Sky,I'm Blue
+booby_legs,Booby,Legs,o,Sky,Wing Slash
+booby_tail,Booby,Tail,by,Sky,Booby Tail
+goat_head,Goat,Head,go,Mountains,Charge
+goat_body,Goat,Body,oa,Mountains,The Greatest
+goat_legs,Goat,Legs,oa,Mountains,Kick
+goat_tail,Goat,Tail,at,Mountains,Goat Tail
+snowleopard_head,Snow Leopard,Head,snow,Mountains,Bite
+snowleopard_body,Snow Leopard,Body,leo,Mountains,Sneaky
+snowleopard_legs,Snow Leopard,Legs,leo,Mountains,Claw Swipe
+snowleopard_tail,Snow Leopard,Tail,pard,Mountains,Leopard Tail
+ram_head,Ram,Head,ra,Mountains,Charge
+ram_body,Ram,Body,a,Mountains,Better In Pairs
+ram_legs,Ram,Legs,a,Mountains,Stomp
+ram_tail,Ram,Tail,m,Mountains,Full Speed Ahead
+fox_head,Fox,Head,fo,Forest,Bite
+fox_body,Fox,Body,o,Forest,Fox Fur
+fox_legs,Fox,Legs,o,Forest,Claw Swipe
+fox_tail,Fox,Tail,ox,Forest,Fox Tail
+turkey_head,Turkey,Head,tur,Forest,Gobble
+turkey_body,Turkey,Body,urk,Forest,Jake
+turkey_legs,Turkey,Legs,ke,Forest,Wing Slash
+turkey_tail,Turkey,Tail,key,Forest,Flaunt
+badger_head,Badger,Head,bad,Forest,Bite
+badger_body,Badger,Body,adg,Forest,Diggy Dig the Hole
+badger_legs,Badger,Legs,dg,Forest,Claw Swipe
+badger_tail,Badger,Tail,ger,Forest,Bucky's Tail
+shark_head,Shark,Head,shar,Ocean,Bite
+shark_body,Shark,Body,har,Ocean,Big Jaw
+shark_legs,Shark,Legs,har,Ocean,Bigger Boat Needed
+shark_tail,Shark,Tail,rk,Ocean,Tail Whip
+turtle_head,Turtle,Head,tur,Ocean,Bite
+turtle_body,Turtle,Body,ur,Ocean,Turtle Shield
+turtle_legs,Turtle,Legs,ur,Ocean,Slow and Steady
+turtle_tail,Turtle,Tail,tle,Ocean,Stubby
+clownfish_head,Clownfish,Head,clow,Ocean,Shark Bait
+clownfish_body,Clownfish,Body,own,Ocean,Good Joke
+clownfish_legs,Clownfish,Legs,fi,Ocean,Slap
+clownfish_tail,Clownfish,Tail,fish,Ocean,Blub
+moose_head,Moose,Head,mo,Arctic,Charge
+moose_body,Moose,Body,o,Arctic,Sturdy
+moose_legs,Moose,Legs,oo,Arctic,Kick
+moose_tail,Moose,Tail,se,Arctic,Eh?!
+polarbear_head,Polar Bear,Head,pola,Arctic,Bite
+polarbear_body,Polar Bear,Body,ar,Arctic,Big Bear Chase Me!
+polarbear_legs,Polar Bear,Legs,be,Arctic,Bear Hug
+polarbear_tail,Polar Bear,Tail,bear,Arctic,Bear Rage
+sealion_head,Sea Lion,Head,sea,Arctic,none
+sealion_body,Sea Lion,Body,ali,Arctic,none
+sealion_legs,Sea Lion,Legs,lio,Arctic,none
+sealion_tail,Sea Lion,Tail,lion,Arctic,none
+redpanda_head,Red Panda,Head,red,Jungle,Bite
+redpanda_body,Red Panda,Body,pa,Jungle,Cuteness
+redpanda_legs,Red Panda,Legs,pa,Jungle,Tickle
+redpanda_tail,Red Panda,Tail,anda,Jungle,Turning RED
+lemur_head,Lemur,Head,le,Jungle,Bite
+lemur_body,Lemur,Body,em,Jungle,Lemur Fur
+lemur_legs,Lemur,Legs,ur,Jungle,Slap
+lemur_tail,Lemur,Tail,mur,Jungle,Lemur Tail
+frog_head,Frog,Head,fro,Jungle,Tongue Lash
+frog_body,Frog,Body,ro,Jungle,Hipity Hop
+frog_legs,Frog,Legs,ro,Jungle,Jump
+tapejara_head,Tapejara,Head,tap,Prehistoric,Bite
+tapejara_body,Tapejara,Body,eja,Prehistoric,Glide
+tapejara_legs,Tapejara,Legs,eja,Prehistoric,Wing Slash
+tapejara_tail,Tapejara,Tail,jara,Prehistoric,Swoosh
+spinosarus_head,Spinosarus,Head,spin,Prehistoric,Bite
+spinosarus_body,Spinosarus,Body,osa,Prehistoric,Spinosaurus Sail
+spinosarus_legs,Spinosarus,Legs,ar,Prehistoric,Claw Swipe
+spinosarus_tail,Spinosarus,Tail,arus,Prehistoric,Tail Whip
+raptor_head,Raptor,Head,rap,Prehistoric,none
+raptor_body,Raptor,Body,apt,Prehistoric,none
+raptor_legs,Raptor,Legs,pto,Prehistoric,none
+raptor_tail,Raptor,Tail,tor,Prehistoric,none
+wyvern_head,Wyvern,Head,wyve,Fantasy,Fire Breath
+wyvern_body,Wyvern,Body,ve,Fantasy,Wyvern Wings
+wyvern_legs,Wyvern,Legs,ve,Fantasy,Claw Swipe
+wyvern_tail,Wyvern,Tail,ern,Fantasy,Tail Whip
+unicorn_head,Unicorn,Head,uni,Fantasy,Magic Horn
+unicorn_body,Unicorn,Body,ico,Fantasy,Power of Friendship
+unicorn_legs,Unicorn,Legs,co,Fantasy,Stomp
+unicorn_tail,Unicorn,Tail,orn,Fantasy,Magical Tail
+phoenix_head,Phoenix ,Head,phoe,Fantasy,Ember Beak
+phoenix_body,Phoenix ,Body,oe,Fantasy,From the Ashes
+phoenix_legs,Phoenix ,Legs,en,Fantasy,Wings of Fire
+phoenix_tail,Phoenix ,Tail,nix,Fantasy,Flaunt
+hornet_head,Hornet,Head,horn,Garden,none
+hornet_body,Hornet,Body,orn,Garden,none
+hornet_legs,Hornet,Legs,ne,Garden,none
+hornet_tail,Hornet,Tail,net,Garden,none
+isopod_head,Isopod,Head,,Garden,none
+isopod_body,Isopod,Body,,Garden,none
+isopod_legs,Isopod,Legs,,Garden,none
+isopod_tail,Isopod,Tail,,Garden,none

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: dog_body
     animal: Dog
-    namePart: 
+    namePart: o
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Good Boy
     image: {fileID: -373794613, guid: c4c3efbc7cbd8f94e9831ca2f34871cf, type: 3}

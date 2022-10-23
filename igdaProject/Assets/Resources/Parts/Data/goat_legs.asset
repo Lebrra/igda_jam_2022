@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: goat_legs
     animal: Goat
-    namePart: 
+    namePart: oa
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Kick
     image: {fileID: -1887172144, guid: e17cbd9c85867ed4598bf8734d2eb875, type: 3}

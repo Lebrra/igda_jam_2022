@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: redpanda_tail
     animal: Red Panda
-    namePart: 
+    namePart: anda
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Turning RED
     image: {fileID: -627117443, guid: 16300dfe0fdf6004aac7deda161a2e69, type: 3}

@@ -29,7 +29,8 @@ public class LevelGenerator : MonoBehaviour
 
         newLevel.currentGeneratedOpponent = CreateOpponent(newLevel.selectedStages[0]);
         newLevel.currentStage = 0;
-        newLevel.currentRound = 0;
+        newLevel.currentMatch = 0;
+        newLevel.activeRun = true;
 
         return newLevel;
     }
@@ -46,8 +47,13 @@ public class LevelGenerator : MonoBehaviour
         randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
         newAnimal.legsID = biome.animalCodes[randomChosen] + "_legs";
 
-        randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
-        newAnimal.tailID = biome.animalCodes[randomChosen] + "_tail";
+        string notFrog = "frog_tail";
+        while (notFrog == "frog_tail")
+        {
+            randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
+            notFrog = biome.animalCodes[randomChosen] + "_tail";
+        }
+        newAnimal.tailID = notFrog;
 
         Debug.Log("Created new level");
         return newAnimal;
@@ -62,8 +68,9 @@ public class LevelGenerator : MonoBehaviour
 [System.Serializable]
 public struct LevelData
 {
+    public bool activeRun;
     public List<Biome> selectedStages;
     public AnimalPartsObject currentGeneratedOpponent;
     public int currentStage;
-    public int currentRound;    // if round == 2 then BOSS
+    public int currentMatch;    // if round == 2 then BOSS
 }

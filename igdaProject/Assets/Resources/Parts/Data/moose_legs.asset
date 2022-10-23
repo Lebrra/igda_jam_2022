@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: moose_legs
     animal: Moose
-    namePart: 
+    namePart: oo
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Kick
     image: {fileID: 664914690, guid: 9fb33f93b8f588d4cb6aabbe3451ecc2, type: 3}

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: lemur_head
     animal: Lemur
-    namePart: 
+    namePart: le
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bite
     image: {fileID: -1227858891, guid: 857eaec75feb4b5448f013cb5d3da6d5, type: 3}

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: turkey_body
     animal: Turkey
-    namePart: 
+    namePart: urk
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Jake
     image: {fileID: -223448657, guid: acfaa3a9d45e7b74582bc2427bd6bb63, type: 3}

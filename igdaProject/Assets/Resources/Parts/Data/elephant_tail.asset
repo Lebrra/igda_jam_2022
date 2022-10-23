@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: elephant_tail
     animal: Elephant
-    namePart: 
+    namePart: ephant
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Elephant Tail
     image: {fileID: -1288436980, guid: a5ce6acd437c76644a62b20a26e32036, type: 3}
