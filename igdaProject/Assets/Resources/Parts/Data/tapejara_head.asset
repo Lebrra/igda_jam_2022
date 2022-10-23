@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapejara_head
     animal: Tapejara
-    namePart: 
+    namePart: tap
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bite
     image: {fileID: -333491218, guid: 6acb39bde2342e0459cded77f254611f, type: 3}

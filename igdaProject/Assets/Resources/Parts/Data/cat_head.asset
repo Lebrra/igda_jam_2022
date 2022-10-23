@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: cat_head
     animal: Cat
-    namePart: 
+    namePart: ca
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bite
     image: {fileID: 2141500277, guid: 3fa7cdd6f9a1a194297b76a386d4f28f, type: 3}

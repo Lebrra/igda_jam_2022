@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: polarbear_body
     animal: Polar Bear
-    namePart: 
+    namePart: ar
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Big Bear Chase Me!
     image: {fileID: 505175855, guid: aea7d7a18370251428d5d520de2b8dc6, type: 3}

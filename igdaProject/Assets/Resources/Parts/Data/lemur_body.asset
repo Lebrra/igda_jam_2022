@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: lemur_body
     animal: Lemur
-    namePart: 
+    namePart: em
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Lemur Fur
     image: {fileID: 269791394, guid: 857eaec75feb4b5448f013cb5d3da6d5, type: 3}

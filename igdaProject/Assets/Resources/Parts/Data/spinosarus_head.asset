@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: spinosarus_head
     animal: Spinosarus
-    namePart: 
+    namePart: spin
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bite
     image: {fileID: -1460274209, guid: 64def77c39020544ea503b1d2fc94e54, type: 3}

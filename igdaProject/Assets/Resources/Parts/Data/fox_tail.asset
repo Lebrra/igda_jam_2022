@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: fox_tail
     animal: Fox
-    namePart: 
+    namePart: ox
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Fox Tail
     image: {fileID: -1668663625, guid: 51fff4e21b50d834896440c40280d694, type: 3}

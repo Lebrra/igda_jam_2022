@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: moose_head
     animal: Moose
-    namePart: 
+    namePart: mo
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Charge
     image: {fileID: 361283614, guid: 9fb33f93b8f588d4cb6aabbe3451ecc2, type: 3}

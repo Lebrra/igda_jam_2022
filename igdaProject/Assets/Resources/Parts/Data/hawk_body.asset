@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: hawk_body
     animal: Hawk
-    namePart: 
+    namePart: haw
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bird of Prey
     image: {fileID: 129615947, guid: 8b06d59465d857c44a6af1bce3cd465c, type: 3}

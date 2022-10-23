@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: hawk_tail
     animal: Hawk
-    namePart: 
+    namePart: awk
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Precision Hunter
     image: {fileID: 811371013, guid: 8b06d59465d857c44a6af1bce3cd465c, type: 3}

@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: snowleopard_legs
     animal: Snow Leopard
-    namePart: 
+    namePart: leo
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Claw Swipe
     image: {fileID: 1372760378, guid: 4ad6b8b89b13e994590e508aace2af77, type: 3}

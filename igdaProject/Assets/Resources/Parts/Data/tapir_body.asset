@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapir_body
     animal: Tapir
-    namePart: 
+    namePart: api
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Sturdy
     image: {fileID: 1656817410, guid: ac98899402a225f4ba947e4b80d32fce, type: 3}

@@ -138,21 +138,21 @@ public class MainMenuManager : MonoBehaviour
         animalBuilder.CreateAnimal(presets[index], true, true);
 
         // load tooltips
-        var animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].headID);
+        var animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].headID); // TODO: get descript from ability instead
         headHeader.text = GetAnimalPartTerm(animalPart);
-        headDesc.text = animalPart.partData.description;
+        //headDesc.text = animalPart.partData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].bodyID);
         bodyHeader.text = GetAnimalPartTerm(animalPart);
-        bodyDesc.text = animalPart.partData.description;
+        //bodyDesc.text = animalPart.partData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].legsID);
         legsHeader.text = GetAnimalPartTerm(animalPart);
-        legsDesc.text = animalPart.partData.description;
+        //legsDesc.text = animalPart.partData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].tailID);
         tailHeader.text = GetAnimalPartTerm(animalPart);
-        tailDesc.text = animalPart.partData.description;
+        //tailDesc.text = animalPart.partData.description;
     }
 
     string GetAnimalPartTerm(AnimalPart data)

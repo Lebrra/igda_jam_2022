@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: moose_body
     animal: Moose
-    namePart: 
+    namePart: o
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Sturdy
     image: {fileID: 1674459204, guid: 9fb33f93b8f588d4cb6aabbe3451ecc2, type: 3}

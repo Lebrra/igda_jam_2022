@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapejara_legs
     animal: Tapejara
-    namePart: 
+    namePart: eja
     bodyPart: 2
-    abilityName: FakeAbility3
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Wing Slash
     image: {fileID: -792380662, guid: 6acb39bde2342e0459cded77f254611f, type: 3}

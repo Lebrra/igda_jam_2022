@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: cat_tail
     animal: Cat
-    namePart: 
+    namePart: at
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Meow
     image: {fileID: 734526917, guid: 3fa7cdd6f9a1a194297b76a386d4f28f, type: 3}

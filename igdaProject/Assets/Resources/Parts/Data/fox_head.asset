@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: fox_head
     animal: Fox
-    namePart: 
+    namePart: fo
     bodyPart: 0
-    abilityName: FakeAbility1
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Bite
     image: {fileID: 2095142595, guid: 51fff4e21b50d834896440c40280d694, type: 3}

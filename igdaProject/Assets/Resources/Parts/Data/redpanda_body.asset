@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: redpanda_body
     animal: Red Panda
-    namePart: 
+    namePart: pa
     bodyPart: 1
-    abilityName: FakeAbility2
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Cuteness
     image: {fileID: 727727696, guid: 16300dfe0fdf6004aac7deda161a2e69, type: 3}

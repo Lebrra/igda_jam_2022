@@ -15,10 +15,7 @@ MonoBehaviour:
   partData:
     id: tapejara_tail
     animal: Tapejara
-    namePart: 
+    namePart: jara
     bodyPart: 3
-    abilityName: FakeAbility4
-    abilityCost: 0
-    health: 5
-    description: 
+    abilityName: Swoosh
     image: {fileID: 476043234, guid: 6acb39bde2342e0459cded77f254611f, type: 3}
