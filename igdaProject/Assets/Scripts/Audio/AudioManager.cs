@@ -5,7 +5,8 @@ using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource clipAudioSource;
+    public AudioSource musicAudioSource;
 
     public List<SoundClips> audioClips;
 
@@ -30,6 +31,6 @@ public class AudioManager : MonoBehaviour
     {
         var clip = StringToClip(clipName);
 
-        audioSource.PlayOneShot(clip, clipVolume);
+        clipAudioSource.PlayOneShot(clip, clipVolume);
     }
 }
