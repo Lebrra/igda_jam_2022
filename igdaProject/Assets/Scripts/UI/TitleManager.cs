@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class TitleManager : MonoBehaviour
 {
     [SerializeField]
+    Animator titleAnim;
+
+    [SerializeField]
     Button continueButton;
     [SerializeField]
     Button newButton;
@@ -20,8 +23,7 @@ public class TitleManager : MonoBehaviour
 
     public void Open()
     {
-        // TODO: change this to animator triggers when existing
-        gameObject.SetActive(true);
+        titleAnim.SetBool("Status", true);
 
         hasSave = JSONEditor.DoesFileExist(GameManager.SAVE_NAME);
 
@@ -43,8 +45,8 @@ public class TitleManager : MonoBehaviour
     {
         continueButton.onClick.RemoveListener(ContinueGame);
         newButton.onClick.RemoveListener(NewGameWarning);
-        // TODO: animate 
-        gameObject.SetActive(false);
+
+        titleAnim.SetBool("Status", false);
     }
 
     void ContinueGame()

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class AnimalPrefabBuilder : MonoBehaviour
 {
     public RectTransform animalTransform;
-    public AnimalPartsObject testAnimal;
 
     // saved parts
     AnimalPartUI headPart;
@@ -25,6 +24,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
     bool easyTesting = false;
     [SerializeField]
     string animal;
+
+    [SerializeField]
+    bool partsTesting = false;
+    [SerializeField]
+    public AnimalPartsObject testAnimal;
 
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
@@ -228,28 +232,6 @@ public class AnimalPrefabBuilder : MonoBehaviour
     public void DestroyAnimal()
     {
         partSwapper.Replace(ShrinkDestroyAll());
-
-        headPart =
-        tailPart =
-        legsFLPart =
-        legsBLPart =
-        legsFRPart =
-        legsBRPart = null;
-        bodyPart = null;
-    }
-
-    IEnumerator TestingAllParts()
-    {
-        CreateAnimal(testAnimal);
-        yield return 2F;
-        ChangeBodyPart("alligator_head");
-        yield return 2F;
-        ChangeBodyPart("alligator_body");
-        yield return 2F;
-        ChangeBodyPart("alligator_legs");
-        yield return 2F;
-        ChangeBodyPart("alligator_tail");
-        //partSwapper.Replace(ShrinkDestroyObject(tailPart.GetComponent<RectTransform>()));
     }
 
     IEnumerator ShrinkDestroyAll()
@@ -261,6 +243,9 @@ public class AnimalPrefabBuilder : MonoBehaviour
             ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsFLPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()));
+
+        headPart = tailPart = legsFLPart = legsBLPart = legsFRPart = legsBRPart = null;
+        bodyPart = null;
     }
 
     IEnumerator GrowSpawnAll()
@@ -287,7 +272,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
 
     private void Start()
     {
-        if (easyTesting)
+        if (partsTesting)
+        {
+            var newAnimal = AnimalPart.AnimalToPartsObj(animal);
+            if (testAnimal.headID == "") testAnimal.headID = newAnimal.headID;
+            if (testAnimal.bodyID == "") testAnimal.bodyID = newAnimal.bodyID;
+            if (testAnimal.legsID == "") testAnimal.legsID = newAnimal.legsID;
+            if (testAnimal.tailID == "") testAnimal.tailID = newAnimal.tailID;
+
+            CreateAnimal(testAnimal, true, true);
+        }
+        else if (easyTesting)
         {
             CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true);
         }

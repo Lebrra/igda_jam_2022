@@ -12,6 +12,10 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     Button titleButton;
 
+    [SerializeField]
+    Animator settingsAnim;
+    bool isOpen = false;
+
     private void Start()
     {
         sfxButton.onValueChanged.AddListener(SetSFX);
@@ -22,18 +26,24 @@ public class SettingsManager : MonoBehaviour
 
         titleButton.onClick.AddListener(() =>
         {
-            GameManager.ToTitle();
+            Close();
+            GameManager.ToTitle(true);
         });
     }
 
     public void Open()
     {
+        if (isOpen) return;
 
+        isOpen = true;
     }
 
     public void Close()
     {
+        if (!isOpen) return;
 
+        settingsAnim.SetTrigger("SettingsStatus");
+        isOpen = false;
     }
 
     void SetSFX(bool enabled)

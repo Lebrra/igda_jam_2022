@@ -7,6 +7,14 @@ using System;
 
 public class MainMenuManager : MonoBehaviour
 {
+    bool isOpen = false;
+
+    [SerializeField]
+    Animator menuAnim;
+
+    [SerializeField]
+    Button settingsButton;
+
     [Header("Preset Swapping")]
     [SerializeField]
     Toggle[] presetSnapButtons;
@@ -39,26 +47,37 @@ public class MainMenuManager : MonoBehaviour
     AnimalPartsObject[] presets;
     int currentPreset = 0;
 
-    public void LoadMenu()
+    private void Start()
     {
-        presets = GameManager.instance.playerdata.animalPresets;
-
         presetSnapButtons[0].onValueChanged.AddListener((value) => LoadAnimalPreset(0));
         presetSnapButtons[1].onValueChanged.AddListener((value) => LoadAnimalPreset(1));
         presetSnapButtons[2].onValueChanged.AddListener((value) => LoadAnimalPreset(2));
-
         presetLeft.onClick.AddListener(DecrementPreset);
         presetRight.onClick.AddListener(IncrementPreset);
 
-        currentPreset = -1;
-        LoadAnimalPreset(0);
+        settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
+    }
+
+    public void Open()
+    {
+        if (isOpen) return;
+        isOpen = true;
+
+        menuAnim.SetBool("UiStatus", true);
+        presets = GameManager.instance.playerdata.animalPresets;
+
+        currentPreset = GameManager.instance.playerdata.selectedPreset;
+        LoadAnimalPreset(currentPreset, true);
     }
 
     public void Close()
     {
-        foreach (var button in presetSnapButtons) button.onValueChanged.RemoveAllListeners();
-        presetLeft.onClick.RemoveListener(DecrementPreset);
-        presetRight.onClick.RemoveListener(IncrementPreset);
+        if (!isOpen) return;
+
+        menuAnim.SetBool("UiStatus", false);
+        animalBuilder.DestroyAnimal();
+
+        isOpen = false;
     }
 
     public void IncrementPreset()
@@ -80,17 +99,20 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    public void LoadAnimalPreset(int index)
+    public void LoadAnimalPreset(int index, bool forceLoad = true)
     {
-        if (index < 0 || index > 2)
+        if (!forceLoad)
         {
-            Debug.LogError("Invalid preset index: " + index);
-            return;
+            if (index < 0 || index > 2)
+            {
+                Debug.LogError("Invalid preset index: " + index);
+                return;
+            }
+            else if (index == currentPreset) return;
         }
-        else if (index == currentPreset) return;
 
         Debug.Log("Setting toggle index : " + index);
-        currentPreset = index;
+        currentPreset = GameManager.instance.playerdata.selectedPreset = index;
         ForceToggleState(currentPreset);
 
         animalBuilder.CreateAnimal(presets[index], true, true);

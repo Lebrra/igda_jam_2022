@@ -12,11 +12,10 @@ public class GameDirector : MonoBehaviour
 
     [SerializeField]
     TitleManager titleMan;
-
-    [SerializeField]
-    Animator menuAnim;
     [SerializeField]
     MainMenuManager menuMan;
+    [SerializeField]
+    SettingsManager settingsMan;
 
     private void Awake()
     {
@@ -26,13 +25,21 @@ public class GameDirector : MonoBehaviour
 
     public void OpenMainMenu()
     {
-        menuAnim.SetBool("UiStatus", true);
-        menuMan.LoadMenu();
+        menuMan.Open();
+    }
+
+    public void CloseMainMenu()
+    {
+        menuMan.Close();
     }
 
     public void OpenTitle()
     {
-        menuAnim.SetBool("UiStatus", false);
         titleMan.Open();
+    }
+
+    public void OpenSettings()
+    {
+        settingsMan.Open();
     }
 }

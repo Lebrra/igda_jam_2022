@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &520185425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &774063955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,10 +569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9d58455c53ec746a6457f24752715d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleAnim: {fileID: 0}
   continueButton: {fileID: 2059481121}
   newButton: {fileID: 903490575}
-  newGameWarning: {fileID: 1494774748}
   defaultSave:
+    sfxEnabled: 1
+    musicEnabled: 1
     inventoryStr: stuff
     animalPresets:
     - headID: cardinal_head
@@ -587,6 +589,7 @@ MonoBehaviour:
       bodyID: cardinal_body
       legsID: cardinal_legs
       tailID: cardinal_tail
+    selectedPreset: 0
 --- !u!4 &774063956
 Transform:
   m_ObjectHideFlags: 0
@@ -620,7 +623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &833949327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,6 +1193,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137967106}
   m_CullTransparentMesh: 1
+--- !u!1 &1480155938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480155940}
+  - component: {fileID: 1480155939}
+  m_Layer: 0
+  m_Name: LevelBuildTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1480155939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480155938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b8aa9605e79d34980156c5c38c0db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allStages:
+  - stages:
+    - {fileID: 11400000, guid: 20f16c877bec68643a96821b570f4bb7, type: 2}
+    - {fileID: 11400000, guid: b9ebcf205eb71fc478ee39547167cd1f, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: d2b58a1b1709b004b82dedd8fe3ec837, type: 2}
+    - {fileID: 11400000, guid: 3060ccaeaf892244b862960ded0c8d6c, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: c2760e3be01e6774ba8d5ab983044fd2, type: 2}
+    - {fileID: 11400000, guid: 939766025bba305489334d8a3b2a4a39, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: 36105ec9328ed78438c41d5b4c3000f5, type: 2}
+    - {fileID: 11400000, guid: aeccffe94a1bf7f46a0aefeef772c353, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: 46dcd290ac8dea747bc8ba651e25a88e, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: b9545eec8d38026468590985dddc2b88, type: 2}
+  testLevel:
+    selectedStages: []
+    currentGeneratedOpponent:
+      headID: 
+      bodyID: 
+      legsID: 
+      tailID: 
+    currentStage: 0
+    currentRound: 0
+--- !u!4 &1480155940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480155938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 397.95013, y: 1005.3576, z: 19.138828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1494774747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1335,17 +1408,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6232fd0cac90f234bbc87f2c8c423c5c, type: 3}
---- !u!114 &1494774748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7422155899851982369, guid: 6232fd0cac90f234bbc87f2c8c423c5c, type: 3}
-  m_PrefabInstance: {fileID: 1494774747}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e3306d3b0ac774eab62c0895c13272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1494774749 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7422155899851982381, guid: 6232fd0cac90f234bbc87f2c8c423c5c, type: 3}
@@ -1367,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1705117546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,8 +1443,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerdata:
+    sfxEnabled: 1
+    musicEnabled: 1
     inventoryStr: 
     animalPresets: []
+    selectedPreset: 0
+  GeneralPopup: {fileID: 0}
+  LoadingScreen: {fileID: 0}
 --- !u!4 &1705117547
 Transform:
   m_ObjectHideFlags: 0
