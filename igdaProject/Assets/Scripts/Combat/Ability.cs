@@ -6,6 +6,7 @@ using UnityEditor;
 [System.Serializable]
 public class Ability : ScriptableObject
 {
+    [System.Serializable]
     public struct AbilityData {
         public string name;
         public int abilityCost;
@@ -22,19 +23,21 @@ public class Ability : ScriptableObject
         abilityData.name = data.name;
         abilityData.abilityCost = data.abilityCost;
         abilityData.description = data.description;
+        abilityData.type = data.type;
         abilityData.health = data.health;
         abilityData.mana = data.mana;
         abilityData.dodge = data.dodge;
         abilityData.speed = data.speed;
         abilityData.crit = data.crit;
         abilityData.attack = data.attack;
-
+        abilityData.targetOpponent = data.targetOpponent;
     }
 
     public static void CreateAsset(AbilityData newabilityData) {
         Ability asset = CreateInstance<Ability>();
         asset.LoadData(newabilityData);
-        AssetDatabase.CreateAsset(asset, "Assets/Resources/Parts/Data/" + asset.abilityData.name + ".asset");
+        string assetName = asset.abilityData.name.Trim(' ').Trim('!').Trim('?').ToLower();
+        AssetDatabase.CreateAsset(asset, "Assets/Resources/Abilities/" + assetName + ".asset");
 
         Debug.Log("Asset created: " + asset.abilityData.name);
     }
@@ -42,7 +45,7 @@ public class Ability : ScriptableObject
     public static AbilityType StringToAbility(string abilityString) {
         switch(abilityString.ToLower().Trim(' ')) {
             case "attack":  return AbilityType.attack;
-            case "defense": return AbilityType.defense;
+            case "support": return AbilityType.support;
             case "passive": return AbilityType.passive;
         }
 
@@ -56,7 +59,7 @@ public class Ability : ScriptableObject
 
 public enum AbilityType {
     attack, 
-    defense, 
+    support, 
     passive, 
     none
 }
