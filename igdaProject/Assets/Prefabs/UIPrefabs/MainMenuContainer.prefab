@@ -7812,6 +7812,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuAnim: {fileID: 5325305263036615116}
   settingsButton: {fileID: 5325305263775776743}
+  editButton: {fileID: 5325305263044153869}
+  newLevelButton: {fileID: 5325305263688389437}
+  continueButton: {fileID: 5325305263574120854}
+  continueText: {fileID: 5325305264701604154}
+  randomButton: {fileID: 5325305263214682584}
   presetSnapButtons:
   - {fileID: 5325305263117007242}
   - {fileID: 5325305264015387821}
@@ -11500,6 +11505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalTransform: {fileID: 4501913047926041056}
+  nameText: {fileID: 5325305263446962568}
   easyTesting: 0
   animal: 
   partsTesting: 0
