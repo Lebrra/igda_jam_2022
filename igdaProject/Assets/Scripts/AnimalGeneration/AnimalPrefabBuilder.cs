@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class AnimalPrefabBuilder : MonoBehaviour
 {
     public RectTransform animalTransform;
-    public AnimalPartsObject testAnimal;
 
     // saved parts
     AnimalPartUI headPart;
@@ -25,6 +24,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
     bool easyTesting = false;
     [SerializeField]
     string animal;
+
+    [SerializeField]
+    bool partsTesting = false;
+    [SerializeField]
+    AnimalPartsObject testAnimal;
 
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
@@ -287,7 +291,17 @@ public class AnimalPrefabBuilder : MonoBehaviour
 
     private void Start()
     {
-        if (easyTesting)
+        if (partsTesting)
+        {
+            var newAnimal = AnimalPart.AnimalToPartsObj(animal);
+            if (testAnimal.headID == "") testAnimal.headID = newAnimal.headID;
+            if (testAnimal.bodyID == "") testAnimal.bodyID = newAnimal.bodyID;
+            if (testAnimal.legsID == "") testAnimal.legsID = newAnimal.legsID;
+            if (testAnimal.tailID == "") testAnimal.tailID = newAnimal.tailID;
+
+            CreateAnimal(testAnimal, true, true);
+        }
+        else if (easyTesting)
         {
             CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true);
         }
