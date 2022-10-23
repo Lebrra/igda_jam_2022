@@ -36,13 +36,18 @@ public class GameManager : MonoBehaviour
 
     #region Menu Transitions
 
-    public static void ToGame()
+    public static void ToMainMenu()
     {
-        instance.loading.Replace(DelayedLoadGame());
+        instance.loading.Replace(DelayedLoadMain());
         
     }
 
-    static IEnumerator DelayedLoadGame()
+    public static void ToLevel()
+    {
+
+    }
+
+    static IEnumerator DelayedLoadMain()
     {
         SetLoadingScreen(true);
 

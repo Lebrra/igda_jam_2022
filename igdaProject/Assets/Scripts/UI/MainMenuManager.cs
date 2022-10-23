@@ -15,6 +15,18 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     Button settingsButton;
 
+    [SerializeField]
+    Button editButton;
+    [SerializeField]
+    Button newLevelButton;
+    [SerializeField]
+    Button continueButton;
+    [SerializeField]
+    TextMeshProUGUI continueText;
+    bool runActive = false;
+    [SerializeField]
+    Button randomButton;
+
     [Header("Preset Swapping")]
     [SerializeField]
     Toggle[] presetSnapButtons;
@@ -56,6 +68,10 @@ public class MainMenuManager : MonoBehaviour
         presetRight.onClick.AddListener(IncrementPreset);
 
         settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
+
+        // TODO: button handling for new/continue/edit/random buttons
+        // if new and has continue, warning popup
+        // random, popup to explain what it is
     }
 
     public void Open()
@@ -68,6 +84,10 @@ public class MainMenuManager : MonoBehaviour
 
         currentPreset = GameManager.instance.playerdata.selectedPreset;
         LoadAnimalPreset(currentPreset, true);
+
+        runActive = GameManager.instance.playerdata.currentLevel.activeRun;
+        continueButton.gameObject.SetActive(runActive);
+        continueText.text = GetContinueText();
     }
 
     public void Close()
@@ -138,5 +158,27 @@ public class MainMenuManager : MonoBehaviour
     string GetAnimalPartTerm(AnimalPart data)
     {
         return data.partData.animal + " " + data.partData.bodyPart;
+    }
+
+    string GetContinueText()
+    {
+        var currentRun = GameManager.instance.playerdata.currentLevel;
+        if (!currentRun.activeRun) return "INVALID";
+
+        string match;
+        switch (currentRun.currentMatch)
+        {
+            case 0:
+                match = "1";
+                break;
+            case 1:
+                match = "2";
+                break;
+            default:
+                match = "BOSS";
+                break;
+        }
+
+        return "Back to Battle\n" + currentRun.selectedStages[currentRun.currentStage].name + ": " + match;
     }
 }

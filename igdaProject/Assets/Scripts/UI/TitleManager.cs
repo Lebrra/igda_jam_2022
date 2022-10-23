@@ -89,7 +89,7 @@ public class TitleManager : MonoBehaviour
     void LoadGame()
     {
         Close();
-        GameManager.ToGame();
+        GameManager.ToMainMenu();
     }
 
     IEnumerator CarouselAnimals()

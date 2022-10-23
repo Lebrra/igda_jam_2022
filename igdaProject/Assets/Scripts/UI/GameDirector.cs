@@ -42,4 +42,9 @@ public class GameDirector : MonoBehaviour
     {
         settingsMan.Open();
     }
+
+    public void OpenEditor()
+    {
+        // open editor
+    }
 }
