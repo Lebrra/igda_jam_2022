@@ -190,7 +190,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     {
                         Debug.Log(p.name);
                         thing.ChangeBodyPart(p.partData.id);
-                        Routine.Start(NameGeneratorAsync());
+                        //Routine.Start(NameGeneratorAsync());
                     }
                 }
                 
@@ -203,8 +203,8 @@ public class MonsterMakerGenerator : MonoBehaviour
         }
     }
 
-    public IEnumerator NameGeneratorAsync() {
-        yield return 0.7F;
-        GameManager.instance.NameGenerator(thing.GetCreatedAnimal());
-    }
+    //public IEnumerator NameGeneratorAsync() {
+    //    yield return 0.7F;
+    //    GameManager.instance.NameGenerator(thing.GetCreatedAnimal());
+    //}
 }

@@ -8,6 +8,9 @@ public class AnimalPrefabBuilder : MonoBehaviour
 {
     public RectTransform animalTransform;
 
+    [SerializeField]
+    TMPro.TextMeshProUGUI nameText;
+
     // saved parts
     AnimalPartUI headPart;
     BodyPartUI bodyPart;
@@ -54,6 +57,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         }
 
         if (animated) yield return GrowSpawnAll();
+        else if (nameText) nameText.text = NameGenerator(GetCreatedAnimal());
     }
 
     void GenerateAnimal(AnimalPartsObject animal)
@@ -267,6 +271,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
 
     IEnumerator GrowSpawnObject(RectTransform obj, float duration = 0.3F)
     {
+        if (nameText) nameText.text = NameGenerator(GetCreatedAnimal());
         yield return obj.ScaleTo(Vector2.one, duration);
     }
 
@@ -279,6 +284,49 @@ public class AnimalPrefabBuilder : MonoBehaviour
         animal.tailID = tailPart.id;
 
         return animal;
+    }
+
+    public string NameGenerator(AnimalPartsObject animal)
+    {
+
+
+        string name = "";
+
+        AnimalPart head, body, legs, tail;
+        head = Resources.Load<AnimalPart>("Parts/Data/" + animal.headID);
+        body = Resources.Load<AnimalPart>("Parts/Data/" + animal.bodyID);
+        legs = Resources.Load<AnimalPart>("Parts/Data/" + animal.legsID);
+        tail = Resources.Load<AnimalPart>("Parts/Data/" + animal.tailID);
+
+        if (head.partData.animal == body.partData.animal && head.partData.animal == legs.partData.animal
+            && head.partData.animal == tail.partData.animal)
+        {
+            Debug.Log(head.partData.animal);
+            return head.partData.animal; //when all parts are of all the same animal. 
+        }
+
+        char[] temp = head.partData.namePart.ToCharArray();
+        string capital = "";
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            if (i == 0)
+            {
+                capital += temp[i].ToString().ToUpper();
+            }
+            else
+            {
+                capital += temp[i].ToString();
+            }
+        }
+
+        name += capital;
+        name += body.partData.namePart;
+        name += legs.partData.namePart;
+        name += tail.partData.namePart;
+        Debug.Log(name);
+
+        return name;
     }
 
     private void Start()
