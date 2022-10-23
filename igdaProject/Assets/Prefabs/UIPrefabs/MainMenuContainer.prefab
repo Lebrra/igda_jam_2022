@@ -1940,10 +1940,10 @@ RectTransform:
   m_Father: {fileID: 5325305263036615115}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 1080, y: 281.9188}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 921}
+  m_SizeDelta: {x: 1080, y: 281.91882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5325305263178433269
 GameObject:
@@ -11520,5 +11520,3 @@ MonoBehaviour:
     bodyID: 
     legsID: 
     tailID: 
-  easyTesting: 0
-  animal: 
