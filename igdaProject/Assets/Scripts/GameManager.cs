@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       // ToTitle();
+        ToTitle();
     }
 
     public static void SaveData()
@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
         body = Resources.Load<AnimalPart>("Parts/Data/" + animal.bodyID);
         legs = Resources.Load<AnimalPart>("Parts/Data/" + animal.legsID);
         tail = Resources.Load<AnimalPart>("Parts/Data/" + animal.tailID);
+
+        if(head.partData.animal == body.partData.animal && head.partData.animal == legs.partData.animal 
+            && head.partData.animal == tail.partData.animal) {
+            Debug.Log(head.partData.animal);
+            return head.partData.animal; //when all parts are of all the same animal. 
+        }
 
         char[] temp = head.partData.namePart.ToCharArray();
         string capital = "";
