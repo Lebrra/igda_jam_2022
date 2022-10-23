@@ -209,7 +209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleMan: {fileID: 316907034}
-  menuAnim: {fileID: 914105817}
   menuMan: {fileID: 1818301995}
   settingsMan: {fileID: 1687447989}
 --- !u!1 &316907030
@@ -274,23 +273,25 @@ MonoBehaviour:
   titleAnim: {fileID: 2051174746}
   continueButton: {fileID: 1692058226}
   newButton: {fileID: 2117852490}
+  animBuilder: {fileID: 1375731411}
+  defaultAnimals: {fileID: 11400000, guid: 2ae8e616c3b2be841818c96e13fc68e7, type: 2}
   defaultSave:
     sfxEnabled: 1
     musicEnabled: 1
-    inventoryStr: stuff
+    inventoryStr: alligator_body,False,alligator_head,False,alligator_legs,False,alligator_tail,False,cardinal_body,False,cardinal_head,False,cardinal_legs,False,cardinal_tail,False,cat_body,True,cat_head,True,cat_legs,True,cat_tail,True,dog_body,True,dog_head,True,dog_legs,True,dog_tail,True,elephant_body,False,elephant_head,False,elephant_legs,False,elephant_tail,False,fox_body,False,fox_head,False,fox_legs,False,fox_tail,False,goat_body,False,goat_head,False,goat_legs,False,goat_tail,False,hawk_body,False,hawk_head,False,hawk_legs,False,hawk_tail,False,lemur_body,False,lemur_head,False,lemur_legs,False,lemur_tail,False,lion_body,False,lion_head,False,lion_legs,False,lion_tail,False,moose_body,False,moose_head,False,moose_legs,False,moose_tail,False,polarbear_body,False,polarbear_head,False,polarbear_legs,False,polarbear_tail,False,redpanda_body,False,redpanda_head,False,redpanda_legs,False,redpanda_tail,False,shark_body,False,shark_head,False,shark_legs,False,shark_tail,False,snowleopard_body,False,snowleopard_head,False,snowleopard_legs,False,snowleopard_tail,False,spinosarus_body,False,spinosarus_head,False,spinosarus_legs,False,spinosarus_tail,False,tapejara_body,False,tapejara_head,False,tapejara_legs,False,tapejara_tail,False,tapir_body,False,tapir_head,False,tapir_legs,False,tapir_tail,False,turkey_body,False,turkey_head,False,turkey_legs,False,turkey_tail,False,turtle_body,False,turtle_head,False,turtle_legs,False,turtle_tail,False,unicorn_body,False,unicorn_head,False,unicorn_legs,False,unicorn_tail,False,wyvern_body,False,wyvern_head,False,wyvern_legs,False,wyvern_tail,False,
     animalPresets:
-    - headID: cardinal_head
-      bodyID: cardinal_body
-      legsID: cardinal_legs
-      tailID: cardinal_tail
-    - headID: cardinal_head
-      bodyID: cardinal_body
-      legsID: cardinal_legs
-      tailID: cardinal_tail
-    - headID: cardinal_head
-      bodyID: cardinal_body
-      legsID: cardinal_legs
-      tailID: cardinal_tail
+    - headID: cat_head
+      bodyID: dog_body
+      legsID: cat_legs
+      tailID: dog_tail
+    - headID: cat_head
+      bodyID: cat_body
+      legsID: cat_legs
+      tailID: cat_tail
+    - headID: dog_head
+      bodyID: dog_body
+      legsID: dog_legs
+      tailID: dog_tail
     selectedPreset: 0
 --- !u!1 &334467632
 GameObject:
@@ -1918,11 +1919,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &914105817 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5325305263036615116, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
-  m_PrefabInstance: {fileID: 532983504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &981237262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375731410}
+  - component: {fileID: 1375731411}
   m_Layer: 5
   m_Name: PetHolder
   m_TagString: Untagged
@@ -2495,6 +2492,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 428.45724}
   m_SizeDelta: {x: 942.4, y: 413.2808}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1375731411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375731409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ecb785f8b621d4b9bda522f6fb1137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalTransform: {fileID: 1375731410}
+  easyTesting: 0
+  animal: 
+  partsTesting: 0
+  testAnimal:
+    headID: 
+    bodyID: 
+    legsID: 
+    tailID: 
 --- !u!1 &1582310562
 GameObject:
   m_ObjectHideFlags: 0
