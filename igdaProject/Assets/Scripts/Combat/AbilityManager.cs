@@ -1,40 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class AbilityManager : MonoBehaviour
 {
-    
-    public static void UseAbility(string abilityName) {
-        switch (abilityName.ToLower()) {
-            case "gobble": 
-                Gobble();
-                break;
-            case "chomp":
-                Chomp();
-                break;
-            case "fire breath":
-                FireBreath();
-                break;
-            case "tough skin":
-                ToughSkin();
-                break;
-        }
+    public static AbilityManager instance;
+
+    public Entity target; //the current entity that abilities will target. 
+    private void Awake() {
+        if (instance == null) instance = this;
+        else Destroy(this.gameObject);
     }
 
-    static void Gobble() {
+    public void UseAbility(string abilityName) {
+      
+        Invoke(abilityName, 1);
 
     }
 
-    static void Chomp() {
+    private void Gobble() {
+
+        
 
     }
 
-    static void FireBreath() {
+    private void Chomp() {
 
     }
 
-    static void ToughSkin() {
+    private void FireBreath() {
+
+    }
+
+    private void ToughSkin() {
 
     }
 }
