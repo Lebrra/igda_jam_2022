@@ -136,7 +136,7 @@ public class MainMenuManager : MonoBehaviour
         currentPreset = GameManager.instance.playerdata.selectedPreset = index;
         ForceToggleState(currentPreset);
 
-        animalBuilder.CreateAnimal(presets[index], true, true);
+        animalBuilder.CreateAnimal(presets[index], true, true, AnimalPrefabBuilder.AnimationType.Bob);
 
         // load tooltips
         var animalPart = DataManager.instance.GetAnimalPart(presets[index].headID);

@@ -111,13 +111,14 @@ public class TitleManager : MonoBehaviour
             {
                 // generate random from cat/dog
                 var animal = LevelGenerator.CreateOpponent(defaultAnimals);
-                animBuilder.CreateAnimal(animal, true, true);
+                animBuilder.CreateAnimal(animal, true, true, AnimalPrefabBuilder.AnimationType.HeadBob);
             }
             else
             {
                 // load preset
-                animBuilder.CreateAnimal(carouselAnimals[current], true, true);
+                animBuilder.CreateAnimal(carouselAnimals[current], true, true, AnimalPrefabBuilder.AnimationType.HeadBob);
             }
+            //animBuilder.SetAnimationState(AnimalPrefabBuilder.AnimationType.HeadBob);
 
             yield return 5F;
             current = (current + 1) % 3;

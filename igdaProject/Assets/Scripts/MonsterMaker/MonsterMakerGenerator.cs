@@ -235,7 +235,7 @@ public class MonsterMakerGenerator : MonoBehaviour
         inventoryToggles[animal.legsID].SetIsOnWithoutNotify(true);
         inventoryToggles[animal.tailID].SetIsOnWithoutNotify(true);
 
-        thing.CreateAnimal(animal, true, true);
+        thing.CreateAnimal(animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
     }
 
     public void CloseAnimal(bool save)    // called when closed
