@@ -7831,6 +7831,10 @@ MonoBehaviour:
   legsDesc: {fileID: 5325305263356493007}
   tailHeader: {fileID: 5325305263665947027}
   tailDesc: {fileID: 5325305264659112706}
+  healthStat: {fileID: 5325305264070899888}
+  manaStat: {fileID: 5325305262864123168}
+  speedStat: {fileID: 5325305262884020911}
+  dodgeStat: {fileID: 5325305263981616041}
   animalBuilder: {fileID: 2414855318764176928}
 --- !u!1 &5325305264202159294
 GameObject:

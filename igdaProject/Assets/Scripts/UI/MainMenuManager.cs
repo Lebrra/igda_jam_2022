@@ -53,6 +53,16 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI tailDesc;
 
+    [Header("Stats")]
+    [SerializeField]
+    TextMeshProUGUI healthStat;
+    [SerializeField]
+    TextMeshProUGUI manaStat;
+    [SerializeField]
+    TextMeshProUGUI speedStat;
+    [SerializeField]
+    TextMeshProUGUI dodgeStat;
+
     [SerializeField]
     AnimalPrefabBuilder animalBuilder;
 
@@ -139,25 +149,27 @@ public class MainMenuManager : MonoBehaviour
         animalBuilder.CreateAnimal(presets[index], true, true, AnimalPrefabBuilder.AnimationType.Bob);
 
         // load tooltips
+        Ability[] abilities = new Ability[4];
         var animalPart = DataManager.instance.GetAnimalPart(presets[index].headID);
-        var ability = animalPart.GetAbility();
-        headHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
-        headDesc.text = ability.abilityData.description;
+        abilities[0] = animalPart.GetAbility();
+        headHeader.text = GetAnimalPartTerm(animalPart) + " - " + abilities[0].abilityData.name;
+        headDesc.text = abilities[0].abilityData.description;
 
         animalPart = DataManager.instance.GetAnimalPart(presets[index].bodyID);
-        ability = animalPart.GetAbility();
-        bodyHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
-        bodyDesc.text = ability.abilityData.description;
+        abilities[1] = animalPart.GetAbility();
+        bodyHeader.text = GetAnimalPartTerm(animalPart) + " - " + abilities[1].abilityData.name;
+        bodyDesc.text = abilities[1].abilityData.description;
 
         animalPart = DataManager.instance.GetAnimalPart(presets[index].legsID);
-        ability = animalPart.GetAbility();
-        legsHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
-        legsDesc.text = ability.abilityData.description;
+        abilities[2] = animalPart.GetAbility();
+        legsHeader.text = GetAnimalPartTerm(animalPart) + " - " + abilities[2].abilityData.name;
+        legsDesc.text = abilities[2].abilityData.description;
 
         animalPart = DataManager.instance.GetAnimalPart(presets[index].tailID);
-        ability = animalPart.GetAbility();
-        tailHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
-        tailDesc.text = ability.abilityData.description;
+        abilities[3] = animalPart.GetAbility();
+        tailHeader.text = GetAnimalPartTerm(animalPart) + " - " + abilities[3].abilityData.name;
+        tailDesc.text = abilities[3].abilityData.description;
+        SetStats(abilities);
     }
 
     string GetAnimalPartTerm(AnimalPart data)
@@ -185,5 +197,24 @@ public class MainMenuManager : MonoBehaviour
         }
 
         return "Back to Battle\n" + currentRun.selectedStages[currentRun.currentStage].name + ": " + match;
+    }
+
+    void SetStats(Ability[] abilities)
+    {
+        int health = GameManager.BASE_HEALTH;
+        int mana = GameManager.BASE_MANA;
+        int speed = GameManager.BASE_SPEED;
+        int dodge = GameManager.BASE_DODGE;
+        foreach(var ability in abilities)
+        {
+            health += ability.abilityData.health;
+            mana += ability.abilityData.mana;
+            speed += ability.abilityData.speed;
+            dodge += ability.abilityData.dodge;
+        }
+        healthStat.text = health.ToString();
+        manaStat.text = mana.ToString();
+        speedStat.text = speed.ToString();
+        dodgeStat.text = dodge.ToString();
     }
 }
