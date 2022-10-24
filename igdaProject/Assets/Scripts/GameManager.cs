@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour
 
     public static void SetLoadingScreen(bool enabled)
     {
-        instance.LoadingScreen.gameObject.SetActive(enabled);
-        //instance.LoadingScreen.SetBool("Enabled", enabled);
+        //instance.LoadingScreen.gameObject.SetActive(enabled);
+        instance.LoadingScreen.SetBool("Status", enabled);
     }
 
     #endregion
