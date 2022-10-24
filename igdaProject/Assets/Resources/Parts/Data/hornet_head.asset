@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Hornet
     namePart: horn
     bodyPart: 0
-    abilityName: none
+    abilityName: Hive Mind
     image: {fileID: -846806453, guid: 09df5bf7f84bfc34689cd5c646633e15, type: 3}

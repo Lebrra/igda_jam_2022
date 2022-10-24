@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Sea Lion
     namePart: ali
     bodyPart: 1
-    abilityName: none
+    abilityName: Sturdy
     image: {fileID: -2122813618, guid: faa2b5ed8e4cf8b489815f2923534d80, type: 3}
