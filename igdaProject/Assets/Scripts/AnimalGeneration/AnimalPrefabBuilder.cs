@@ -113,7 +113,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
     public void ChangeBodyPart(string newpart)
     {
         // get part type
-        var data = Resources.Load<AnimalPart>("Parts/Data/" + newpart);
+        var data = DataManager.instance.GetAnimalPart(newpart);
         if (data == null)
         {
             Debug.Log("D: " + newpart);

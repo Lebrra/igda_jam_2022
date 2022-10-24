@@ -25,16 +25,19 @@ public class DataManager : MonoBehaviour
     private void Awake() {
         if(instance == null) instance = this;
         else Destroy(this);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public IEnumerator LoadAllData()
     {
-        if (initialized) yield break;
-        yield return InitializeLists();
-        yield return InitializePrefabs();
-        yield return InitializeAbilities();
+        //if (initialized) yield break;
+        //yield return InitializeLists();
+        //yield return InitializePrefabs();
+        //yield return InitializeAbilities();
 
         initialized = true;
+        yield return null;
     }
 
     private IEnumerator InitializeLists() {
