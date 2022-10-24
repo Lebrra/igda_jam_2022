@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 154.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -992,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148.175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1084,7 +1084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1220,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 164.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1501,8 +1501,6 @@ MonoBehaviour:
   enemyObjPreview: {fileID: 1659999001}
   playerObjPreview: {fileID: 1966108010}
   combatAnim: {fileID: 346240529}
-  enemyName: {fileID: 0}
-  playerName: {fileID: 0}
   enemyObj: {fileID: 1856312509}
   playerObj: {fileID: 1431594626}
 --- !u!4 &561730155
@@ -2166,6 +2164,9 @@ MonoBehaviour:
   bodyList: []
   legsList: []
   tailList: []
+  allPrefabs: []
+  allBodyPrefabs: []
+  allAbilities: []
 --- !u!4 &903730103
 Transform:
   m_ObjectHideFlags: 0
@@ -2743,6 +2744,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1582310566}
     m_Modifications:
+    - target: {fileID: 4378495614045254281, guid: 36fa79ad5cd16784eb092fade98b9d9a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378495614045254281, guid: 36fa79ad5cd16784eb092fade98b9d9a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378495614045254281, guid: 36fa79ad5cd16784eb092fade98b9d9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953954213510430873, guid: 36fa79ad5cd16784eb092fade98b9d9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 944
+      objectReference: {fileID: 0}
     - target: {fileID: 5752393692633194636, guid: 36fa79ad5cd16784eb092fade98b9d9a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
