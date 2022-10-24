@@ -35,46 +35,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("PLAYER DATA SAVED");
     }
 
-    
-    public string NameGenerator(AnimalPartsObject animal) {
-
-       
-        string name = "";
-
-        AnimalPart head, body, legs, tail;
-        head = Resources.Load<AnimalPart>("Parts/Data/" + animal.headID);
-        body = Resources.Load<AnimalPart>("Parts/Data/" + animal.bodyID);
-        legs = Resources.Load<AnimalPart>("Parts/Data/" + animal.legsID);
-        tail = Resources.Load<AnimalPart>("Parts/Data/" + animal.tailID);
-
-        if(head.partData.animal == body.partData.animal && head.partData.animal == legs.partData.animal 
-            && head.partData.animal == tail.partData.animal) {
-            Debug.Log(head.partData.animal);
-            return head.partData.animal; //when all parts are of all the same animal. 
-        }
-
-        char[] temp = head.partData.namePart.ToCharArray();
-        string capital = "";
-
-        for (int i = 0; i < temp.Length; i++) {
-            if (i == 0) {
-                capital += temp[i].ToString().ToUpper();
-            }
-            else {
-                capital += temp[i].ToString();
-            }
-        }
-
-        name += capital;
-        name += body.partData.namePart;
-        name += legs.partData.namePart;
-        name += tail.partData.namePart;
-        Debug.Log(name);
-
-        return name;
-    }
-
-
     #region Menu Transitions
 
     public static void ToMainMenu()

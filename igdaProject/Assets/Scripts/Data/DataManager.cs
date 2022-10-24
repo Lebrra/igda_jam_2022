@@ -89,7 +89,7 @@ public class DataManager : MonoBehaviour
 
     public AnimalPart GetAnimalPart(string id)
     {
-        var results = masterList.Where((x) => x.partData.id == id).ToList();
+        var results = masterList.Where((x) => x.partData.id.ToLower() == id.ToLower()).ToList();
         if (results == null) return null;
         else if (results.Count == 0) return null;
 
@@ -98,7 +98,7 @@ public class DataManager : MonoBehaviour
 
     public AnimalPartUI GetAnimalPartUI(string id)
     {
-        var results = allPrefabs.Where((x) => x.gameObject.name == id).ToList();
+        var results = allPrefabs.Where((x) => x.gameObject.name.ToLower() == id.ToLower()).ToList();
         if (results == null) return null;
         else if (results.Count == 0) return null;
 
@@ -107,7 +107,7 @@ public class DataManager : MonoBehaviour
 
     public BodyPartUI GetBodyPartUI(string id)
     {
-        var results = allBodyPrefabs.Where((x) => x.gameObject.name == id).ToList();
+        var results = allBodyPrefabs.Where((x) => x.gameObject.name.ToLower() == id.ToLower()).ToList();
         if (results == null) return null;
         else if (results.Count == 0) return null;
 
@@ -116,7 +116,7 @@ public class DataManager : MonoBehaviour
 
     public Ability GetAbility(string id)
     {
-        var results = allAbilities.Where((x) => x.abilityData.name == id).ToList();
+        var results = allAbilities.Where((x) => x.abilityData.name.ToLower() == id.ToLower()).ToList();
         if (results == null) return null;
         else if (results.Count == 0) return null;
 

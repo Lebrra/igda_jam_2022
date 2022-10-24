@@ -25,7 +25,7 @@ public class AnimalPart : ScriptableObject
     public Ability GetAbility()
     {
         string parsedName = partData.abilityName.Trim(' ').Trim('!').Trim('?').ToLower();
-        Ability ability = Resources.Load<Ability>("Abilities/" + parsedName);
+        Ability ability = DataManager.instance.GetAbility(parsedName);
         if (ability) return ability;
         else
         {

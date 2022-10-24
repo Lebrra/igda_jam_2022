@@ -197,28 +197,28 @@ public class AnimalPrefabBuilder : MonoBehaviour
             ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()));
 
-        legsFLPart = DataManager.instance.GetAnimalPartUI(part);
+        legsFLPart = DataManager.instance.GetAnimalPartUI(part + "_FL");
         legsFLPart = Instantiate(legsFLPart, bodyPart.legFL);
         legsFLPart.FindMyPart(part);
         legsFLPart.transform.SetParent(animalTransform);
         legsFLPart.transform.SetSiblingIndex(5);
         legsFLPart.transform.localScale = Vector2.zero;
 
-        legsBLPart = DataManager.instance.GetAnimalPartUI(part);
+        legsBLPart = DataManager.instance.GetAnimalPartUI(part + "_BL");
         legsBLPart = Instantiate(legsBLPart, bodyPart.legBL);
         legsBLPart.FindMyPart(part);
         legsBLPart.transform.SetParent(animalTransform);
         legsBLPart.transform.SetSiblingIndex(6);
         legsBLPart.transform.localScale = Vector2.zero;
 
-        legsFRPart = DataManager.instance.GetAnimalPartUI(part);
+        legsFRPart = DataManager.instance.GetAnimalPartUI(part + "_FR");
         legsFRPart = Instantiate(legsFRPart, bodyPart.legFR);
         legsFRPart.FindMyPart(part);
         legsFRPart.transform.SetParent(animalTransform);
         legsFRPart.transform.SetSiblingIndex(0);
         legsFRPart.transform.localScale = Vector2.zero;
 
-        legsBRPart = DataManager.instance.GetAnimalPartUI(part);
+        legsBRPart = DataManager.instance.GetAnimalPartUI(part + "_BR");
         legsBRPart = Instantiate(legsBRPart, bodyPart.legBR);
         legsBRPart.FindMyPart(part);
         legsBRPart.transform.SetParent(animalTransform);
