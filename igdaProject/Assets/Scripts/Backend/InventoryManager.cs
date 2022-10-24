@@ -142,7 +142,8 @@ public class InventoryManager : MonoBehaviour
                 tf = true;
             else
                 tf = false;
-            partDict.Add(strrr[i],  tf);
+            if (!partDict.ContainsKey(strrr[i])) partDict.Add(strrr[i], tf);
+            else partDict[strrr[i]] = tf;
         }
         
     }

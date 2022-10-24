@@ -36,6 +36,7 @@ public class TitleManager : MonoBehaviour
             // do the cool animal thing here
             var saveData = JSONEditor.JSONToData<SaveData>(GameManager.SAVE_NAME);
             carouselAnimals = saveData.animalPresets;
+            continueButton.gameObject.SetActive(true);
         }
         else
         {
@@ -82,7 +83,14 @@ public class TitleManager : MonoBehaviour
     void NewGame()
     {
         GameManager.instance.playerdata = defaultSave;
+        GameManager.instance.playerdata.inventoryStr = GameManager.DEFAULT_INVENTORY;
         GameManager.SaveData();
+        if (hasSave)
+        {
+            // reset inventory 
+            InventoryManager.instance.ConvertFromString(GameManager.DEFAULT_INVENTORY);
+            MonsterMakerGenerator.instance.Setup();
+        }
         LoadGame();
     }
 
