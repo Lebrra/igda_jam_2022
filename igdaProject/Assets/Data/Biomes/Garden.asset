@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2db88f84919754793d0d8675841699, type: 3}
   m_Name: Garden
   m_EditorClassIdentifier: 
-  animalCodes: []
+  animalCodes:
+  - hornet
+  - isopod
+  - beetle
