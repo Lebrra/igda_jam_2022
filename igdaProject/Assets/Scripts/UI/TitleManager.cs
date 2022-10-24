@@ -102,6 +102,8 @@ public class TitleManager : MonoBehaviour
 
     IEnumerator CarouselAnimals()
     {
+        yield return 0.4F;
+
         int current = 0;
         while (true)
         {
