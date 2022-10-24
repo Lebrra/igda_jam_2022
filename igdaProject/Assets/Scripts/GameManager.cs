@@ -125,13 +125,8 @@ public class GameManager : MonoBehaviour
 
     static IEnumerator DelayedLoadTitle()
     {
-        SetLoadingScreen(true);
-
         yield return 0.8F;
-
         GameDirector.instance.OpenTitle();
-
-        SetLoadingScreen(false);
     }
 
     public static void SetLoadingScreen(bool enabled)
