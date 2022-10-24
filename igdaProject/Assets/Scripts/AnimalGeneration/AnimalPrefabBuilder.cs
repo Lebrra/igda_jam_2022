@@ -344,11 +344,11 @@ public class AnimalPrefabBuilder : MonoBehaviour
             if (testAnimal.legsID == "") testAnimal.legsID = newAnimal.legsID;
             if (testAnimal.tailID == "") testAnimal.tailID = newAnimal.tailID;
 
-            CreateAnimal(testAnimal, true, true);
+            CreateAnimal(testAnimal, true, true, AnimationType.Bob);
         }
         else if (easyTesting)
         {
-            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true);
+            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true, AnimationType.Bob);
         }
     }
 
@@ -422,12 +422,22 @@ public class AnimalPrefabBuilder : MonoBehaviour
             bobs.Add(bodyRect.MoveTo(bodyOriginalPos + dif, time, Axis.Y));
             bobs.Add(headRect.MoveTo(headOriginalPos + dif, time, Axis.Y));
             bobs.Add(tailRect.MoveTo(tailOriginalPos + dif, time, Axis.Y));
+
+            //bobs.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(1F, time, Axis.Z));
+            //bobs.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(1F, time, Axis.Z));
+            //bobs.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(-1F, time, Axis.Z));
+            //bobs.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(-1F, time, Axis.Z));
             yield return Routine.Combine(bobs);
         
             bobs = new List<IEnumerator>();
             bobs.Add(bodyRect.MoveTo(bodyOriginalPos, time, Axis.Y));
             bobs.Add(headRect.MoveTo(headOriginalPos, time, Axis.Y));
             bobs.Add(tailRect.MoveTo(tailOriginalPos, time, Axis.Y));
+
+            //bobs.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
             yield return Routine.Combine(bobs);
         }
     }
