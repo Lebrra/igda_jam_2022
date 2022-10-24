@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
@@ -12,29 +13,33 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Animator previewAnim;
     [SerializeField] Button battleButton;
     [SerializeField] Button backButton;
+    [SerializeField] AnimalPrefabBuilder enemyObjPreview;
+    [SerializeField] AnimalPrefabBuilder playerObjPreview;
+
 
     [Header("Combat Scene")]
     [SerializeField] Animator combatAnim;
+    [SerializeField] TextMeshProUGUI enemyName, playerName;
+    [SerializeField] AnimalPrefabBuilder enemyObj;
+    [SerializeField] AnimalPrefabBuilder playerObj;
 
-    [Header("Body Part Lists")]
-    public List<AnimalPart> headList = new List<AnimalPart>();
-    public List<AnimalPart> bodyList = new List<AnimalPart>();
-    public List<AnimalPart> legsList = new List<AnimalPart>();
-    public List<AnimalPart> tailList = new List<AnimalPart>();
+    
 
     private void Awake() {
         if (instance == null) instance = this;
         else Destroy(this);
     }
     private void Start() {
-        InitializeLists();
 
         battleButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(true));
         backButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(false));
     }
 
     public void OpenPreview() {
+        enemy.RandomizeBuild();
         previewAnim.SetBool("Status", true);
+        playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
+        enemyObjPreview.CreateAnimal(enemy.myData, true, true);
     }
 
     public void ClosePreview() {
@@ -42,32 +47,14 @@ public class CombatManager : MonoBehaviour
     }
     public void OpenCombat() {
         combatAnim.SetBool("Status", true);
+        playerObj.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
+        enemyObj.CreateAnimal(enemy.myData, true, true);
     }
 
     public void CloseCombat() {
         combatAnim.SetBool("Status", false);
     }
-    private void InitializeLists() {
-        var animalPartList = Resources.LoadAll<AnimalPart>("Parts/Data/");
-
-        //generate all 4 lists
-        foreach (AnimalPart part in animalPartList) {
-            switch (part.partData.bodyPart) {
-                case BodyPart.Head:
-                    headList.Add(part);
-                    break;
-                case BodyPart.Body:
-                    bodyList.Add(part);
-                    break;
-                case BodyPart.Legs:
-                    legsList.Add(part);
-                    break;
-                case BodyPart.Tail:
-                    tailList.Add(part);
-                    break;
-            }
-        }
-    }
+    
 
 
 
