@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ToTitle();
+        loading.Replace(LoadInitialData());
     }
 
     public static void SaveData()
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     public static void ToMainMenu()
     {
-        instance.loading.Replace(DelayedLoadMain());
+        instance.loading.Replace(LoadMainMenu());
         
     }
 
@@ -87,16 +87,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    static IEnumerator DelayedLoadMain()
+    static IEnumerator LoadMainMenu()
+    {
+        yield return 0.7F;
+        GameDirector.instance.OpenMainMenu();
+    }
+
+    static IEnumerator LoadInitialData()
     {
         SetLoadingScreen(true);
 
-        yield return 0.7F;  // TODO: compare if loading took less time, if so then do this
         yield return DataManager.instance.LoadAllData();
 
-        GameDirector.instance.OpenMainMenu();
-
         SetLoadingScreen(false);
+        // maybe delay here
+        ToTitle();
     }
 
     public static void ToTitle(bool delayed = false)

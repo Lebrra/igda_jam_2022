@@ -1,6 +1,7 @@
 using BeauRoutine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,13 +64,13 @@ public class AnimalPrefabBuilder : MonoBehaviour
     void GenerateAnimal(AnimalPartsObject animal)
     {
         // get all prefab references
-        headPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.headID);
-        bodyPart = Resources.Load<BodyPartUI>("Parts/Prefabs/" + animal.bodyID);
-        tailPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.tailID);
-        legsFLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.legsID + "_FL");
-        legsBLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.legsID + "_BL");
-        legsFRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.legsID + "_FR");
-        legsBRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + animal.legsID + "_BR");
+        headPart = DataManager.instance.GetAnimalPartUI(animal.headID);
+        bodyPart = DataManager.instance.GetBodyPartUI(animal.bodyID);
+        tailPart = DataManager.instance.GetAnimalPartUI(animal.tailID);
+        legsFLPart = DataManager.instance.GetAnimalPartUI(animal.legsID + "_FL");
+        legsBLPart = DataManager.instance.GetAnimalPartUI(animal.legsID + "_BL");
+        legsFRPart = DataManager.instance.GetAnimalPartUI(animal.legsID + "_FR");
+        legsBRPart = DataManager.instance.GetAnimalPartUI(animal.legsID + "_BR");
 
         // instantiate in the correct positions
         bodyPart = Instantiate(bodyPart, animalTransform);
@@ -149,7 +150,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
             yield return ShrinkDestroyObject(headPart.GetComponent<RectTransform>());
         }
 
-        headPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part);
+        headPart = DataManager.instance.GetAnimalPartUI(part);
         headPart = Instantiate(headPart, bodyPart.headPoint);
         headPart.FindMyPart(part);
         headPart.transform.SetParent(animalTransform);
@@ -181,7 +182,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
             yield return ShrinkDestroyObject(tailPart.GetComponent<RectTransform>());
         }
 
-        tailPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part);
+        tailPart = DataManager.instance.GetAnimalPartUI(part);
         tailPart = Instantiate(tailPart, bodyPart.tailPoint);
         tailPart.FindMyPart(part);
         tailPart.transform.SetParent(animalTransform);
@@ -199,28 +200,28 @@ public class AnimalPrefabBuilder : MonoBehaviour
             ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()));
 
-        legsFLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_FL");
+        legsFLPart = DataManager.instance.GetAnimalPartUI(part);
         legsFLPart = Instantiate(legsFLPart, bodyPart.legFL);
         legsFLPart.FindMyPart(part);
         legsFLPart.transform.SetParent(animalTransform);
         legsFLPart.transform.SetSiblingIndex(5);
         legsFLPart.transform.localScale = Vector2.zero;
 
-        legsBLPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_BL");
+        legsBLPart = DataManager.instance.GetAnimalPartUI(part);
         legsBLPart = Instantiate(legsBLPart, bodyPart.legBL);
         legsBLPart.FindMyPart(part);
         legsBLPart.transform.SetParent(animalTransform);
         legsBLPart.transform.SetSiblingIndex(6);
         legsBLPart.transform.localScale = Vector2.zero;
 
-        legsFRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_FR");
+        legsFRPart = DataManager.instance.GetAnimalPartUI(part);
         legsFRPart = Instantiate(legsFRPart, bodyPart.legFR);
         legsFRPart.FindMyPart(part);
         legsFRPart.transform.SetParent(animalTransform);
         legsFRPart.transform.SetSiblingIndex(0);
         legsFRPart.transform.localScale = Vector2.zero;
 
-        legsBRPart = Resources.Load<AnimalPartUI>("Parts/Prefabs/" + part + "_BR");
+        legsBRPart = DataManager.instance.GetAnimalPartUI(part);
         legsBRPart = Instantiate(legsBRPart, bodyPart.legBR);
         legsBRPart.FindMyPart(part);
         legsBRPart.transform.SetParent(animalTransform);
@@ -293,10 +294,10 @@ public class AnimalPrefabBuilder : MonoBehaviour
         string name = "";
 
         AnimalPart head, body, legs, tail;
-        head = Resources.Load<AnimalPart>("Parts/Data/" + animal.headID);
-        body = Resources.Load<AnimalPart>("Parts/Data/" + animal.bodyID);
-        legs = Resources.Load<AnimalPart>("Parts/Data/" + animal.legsID);
-        tail = Resources.Load<AnimalPart>("Parts/Data/" + animal.tailID);
+        head = DataManager.instance.GetAnimalPart(animal.headID);
+        body = DataManager.instance.GetAnimalPart(animal.bodyID);
+        legs = DataManager.instance.GetAnimalPart(animal.legsID);
+        tail = DataManager.instance.GetAnimalPart(animal.tailID);
 
         if (head.partData.animal == body.partData.animal && head.partData.animal == legs.partData.animal
             && head.partData.animal == tail.partData.animal)
