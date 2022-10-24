@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Hornet
     namePart: orn
     bodyPart: 1
-    abilityName: none
+    abilityName: Wing Slash
     image: {fileID: 1951717008, guid: 09df5bf7f84bfc34689cd5c646633e15, type: 3}

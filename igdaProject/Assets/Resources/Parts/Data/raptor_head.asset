@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Raptor
     namePart: rap
     bodyPart: 0
-    abilityName: none
+    abilityName: Bite
     image: {fileID: -1308288887, guid: ed3359cedc885a841960716e10162262, type: 3}

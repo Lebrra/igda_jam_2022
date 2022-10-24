@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Sea Lion
     namePart: lion
     bodyPart: 3
-    abilityName: none
+    abilityName: Sea Lion Tail
     image: {fileID: 889243269, guid: faa2b5ed8e4cf8b489815f2923534d80, type: 3}

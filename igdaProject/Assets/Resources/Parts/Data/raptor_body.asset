@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Raptor
     namePart: apt
     bodyPart: 1
-    abilityName: none
+    abilityName: Agile Hunter
     image: {fileID: 1665357866, guid: ed3359cedc885a841960716e10162262, type: 3}

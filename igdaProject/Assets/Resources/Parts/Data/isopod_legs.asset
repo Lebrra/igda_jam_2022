@@ -15,7 +15,7 @@ MonoBehaviour:
   partData:
     id: isopod_legs
     animal: Isopod
-    namePart: 
+    namePart: op
     bodyPart: 2
-    abilityName: none
-    image: {fileID: 0}
+    abilityName: Lots of Legs
+    image: {fileID: 47373612, guid: e0e36c4c6e81cda46a0ea58e3b3de5d7, type: 3}

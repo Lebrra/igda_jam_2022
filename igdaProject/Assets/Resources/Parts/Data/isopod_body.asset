@@ -15,7 +15,7 @@ MonoBehaviour:
   partData:
     id: isopod_body
     animal: Isopod
-    namePart: 
+    namePart: so
     bodyPart: 1
-    abilityName: none
-    image: {fileID: 0}
+    abilityName: Rolly Polly
+    image: {fileID: 918780046, guid: e0e36c4c6e81cda46a0ea58e3b3de5d7, type: 3}
