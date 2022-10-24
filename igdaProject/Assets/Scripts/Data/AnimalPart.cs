@@ -47,6 +47,7 @@ public class AnimalPart : ScriptableObject
 
     public static void CreateAsset(AnimalPartData newPartData)
     {
+#if UNITY_EDITOR
         var prevData = Resources.Load<AnimalPart>("Parts/Data/" + newPartData.id);
         Sprite savedSprite = null;
         if (prevData) savedSprite = prevData.partData.image;
@@ -56,6 +57,7 @@ public class AnimalPart : ScriptableObject
         asset.LoadData(newPartData, savedSprite);
         AssetDatabase.CreateAsset(asset, "Assets/Resources/Parts/Data/" + asset.partData.id + ".asset");
         Debug.Log("Asset created: " + asset.partData.id);
+#endif
     }
 
     public static BodyPart StringToPart(string partString)

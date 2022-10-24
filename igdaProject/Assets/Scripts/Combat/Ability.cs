@@ -34,12 +34,14 @@ public class Ability : ScriptableObject
     }
 
     public static void CreateAsset(AbilityData newabilityData) {
+#if UNITY_EDITOR
         Ability asset = CreateInstance<Ability>();
         asset.LoadData(newabilityData);
         string assetName = asset.abilityData.name.Trim(' ').Trim('!').Trim('?').ToLower();
         AssetDatabase.CreateAsset(asset, "Assets/Resources/Abilities/" + assetName + ".asset");
 
         Debug.Log("Asset created: " + asset.abilityData.name);
+#endif
     }
 
     public static AbilityType StringToAbility(string abilityString) {
