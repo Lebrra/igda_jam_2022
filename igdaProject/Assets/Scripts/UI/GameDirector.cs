@@ -18,7 +18,8 @@ public class GameDirector : MonoBehaviour
     SettingsManager settingsMan;
     [SerializeField]
     InventoryManager inventoryMan;
-
+    [SerializeField]
+    CombatManager combatMan;
     private void Awake()
     {
         if (instance) Destroy(instance);
@@ -44,7 +45,6 @@ public class GameDirector : MonoBehaviour
     {
         settingsMan.Open();
     }
-
     public void OpenEditor()
     {
         // open editor
@@ -68,6 +68,45 @@ public class GameDirector : MonoBehaviour
         yield return 0.5F;
         OpenMainMenu();
     }
+
+    public void OpenCombatPreview() {
+        Debug.Log("Combat has begun!!!");
+        Routine.Start(DelayOpenCombatPreview());
+    }
+    IEnumerator DelayOpenCombatPreview() {
+        CloseMainMenu();
+        yield return 0.5f;
+        combatMan.OpenPreview();
+    }
+
+    public void ClosePreviewToCombat(bool b) {
+        Routine.Start(DelayCloseCombatPreview(b));
+    }
+    IEnumerator DelayCloseCombatPreview(bool inCombat) {
+        combatMan.ClosePreview();
+        yield return 0.5f;
+        if (inCombat) {
+            //going to combat
+            OpenCombat();
+        } else {
+            OpenMainMenu();
+        }
+    }
+
+    public void OpenCombat() {
+        Debug.Log("Combat has begun!!!");
+        Routine.Start(DelayOpenCombat());
+    }
+    IEnumerator DelayOpenCombat() {
+        CloseMainMenu();
+        yield return 0.5f;
+        combatMan.OpenCombat();
+    }
+
+    IEnumerator DelayCloseCombat() {
+        yield return 0.5f;
+    }
+
 
     public IEnumerator LoadingStuff()
     {

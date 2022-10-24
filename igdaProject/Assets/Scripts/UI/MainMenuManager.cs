@@ -68,7 +68,7 @@ public class MainMenuManager : MonoBehaviour
         presetRight.onClick.AddListener(IncrementPreset);
 
         settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
-
+        randomButton.onClick.AddListener(() => GameDirector.instance.OpenCombatPreview());
         // TODO: button handling for new/continue/edit/random buttons
         // if new and has continue, warning popup
         // random, popup to explain what it is

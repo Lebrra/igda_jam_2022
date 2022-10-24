@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    List<AnimalPart> headList = new List<AnimalPart>();
-    List<AnimalPart> bodyList = new List<AnimalPart>();
-    List<AnimalPart> legsList = new List<AnimalPart>();
-    List<AnimalPart> tailList = new List<AnimalPart>();
+    
     public void RandomizeBuild() {
 
-        int headIndex = Random.Range(0, headList.Count);
-        int bodyIndex = Random.Range(0, bodyList.Count);
-        int legsIndex = Random.Range(0, legsList.Count);
-        int tailIndex = Random.Range(0, tailList.Count);
+        int headIndex = Random.Range(0, CombatManager.instance.headList.Count);
+        int bodyIndex = Random.Range(0, CombatManager.instance.bodyList.Count);
+        int legsIndex = Random.Range(0, CombatManager.instance.legsList.Count);
+        int tailIndex = Random.Range(0, CombatManager.instance.tailList.Count);
 
-        UpdateAbility(headList[headIndex]);
-        UpdateAbility(bodyList[bodyIndex]);
-        UpdateAbility(legsList[legsIndex]);
-        UpdateAbility(tailList[tailIndex]);
+        UpdateAbility(CombatManager.instance.headList[headIndex]);
+        UpdateAbility(CombatManager.instance.bodyList[bodyIndex]);
+        UpdateAbility(CombatManager.instance.legsList[legsIndex]);
+        UpdateAbility(CombatManager.instance.tailList[tailIndex]);
 
         Debug.Log("Enemy has been randomized!");
     }

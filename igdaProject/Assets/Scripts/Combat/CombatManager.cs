@@ -1,26 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
     public Player player;
     public Enemy enemy;
 
-    List<AnimalPart> headList = new List<AnimalPart>();
-    List<AnimalPart> bodyList = new List<AnimalPart>();
-    List<AnimalPart> legsList = new List<AnimalPart>();
-    List<AnimalPart> tailList = new List<AnimalPart>();
+    [Header("Combat Preview")]
+    [SerializeField] Animator previewAnim;
+    [SerializeField] Button battleButton;
+    [SerializeField] Button backButton;
+
+    [Header("Combat Scene")]
+    [SerializeField] Animator combatAnim;
+
+    [Header("Body Part Lists")]
+    public List<AnimalPart> headList = new List<AnimalPart>();
+    public List<AnimalPart> bodyList = new List<AnimalPart>();
+    public List<AnimalPart> legsList = new List<AnimalPart>();
+    public List<AnimalPart> tailList = new List<AnimalPart>();
 
     private void Awake() {
         if (instance == null) instance = this;
         else Destroy(this);
     }
-    public void Start() {
+    private void Start() {
         InitializeLists();
+
+        battleButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(true));
+        backButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(false));
     }
 
+    public void OpenPreview() {
+        previewAnim.SetBool("Status", true);
+    }
+
+    public void ClosePreview() {
+        previewAnim.SetBool("Status", false);
+    }
+    public void OpenCombat() {
+        combatAnim.SetBool("Status", true);
+    }
+
+    public void CloseCombat() {
+        combatAnim.SetBool("Status", false);
+    }
     private void InitializeLists() {
         var animalPartList = Resources.LoadAll<AnimalPart>("Parts/Data/");
 
