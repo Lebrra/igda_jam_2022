@@ -123,8 +123,8 @@ public class MonsterMakerGenerator : MonoBehaviour
             print(InventoryManager.instance.getDict());
             foreach (KeyValuePair<string, bool> inst in InventoryManager.instance.getDict())
             {
-                if (inst.Key.Equals("redpanda_body"))
-                    break;
+                //if (inst.Key.Equals("redpanda_body"))
+                    //break;
                 if (inst.Value)
                 {
                     //print(inst);
