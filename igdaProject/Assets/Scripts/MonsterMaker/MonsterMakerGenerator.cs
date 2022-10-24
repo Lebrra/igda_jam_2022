@@ -16,16 +16,14 @@ public class MonsterMakerGenerator : MonoBehaviour
     GameObject body;
     [SerializeField]
     GameObject Leg;
-    AnimalPart[] partlist;
+    List<AnimalPart> partlist;
     Dictionary<string,AnimalPart> partListdict= new Dictionary<string, AnimalPart>();
     GameObject[] partObjectList;
-    Dictionary<string,AnimalPartUI> partListObjectDict = new Dictionary<string, AnimalPartUI>();
     Dictionary<string, Toggle> inventoryToggles = new Dictionary<string, Toggle>();
     [SerializeField]
     GameObject ButtonTemplate;
     public static MonsterMakerGenerator instance;
     bool isFirst = true;
-    Dictionary< string, bool> apple = new Dictionary<string, bool>();
     bool head1 = true;
     bool body1 = true;
     bool tail1 = true;
@@ -38,8 +36,8 @@ public class MonsterMakerGenerator : MonoBehaviour
     {
         thing = this.GetComponent<AnimalPrefabBuilder>();
         //thing.CreateAnimal(this.GetComponent<AnimalPrefabBuilder>().testAnimal);
-        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
-        partObjectList = Resources.LoadAll<GameObject>("Parts/Prefabs");
+        partlist = DataManager.instance.masterList;
+        
         bool done = false;
         isFirst = true;
         List<GameObject> toDelete = new List<GameObject>();
@@ -105,7 +103,7 @@ public class MonsterMakerGenerator : MonoBehaviour
     {
         try
         {
-            for (int i = 0; i < partlist.Length; i++)
+            for (int i = 0; i < partlist.Count; i++)
             {
                 if(!partListdict.ContainsKey(partlist[i].partData.id))
                 partListdict.Add(partlist[i].partData.id, partlist[i]);

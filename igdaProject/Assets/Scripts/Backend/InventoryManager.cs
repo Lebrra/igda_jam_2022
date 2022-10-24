@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
     bool GenerateDefaultInventory = false;
     [SerializeField]
     bool hasPart;
-    AnimalPart[] partlist;
+    List<AnimalPart> partlist;
     bool newGame = true;
     bool initalized = false;
 
@@ -90,8 +90,8 @@ public class InventoryManager : MonoBehaviour
     }
     private void getPartResource()
     {
-        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
-        for (int i = 0; i < partlist.Length; i++)
+        partlist = DataManager.instance.masterList;
+        for (int i = 0; i < partlist.Count; i++)
         {
             //Debug.Log(partlist[i]);
             partDict.Add(partlist[i].partData.id, hasPart);
@@ -104,8 +104,8 @@ public class InventoryManager : MonoBehaviour
 
     private void getDefaultPartResource()
     {
-        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
-        for (int i = 0; i < partlist.Length; i++)
+        partlist = DataManager.instance.masterList;
+        for (int i = 0; i < partlist.Count; i++)
         {
             //Debug.Log(partlist[i]);
             var animal = partlist[i].partData.animal.ToLower().Trim(' ');
