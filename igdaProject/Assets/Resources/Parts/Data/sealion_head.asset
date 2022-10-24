@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Sea Lion
     namePart: sea
     bodyPart: 0
-    abilityName: none
+    abilityName: Bark
     image: {fileID: -827873022, guid: faa2b5ed8e4cf8b489815f2923534d80, type: 3}

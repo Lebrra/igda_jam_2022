@@ -7,18 +7,18 @@ cat_head,Cat,Head,ca,House,Bite
 cat_body,Cat,Body,a,House,Box
 cat_legs,Cat,Legs,a,House,Claw Swipe
 cat_tail,Cat,Tail,at,House,Meow
-lion_head,Lion,Head,lio,Savana,Roar
-lion_body,Lion,Body,io,Savana,Heart of the Lion
-lion_legs,Lion,Legs,io,Savana,Claw Swipe
-lion_tail,Lion,Tail,on,Savana,Brave Tail
-elephant_head,Elephant,Head,ele,Savana,Charge
-elephant_body,Elephant,Body,epha,Savana,Sturdy
-elephant_legs,Elephant,Legs,epha,Savana,Stomp
-elephant_tail,Elephant,Tail,ephant,Savana,Elephant Tail
-hyena_head,Hyena,Head,hy,Savana,Cackle
-hyena_body,Hyena,Body,yen,Savana,Hunt in Three's
-hyena_legs,Hyena,Legs,yen,Savana,Claw Swipe
-hyena_tail,Hyena,Tail,na,Savana,Hyena Tail
+lion_head,Lion,Head,lio,Savanna,Roar
+lion_body,Lion,Body,io,Savanna,Heart of the Lion
+lion_legs,Lion,Legs,io,Savanna,Claw Swipe
+lion_tail,Lion,Tail,on,Savanna,Brave Tail
+elephant_head,Elephant,Head,ele,Savanna,Charge
+elephant_body,Elephant,Body,epha,Savanna,Sturdy
+elephant_legs,Elephant,Legs,epha,Savanna,Stomp
+elephant_tail,Elephant,Tail,ephant,Savanna,Elephant Tail
+hyena_head,Hyena,Head,hy,Savanna,Cackle
+hyena_body,Hyena,Body,yen,Savanna,Hunt in Three's
+hyena_legs,Hyena,Legs,yen,Savanna,Claw Swipe
+hyena_tail,Hyena,Tail,na,Savanna,Hyena Tail
 alligator_head,Alligator,Head,alli,Swamp,Chomp
 alligator_body,Alligator,Body,gato,Swamp,Thick Scales
 alligator_legs,Alligator,Legs,gato,Swamp,Stomp
@@ -87,10 +87,10 @@ polarbear_head,Polar Bear,Head,pola,Arctic,Bite
 polarbear_body,Polar Bear,Body,ar,Arctic,Big Bear Chase Me!
 polarbear_legs,Polar Bear,Legs,be,Arctic,Bear Hug
 polarbear_tail,Polar Bear,Tail,bear,Arctic,Bear Rage
-sealion_head,Sea Lion,Head,sea,Arctic,none
-sealion_body,Sea Lion,Body,ali,Arctic,none
-sealion_legs,Sea Lion,Legs,lio,Arctic,none
-sealion_tail,Sea Lion,Tail,lion,Arctic,none
+sealion_head,Sea Lion,Head,sea,Arctic,Bark
+sealion_body,Sea Lion,Body,ali,Arctic,Sturdy
+sealion_legs,Sea Lion,Legs,lio,Arctic,Slap
+sealion_tail,Sea Lion,Tail,lion,Arctic,Sea Lion Tail
 redpanda_head,Red Panda,Head,red,Jungle,Bite
 redpanda_body,Red Panda,Body,pa,Jungle,Cuteness
 redpanda_legs,Red Panda,Legs,pa,Jungle,Tickle
@@ -110,10 +110,10 @@ spinosarus_head,Spinosarus,Head,spin,Prehistoric,Bite
 spinosarus_body,Spinosarus,Body,osa,Prehistoric,Spinosaurus Sail
 spinosarus_legs,Spinosarus,Legs,ar,Prehistoric,Claw Swipe
 spinosarus_tail,Spinosarus,Tail,arus,Prehistoric,Tail Whip
-raptor_head,Raptor,Head,rap,Prehistoric,none
-raptor_body,Raptor,Body,apt,Prehistoric,none
-raptor_legs,Raptor,Legs,pto,Prehistoric,none
-raptor_tail,Raptor,Tail,tor,Prehistoric,none
+raptor_head,Raptor,Head,rap,Prehistoric,Bite
+raptor_body,Raptor,Body,apt,Prehistoric,Agile Hunter
+raptor_legs,Raptor,Legs,pto,Prehistoric,Claw Swipe
+raptor_tail,Raptor,Tail,tor,Prehistoric,Feathered Tail
 wyvern_head,Wyvern,Head,wyve,Fantasy,Fire Breath
 wyvern_body,Wyvern,Body,ve,Fantasy,Wyvern Wings
 wyvern_legs,Wyvern,Legs,ve,Fantasy,Claw Swipe
@@ -126,11 +126,14 @@ phoenix_head,Phoenix ,Head,phoe,Fantasy,Ember Beak
 phoenix_body,Phoenix ,Body,oe,Fantasy,From the Ashes
 phoenix_legs,Phoenix ,Legs,en,Fantasy,Wings of Fire
 phoenix_tail,Phoenix ,Tail,nix,Fantasy,Flaunt
-hornet_head,Hornet,Head,horn,Garden,none
-hornet_body,Hornet,Body,orn,Garden,none
-hornet_legs,Hornet,Legs,ne,Garden,none
-hornet_tail,Hornet,Tail,net,Garden,none
-isopod_head,Isopod,Head,,Garden,none
-isopod_body,Isopod,Body,,Garden,none
-isopod_legs,Isopod,Legs,,Garden,none
-isopod_tail,Isopod,Tail,,Garden,none
+hornet_head,Hornet,Head,horn,Garden,Hive Mind
+hornet_body,Hornet,Body,orn,Garden,Wing Slash
+hornet_legs,Hornet,Legs,ne,Garden,BZZ
+hornet_tail,Hornet,Tail,net,Garden,Sting
+isopod_head,Isopod,Head,iso,Garden,Bite
+isopod_body,Isopod,Body,so,Garden,Rolly Polly
+isopod_legs,Isopod,Legs,op,Garden,Lots of Legs
+isopod_tail,Isopod,Tail,opod,Garden,Isopod Tail
+beetle_head,Beetle,Head,beet,Garden,Bite
+beetle_body,Beetle,Body,et,Garden,Sturdy
+beetle_legs,Beetle,Legs,le,Garden,Charge

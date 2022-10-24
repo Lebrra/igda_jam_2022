@@ -39,6 +39,7 @@ public class DataImporter : Editor
         while (!sr.EndOfStream) {
             var line = sr.ReadLine().Split(',');
             for (int i = 0; i < line.Length; i++) line[i] = line[i].Trim(' ');
+            if (line[0] == "") continue;
             Ability.CreateAsset(ArrayToAbilityData(line));
         }
 
@@ -61,7 +62,7 @@ public class DataImporter : Editor
     }
 
     static Ability.AbilityData ArrayToAbilityData(string[] list) {
-        Ability.AbilityData d;
+        Ability.AbilityData d = new Ability.AbilityData();
 
         d.name = list[0];
         int.TryParse(list[1], out d.abilityCost);
@@ -73,6 +74,8 @@ public class DataImporter : Editor
         int.TryParse(list[7], out d.speed);
         int.TryParse(list[8], out d.crit);
         int.TryParse(list[9], out d.attack);
+        //bool.TryParse(list[10], out d.targetOpponent);
+        d.targetOpponent = list[10];
 
         return d;
     }

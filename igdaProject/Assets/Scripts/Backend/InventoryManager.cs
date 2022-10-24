@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
+    [SerializeField]
+    MonsterMakerGenerator generator;
     Dictionary<String, bool> partDict = new Dictionary<String, bool>();
     [SerializeField]
     bool Testing;
@@ -13,13 +17,27 @@ public class InventoryManager : MonoBehaviour
     bool GenerateDefaultInventory = false;
     [SerializeField]
     bool hasPart;
-    AnimalPart[] partlist;
+    List<AnimalPart> partlist;
     bool newGame = true;
+    bool initalized = false;
+
+    [SerializeField]
+    Button closeButton;
+    [SerializeField]
+    Button saveButton;
+    [SerializeField]
+    Animator anim;
+
     //Exportable as String for Save Data
     //Use String Methods with Comma as Delimiter
     // Start is called before the first frame update
-    void Awake()
+    public IEnumerator Initialize(string inventory)
     {
+        if (initalized) yield break;
+
+        if (saveButton) saveButton.onClick.AddListener(() => GameDirector.instance.CloseEditor(true));
+        if (closeButton) closeButton.onClick.AddListener(Close);
+
         if(instance == null)
         instance = this;
         else Destroy(this);
@@ -34,13 +52,19 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            productionFill();
+            //productionFill();
+            ConvertFromString(inventory);
         }
+        yield return null;
         if (!newGame)
         {
             //ConvertFromString(); // String gotten from
         }
         DontDestroyOnLoad(this);
+
+        yield return generator.Initialize();
+        initalized = true;
+
     }
     private void Update()
     {
@@ -66,8 +90,8 @@ public class InventoryManager : MonoBehaviour
     }
     private void getPartResource()
     {
-        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
-        for (int i = 0; i < partlist.Length; i++)
+        partlist = DataManager.instance.masterList;
+        for (int i = 0; i < partlist.Count; i++)
         {
             //Debug.Log(partlist[i]);
             partDict.Add(partlist[i].partData.id, hasPart);
@@ -80,8 +104,8 @@ public class InventoryManager : MonoBehaviour
 
     private void getDefaultPartResource()
     {
-        partlist = Resources.LoadAll<AnimalPart>("Parts/Data");
-        for (int i = 0; i < partlist.Length; i++)
+        partlist = DataManager.instance.masterList;
+        for (int i = 0; i < partlist.Count; i++)
         {
             //Debug.Log(partlist[i]);
             var animal = partlist[i].partData.animal.ToLower().Trim(' ');
@@ -112,9 +136,9 @@ public class InventoryManager : MonoBehaviour
         string[] strrr = str.ToString().Split(',');
         print(strrr.Length + "Strrrr Length");
         bool tf;
-        for (int i = 0; i < strrr.Length; i = i+2)
+        for (int i = 0; i < strrr.Length - 1; i = i+2)
         {
-            if (strrr[i + 1] == "true")
+            if (strrr[i + 1].ToLower() == "true")
                 tf = true;
             else
                 tf = false;
@@ -131,4 +155,36 @@ public class InventoryManager : MonoBehaviour
         return partDict;
     }
 
+
+    public void Open()
+    {
+        //load animal
+        anim.SetBool("Status", true);
+        generator.LoadAnimal(GameManager.instance.playerdata.GetActiveAnimal());
+    }
+
+    public void SaveAndClose()
+    {
+        // save animal
+        anim.SetBool("Status", false);
+        generator.CloseAnimal(true);
+    }
+
+    public void Close()
+    {
+        var popup = GameManager.instance.GeneralPopup;
+        popup.FillContent("You have unsaved changes!\nAre you sure you want to leave?",
+            () => {
+                GameDirector.instance.CloseEditor(false);
+                popup.Close();
+                },
+            popup.Close);
+        popup.Open();
+    }
+
+    public void ForceClose()
+    {
+        anim.SetBool("Status", false);
+        generator.CloseAnimal(false);
+    }
 }

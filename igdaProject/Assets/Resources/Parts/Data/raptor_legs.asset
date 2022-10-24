@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Raptor
     namePart: pto
     bodyPart: 2
-    abilityName: none
+    abilityName: Claw Swipe
     image: {fileID: -453869996, guid: ed3359cedc885a841960716e10162262, type: 3}

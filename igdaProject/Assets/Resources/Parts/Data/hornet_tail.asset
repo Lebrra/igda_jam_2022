@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Hornet
     namePart: net
     bodyPart: 3
-    abilityName: none
+    abilityName: Sting
     image: {fileID: -1962817360, guid: 09df5bf7f84bfc34689cd5c646633e15, type: 3}

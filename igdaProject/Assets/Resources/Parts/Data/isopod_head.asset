@@ -15,7 +15,7 @@ MonoBehaviour:
   partData:
     id: isopod_head
     animal: Isopod
-    namePart: 
+    namePart: iso
     bodyPart: 0
-    abilityName: none
-    image: {fileID: 0}
+    abilityName: Bite
+    image: {fileID: -1335402844, guid: e0e36c4c6e81cda46a0ea58e3b3de5d7, type: 3}

@@ -68,10 +68,11 @@ public class MainMenuManager : MonoBehaviour
         presetRight.onClick.AddListener(IncrementPreset);
 
         settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
-
+        randomButton.onClick.AddListener(() => GameDirector.instance.OpenCombatPreview());
         // TODO: button handling for new/continue/edit/random buttons
         // if new and has continue, warning popup
         // random, popup to explain what it is
+        editButton.onClick.AddListener(() => GameDirector.instance.OpenEditor());
     }
 
     public void Open()
@@ -138,21 +139,25 @@ public class MainMenuManager : MonoBehaviour
         animalBuilder.CreateAnimal(presets[index], true, true);
 
         // load tooltips
-        var animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].headID); // TODO: get descript from ability instead
-        headHeader.text = GetAnimalPartTerm(animalPart);
-        //headDesc.text = animalPart.partData.description;
+        var animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].headID);
+        var ability = animalPart.GetAbility();
+        headHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
+        headDesc.text = ability.abilityData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].bodyID);
-        bodyHeader.text = GetAnimalPartTerm(animalPart);
-        //bodyDesc.text = animalPart.partData.description;
+        ability = animalPart.GetAbility();
+        bodyHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
+        bodyDesc.text = ability.abilityData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].legsID);
-        legsHeader.text = GetAnimalPartTerm(animalPart);
-        //legsDesc.text = animalPart.partData.description;
+        ability = animalPart.GetAbility();
+        legsHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
+        legsDesc.text = ability.abilityData.description;
 
         animalPart = Resources.Load<AnimalPart>("Parts/Data/" + presets[index].tailID);
-        tailHeader.text = GetAnimalPartTerm(animalPart);
-        //tailDesc.text = animalPart.partData.description;
+        ability = animalPart.GetAbility();
+        tailHeader.text = GetAnimalPartTerm(animalPart) + " - " + ability.abilityData.name;
+        tailDesc.text = ability.abilityData.description;
     }
 
     string GetAnimalPartTerm(AnimalPart data)

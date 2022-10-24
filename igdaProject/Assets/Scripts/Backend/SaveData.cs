@@ -21,4 +21,10 @@ public class SaveData
     {
         return animalPresets[selectedPreset];
     }
+
+    public void SaveActiveAnimal(AnimalPartsObject animal)
+    {
+        animalPresets[selectedPreset] = animal;
+        GameManager.SaveData();
+    }
 }

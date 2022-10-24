@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour
     {
         SetLoadingScreen(true);
 
-        // TODO: load data here
-        yield return 0.7F;
+        yield return 0.7F;  // TODO: compare if loading took less time, if so then do this
+        yield return DataManager.instance.LoadAllData();
 
         GameDirector.instance.OpenMainMenu();
 

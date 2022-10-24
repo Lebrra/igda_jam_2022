@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Raptor
     namePart: tor
     bodyPart: 3
-    abilityName: none
+    abilityName: Feathered Tail
     image: {fileID: -1293025504, guid: ed3359cedc885a841960716e10162262, type: 3}

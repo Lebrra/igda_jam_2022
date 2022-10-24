@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609b9c2a3ff9a654886ffc0033d7453b, type: 3}
+  m_Name: bird of prey
+  m_EditorClassIdentifier: 
+  abilityData:
+    name: Bird of Prey
+    abilityCost: 4
+    description: Increase damage on next attack
+    type: 1
+    health: 0
+    mana: 0
+    dodge: 0
+    speed: 0
+    crit: 3
+    attack: 0
+    targetOpponent: FALSE

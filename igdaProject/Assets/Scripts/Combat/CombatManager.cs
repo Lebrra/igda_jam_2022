@@ -1,19 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class CombatManager : MonoBehaviour
 {
-
+    public static CombatManager instance;
     public Player player;
     public Enemy enemy;
-    public void Start() {
-        Invoke("InitializeCombat", 2);
+
+    [Header("Combat Preview")]
+    [SerializeField] Animator previewAnim;
+    [SerializeField] Button battleButton;
+    [SerializeField] Button backButton;
+    [SerializeField] AnimalPrefabBuilder enemyObjPreview;
+    [SerializeField] AnimalPrefabBuilder playerObjPreview;
+
+
+    [Header("Combat Scene")]
+    [SerializeField] Animator combatAnim;
+    [SerializeField] TextMeshProUGUI enemyName, playerName;
+    [SerializeField] AnimalPrefabBuilder enemyObj;
+    [SerializeField] AnimalPrefabBuilder playerObj;
+
+    
+
+    private void Awake() {
+        if (instance == null) instance = this;
+        else Destroy(this);
+    }
+    private void Start() {
+
+        battleButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(true));
+        backButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(false));
     }
 
-    private void InitializeCombat() {
+    public void OpenPreview() {
         enemy.RandomizeBuild();
+        previewAnim.SetBool("Status", true);
+        playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
+        enemyObjPreview.CreateAnimal(enemy.myData, true, true);
     }
+
+    public void ClosePreview() {
+        previewAnim.SetBool("Status", false);
+    }
+    public void OpenCombat() {
+        combatAnim.SetBool("Status", true);
+        playerObj.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
+        enemyObj.CreateAnimal(enemy.myData, true, true);
+    }
+
+    public void CloseCombat() {
+        combatAnim.SetBool("Status", false);
+    }
+    
+
+
+
     private void NewRound() {
         /*
          * DEFINITION OF ROUND
