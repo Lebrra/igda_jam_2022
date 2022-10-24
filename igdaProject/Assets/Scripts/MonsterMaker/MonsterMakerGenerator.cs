@@ -146,7 +146,7 @@ public class MonsterMakerGenerator : MonoBehaviour
     }
     public void UpdatePetParts(AnimalPart part)
     {
-
+        savePart(part);
         switch(part.partData.bodyPart)
         {
             case BodyPart.Body:
@@ -165,6 +165,15 @@ public class MonsterMakerGenerator : MonoBehaviour
                 Debug.Log("this doesn't exist");
                 break;
 
+        }
+    }
+    void savePart(AnimalPart part)
+    {
+        if (!InventoryManager.instance.getDict()[part.partData.id])
+        {
+            InventoryManager.instance.getDict()[part.partData.id] = !InventoryManager.instance.getDict()[part.partData.id];
+            string str = InventoryManager.instance.ConvertToString();
+            GameManager.instance.playerdata.inventoryStr = str;
         }
     }
     void instantiateButton(AnimalPart p, GameObject place)
