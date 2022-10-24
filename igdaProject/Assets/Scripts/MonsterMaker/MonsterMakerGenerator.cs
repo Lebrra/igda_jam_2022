@@ -115,7 +115,7 @@ public class MonsterMakerGenerator : MonoBehaviour
         }
 
     }
-    void Setup()
+    public void Setup()
     {
         try
         {
@@ -130,7 +130,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     //print(inst);
                     //if you have the part
                     string id = inst.Key;
-                    //if(partListdict.ContainsKey(id))
+                    if (partListdict.ContainsKey(id))
                     part = partListdict[id];
                     //if(partListObjectDict.ContainsKey(id))
                     //partUI = partListObjectDict[id];
@@ -146,7 +146,7 @@ public class MonsterMakerGenerator : MonoBehaviour
     }
     public void UpdatePetParts(AnimalPart part)
     {
-
+        savePart(part);
         switch(part.partData.bodyPart)
         {
             case BodyPart.Body:
@@ -167,10 +167,21 @@ public class MonsterMakerGenerator : MonoBehaviour
 
         }
     }
+    void savePart(AnimalPart part)
+    {
+        if (!InventoryManager.instance.getDict()[part.partData.id])
+        {
+            InventoryManager.instance.getDict()[part.partData.id] = !InventoryManager.instance.getDict()[part.partData.id];
+            string str = InventoryManager.instance.ConvertToString();
+            GameManager.instance.playerdata.inventoryStr = str;
+            GameManager.SaveData();
+        }
+    }
     void instantiateButton(AnimalPart p, GameObject place)
     {
         try
         {
+            if (inventoryToggles.ContainsKey(p.partData.id)) return;
             GameObject tmp = Instantiate(ButtonTemplate);
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();

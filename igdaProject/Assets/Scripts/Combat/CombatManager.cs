@@ -41,6 +41,8 @@ public class CombatManager : MonoBehaviour
 
     public void ClosePreview() {
         previewAnim.SetBool("Status", false);
+        playerObjPreview.DestroyAnimal();
+        enemyObjPreview.DestroyAnimal();
     }
     public void OpenCombat() {
         combatAnim.SetBool("Status", true);
@@ -50,6 +52,8 @@ public class CombatManager : MonoBehaviour
 
     public void CloseCombat() {
         combatAnim.SetBool("Status", false);
+        playerObj.DestroyAnimal();
+        enemyObj.DestroyAnimal();
     }
     
     public void Rest() {
