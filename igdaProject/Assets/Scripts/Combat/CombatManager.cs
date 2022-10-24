@@ -19,11 +19,8 @@ public class CombatManager : MonoBehaviour
 
     [Header("Combat Scene")]
     [SerializeField] Animator combatAnim;
-    [SerializeField] TextMeshProUGUI enemyName, playerName;
     [SerializeField] AnimalPrefabBuilder enemyObj;
     [SerializeField] AnimalPrefabBuilder playerObj;
-
-    
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -55,6 +52,18 @@ public class CombatManager : MonoBehaviour
         combatAnim.SetBool("Status", false);
     }
     
+    public void Rest() {
+
+    }
+
+    public void BasicBash() {
+
+    }
+
+    public void UseAbility(Ability a) {
+        
+    }
+
 
 
 
