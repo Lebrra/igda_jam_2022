@@ -6,7 +6,7 @@ public class Entity : MonoBehaviour
 {
 
     public AnimalPartsObject animal;
-
+    public string animalName;
     [Header("Stats")]
     [SerializeField] float healthDefault, manaDefault, dodgeDefault, speedDefault, critDefault, attackDefault;
 
