@@ -1,5 +1,6 @@
 using BeauRoutine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimalPrefabBuilder : MonoBehaviour
@@ -30,6 +31,8 @@ public class AnimalPrefabBuilder : MonoBehaviour
     bool partsTesting = false;
     [SerializeField]
     public AnimalPartsObject testAnimal;
+
+    Routine animator;
 
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
@@ -105,9 +108,10 @@ public class AnimalPrefabBuilder : MonoBehaviour
         legsFLPart.transform.SetAsLastSibling();    // 6
     }
 
-    public void CreateAnimal(AnimalPartsObject animal, bool animated = true, bool zeroOut = false)
+    public void CreateAnimal(AnimalPartsObject animal, bool animated = true, bool zeroOut = false, AnimationType anim = AnimationType.None)
     {
         partSwapper.Replace(CreateWithValidation(animal, animated, zeroOut));
+        partSwapper.OnComplete(() => SetAnimationState(anim));
     }
 
     public void ChangeBodyPart(string newpart)
@@ -137,6 +141,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
                 Debug.LogError($"Part {newpart} not found, cannot import. ");
                 return;
         }
+        partSwapper.OnComplete(() => SetAnimationState(AnimationType.Bob));
     }
 
     IEnumerator ChangeHead(string part)
@@ -167,7 +172,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         recreatedAnim.bodyID = part;
 
         yield return ShrinkDestroyAll();
-        CreateAnimal(recreatedAnim, true, true);
+        CreateAnimal(recreatedAnim, true, true, AnimationType.Bob);
         yield return GrowSpawnAll();
     }
 
@@ -263,6 +268,8 @@ public class AnimalPrefabBuilder : MonoBehaviour
 
     IEnumerator ShrinkDestroyObject(RectTransform obj, float duration = 0.2F)
     {
+        if (animator.Exists()) animator.Stop();
+        if (obj == null) yield break;
         yield return obj.ScaleTo(Vector2.zero, duration);
         Destroy(obj.gameObject);
     }
@@ -337,11 +344,124 @@ public class AnimalPrefabBuilder : MonoBehaviour
             if (testAnimal.legsID == "") testAnimal.legsID = newAnimal.legsID;
             if (testAnimal.tailID == "") testAnimal.tailID = newAnimal.tailID;
 
-            CreateAnimal(testAnimal, true, true);
+            CreateAnimal(testAnimal, true, true, AnimationType.Bob);
         }
         else if (easyTesting)
         {
-            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true);
+            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true, AnimationType.Bob);
         }
+    }
+
+    public void SetAnimationState(AnimationType anim)
+    {
+        Debug.Log("Setting animal animator to " + anim);
+        animator.Replace(SetAnimState(anim));
+    }
+
+    IEnumerator SetAnimState(AnimationType anim)
+    {
+        yield return new WaitUntil(() => IsTransitioning == false);
+        switch (anim)
+        {
+            case AnimationType.Bob: 
+                yield return AnimBodyBob();
+                break;
+            case AnimationType.HeadBob:
+                yield return AnimHeadBob();
+                break;
+            default:
+                yield return null;
+                break;
+        }
+    }
+
+    IEnumerator AnimAttack()
+    {
+        yield return 2F;
+
+        // don't use this
+        var anims = new List<IEnumerator>();
+        anims.Add(animalTransform.RotateTo(-75F, 1F, Axis.Z));
+        anims.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(-5F, 1F, Axis.Z));
+        anims.Add(headPart.GetComponent<RectTransform>().RotateTo(5F, 1F, Axis.Z));
+        anims.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(-5F, 1F, Axis.Z));
+        anims.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(-15F, 1F, Axis.Z));
+        anims.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(-15F, 1F, Axis.Z));
+        anims.Add(tailPart.GetComponent<RectTransform>().RotateTo(20F, 1F, Axis.Z));
+        yield return Routine.Combine(anims);
+        yield return 0.5F;
+        yield return legsFLPart.GetComponent<RectTransform>().RotateTo(-180F, 1.5F, Axis.Z);
+        yield return 0.3F;
+        yield return legsFLPart.GetComponent<RectTransform>().RotateTo(-20F, 0.2F, Axis.Z);
+        yield return 0.3F;
+        anims = new List<IEnumerator>();
+        anims.Add(animalTransform.RotateTo(0F, 1F, Axis.Z));
+        anims.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        anims.Add(headPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        anims.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        anims.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        anims.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        anims.Add(tailPart.GetComponent<RectTransform>().RotateTo(0F, 1F, Axis.Z));
+        yield return Routine.Combine(anims);
+    }
+
+    IEnumerator AnimBodyBob()
+    {
+        float dif = 7F;
+        float time = 0.5F;
+        var bodyRect = bodyPart.GetComponent<RectTransform>();
+        var bodyOriginalPos = bodyRect.position.y;
+        var headRect = headPart.GetComponent<RectTransform>();
+        var headOriginalPos = headRect.position.y;
+        var tailRect = tailPart.GetComponent<RectTransform>();
+        var tailOriginalPos = tailRect.position.y;
+        
+        while (true)
+        {
+            var bobs = new List<IEnumerator>();
+            bobs.Add(bodyRect.MoveTo(bodyOriginalPos + dif, time, Axis.Y));
+            bobs.Add(headRect.MoveTo(headOriginalPos + dif, time, Axis.Y));
+            bobs.Add(tailRect.MoveTo(tailOriginalPos + dif, time, Axis.Y));
+
+            //bobs.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(1F, time, Axis.Z));
+            //bobs.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(1F, time, Axis.Z));
+            //bobs.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(-1F, time, Axis.Z));
+            //bobs.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(-1F, time, Axis.Z));
+            yield return Routine.Combine(bobs);
+        
+            bobs = new List<IEnumerator>();
+            bobs.Add(bodyRect.MoveTo(bodyOriginalPos, time, Axis.Y));
+            bobs.Add(headRect.MoveTo(headOriginalPos, time, Axis.Y));
+            bobs.Add(tailRect.MoveTo(tailOriginalPos, time, Axis.Y));
+
+            //bobs.Add(legsFLPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsFRPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsBRPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            //bobs.Add(legsBLPart.GetComponent<RectTransform>().RotateTo(0F, time, Axis.Z));
+            yield return Routine.Combine(bobs);
+        }
+    }
+
+    IEnumerator AnimHeadBob()
+    {
+        while (true)
+        {
+            var bobs = new List<IEnumerator>();
+            bobs.Add(headPart.GetComponent<RectTransform>().RotateTo(2F, 0.3F, Axis.Z));
+            bobs.Add(tailPart.GetComponent<RectTransform>().RotateTo(-2F, 0.3F, Axis.Z));
+            yield return Routine.Combine(bobs);
+
+            bobs = new List<IEnumerator>();
+            bobs.Add(headPart.GetComponent<RectTransform>().RotateTo(-2F, 0.3F, Axis.Z));
+            bobs.Add(tailPart.GetComponent<RectTransform>().RotateTo(2F, 0.3F, Axis.Z));
+            yield return Routine.Combine(bobs);
+        }
+    }
+
+    public enum AnimationType
+    {
+        None,
+        HeadBob,
+        Bob
     }
 }
