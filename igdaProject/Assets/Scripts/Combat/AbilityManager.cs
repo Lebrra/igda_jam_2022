@@ -12,27 +12,28 @@ public class AbilityManager : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
-    public void UseAbility(string abilityName) {
-      
-        Invoke(abilityName, 1);
+    public void UseAbility(string abilityName, Entity target) {
+        this.target = target;
+        switch (abilityName) {
+            case "Rest": Rest(); break;
+            case "BasicBash": BasicBash(); break;
+            case "ClawSwipe": ClawSwipe(); break;
+        }
 
     }
 
-    private void Gobble() {
+    public void Rest() {
+        target.AffectMana(10);
+    }
+    public void BasicBash() {
+        target.AffectHealth(-5);
+    }
+    private void Bark() {
 
-        
-
+        target.AffectAttack(1);
+    }
+    private void ClawSwipe() {
+        target.AffectHealth((5 + target.attack) * -1f);
     }
 
-    private void Chomp() {
-
-    }
-
-    private void FireBreath() {
-
-    }
-
-    private void ToughSkin() {
-
-    }
 }
