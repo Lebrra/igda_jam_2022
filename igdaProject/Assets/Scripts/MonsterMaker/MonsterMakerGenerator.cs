@@ -206,6 +206,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     {
                         Debug.Log(p.name);
                         thing.ChangeBodyPart(p.partData.id);
+                        InventoryManager.instance.SetStat(p.partData.bodyPart, p.GetAbility());
                         //Routine.Start(NameGeneratorAsync());
                     }
                 }
@@ -228,7 +229,6 @@ public class MonsterMakerGenerator : MonoBehaviour
 
     public void LoadAnimal(AnimalPartsObject animal)
     {
-        // TODO: set toggle states without notify
         foreach (var toggle in inventoryToggles.Values) toggle.SetIsOnWithoutNotify(false);
         inventoryToggles[animal.headID].SetIsOnWithoutNotify(true);
         inventoryToggles[animal.bodyID].SetIsOnWithoutNotify(true);

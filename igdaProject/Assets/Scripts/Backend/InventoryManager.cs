@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,27 @@ public class InventoryManager : MonoBehaviour
     Button saveButton;
     [SerializeField]
     Animator anim;
+
+    [Header("Stats")]
+    [SerializeField]
+    EditorStat[] stats; // head = 0, body = 1, legs = 2, tail = 3 (set bonus = 4?)
+
+
+    [Serializable]
+    public struct EditorStat
+    {
+        public TextMeshProUGUI header;
+        public TextMeshProUGUI description;
+
+        public GameObject healthIcon;
+        public TextMeshProUGUI healthText;
+        public GameObject manaIcon;
+        public TextMeshProUGUI manaText;
+        public GameObject speedIcon;
+        public TextMeshProUGUI speedText;
+        public GameObject dodgeIcon;
+        public TextMeshProUGUI dodgeText;
+    }
 
     //Exportable as String for Save Data
     //Use String Methods with Comma as Delimiter
@@ -161,7 +183,18 @@ public class InventoryManager : MonoBehaviour
     {
         //load animal
         anim.SetBool("Status", true);
-        generator.LoadAnimal(GameManager.instance.playerdata.GetActiveAnimal());
+        var animal = GameManager.instance.playerdata.GetActiveAnimal();
+        generator.LoadAnimal(animal);
+
+        // set all stats
+        var partData = DataManager.instance.GetAnimalPart(animal.headID);
+        SetStat(partData.partData.bodyPart, partData.GetAbility());
+        partData = DataManager.instance.GetAnimalPart(animal.bodyID);
+        SetStat(partData.partData.bodyPart, partData.GetAbility());
+        partData = DataManager.instance.GetAnimalPart(animal.legsID);
+        SetStat(partData.partData.bodyPart, partData.GetAbility());
+        partData = DataManager.instance.GetAnimalPart(animal.tailID);
+        SetStat(partData.partData.bodyPart, partData.GetAbility());
     }
 
     public void SaveAndClose()
@@ -187,5 +220,47 @@ public class InventoryManager : MonoBehaviour
     {
         anim.SetBool("Status", false);
         generator.CloseAnimal(false);
+    }
+
+    public void SetStat(BodyPart part, Ability ability)
+    {
+        var stat = stats[(int)part];
+
+        stat.header.text = ability.abilityData.name + " - " + ability.abilityData.type;
+        stat.description.text = ability.abilityData.description;
+
+        stat.healthIcon.SetActive(false);
+        stat.manaIcon.SetActive(false);
+        stat.speedIcon.SetActive(false);
+        stat.dodgeIcon.SetActive(false);
+
+        if (ability.abilityData.type == AbilityType.passive)
+        {
+            // enable any icons
+            if (ability.abilityData.health != 0)
+            {
+                stat.healthIcon.SetActive(true);
+                var plus = ability.abilityData.health > 0 ? "+" : "";
+                stat.healthText.text = plus + ability.abilityData.health;
+            }
+            if (ability.abilityData.mana != 0)
+            {
+                stat.manaIcon.SetActive(true);
+                var plus = ability.abilityData.mana > 0 ? "+" : "";
+                stat.manaText.text = plus + ability.abilityData.mana;
+            }
+            if (ability.abilityData.speed != 0)
+            {
+                stat.speedIcon.SetActive(true);
+                var plus = ability.abilityData.speed > 0 ? "+" : "";
+                stat.speedText.text = plus + ability.abilityData.speed;
+            }
+            if (ability.abilityData.dodge != 0)
+            {
+                stat.dodgeIcon.SetActive(true);
+                var plus = ability.abilityData.dodge > 0 ? "+" : "";
+                stat.dodgeText.text = plus + ability.abilityData.dodge;
+            }
+        }
     }
 }
