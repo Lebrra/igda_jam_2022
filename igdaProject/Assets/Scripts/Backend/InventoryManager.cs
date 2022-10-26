@@ -48,6 +48,10 @@ public class InventoryManager : MonoBehaviour
         public TextMeshProUGUI speedText;
         public GameObject dodgeIcon;
         public TextMeshProUGUI dodgeText;
+        public GameObject dmgIcon;
+        public TextMeshProUGUI dmgText;
+        public GameObject critIcon;
+        public TextMeshProUGUI critText;
     }
 
     //Exportable as String for Save Data
@@ -233,6 +237,8 @@ public class InventoryManager : MonoBehaviour
         stat.manaIcon.SetActive(false);
         stat.speedIcon.SetActive(false);
         stat.dodgeIcon.SetActive(false);
+        stat.dmgIcon.SetActive(false);
+        stat.critIcon.SetActive(false);
 
         if (ability.abilityData.type == AbilityType.passive)
         {
@@ -260,6 +266,18 @@ public class InventoryManager : MonoBehaviour
                 stat.dodgeIcon.SetActive(true);
                 var plus = ability.abilityData.dodge > 0 ? "+" : "";
                 stat.dodgeText.text = plus + ability.abilityData.dodge;
+            }
+            if (ability.abilityData.attack != 0)
+            {
+                stat.dmgIcon.SetActive(true);
+                var plus = ability.abilityData.attack > 0 ? "+" : "";
+                stat.dmgText.text = plus + ability.abilityData.attack;
+            }
+            if (ability.abilityData.crit != 0)
+            {
+                stat.critIcon.SetActive(true);
+                var plus = ability.abilityData.crit > 0 ? "+" : "";
+                stat.critText.text = plus + ability.abilityData.crit;
             }
         }
     }
