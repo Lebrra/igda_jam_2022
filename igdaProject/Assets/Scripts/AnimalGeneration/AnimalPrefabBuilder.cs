@@ -202,33 +202,39 @@ public class AnimalPrefabBuilder : MonoBehaviour
             ShrinkDestroyObject(legsFRPart.GetComponent<RectTransform>()),
             ShrinkDestroyObject(legsBRPart.GetComponent<RectTransform>()));
 
+        // spawn legs
         legsFLPart = DataManager.instance.GetAnimalPartUI(part + "_FL");
         legsFLPart = Instantiate(legsFLPart, bodyPart.legFL);
         legsFLPart.FindMyPart(part);
-        legsFLPart.transform.SetParent(animalTransform);
-        legsFLPart.transform.SetSiblingIndex(5);
-        legsFLPart.transform.localScale = Vector2.zero;
 
         legsBLPart = DataManager.instance.GetAnimalPartUI(part + "_BL");
         legsBLPart = Instantiate(legsBLPart, bodyPart.legBL);
         legsBLPart.FindMyPart(part);
-        legsBLPart.transform.SetParent(animalTransform);
-        legsBLPart.transform.SetSiblingIndex(6);
-        legsBLPart.transform.localScale = Vector2.zero;
 
         legsFRPart = DataManager.instance.GetAnimalPartUI(part + "_FR");
         legsFRPart = Instantiate(legsFRPart, bodyPart.legFR);
         legsFRPart.FindMyPart(part);
-        legsFRPart.transform.SetParent(animalTransform);
-        legsFRPart.transform.SetSiblingIndex(0);
-        legsFRPart.transform.localScale = Vector2.zero;
 
         legsBRPart = DataManager.instance.GetAnimalPartUI(part + "_BR");
         legsBRPart = Instantiate(legsBRPart, bodyPart.legBR);
         legsBRPart.FindMyPart(part);
+
+        // position legs
         legsBRPart.transform.SetParent(animalTransform);
-        legsBRPart.transform.SetSiblingIndex(1);
+        legsBRPart.transform.SetAsFirstSibling();
         legsBRPart.transform.localScale = Vector2.zero;
+
+        legsFRPart.transform.SetParent(animalTransform);
+        legsFRPart.transform.SetAsFirstSibling();
+        legsFRPart.transform.localScale = Vector2.zero;
+
+        legsBLPart.transform.SetParent(animalTransform);
+        legsBLPart.transform.SetAsLastSibling();
+        legsBLPart.transform.localScale = Vector2.zero;
+
+        legsFLPart.transform.SetParent(animalTransform);
+        legsFLPart.transform.SetAsLastSibling();
+        legsFLPart.transform.localScale = Vector2.zero;
 
         yield return Routine.Combine(GrowSpawnObject(legsFLPart.GetComponent<RectTransform>()),
             GrowSpawnObject(legsBLPart.GetComponent<RectTransform>()),
