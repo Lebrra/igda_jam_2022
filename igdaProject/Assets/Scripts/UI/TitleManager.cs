@@ -36,6 +36,7 @@ public class TitleManager : MonoBehaviour
             // do the cool animal thing here
             var saveData = JSONEditor.JSONToData<SaveData>(GameManager.SAVE_NAME);
             carouselAnimals = saveData.animalPresets;
+            continueButton.gameObject.SetActive(true);
         }
         else
         {
@@ -82,7 +83,14 @@ public class TitleManager : MonoBehaviour
     void NewGame()
     {
         GameManager.instance.playerdata = defaultSave;
+        GameManager.instance.playerdata.inventoryStr = GameManager.DEFAULT_INVENTORY;
         GameManager.SaveData();
+        if (hasSave)
+        {
+            // reset inventory 
+            InventoryManager.instance.ConvertFromString(GameManager.DEFAULT_INVENTORY);
+            MonsterMakerGenerator.instance.Setup();
+        }
         LoadGame();
     }
 
@@ -94,6 +102,8 @@ public class TitleManager : MonoBehaviour
 
     IEnumerator CarouselAnimals()
     {
+        yield return 0.4F;
+
         int current = 0;
         while (true)
         {
@@ -101,13 +111,14 @@ public class TitleManager : MonoBehaviour
             {
                 // generate random from cat/dog
                 var animal = LevelGenerator.CreateOpponent(defaultAnimals);
-                animBuilder.CreateAnimal(animal, true, true);
+                animBuilder.CreateAnimal(animal, true, true, AnimalPrefabBuilder.AnimationType.HeadBob);
             }
             else
             {
                 // load preset
-                animBuilder.CreateAnimal(carouselAnimals[current], true, true);
+                animBuilder.CreateAnimal(carouselAnimals[current], true, true, AnimalPrefabBuilder.AnimationType.HeadBob);
             }
+            //animBuilder.SetAnimationState(AnimalPrefabBuilder.AnimationType.HeadBob);
 
             yield return 5F;
             current = (current + 1) % 3;

@@ -10,6 +10,6 @@ public class AnimalPartUI : MonoBehaviour
     public void FindMyPart(string myID)
     {
         id = myID;
-        myPart = Resources.Load<AnimalPart>("Parts/Data/" + id);
+        myPart = DataManager.instance.GetAnimalPart(id);
     }
 }

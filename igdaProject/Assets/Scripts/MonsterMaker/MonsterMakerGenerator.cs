@@ -115,7 +115,7 @@ public class MonsterMakerGenerator : MonoBehaviour
         }
 
     }
-    void Setup()
+    public void Setup()
     {
         try
         {
@@ -130,7 +130,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     //print(inst);
                     //if you have the part
                     string id = inst.Key;
-                    //if(partListdict.ContainsKey(id))
+                    if (partListdict.ContainsKey(id))
                     part = partListdict[id];
                     //if(partListObjectDict.ContainsKey(id))
                     //partUI = partListObjectDict[id];
@@ -174,12 +174,14 @@ public class MonsterMakerGenerator : MonoBehaviour
             InventoryManager.instance.getDict()[part.partData.id] = !InventoryManager.instance.getDict()[part.partData.id];
             string str = InventoryManager.instance.ConvertToString();
             GameManager.instance.playerdata.inventoryStr = str;
+            GameManager.SaveData();
         }
     }
     void instantiateButton(AnimalPart p, GameObject place)
     {
         try
         {
+            if (inventoryToggles.ContainsKey(p.partData.id)) return;
             GameObject tmp = Instantiate(ButtonTemplate);
             tmp.transform.parent = place.transform;
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
@@ -204,6 +206,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                     {
                         Debug.Log(p.name);
                         thing.ChangeBodyPart(p.partData.id);
+                        InventoryManager.instance.SetStat(p.partData.bodyPart, p.GetAbility());
                         //Routine.Start(NameGeneratorAsync());
                     }
                 }
@@ -226,14 +229,13 @@ public class MonsterMakerGenerator : MonoBehaviour
 
     public void LoadAnimal(AnimalPartsObject animal)
     {
-        // TODO: set toggle states without notify
         foreach (var toggle in inventoryToggles.Values) toggle.SetIsOnWithoutNotify(false);
         inventoryToggles[animal.headID].SetIsOnWithoutNotify(true);
         inventoryToggles[animal.bodyID].SetIsOnWithoutNotify(true);
         inventoryToggles[animal.legsID].SetIsOnWithoutNotify(true);
         inventoryToggles[animal.tailID].SetIsOnWithoutNotify(true);
 
-        thing.CreateAnimal(animal, true, true);
+        thing.CreateAnimal(animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
     }
 
     public void CloseAnimal(bool save)    // called when closed

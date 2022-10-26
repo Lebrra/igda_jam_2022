@@ -54,7 +54,9 @@ public class Ability : ScriptableObject
         return AbilityType.none;
     }
 
+    public virtual void UseAbility() {
 
+    }
 
 }
 

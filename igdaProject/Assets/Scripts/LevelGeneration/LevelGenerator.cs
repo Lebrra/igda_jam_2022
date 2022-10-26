@@ -47,13 +47,31 @@ public class LevelGenerator : MonoBehaviour
         randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
         newAnimal.legsID = biome.animalCodes[randomChosen] + "_legs";
 
-        string notFrog = "frog_tail";
-        while (notFrog == "frog_tail")
+        if (biome.animalCodes.Contains("frog"))
+        {
+            string notFrog = "frog_tail";
+            while (notFrog == "frog_tail")
+            {
+                randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
+                notFrog = biome.animalCodes[randomChosen] + "_tail";
+            }
+            newAnimal.tailID = notFrog;
+        }
+        else if (biome.animalCodes.Contains("beetle"))
+        {
+            string notBeetle = "beetle_tail";
+            while (notBeetle == "beetle_tail")
+            {
+                randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
+                notBeetle = biome.animalCodes[randomChosen] + "_tail";
+            }
+            newAnimal.tailID = notBeetle;
+        }
+        else
         {
             randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
-            notFrog = biome.animalCodes[randomChosen] + "_tail";
+            newAnimal.legsID = biome.animalCodes[randomChosen] + "_tail";
         }
-        newAnimal.tailID = notFrog;
 
         Debug.Log("Created new level");
         return newAnimal;

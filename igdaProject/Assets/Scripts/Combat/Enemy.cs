@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-
-    public AnimalPartsObject myData;
-
     public void RandomizeBuild() {
 
         int headIndex = Random.Range(0, DataManager.instance.headList.Count);
@@ -27,7 +24,12 @@ public class Enemy : Entity
 
         Debug.Log(a.headID + ", " + a.bodyID + ", " + a.legsID + ", " + a.tailID);
 
-        myData = a;
+        animal = a; //found in entity script;
     }
+
+    public void UseRandomAbility() {
+
+    }
+
 
 }

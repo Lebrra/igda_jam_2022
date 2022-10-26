@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 1616604201221556863}
   - component: {fileID: 5851807637660553476}
   m_Layer: 5
-  m_Name: pheonix_body
+  m_Name: phoenix_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

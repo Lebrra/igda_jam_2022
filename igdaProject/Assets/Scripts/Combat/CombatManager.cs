@@ -19,11 +19,20 @@ public class CombatManager : MonoBehaviour
 
     [Header("Combat Scene")]
     [SerializeField] Animator combatAnim;
-    [SerializeField] TextMeshProUGUI enemyName, playerName;
     [SerializeField] AnimalPrefabBuilder enemyObj;
     [SerializeField] AnimalPrefabBuilder playerObj;
+    [SerializeField] Button ability_one;
+    [SerializeField] Button ability_two;
+    [SerializeField] Button ability_three;
+    [SerializeField] Button ability_four;
+    [SerializeField] Button ability_rest;
+    [SerializeField] Button ability_basicBash;
 
-    
+
+
+    //in combat variables
+    List<Ability> playerAbilities = new List<Ability>();
+    List<Ability> enemyAbilities = new List<Ability>();
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -39,40 +48,84 @@ public class CombatManager : MonoBehaviour
         enemy.RandomizeBuild();
         previewAnim.SetBool("Status", true);
         playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
-        enemyObjPreview.CreateAnimal(enemy.myData, true, true);
+        enemyObjPreview.CreateAnimal(enemy.animal, true, true);
     }
 
     public void ClosePreview() {
         previewAnim.SetBool("Status", false);
+        playerObjPreview.DestroyAnimal();
+        enemyObjPreview.DestroyAnimal();
     }
+
+    /// <summary>
+    /// Starts Combat. Beginning of match. 
+    /// </summary>
     public void OpenCombat() {
+
+        player.animal = GameManager.instance.playerdata.GetActiveAnimal();
+        player.name = playerObj.NameGenerator(player.animal);
+        enemy.name = enemyObj.NameGenerator(enemy.animal);
+
+        InitializeCombat();
+
         combatAnim.SetBool("Status", true);
-        playerObj.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
-        enemyObj.CreateAnimal(enemy.myData, true, true);
+        playerObj.CreateAnimal(player.animal, true, true);
+        enemyObj.CreateAnimal(enemy.animal, true, true);
+
     }
 
     public void CloseCombat() {
         combatAnim.SetBool("Status", false);
+        playerObj.DestroyAnimal();
+        enemyObj.DestroyAnimal();
     }
     
+    public void InitializeCombat() {
+        GainPassiveStats(player);
+        //GainPassiveStats(enemy);
 
+        ability_rest.onClick.AddListener(() => AbilityManager.instance.UseAbility("Rest", player));
+        ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
+    }
 
+    private void GainPassiveStats(Entity entity) {
+        Debug.Log("Calling passive function");
+        entity.ResetStats();
+        entity.abilityList.Clear();
 
-    private void NewRound() {
-        /*
-         * DEFINITION OF ROUND
-         * - A round consists of both players determining their selected move to use.
-         * - These moves will occur during this time period known as a round. 
-         * 
-         * I need to first have both players select their move inside of a turn.
-         * After both moves are selected, the moves will occur in order of highest to lowest speed of each monster
-         * 
-         * IE: Pet A has 10 speed, Pet B has 3 speed. When the round begins, Pet A will go first. 
-         * - This means that if Pet A defeats Pet B during its move, Pet B's move will nullify. 
-         * - The importance of speed is to determine who gets to hit first, which can mean the difference in a match. 
-         * 
-         */
+        Ability ability1 = DataManager.instance.GetAnimalPart(entity.animal.headID).GetAbility();
+        Ability ability2 = DataManager.instance.GetAnimalPart(entity.animal.bodyID).GetAbility();
+        Ability ability3 = DataManager.instance.GetAnimalPart(entity.animal.legsID).GetAbility();
+        Ability ability4 = DataManager.instance.GetAnimalPart(entity.animal.tailID).GetAbility();
 
+        entity.abilityList.Add(ability1);
+        entity.abilityList.Add(ability2);
+        entity.abilityList.Add(ability3);
+        entity.abilityList.Add(ability4);
+
+        foreach(Ability a in entity.abilityList) {
+            if(a.abilityData.type == AbilityType.passive) {
+                entity.AffectHealth(a.abilityData.health);
+                entity.AffectMana(a.abilityData.mana);
+                entity.AffectSpeed(a.abilityData.speed);
+                entity.AffectDodge(a.abilityData.dodge);
+                entity.AffectCrit(a.abilityData.crit);
+                entity.AffectAttack(a.abilityData.attack);
+            }
+        }
+
+    }
+    public void UseAbility(Ability a) {
+        //when we use an ability, check speed differences
+        if(player.speed >= enemy.speed) {
+            //player will go first in turn order
+            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+            enemy.UseRandomAbility();
+        } else {
+            //enemy will go first in turn order
+            enemy.UseRandomAbility();
+            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+        }
     }
 
 }

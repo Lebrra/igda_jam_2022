@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2004571708009441044}
   - component: {fileID: 7180576002057321899}
   m_Layer: 5
-  m_Name: spino_legs_FR
+  m_Name: spinosarus_legs_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
