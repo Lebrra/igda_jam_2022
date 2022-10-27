@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
     public AnimalPartsObject animal;
     public string animalName;
     [Header("Stats")]
-    [SerializeField] float healthDefault, manaDefault, dodgeDefault, speedDefault, critDefault, attackDefault;
+    public float healthMax, manaMax, dodgeMax, speedMax, critMax, attackMax;
 
     public float health, mana, dodge, speed, crit, attack; //current values
 
@@ -66,12 +66,12 @@ public class Entity : MonoBehaviour
     }
 
     public void ResetStats() {
-        health = healthDefault;
-        mana = manaDefault;
-        dodge = dodgeDefault;
-        speed = speedDefault;
-        crit = critDefault;
-        attack = attackDefault;
+        health = healthMax;
+        mana = manaMax;
+        dodge = dodgeMax;
+        speed = speedMax;
+        crit = critMax;
+        attack = attackMax;
     }
 
 }

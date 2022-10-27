@@ -27,8 +27,10 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Button ability_four;
     [SerializeField] Button ability_rest;
     [SerializeField] Button ability_basicBash;
-
-
+    [SerializeField] Image playerHealthBar;
+    [SerializeField] Image enemyHealthBar;
+    [SerializeField] Image playerManaBar;
+    [SerializeField] Image enemyManaBar;
 
     //in combat variables
     List<Ability> playerAbilities = new List<Ability>();
@@ -79,7 +81,7 @@ public class CombatManager : MonoBehaviour
         playerObj.DestroyAnimal();
         enemyObj.DestroyAnimal();
     }
-    
+
     public void InitializeCombat() {
         GainPassiveStats(player);
         //GainPassiveStats(enemy);
@@ -88,6 +90,70 @@ public class CombatManager : MonoBehaviour
         ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
     }
 
+    /// <summary>
+    /// When a pet is dealt damage, this will change the UI of their healthbar.
+    /// </summary>
+    public void DealtDamage(Entity entity, float amount) {
+        if(entity == player) {
+
+        
+            StartCoroutine(UIHealthbarScaler(entity, playerHealthBar, player.health, amount));
+        } else {
+
+         
+            StartCoroutine(UIHealthbarScaler(entity, enemyHealthBar, enemy.health, amount));
+        }
+    }
+
+    public void SpentMana(Entity entity, float amount) {
+        if (entity == player) {
+
+        
+            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, amount));
+        }
+        else {
+
+           
+            StartCoroutine(UIManabarScaler(enemyManaBar, enemy.mana, amount));
+        }
+    }
+
+    private IEnumerator UIHealthbarScaler(Entity e, Image healthBar, float currentHealth, float amount) {
+        var i = 0f;
+        float speed = 4f;
+        float targetHealth = currentHealth - amount;
+        while(i < 1) {
+            i += Time.deltaTime * speed;
+            healthBar.fillAmount = Mathf.Lerp((currentHealth / 100), (targetHealth / 100), i);
+            yield return null;
+        }
+
+        if(currentHealth <= GainPercentage(e, 60) && currentHealth >= GainPercentage(e, 20)) {
+            // #f5cd79
+            healthBar.color = new Color32(245, 205, 121, 255);
+        } else if (currentHealth < GainPercentage(e, 20)) {
+            //#e66767
+            healthBar.color = new Color32(230, 103, 103, 255);
+        }
+
+    }
+
+    private IEnumerator UIManabarScaler(Image manaBar, float currentMana, float amount) {
+        var i = 0f;
+        float speed = 4f;
+        float targetMana = currentMana - amount;
+        while (i < 1) {
+            i += Time.deltaTime * speed;
+            manaBar.fillAmount = Mathf.Lerp((currentMana / 100), (targetMana / 100), i);
+            yield return null;
+        }
+    }
+
+    private float GainPercentage(Entity entity, float num) {
+        var h = entity.healthMax;
+
+        return h * ( num / 100);
+    }
     private void GainPassiveStats(Entity entity) {
         Debug.Log("Calling passive function");
         entity.ResetStats();

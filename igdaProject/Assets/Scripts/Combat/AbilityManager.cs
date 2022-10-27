@@ -56,6 +56,7 @@ public class AbilityManager : MonoBehaviour
     }
     public void BasicBash() {
         target.AffectHealth(-5);
+        CombatManager.instance.DealtDamage(target, 5);
     }
     
     public void ClawSwipe() {
