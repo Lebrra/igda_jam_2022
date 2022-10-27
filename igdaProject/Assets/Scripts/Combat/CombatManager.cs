@@ -33,8 +33,6 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Image enemyManaBar;
 
     //in combat variables
-    List<Ability> playerAbilities = new List<Ability>();
-    List<Ability> enemyAbilities = new List<Ability>();
     [SerializeField] TextMeshProUGUI combatText;
     private void Awake() {
         if (instance == null) instance = this;
@@ -88,10 +86,13 @@ public class CombatManager : MonoBehaviour
 
         ability_rest.onClick.AddListener(() => AbilityManager.instance.UseAbility("Rest", player));
         ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
-        button_ability_one.onClick.AddListener(() => UseAbility(playerAbilities[0]));
-        button_ability_two.onClick.AddListener(() => UseAbility(playerAbilities[1]));
-        button_ability_three.onClick.AddListener(() => UseAbility(playerAbilities[2]));
-        button_ability_four.onClick.AddListener(() => UseAbility(playerAbilities[3]));
+        button_ability_one.onClick.AddListener(() => UseAbility(player.abilityList[0]));
+        button_ability_two.onClick.AddListener(() => UseAbility(player.abilityList[1]));
+        button_ability_three.onClick.AddListener(() => UseAbility(player.abilityList[2]));
+        button_ability_four.onClick.AddListener(() => UseAbility(player.abilityList[3]));
+
+        
+
     }
 
     /// <summary>
@@ -100,7 +101,6 @@ public class CombatManager : MonoBehaviour
     public void DealtDamage(Entity entity, float amount) {
         if(entity == player) {
 
-        
             StartCoroutine(UIHealthbarScaler(entity, playerHealthBar, player.health, amount));
         } else {
 
@@ -131,6 +131,8 @@ public class CombatManager : MonoBehaviour
             healthBar.fillAmount = Mathf.Lerp((currentHealth / 100), (targetHealth / 100), i);
             yield return null;
         }
+        Debug.Log(e.animalName + "took " + amount + " damage!");
+        e.AffectHealth(-amount);
 
         if(currentHealth <= GainPercentage(e, 60) && currentHealth >= GainPercentage(e, 20)) {
             // #f5cd79
@@ -159,24 +161,28 @@ public class CombatManager : MonoBehaviour
         return h * ( num / 100);
     }
     private void GainPassiveStats(Entity entity) {
-        Debug.Log("Calling passive function");
+       // Debug.Log("Calling passive function");
         
         entity.abilityList.Clear();
+        entity.useableAbilityList.Clear();
 
         Ability ability1 = DataManager.instance.GetAnimalPart(entity.animal.headID).GetAbility();
         Ability ability2 = DataManager.instance.GetAnimalPart(entity.animal.bodyID).GetAbility();
         Ability ability3 = DataManager.instance.GetAnimalPart(entity.animal.legsID).GetAbility();
         Ability ability4 = DataManager.instance.GetAnimalPart(entity.animal.tailID).GetAbility();
 
-        entity.abilityList.Add(ability1);
-        entity.abilityList.Add(ability2);
-        entity.abilityList.Add(ability3);
-        entity.abilityList.Add(ability4);
+        entity.abilityList.Add(ability1); if (ability1.abilityData.type != AbilityType.passive) entity.useableAbilityList.Add(ability1);
+        entity.abilityList.Add(ability2); if (ability2.abilityData.type != AbilityType.passive) entity.useableAbilityList.Add(ability2);
+        entity.abilityList.Add(ability3); if (ability3.abilityData.type != AbilityType.passive) entity.useableAbilityList.Add(ability3);
+        entity.abilityList.Add(ability4); if (ability4.abilityData.type != AbilityType.passive) entity.useableAbilityList.Add(ability4);
 
-        button_ability_one.GetComponentInChildren<TextMeshProUGUI>().text = ability1.abilityData.name;
-        button_ability_two.GetComponentInChildren<TextMeshProUGUI>().text = ability2.abilityData.name;
-        button_ability_three.GetComponentInChildren<TextMeshProUGUI>().text = ability3.abilityData.name;
-        button_ability_four.GetComponentInChildren<TextMeshProUGUI>().text = ability4.abilityData.name;
+        if (entity == player) {
+            button_ability_one.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[0].abilityData.name;
+            button_ability_two.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[1].abilityData.name;
+            button_ability_three.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[2].abilityData.name;
+            button_ability_four.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[3].abilityData.name;
+        }
+        
 
         foreach (Ability a in entity.abilityList) {
             if(a.abilityData.type == AbilityType.passive) {
@@ -214,14 +220,42 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator TurnOne(Entity entity, Ability a) {
 
+        Entity opponent;
         var i = 0f;
         float speed = 0.2f;
-        if(entity == player) 
-            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
-        else 
-            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? player : enemy);
+        if (entity == player) {
 
-        combatText.text = entity.animalName = " used " + a.abilityData.name + "!";
+            if(a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
+                AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+            } else if(a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
+                AbilityManager.instance.UseAbility(a.abilityData.name, player);
+            }
+
+            //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+
+
+            combatText.text = player.animalName + " used " + a.abilityData.name + "!";
+
+            opponent = enemy;
+        }
+        else {
+            var enemyAbility = enemy.GetRandomAbility();
+            if (enemyAbility != null) {
+                if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                }
+                else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                }
+            }
+            else {
+                AbilityManager.instance.UseAbility("BasicBash", player);
+            }
+
+            combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
+
+            opponent = player;
+        }
 
         while(i < 1f) {
             i += Time.deltaTime * speed;
@@ -239,9 +273,60 @@ public class CombatManager : MonoBehaviour
         }
 
 
-        //StartCoroutine(TurnTwo());
+        StartCoroutine(TurnTwo(opponent, a));
     }
 
+    public IEnumerator TurnTwo(Entity entity, Ability a) {
+        var i = 0f;
+        float speed = 0.2f;
+        if (entity == player) {
 
+            if (a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
+                AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+            }
+            else if (a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
+                AbilityManager.instance.UseAbility(a.abilityData.name, player);
+            }
+
+            //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+
+
+            combatText.text = player.animalName + " used " + a.abilityData.name + "!";
+
+        }
+        else {
+            var enemyAbility = enemy.GetRandomAbility();
+            if(enemyAbility != null) {
+                if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                }
+                else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                }
+            } else {
+                AbilityManager.instance.UseAbility("BasicBash", player);
+            }
+            
+            combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
+
+        }
+
+
+
+        while (i < 1f) {
+            i += Time.deltaTime * speed;
+            yield return null;
+        }
+
+        if (player.health <= 0) {
+            //player died
+
+        }
+
+        if (enemy.health <= 0) {
+            //enemy died
+
+        }
+    }
     
 }

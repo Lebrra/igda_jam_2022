@@ -33,9 +33,6 @@ public class Enemy : Entity
         animal = a; //found in entity script;
     }
 
-    public void UseRandomAbility() {
-
-    }
-
+    
 
 }
