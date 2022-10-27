@@ -65,7 +65,7 @@ public class Entity : MonoBehaviour
         attack += num;
     }
 
-    public void ResetStats() {
+    public void ResetStatsToMax() {
         health = healthMax;
         mana = manaMax;
         dodge = dodgeMax;

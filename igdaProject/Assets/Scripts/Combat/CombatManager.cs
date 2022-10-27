@@ -84,7 +84,7 @@ public class CombatManager : MonoBehaviour
 
     public void InitializeCombat() {
         GainPassiveStats(player);
-        //GainPassiveStats(enemy);
+        GainPassiveStats(enemy);
 
         ability_rest.onClick.AddListener(() => AbilityManager.instance.UseAbility("Rest", player));
         ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
@@ -156,7 +156,7 @@ public class CombatManager : MonoBehaviour
     }
     private void GainPassiveStats(Entity entity) {
         Debug.Log("Calling passive function");
-        entity.ResetStats();
+        
         entity.abilityList.Clear();
 
         Ability ability1 = DataManager.instance.GetAnimalPart(entity.animal.headID).GetAbility();
@@ -171,15 +171,16 @@ public class CombatManager : MonoBehaviour
 
         foreach(Ability a in entity.abilityList) {
             if(a.abilityData.type == AbilityType.passive) {
-                entity.AffectHealth(a.abilityData.health);
-                entity.AffectMana(a.abilityData.mana);
-                entity.AffectSpeed(a.abilityData.speed);
-                entity.AffectDodge(a.abilityData.dodge);
-                entity.AffectCrit(a.abilityData.crit);
-                entity.AffectAttack(a.abilityData.attack);
+                entity.healthMax = 100 + (a.abilityData.health);
+                entity.manaMax = 100 + (a.abilityData.mana);
+                entity.speedMax = 50 + (a.abilityData.speed);
+                entity.dodgeMax = 20 + (a.abilityData.dodge);
+                entity.critMax = (a.abilityData.crit);
+                entity.attackMax = 5 + (a.abilityData.attack);
             }
         }
 
+        entity.ResetStatsToMax();
     }
     public void UseAbility(Ability a) {
         //when we use an ability, check speed differences
