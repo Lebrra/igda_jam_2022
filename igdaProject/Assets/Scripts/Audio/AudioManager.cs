@@ -6,6 +6,8 @@ using BeauRoutine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager audioManager;
+
     public AudioSource clipAudioSource;
     public AudioSource musicAudioSource;
     [SerializeField]
@@ -17,12 +19,28 @@ public class AudioManager : MonoBehaviour
     float volume;
     float maxVolume;
     float minVolume;
+
     [System.Serializable]
     public struct SoundClips
     {
         public string clipName;
         public AudioClip audioClip;
     }
+
+    private void Awake()
+    {
+        if (audioManager == null)
+        {
+            audioManager = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         volume = musicAudioSource.volume;
