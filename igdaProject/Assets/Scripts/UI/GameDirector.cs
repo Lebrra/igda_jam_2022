@@ -124,6 +124,14 @@ public class GameDirector : MonoBehaviour
         levelMan.LoadLevel();
     }
 
+    public void OpenPreviewFromLevel(AnimalPartsObject opponent)
+    {
+        // LevelMan handles delay there
+
+        // set opponent
+        combatMan.OpenPreview();
+    }
+
 
     public IEnumerator LoadingStuff()
     {
