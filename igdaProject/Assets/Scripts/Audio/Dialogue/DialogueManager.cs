@@ -25,7 +25,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
-
+    [SerializeField]
+    GameObject tutorialPanelInner;
+    [SerializeField]
+    GameObject TutorialPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,7 @@ public class DialogueManager : MonoBehaviour
         if (starttheTutorial)
         {
             starttheTutorial = false;
+            tutorialPanelInner.GetComponent<Animator>().SetBool("Status", true);
             EnterDialogueMode();
         }
         
@@ -124,6 +128,8 @@ public class DialogueManager : MonoBehaviour
                 case "TutorialDone":
                     ExitDialogueMode();
                     Tutorial = false;
+                    tutorialPanelInner.GetComponent<Animator>().SetBool("Status", false);
+                    TutorialPanel.SetActive(false);
                     break;
             }
         }
