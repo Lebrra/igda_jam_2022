@@ -120,7 +120,7 @@ public class GameDirector : MonoBehaviour
     IEnumerator DelayOpenLevel()
     {
         CloseMainMenu();
-        yield return 0.5f;
+        yield return 0.8f;
         levelMan.LoadLevel();
     }
 

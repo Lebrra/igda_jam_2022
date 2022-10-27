@@ -16,3 +16,6 @@ MonoBehaviour:
   - lion
   - elephant
   - hyena
+  color:
+    serializedVersion: 2
+    rgba: 4286172661

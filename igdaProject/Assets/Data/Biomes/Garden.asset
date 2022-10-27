@@ -16,3 +16,6 @@ MonoBehaviour:
   - hornet
   - isopod
   - beetle
+  color:
+    serializedVersion: 2
+    rgba: 4282284739

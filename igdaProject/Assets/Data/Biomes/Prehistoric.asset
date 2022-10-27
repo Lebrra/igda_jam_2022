@@ -16,3 +16,6 @@ MonoBehaviour:
   - tapejara
   - spinosarus
   - raptor
+  color:
+    serializedVersion: 2
+    rgba: 4282474465

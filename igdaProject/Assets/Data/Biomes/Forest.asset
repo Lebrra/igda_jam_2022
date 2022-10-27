@@ -16,3 +16,6 @@ MonoBehaviour:
   - fox
   - turkey
   - badger
+  color:
+    serializedVersion: 2
+    rgba: 4283093689

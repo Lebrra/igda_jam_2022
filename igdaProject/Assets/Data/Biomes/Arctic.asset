@@ -16,3 +16,6 @@ MonoBehaviour:
   - moose
   - polarbear
   - sealion
+  color:
+    serializedVersion: 2
+    rgba: 4294760913
