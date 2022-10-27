@@ -14,9 +14,6 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     List<StageContainer> allStages;
 
-    [SerializeField]
-    LevelData testLevel;
-
     public LevelData GenerateNewLevel()
     {
         LevelData newLevel = new LevelData();
@@ -75,11 +72,6 @@ public class LevelGenerator : MonoBehaviour
 
         Debug.Log("Created new level");
         return newAnimal;
-    }
-
-    private void Start()
-    {
-        testLevel = GenerateNewLevel();
     }
 }
 
