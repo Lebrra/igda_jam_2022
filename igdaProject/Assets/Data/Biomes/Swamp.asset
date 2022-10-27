@@ -16,3 +16,6 @@ MonoBehaviour:
   - alligator
   - tapir
   - manatee
+  color:
+    serializedVersion: 2
+    rgba: 4286543918

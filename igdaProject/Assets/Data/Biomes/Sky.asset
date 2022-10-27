@@ -16,3 +16,6 @@ MonoBehaviour:
   - cardinal
   - hawk
   - booby
+  color:
+    serializedVersion: 2
+    rgba: 4292529507

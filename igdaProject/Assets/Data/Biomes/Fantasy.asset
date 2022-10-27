@@ -16,3 +16,6 @@ MonoBehaviour:
   - wyvern
   - unicorn
   - phoenix
+  color:
+    serializedVersion: 2
+    rgba: 4290946552

@@ -16,3 +16,6 @@ MonoBehaviour:
   - shark
   - turtle
   - clownfish
+  color:
+    serializedVersion: 2
+    rgba: 4293225812

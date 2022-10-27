@@ -16,3 +16,6 @@ MonoBehaviour:
   - goat
   - snowleopard
   - ram
+  color:
+    serializedVersion: 2
+    rgba: 4285882969

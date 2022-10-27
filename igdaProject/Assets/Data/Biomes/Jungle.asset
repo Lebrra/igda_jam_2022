@@ -16,3 +16,6 @@ MonoBehaviour:
   - redpanda
   - lemur
   - frog
+  color:
+    serializedVersion: 2
+    rgba: 4283611218

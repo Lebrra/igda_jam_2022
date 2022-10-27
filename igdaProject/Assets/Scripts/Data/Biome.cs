@@ -6,6 +6,7 @@ using UnityEngine;
 public class Biome : ScriptableObject
 {
     public List<string> animalCodes;
+    public Color32 color;
 
     public List<AnimalPartsObject> GetAllAnimalParts()
     {
