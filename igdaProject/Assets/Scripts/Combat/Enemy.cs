@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+
+    public void BuildAnimal(AnimalPartsObject a) {
+        Debug.Log(a.headID + ", " + a.bodyID + ", " + a.legsID + ", " + a.tailID);
+        animal = a;
+    }
+
     public void RandomizeBuild() {
 
         int headIndex = Random.Range(0, DataManager.instance.headList.Count);
