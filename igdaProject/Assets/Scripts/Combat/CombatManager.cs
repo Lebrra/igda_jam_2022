@@ -21,10 +21,10 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Animator combatAnim;
     [SerializeField] AnimalPrefabBuilder enemyObj;
     [SerializeField] AnimalPrefabBuilder playerObj;
-    [SerializeField] Button ability_one;
-    [SerializeField] Button ability_two;
-    [SerializeField] Button ability_three;
-    [SerializeField] Button ability_four;
+    [SerializeField] Button button_ability_one;
+    [SerializeField] Button button_ability_two;
+    [SerializeField] Button button_ability_three;
+    [SerializeField] Button button_ability_four;
     [SerializeField] Button ability_rest;
     [SerializeField] Button ability_basicBash;
     [SerializeField] Image playerHealthBar;
@@ -35,7 +35,7 @@ public class CombatManager : MonoBehaviour
     //in combat variables
     List<Ability> playerAbilities = new List<Ability>();
     List<Ability> enemyAbilities = new List<Ability>();
-
+    [SerializeField] TextMeshProUGUI combatText;
     private void Awake() {
         if (instance == null) instance = this;
         else Destroy(this);
@@ -65,8 +65,8 @@ public class CombatManager : MonoBehaviour
     public void OpenCombat() {
 
         player.animal = GameManager.instance.playerdata.GetActiveAnimal();
-        player.name = playerObj.NameGenerator(player.animal);
-        enemy.name = enemyObj.NameGenerator(enemy.animal);
+        player.animalName = playerObj.NameGenerator(player.animal);
+        enemy.animalName = enemyObj.NameGenerator(enemy.animal);
 
         InitializeCombat();
 
@@ -88,6 +88,10 @@ public class CombatManager : MonoBehaviour
 
         ability_rest.onClick.AddListener(() => AbilityManager.instance.UseAbility("Rest", player));
         ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
+        button_ability_one.onClick.AddListener(() => UseAbility(playerAbilities[0]));
+        button_ability_two.onClick.AddListener(() => UseAbility(playerAbilities[1]));
+        button_ability_three.onClick.AddListener(() => UseAbility(playerAbilities[2]));
+        button_ability_four.onClick.AddListener(() => UseAbility(playerAbilities[3]));
     }
 
     /// <summary>
@@ -169,7 +173,12 @@ public class CombatManager : MonoBehaviour
         entity.abilityList.Add(ability3);
         entity.abilityList.Add(ability4);
 
-        foreach(Ability a in entity.abilityList) {
+        button_ability_one.GetComponentInChildren<TextMeshProUGUI>().text = ability1.abilityData.name;
+        button_ability_two.GetComponentInChildren<TextMeshProUGUI>().text = ability2.abilityData.name;
+        button_ability_three.GetComponentInChildren<TextMeshProUGUI>().text = ability3.abilityData.name;
+        button_ability_four.GetComponentInChildren<TextMeshProUGUI>().text = ability4.abilityData.name;
+
+        foreach (Ability a in entity.abilityList) {
             if(a.abilityData.type == AbilityType.passive) {
                 entity.healthMax = 100 + (a.abilityData.health);
                 entity.manaMax = 100 + (a.abilityData.mana);
@@ -186,13 +195,53 @@ public class CombatManager : MonoBehaviour
         //when we use an ability, check speed differences
         if(player.speed >= enemy.speed) {
             //player will go first in turn order
-            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
-            enemy.UseRandomAbility();
+            //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+            //enemy.UseRandomAbility();
+
+            StartCoroutine(TurnOne(player, a));
+
         } else {
             //enemy will go first in turn order
-            enemy.UseRandomAbility();
-            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+           // enemy.UseRandomAbility();
+            //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+
+            StartCoroutine(TurnOne(enemy, a));
         }
+
+
     }
 
+
+    public IEnumerator TurnOne(Entity entity, Ability a) {
+
+        var i = 0f;
+        float speed = 0.2f;
+        if(entity == player) 
+            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
+        else 
+            AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? player : enemy);
+
+        combatText.text = entity.animalName = " used " + a.abilityData.name + "!";
+
+        while(i < 1f) {
+            i += Time.deltaTime * speed;
+            yield return null;
+        }
+
+        if(player.health <= 0) {
+            //player died
+            
+        }
+
+        if(enemy.health <= 0) {
+            //enemy died
+            
+        }
+
+
+        //StartCoroutine(TurnTwo());
+    }
+
+
+    
 }

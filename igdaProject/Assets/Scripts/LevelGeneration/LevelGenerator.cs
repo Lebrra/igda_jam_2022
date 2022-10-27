@@ -17,19 +17,24 @@ public class LevelGenerator : MonoBehaviour
     public LevelData GenerateNewLevel()
     {
         LevelData newLevel = new LevelData();
-        newLevel.selectedStages = new List<Biome>();
+        newLevel.selectedStages = new List<string>();
         for (int i = 0; i < allStages.Count; i++)
         {
             int randomSelect = UnityEngine.Random.Range(0, allStages[i].stages.Count);
-            newLevel.selectedStages.Add(allStages[i].stages[randomSelect]);
+            newLevel.selectedStages.Add(BiomeToString(allStages[i].stages[randomSelect]));
         }
 
-        newLevel.currentGeneratedOpponent = CreateOpponent(newLevel.selectedStages[0]);
+        newLevel.currentGeneratedOpponent = CreateOpponent(StringToBiome(newLevel.selectedStages[0]));
         newLevel.currentStage = 0;
         newLevel.currentMatch = 0;
         newLevel.activeRun = true;
 
         return newLevel;
+    }
+
+    public AnimalPartsObject CreateOpponent(string biome)
+    {
+        return CreateOpponent(StringToBiome(biome));
     }
 
     public static AnimalPartsObject CreateOpponent(Biome biome)
@@ -73,13 +78,34 @@ public class LevelGenerator : MonoBehaviour
         Debug.Log("Created new level");
         return newAnimal;
     }
+
+    public Biome StringToBiome(string biomeStr)
+    {
+        foreach (var stages in allStages)
+        {
+            foreach (var biome in stages.stages)
+            {
+                if (biome.name.ToLower() == biomeStr)
+                {
+                    return biome;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public string BiomeToString(Biome biome)
+    {
+        return biome.name.ToString().ToLower();
+    }
 }
 
 [System.Serializable]
 public struct LevelData
 {
     public bool activeRun;
-    public List<Biome> selectedStages;
+    public List<string> selectedStages;
     public AnimalPartsObject currentGeneratedOpponent;
     public int currentStage;
     public int currentMatch;    // if round == 2 then BOSS

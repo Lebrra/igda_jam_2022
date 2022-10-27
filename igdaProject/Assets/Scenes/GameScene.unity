@@ -4612,6 +4612,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -34.897186
       objectReference: {fileID: 0}
+    - target: {fileID: 5752259698298575942, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
 --- !u!114 &1963418053 stripped
@@ -7708,7 +7712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6436969e2c27ab34f9587fa5fbc4ee8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGen: {fileID: 0}
+  levelGen: {fileID: 2070676027}
 --- !u!4 &2070676026
 Transform:
   m_ObjectHideFlags: 0
