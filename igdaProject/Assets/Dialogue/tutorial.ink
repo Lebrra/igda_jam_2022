@@ -10,15 +10,18 @@ Professor: Welcome to the lab!
 
 === My_Choices ===
 Are you Ready to get started or would you like me to run you through the basics?
- + [Please guide me senpai!] ->TutorialBegin
- + I can figure it out on my own.
- + Please repeat. ->My_Choices
- - Are you sure?
- +yes
- +no ->My_Choices
- - Okay, good luck intern!
- - Try not to get a papercut.
- - KEKEKEKEKE!
++ [Please guide me senpai!] ->TutorialBegin
++ [I can figure it out on my own.] ->AskAgain
+ 
+ ===AskAgain===
+ Are you sure?
+ +[yes] ->theEnding
+ +[no] ->My_Choices
+ 
+ ===theEnding===
+  Okay, good luck intern!
+  Try not to get a papercut.
+  KEKEKEKEKE!
  #TutorialDone
  ->END
 
@@ -45,13 +48,16 @@ But be careful intern try not to take on more than you can handle. We only have 
 ->END
 
 =research
-#creationPanel
+#openerPanel
 First please, take a look at that magnifying glass.
+#closeOpener
+#creatureCreationPanel
 You will be able to click that and pick between the <b>4</b> different body parts.
 The <b>Head</b>, the <b>Legs</b>, the <b>Body</b> and the <b>Tail</b>.
 You will find many different 
 Mix and match to your hearts content.
 The possibilities are endless!
+#closeAll
 Would you like to hear about anything else?
 ->Tutorial
 =combat
