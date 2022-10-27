@@ -55,56 +55,68 @@ public class AbilityManager : MonoBehaviour
         target.AffectMana(10);
     }
     public void BasicBash() {
-        target.AffectHealth(-5);
+       // target.AffectHealth(-5);
         CombatManager.instance.DealtDamage(target, 5);
     }
     
     public void ClawSwipe() {
-        target.AffectHealth((5 + target.attack) * -1f);
+       // target.AffectHealth((5 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (5 + target.attack));
     }
 
     public void Chomp() {
-        target.AffectHealth((4 + target.attack) * -1f);
+       // target.AffectHealth((4 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (4 + target.attack));
     }
 
     public void Peck() {
-        target.AffectHealth((2 + target.attack) * -1f);
+     //   target.AffectHealth((2 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (2 + target.attack));
     }
 
     public void Bite() {
-        target.AffectHealth((3 + target.attack) * -1f);
+       // target.AffectHealth((3 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (3 + target.attack));
     }
 
     public void FireBreath() {
-        target.AffectHealth((7 + target.attack) * -1f);
+      //  target.AffectHealth((7 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (7 + target.attack));
     }
 
     public void Stomp() {
-        target.AffectHealth((4 + target.attack) * -1f);
+      //  target.AffectHealth((4 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (4 + target.attack));
     }
 
     public void Kick() {
-        target.AffectHealth((3 + target.attack) * -1f);
+      //  target.AffectHealth((3 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (3 + target.attack));
     }
 
     public void Slap() {
-        target.AffectHealth((2 + target.attack) * -1f);
+       // target.AffectHealth((2 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (2 + target.attack));
     }
 
     public void WingSlash() {
-        target.AffectHealth((4 + target.attack) * -1f);
+       // target.AffectHealth((4 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (4 + target.attack));
     }
 
     public void Sting() {
-        target.AffectHealth((2 + target.attack) * -1f);
+       // target.AffectHealth((2 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (2 + target.attack));
     }
 
     public void RollyPolly() {
-        target.AffectHealth((5 + target.attack) * -1f);
+        //target.AffectHealth((5 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (5 + target.attack));
     }
 
     public void RainbowBeam() {
-        target.AffectHealth((30 + target.attack) * -1f);
+        //target.AffectHealth((30 + target.attack) * -1f);
+        CombatManager.instance.DealtDamage(target, (30 + target.attack));
     }
 
     #endregion

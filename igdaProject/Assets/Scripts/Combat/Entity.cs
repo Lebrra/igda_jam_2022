@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour
 
     [Header("Ability Names")]
     public List<Ability> abilityList = new List<Ability>();
-    
+    public List<Ability> useableAbilityList = new List<Ability>();
 
 
     /// <summary>
@@ -72,6 +72,13 @@ public class Entity : MonoBehaviour
         speed = speedMax;
         crit = critMax;
         attack = attackMax;
+    }
+
+    public Ability GetRandomAbility() {
+        if (useableAbilityList.Count == 0) return null;
+
+        int rand = Random.Range(0, useableAbilityList.Count);
+        return useableAbilityList[rand];
     }
 
 }
