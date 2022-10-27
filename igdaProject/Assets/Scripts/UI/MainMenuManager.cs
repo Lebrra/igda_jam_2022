@@ -62,7 +62,7 @@ public class MainMenuManager : MonoBehaviour
     TextMeshProUGUI speedStat;
     [SerializeField]
     TextMeshProUGUI dodgeStat;
-
+    [Space]
     [SerializeField]
     AnimalPrefabBuilder animalBuilder;
 
@@ -79,10 +79,11 @@ public class MainMenuManager : MonoBehaviour
 
         settingsButton.onClick.AddListener(() => GameDirector.instance.OpenSettings());
         randomButton.onClick.AddListener(() => GameDirector.instance.OpenCombatPreview());
-        // TODO: button handling for new/continue/edit/random buttons
+        // TODO: button handling for new/continue buttons
         // if new and has continue, warning popup
-        // random, popup to explain what it is
         editButton.onClick.AddListener(() => GameDirector.instance.OpenEditor());
+        newLevelButton.onClick.AddListener(NewLevel);
+        continueButton.onClick.AddListener(ContinueLevel);
     }
 
     public void Open()
@@ -216,5 +217,38 @@ public class MainMenuManager : MonoBehaviour
         manaStat.text = mana.ToString();
         speedStat.text = speed.ToString();
         dodgeStat.text = dodge.ToString();
+    }
+
+    public void NewLevel()
+    {
+        if (runActive)
+        {
+            // popup
+            var popup = GameManager.instance.GeneralPopup;
+            popup.FillContent("Starting a new level will delete your progress on the currently save one, are you sure?", () => {
+                GameDirector.instance.OpenLevel(true);
+                popup.Close();
+            }, popup.Close);
+            popup.Open();
+        }
+        else
+        {
+            // no popup
+            GameDirector.instance.OpenLevel(true);
+        }
+    }
+
+    public void ContinueLevel()
+    {
+        if (!runActive)
+        {
+            Debug.LogError("Tried to continue a game but there isn't one!");
+            continueButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            // no popup
+            GameDirector.instance.OpenLevel(false);
+        }
     }
 }

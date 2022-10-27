@@ -20,6 +20,9 @@ public class GameDirector : MonoBehaviour
     InventoryManager inventoryMan;
     [SerializeField]
     CombatManager combatMan;
+    [SerializeField]
+    LevelManager levelMan;
+
     private void Awake()
     {
         if (instance) Destroy(instance);
@@ -105,6 +108,20 @@ public class GameDirector : MonoBehaviour
 
     IEnumerator DelayCloseCombat() {
         yield return 0.5f;
+    }
+
+    public void OpenLevel(bool newLevel)
+    {
+        if (newLevel) levelMan.NewLevel();
+        else levelMan.ContinueLevel();
+
+        Routine.Start(DelayOpenLevel());
+    }
+    IEnumerator DelayOpenLevel()
+    {
+        CloseMainMenu();
+        yield return 0.5f;
+        levelMan.LoadLevel();
     }
 
 
