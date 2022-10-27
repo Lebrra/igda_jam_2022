@@ -197,7 +197,11 @@ public class MainMenuManager : MonoBehaviour
                 break;
         }
 
-        return "Back to Battle\n" + currentRun.selectedStages[currentRun.currentStage].name + ": " + match;
+        string biome = currentRun.selectedStages[currentRun.currentStage];
+        var firstcharacter = biome.ToCharArray()[0].ToString().ToUpper();
+        biome = firstcharacter + biome.Substring(1);
+
+        return "Back to Battle\n" + biome + ": " + match;
     }
 
     void SetStats(Ability[] abilities)
