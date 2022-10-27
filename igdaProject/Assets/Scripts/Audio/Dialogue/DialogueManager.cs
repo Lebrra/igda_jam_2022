@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
 { 
     [Header("Dialogue UI")]
     [SerializeField] private TextAsset inkAsset;
+    [SerializeField] private TextAsset tutorialScript;
+    [SerializeField] private TextAsset FactScript;
     static DialogueManager instance;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField]
@@ -29,6 +31,12 @@ public class DialogueManager : MonoBehaviour
     GameObject tutorialPanelInner;
     [SerializeField]
     GameObject TutorialPanel;
+    [SerializeField]
+    GameObject baseGamePanel;
+    [SerializeField]
+    GameObject creationPanel;
+    [SerializeField]
+    GameObject battlePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +58,6 @@ public class DialogueManager : MonoBehaviour
             choicesText[idex] = choice.GetComponentInChildren<TextMeshProUGUI>();
             idex++;
         }
-        
-        print(choicesText.Length);
-        /*
-        if (Tutorial)
-        {
-            Routine.Start(startTutorial());
-        }*/
         
     }
     /*
@@ -84,6 +85,7 @@ public class DialogueManager : MonoBehaviour
         if (starttheTutorial)
         {
             starttheTutorial = false;
+            inkAsset = tutorialScript;
             tutorialPanelInner.GetComponent<Animator>().SetBool("Status", true);
             EnterDialogueMode();
         }
@@ -123,15 +125,48 @@ public class DialogueManager : MonoBehaviour
         if (tags.Count > 0)
         {
             int index = 0;
-            switch(tags[index++])
-            {
-                case "TutorialDone":
-                    ExitDialogueMode();
-                    Tutorial = false;
-                    tutorialPanelInner.GetComponent<Animator>().SetBool("Status", false);
-                    TutorialPanel.SetActive(false);
-                    break;
-            }
+            foreach(string tag in tags)
+                switch (tags[index++])
+                {
+                    case "TutorialDone":
+                        ExitDialogueMode();
+                        Tutorial = false;
+                        tutorialPanelInner.GetComponent<Animator>().SetBool("Status", false);
+                        TutorialPanel.SetActive(false);
+                        inkAsset = FactScript;
+                        break;
+                    case "openerPanel":
+                        if(baseGamePanel != null)
+                        {
+                            baseGamePanel.SetActive(true);
+                        }
+                        break;
+                    case "closeOpener":
+                        if (baseGamePanel != null)
+                        {
+                            baseGamePanel.SetActive(false);
+                        }
+                        break;
+                    case "creatureCreationPanel":
+                        if(creationPanel != null)
+                        creationPanel.SetActive(true);
+                        break;
+                    case "closeAll":
+                        if (baseGamePanel != null)
+                            baseGamePanel.SetActive(false);
+                        if (creationPanel != null)
+                            creationPanel.SetActive(false);
+                        if(battlePanel != null)
+                            battlePanel.SetActive(false);
+                        break;
+                    case "combatPanel":
+                        if (battlePanel != null)
+                            battlePanel.SetActive(true);
+                        break;
+                    case "talk":
+                        break;
+
+                }
         }
     }
     public void EnterDialogueMode()
