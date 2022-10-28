@@ -49,15 +49,23 @@ public class AudioManager : MonoBehaviour
         playBackgroundMusic();
     }
 
-    public void MuteAudio()
+    public void MuteSfx()
     {
         clipAudioSource.mute = true;
+    }
+
+    public void MuteMusic()
+    {
         musicAudioSource.mute = true;
     }
 
-    public void UnMuteAudio()
+    public void UnMuteSfx()
     {
         clipAudioSource.mute = false;
+    }
+
+    public void UnMuteMusic()
+    {
         musicAudioSource.mute = false;
     }
 

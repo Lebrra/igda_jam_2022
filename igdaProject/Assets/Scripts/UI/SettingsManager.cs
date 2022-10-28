@@ -49,10 +49,20 @@ public class SettingsManager : MonoBehaviour
     void SetSFX(bool enabled)
     {
         GameManager.instance.playerdata.sfxEnabled = enabled;
+
+        if(enabled)
+            AudioManager.audioManager.MuteSfx();
+        else
+            AudioManager.audioManager.UnMuteSfx();
     }
 
     void SetMusic(bool enabled)
     {
         GameManager.instance.playerdata.musicEnabled = enabled;
+
+        if (enabled)
+            AudioManager.audioManager.MuteMusic();
+        else
+            AudioManager.audioManager.UnMuteMusic();
     }
 }

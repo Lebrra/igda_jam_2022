@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Claw swipe
     abilityCost: 3
-    description: Swipe with your claw dealing 5 Damage.
+    description: Swipe with your claw dealing 7 Damage.
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
-    crit: 5
+    crit: 7
     attack: 0
     targetOpponent: TRUE
