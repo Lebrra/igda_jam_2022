@@ -27,4 +27,16 @@ public class SaveData
         animalPresets[selectedPreset] = animal;
         GameManager.SaveData();
     }
+
+    public List<Ability> GetAllAbilities()
+    {
+        List<Ability> abilities = new List<Ability>();
+        var animal = GetActiveAnimal();
+        abilities.Add(DataManager.instance.GetAnimalPart(animal.headID).GetAbility());
+        abilities.Add(DataManager.instance.GetAnimalPart(animal.bodyID).GetAbility());
+        abilities.Add(DataManager.instance.GetAnimalPart(animal.legsID).GetAbility());
+        abilities.Add(DataManager.instance.GetAnimalPart(animal.tailID).GetAbility());
+
+        return abilities;
+    }
 }

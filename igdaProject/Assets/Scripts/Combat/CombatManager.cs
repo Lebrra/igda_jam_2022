@@ -18,6 +18,11 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Button backButton;
     [SerializeField] AnimalPrefabBuilder enemyObjPreview;
     [SerializeField] AnimalPrefabBuilder playerObjPreview;
+    [Header("Stats")]
+    [SerializeField] TextMeshProUGUI healthStat;
+    [SerializeField] TextMeshProUGUI manaStat;
+    [SerializeField] TextMeshProUGUI speedStat;
+    [SerializeField] TextMeshProUGUI dodgeStat;
 
 
     [Header("Combat Scene")]
@@ -66,6 +71,26 @@ public class CombatManager : MonoBehaviour
         previewAnim.SetBool("Status", true);
         playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true, AnimalPrefabBuilder.AnimationType.Bob);
         enemyObjPreview.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
+        SetStats(GameManager.instance.playerdata.GetAllAbilities().ToArray());
+    }
+
+    void SetStats(Ability[] abilities)
+    {
+        int health = GameManager.BASE_HEALTH;
+        int mana = GameManager.BASE_MANA;
+        int speed = GameManager.BASE_SPEED;
+        int dodge = GameManager.BASE_DODGE;
+        foreach (var ability in abilities)
+        {
+            health += ability.abilityData.health;
+            mana += ability.abilityData.mana;
+            speed += ability.abilityData.speed;
+            dodge += ability.abilityData.dodge;
+        }
+        healthStat.text = health.ToString();
+        manaStat.text = mana.ToString();
+        speedStat.text = speed.ToString();
+        dodgeStat.text = dodge.ToString();
     }
 
     public void ClosePreview() {
