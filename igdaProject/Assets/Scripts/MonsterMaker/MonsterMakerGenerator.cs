@@ -246,6 +246,7 @@ public class MonsterMakerGenerator : MonoBehaviour
 
     public bool DoIHaveThis(string part)
     {
-        return partListdict.ContainsKey(part);
+        Debug.Log("Do I have this: " + part);
+        return inventoryToggles.ContainsKey(part);
     }
 }

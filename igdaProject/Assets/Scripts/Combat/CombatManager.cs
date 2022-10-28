@@ -451,6 +451,7 @@ public class CombatManager : MonoBehaviour
                         clickBlocker.SetActive(false);
                     }, "Sounds Good!");
                     itemPopup.Open();
+                    MonsterMakerGenerator.instance.UpdatePetParts(DataManager.instance.GetAnimalPart(newPart));
                 }
 
                 GameManager.instance.IncrementProgression();

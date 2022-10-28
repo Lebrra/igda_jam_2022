@@ -68,7 +68,7 @@ public class GenericPopupLogic : MonoBehaviour
         promptText.text = prompt;
 
         yesButton.gameObject.SetActive(true);
-        noButton.gameObject.SetActive(false);
+        if (noButton) noButton.gameObject.SetActive(false);
         yesButton.onClick.RemoveAllListeners();
         if (endAction != null) yesButton.onClick.AddListener(() => endAction());
         else yesButton.onClick.AddListener(Close);
