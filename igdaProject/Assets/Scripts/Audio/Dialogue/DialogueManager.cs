@@ -36,12 +36,16 @@ public class DialogueManager : MonoBehaviour
     GameObject creationPanel;
     [SerializeField]
     GameObject battlePanel;
+    [SerializeField]
+    bool dialogueScene;
     // Start is called before the first frame update
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else Destroy(this);
+        if(dialogueScene)
+        Routine.Start(initializeDialogue());
     }
     public IEnumerator initializeDialogue()
     {
@@ -163,7 +167,21 @@ public class DialogueManager : MonoBehaviour
                         if (battlePanel != null)
                             battlePanel.SetActive(true);
                         break;
-                    case "talk":
+                    case "mumble":
+                        if (AudioManager.audioManager != null)
+                        {
+
+
+                            int i = Random.Range(0, 1);
+                            if (i == 0)
+                                AudioManager.audioManager.playSoundClip("Mumble1", 1);
+                            else
+                                AudioManager.audioManager.playSoundClip("Mumble3", 1);
+                        }
+                        break;
+                    case "mumbleAngry":
+                        if (AudioManager.audioManager != null)
+                            AudioManager.audioManager.playSoundClip("Mumble2", 1);
                         break;
 
                 }
