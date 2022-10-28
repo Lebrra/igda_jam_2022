@@ -104,7 +104,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (!song.Equals(null))
                 {
-                    musicAudioSource.PlayOneShot(song.audioClip);
+                    musicAudioSource.PlayOneShot(song.audioClip, .1f);
                     //Routine.Start(playWithFade(song));
                     yield return new WaitForSeconds(song.audioClip.length);
                     //Routine.Stop("playWithFade");
@@ -122,7 +122,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (!song.Equals(null))
                 {
-                    musicAudioSource.PlayOneShot(song.audioClip);
+                    musicAudioSource.PlayOneShot(song.audioClip, .1f);
                     //Routine.Start(playWithFade(song));
                     yield return new WaitForSeconds(song.audioClip.length);
                     //Routine.Stop("playWithFade");
