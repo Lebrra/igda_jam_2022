@@ -226,9 +226,17 @@ public class CombatManager : MonoBehaviour
 
         if (entity == player) {
             button_ability_one.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[0].abilityData.name;
+            if (entity.abilityList[0].abilityData.type == AbilityType.passive) button_ability_one.interactable = false;
+            else button_ability_one.interactable = true;
             button_ability_two.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[1].abilityData.name;
+            if (entity.abilityList[1].abilityData.type == AbilityType.passive) button_ability_two.interactable = false;
+            else button_ability_two.interactable = true;
             button_ability_three.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[2].abilityData.name;
+            if (entity.abilityList[2].abilityData.type == AbilityType.passive) button_ability_three.interactable = false;
+            else button_ability_three.interactable = true;
             button_ability_four.GetComponentInChildren<TextMeshProUGUI>().text = entity.abilityList[3].abilityData.name;
+            if (entity.abilityList[3].abilityData.type == AbilityType.passive) button_ability_four.interactable = false;
+            else button_ability_four.interactable = true;
         }
         
 
@@ -467,6 +475,7 @@ public class CombatManager : MonoBehaviour
                 popup.Open();
 
                 GameManager.instance.playerdata.currentLevel.activeRun = false;
+                GameManager.SaveData();
             }
         }
         else
