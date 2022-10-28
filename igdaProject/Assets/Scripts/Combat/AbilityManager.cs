@@ -14,39 +14,41 @@ public class AbilityManager : MonoBehaviour
 
     public void UseAbility(string abilityName, Entity target) {
         this.target = target;
+        abilityName = abilityName.Replace(" ", "").ToLower();
         switch (abilityName) {
-            case "Rest": Rest(); break;
-            case "BasicBash": BasicBash(); break;
-            case "ClawSwipe": ClawSwipe(); break;
+            case "rest": Rest(); break;
+            case "basicbash": BasicBash(); break;
+            case "clawswipe": ClawSwipe(); break;
 
-            case "Chomp": Chomp(); break;
-            case "Peck": Peck(); break;
-            case "Bite": Bite(); break;
-            case "FireBreath": FireBreath(); break;
-            case "Stomp": Stomp(); break;
-            case "Kick": Kick(); break;
-            case "Slap": Slap(); break;
-            case "WingSlash": WingSlash(); break;
-            case "Sting": Sting(); break;
-            case "RollyPolly": RollyPolly(); break;
-            case "RainbowBeam": RainbowBeam(); break;
+            case "chomp": Chomp(); break;
+            case "peck": Peck(); break;
+            case "bite": Bite(); break;
+            case "firebreath": FireBreath(); break;
+            case "stomp": Stomp(); break;
+            case "kick": Kick(); break;
+            case "slap": Slap(); break;
+            case "wingslash": WingSlash(); break;
+            case "sting": Sting(); break;
+            case "rollypolly": RollyPolly(); break;
+            case "rainbowbeam": RainbowBeam(); break;
 
-            case "SoothingSong": SoothingSong(); break;
-            case "Roar": Roar(); break;
-            case "SharkBait": SharkBait(); break;
-            case "TurtleShield": TurtleShield(); break;
-            case "TongueLash": TongueLash(); break;
-            case "MagicHorn": MagicHorn(); break;
-            case "Jump": Jump(); break;
-            case "GoodJoke": GoodJoke(); break;
+            case "soothingsong": SoothingSong(); break;
+            case "roar": Roar(); break;
+            case "sharkbait": SharkBait(); break;
+            case "turtleshield": TurtleShield(); break;
+            case "tonguelash": TongueLash(); break;
+            case "magichorn": MagicHorn(); break;
+            case "jump": Jump(); break;
+            case "goodjoke": GoodJoke(); break;
             case "Flaunt": Flaunt(); break;
-            case "BirdOfPrey": BirdOfPrey(); break;
-            case "FromTheAshes": FromTheAshes(); break;
-            case "BearHug": BearHug(); break;
-            case "Bark": Bark(); break;
-            case "Cackle": Cackle(); break;
-            case "TailWhip": TailWhip(); break;
-            case "Tickle": Tickle(); break;
+            case "birdofprey": BirdOfPrey(); break;
+            case "fromtheashes": FromTheAshes(); break;
+            case "bearhug": BearHug(); break;
+            case "bark": Bark(); break;
+            case "cackle": Cackle(); break;
+            case "tailwhip": TailWhip(); break;
+            case "tickle": Tickle(); break;
+            default: Debug.LogError("Ability not found! " + abilityName); break;
         }
 
     }
