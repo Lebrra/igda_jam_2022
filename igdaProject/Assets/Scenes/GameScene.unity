@@ -783,6 +783,7 @@ MonoBehaviour:
         tailID: 
       currentStage: 0
       currentMatch: 0
+    runsComplete: 0
 --- !u!1 &334467632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,9 +5158,11 @@ MonoBehaviour:
         tailID: 
       currentStage: 0
       currentMatch: 0
+    runsComplete: 0
   Tutorial: 1
   GeneralPopup: {fileID: 540652273}
   LoadingScreen: {fileID: 1516675925}
+  showCompletedPopup: 0
 --- !u!4 &1770889448
 Transform:
   m_ObjectHideFlags: 0
@@ -8708,19 +8711,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allStages:
   - stages:
-    - {fileID: 11400000, guid: 20f16c877bec68643a96821b570f4bb7, type: 2}
+    - {fileID: 11400000, guid: 6d55d28add46737479f0062455bff7ce, type: 2}
     - {fileID: 11400000, guid: b9ebcf205eb71fc478ee39547167cd1f, type: 2}
   - stages:
     - {fileID: 11400000, guid: d2b58a1b1709b004b82dedd8fe3ec837, type: 2}
     - {fileID: 11400000, guid: 3060ccaeaf892244b862960ded0c8d6c, type: 2}
   - stages:
-    - {fileID: 11400000, guid: c2760e3be01e6774ba8d5ab983044fd2, type: 2}
-    - {fileID: 11400000, guid: 939766025bba305489334d8a3b2a4a39, type: 2}
+    - {fileID: 11400000, guid: aeccffe94a1bf7f46a0aefeef772c353, type: 2}
+    - {fileID: 11400000, guid: 20f16c877bec68643a96821b570f4bb7, type: 2}
   - stages:
     - {fileID: 11400000, guid: 36105ec9328ed78438c41d5b4c3000f5, type: 2}
-    - {fileID: 11400000, guid: aeccffe94a1bf7f46a0aefeef772c353, type: 2}
-  - stages:
     - {fileID: 11400000, guid: 46dcd290ac8dea747bc8ba651e25a88e, type: 2}
+  - stages:
+    - {fileID: 11400000, guid: c2760e3be01e6774ba8d5ab983044fd2, type: 2}
+    - {fileID: 11400000, guid: 939766025bba305489334d8a3b2a4a39, type: 2}
   - stages:
     - {fileID: 11400000, guid: b9545eec8d38026468590985dddc2b88, type: 2}
 --- !u!114 &2099497012 stripped

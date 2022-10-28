@@ -105,7 +105,7 @@ public class MainMenuManager : MonoBehaviour
         {
             // have a nice popup with stats
             var popup = GameManager.instance.GeneralPopup;
-            popup.FillContent("You've completed an entire level, congrats!\nThanks for playing!\n\nTotal completed runs: " + GameManager.instance.playerdata.runsComplete, () => {
+            popup.FillContent("You've completed an entire level, congrats!\n\nTotal completed runs: " + GameManager.instance.playerdata.runsComplete, () => {
                 popup.Close();
             }, "Hooray!");
             popup.Open();

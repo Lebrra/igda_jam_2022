@@ -18,7 +18,7 @@ MonoBehaviour:
     description: 
     type: 1
     health: 0
-    mana: 10
+    mana: 5
     dodge: 0
     speed: 0
     crit: 0

@@ -22,5 +22,5 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     crit: 0
-    attack: 5
+    attack: 2
     targetOpponent: TRUE
