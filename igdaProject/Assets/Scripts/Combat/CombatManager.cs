@@ -192,12 +192,24 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
         
-            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, amount));
+            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, -amount));
         }
         else {
-
+            entity.AffectMana(-amount);
            
-            StartCoroutine(UIManabarScaler(enemyManaBar, enemy.mana, amount));
+            //StartCoroutine(UIManabarScaler(enemyManaBar, enemy.mana, amount));
+        }
+    }
+
+    public void GainMana(Entity entity, float amount)
+    {
+        if (entity == player)
+        {
+            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, amount));
+        }
+        else
+        {
+            entity.AffectMana(amount);
         }
     }
 
@@ -210,6 +222,7 @@ public class CombatManager : MonoBehaviour
             healthBar.fillAmount = Mathf.Lerp((currentHealth / e.healthMax), (targetHealth / e.healthMax), i);
             yield return null;
         }
+        healthBar.fillAmount = targetHealth / e.healthMax;
         Debug.Log(e.animalName + "took " + amount + " damage!");
         e.AffectHealth(-amount);
 
@@ -226,12 +239,14 @@ public class CombatManager : MonoBehaviour
     private IEnumerator UIManabarScaler(Image manaBar, float currentMana, float amount) {
         var i = 0f;
         float speed = 4f;
-        float targetMana = currentMana - amount;
+        float targetMana = Mathf.Clamp(currentMana + amount, 0, player.manaMax);
         while (i < 1) {
             i += Time.deltaTime * speed;
             manaBar.fillAmount = Mathf.Lerp((currentMana / player.manaMax), (targetMana / player.manaMax), i);
             yield return null;
         }
+        manaBar.fillAmount = targetMana / player.manaMax;
+        player.AffectMana(amount);
     }
 
     private float GainPercentage(Entity entity, float num) {
@@ -292,11 +307,18 @@ public class CombatManager : MonoBehaviour
         playerHealthBar.fillAmount = 1F;
         enemyHealthBar.color = new Color32(104, 191, 100, 255);
         playerHealthBar.color = new Color32(104, 191, 100, 255);
-        //playerManaBar.fillAmount = 1F;
+        playerManaBar.fillAmount = 1F;
         //enemyManaBar.fillAmount = 1F;
     }
 
     public void UseAbility(Ability a) {
+        // first, check mana
+        if (player.mana < a.abilityData.abilityCost)
+        {
+            combatText.text = "Not enough mana!  (Use Rest to gain mana)";
+            return;
+        }
+
         //when we use an ability, check speed differences
         if(player.speed >= enemy.speed) {
             //player will go first in turn order
@@ -336,13 +358,13 @@ public class CombatManager : MonoBehaviour
             }
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
-
+            SpentMana(player, a.abilityData.abilityCost);
             combatText.text = player.animalName + " used " + a.abilityData.name + "!";
 
             opponent = enemy;
         }
         else {
-            var enemyAbility = enemy.GetRandomAbility();
+            var enemyAbility = enemy.GetRandomAbility(bash, rest);
             if (enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
@@ -361,7 +383,7 @@ public class CombatManager : MonoBehaviour
                 AudioManager.audioManager.playSoundClip("Attack", 0.5F);
 
             }
-
+            SpentMana(enemy, enemyAbility.abilityData.abilityCost);
             combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
 
             opponent = player;
@@ -407,12 +429,12 @@ public class CombatManager : MonoBehaviour
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
 
-
+            SpentMana(player, a.abilityData.abilityCost);
             combatText.text = player.animalName + " used " + a.abilityData.name + "!";
 
         }
         else {
-            var enemyAbility = enemy.GetRandomAbility();
+            var enemyAbility = enemy.GetRandomAbility(bash, rest);
             if(enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
@@ -429,7 +451,8 @@ public class CombatManager : MonoBehaviour
                 SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                 AudioManager.audioManager.playSoundClip("Attack", 0.5F);
             }
-            
+            SpentMana(enemy, enemyAbility.abilityData.abilityCost);
+
             combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
 
         }

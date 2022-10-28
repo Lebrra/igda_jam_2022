@@ -58,8 +58,9 @@ public class AbilityManager : MonoBehaviour
     }
     
     public void Rest() {
-        target.AffectMana(10);
+        target.AffectMana(5);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased mana!");
+        CombatManager.instance.GainMana(target, 5);
     }
     public void BasicBash() {
        // target.AffectHealth(-5);
@@ -170,7 +171,7 @@ public class AbilityManager : MonoBehaviour
 
     public void Flaunt() {
         target.AffectCrit(5);
-        CombatManager.instance.ShowSupportText(target.animalName + " has decreased crit!");
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased crit!");
     }
 
     public void BirdOfPrey() {
@@ -187,8 +188,8 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void Cackle() {
-        target.AffectMana(-10);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased mana!");
+        CombatManager.instance.SpentMana(target, 5);
     }
 
     public void TailWhip() {
@@ -205,6 +206,7 @@ public class AbilityManager : MonoBehaviour
     {
         target.AffectMana(10);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased mana!");
+        CombatManager.instance.GainMana(target, 10);
     }
 
     #endregion

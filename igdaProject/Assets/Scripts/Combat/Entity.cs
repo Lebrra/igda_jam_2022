@@ -88,11 +88,21 @@ public class Entity : MonoBehaviour
         attack = attackMax;
     }
 
-    public Ability GetRandomAbility() {
-        if (useableAbilityList.Count == 0) return null;
+    public Ability GetRandomAbility(Ability bash, Ability rest) {
+        List<Ability> allPossibilities = new List<Ability>();
+        foreach (var ability in useableAbilityList) allPossibilities.Add(ability);
+        allPossibilities.Add(bash);
+        allPossibilities.Add(rest);
 
-        int rand = Random.Range(0, useableAbilityList.Count);
-        return useableAbilityList[rand];
+        while (allPossibilities.Count > 0)
+        {
+            int rand = Random.Range(0, allPossibilities.Count);
+            if (allPossibilities[rand].abilityData.abilityCost <= mana) return allPossibilities[rand];
+            else allPossibilities.RemoveAt(rand);
+        }
+
+        Debug.LogError("Something broke while randomly selecting an ability...");
+        return null;
     }
 
     public bool CritCheck()

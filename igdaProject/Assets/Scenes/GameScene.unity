@@ -2350,7 +2350,7 @@ MonoBehaviour:
   ability_basicBash: {fileID: 258362411}
   playerHealthBar: {fileID: 344581983}
   enemyHealthBar: {fileID: 492067142}
-  playerManaBar: {fileID: 0}
+  playerManaBar: {fileID: 2041201570}
   enemyManaBar: {fileID: 0}
   clickBlocker: {fileID: 1842502173}
   itemPopup: {fileID: 445292462}
@@ -2387,6 +2387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c461cceace109294e9faaab658ca680d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
   target: {fileID: 0}
 --- !u!1 &579890350
 GameObject:
@@ -5522,34 +5523,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_Type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_Color.b
-      value: 0.39215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_Color.r
-      value: 0.40784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_FillMethod
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777843025891672768, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
-      propertyPath: m_FillOrigin
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 777843025891672769, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 396.363
@@ -8500,6 +8473,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8290123938754582864, guid: 0ae70f2c696eb2e4ca82707d508fbf91, type: 3}
   m_PrefabInstance: {fileID: 1971283441}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041201570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 777843024629011849, guid: 2671e8ec308083a4787bd652a62a15e2, type: 3}
+  m_PrefabInstance: {fileID: 1896241320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042713798
 GameObject:
   m_ObjectHideFlags: 0
