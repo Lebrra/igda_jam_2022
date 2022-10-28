@@ -29,6 +29,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     Animator anim;
 
+    [SerializeField]
+    Animator partTextAnim;
+    [SerializeField]
+    TextMeshProUGUI partText;
+
     [Header("Stats")]
     [SerializeField]
     EditorStat[] stats; // head = 0, body = 1, legs = 2, tail = 3 (set bonus = 4?)
@@ -280,5 +285,11 @@ public class InventoryManager : MonoBehaviour
                 stat.critText.text = plus + ability.abilityData.crit;
             }
         }
+    }
+
+    public void PartPopup(string part)
+    {
+        partText.text = part.Replace("_", " ");
+        partTextAnim.SetTrigger("Status");
     }
 }

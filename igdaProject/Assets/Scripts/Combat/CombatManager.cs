@@ -451,7 +451,7 @@ public class CombatManager : MonoBehaviour
                 {
                     // set up part window
                     itemImage.sprite = DataManager.instance.GetAnimalPart(newPart).partData.image;
-                    itemPopup.FillContent("New Pet Part obtained!", () =>
+                    itemPopup.FillContent($"{newPart.Replace("_", " ")} obtained!", () =>
                     {
                         GameDirector.instance.CloseCombat();
                         itemPopup.Close();
