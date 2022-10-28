@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Slow and Steady
     abilityCost: 0
-    description: Health +3 Speed -2
+    description: Increase Health while lowering Speed.
     type: 2
     health: 3
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Tail whip
     abilityCost: 4
-    description: Lowers target speed
+    description: Lowers your target's Speed by 5.
     type: 1
     health: 0
     mana: 0

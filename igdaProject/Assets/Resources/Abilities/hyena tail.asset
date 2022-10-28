@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Hyena Tail
     abilityCost: 0
-    description: Damage +2
+    description: Increase Damage.
     type: 2
     health: 0
     mana: 0

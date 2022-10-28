@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Sneaky
     abilityCost: 0
-    description: Dodge +3
+    description: Increase Dodge.
     type: 2
     health: 0
     mana: 0

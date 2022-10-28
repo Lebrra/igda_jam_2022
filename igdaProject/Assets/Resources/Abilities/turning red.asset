@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Turning RED
     abilityCost: 0
-    description: Dodge +2 Health+2
+    description: Increase Health and Dodge.
     type: 2
     health: 2
     mana: 0

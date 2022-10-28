@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Lots of Legs
     abilityCost: 0
-    description: Health +2 Speed+2
+    description: Increase Health and Speed.
     type: 2
     health: 2
     mana: 0

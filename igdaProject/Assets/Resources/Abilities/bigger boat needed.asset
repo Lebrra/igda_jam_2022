@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Bigger Boat Needed
     abilityCost: 0
-    description: Crit +2 Health +1
+    description: Increase Health and Crit.
     type: 2
     health: 1
     mana: 0

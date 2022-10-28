@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Big Friend
     abilityCost: 0
-    description: Increase Attack by 10.
+    description: Increase Attack greatly.
     type: 2
     health: 0
     mana: 0

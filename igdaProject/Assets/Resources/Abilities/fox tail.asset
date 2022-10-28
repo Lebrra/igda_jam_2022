@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Fox Tail
     abilityCost: 0
-    description: Mana +1 Damage +1
+    description: Increase Mana and Damage.
     type: 2
     health: 0
     mana: 1

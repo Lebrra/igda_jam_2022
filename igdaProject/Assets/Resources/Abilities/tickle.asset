@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Tickle
-    abilityCost: 1
-    description: Increase dodge
+    abilityCost: 2
+    description: Increase your Dodge by 5.
     type: 1
     health: 0
     mana: 0

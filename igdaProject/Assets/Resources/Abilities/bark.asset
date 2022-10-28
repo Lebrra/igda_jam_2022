@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Bark
     abilityCost: 1
-    description: Increase damage slightly
+    description: Increase your damage by 1.
     type: 1
     health: 0
     mana: 0

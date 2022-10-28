@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Diggy Dig the Hole
     abilityCost: 0
-    description: Damage +1 Speed+2
+    description: Increase Speed and Damage.
     type: 2
     health: 0
     mana: 0

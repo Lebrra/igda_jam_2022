@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Frost Touch
     abilityCost: 0
-    description: Attacks have a chance to slow opponet
+    description: Attacks have a chance to slow your target.
     type: 2
     health: 0
     mana: 0

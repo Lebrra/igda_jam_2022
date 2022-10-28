@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Heart of the Lion
     abilityCost: 0
-    description: Health +1  Attack +1
+    description: Increase Health and Attack.
     type: 2
     health: 1
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Wings of Fire
     abilityCost: 0
-    description: Damage +3 Speed +1
+    description: Increase Speed and Damage.
     type: 2
     health: 0
     mana: 0

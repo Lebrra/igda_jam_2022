@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Full Speed Ahead
     abilityCost: 0
-    description: Speed +3
+    description: Increase Speed.
     type: 2
     health: 0
     mana: 0

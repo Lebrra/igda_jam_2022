@@ -15,8 +15,7 @@ MonoBehaviour:
   abilityData:
     name: From the Ashes
     abilityCost: 20
-    description: If you take lethal dmg you would die and then come back with 25%
-      hp
+    description: If you take lethal damage you will revive with 25% Health.
     type: 1
     health: 0
     mana: 0

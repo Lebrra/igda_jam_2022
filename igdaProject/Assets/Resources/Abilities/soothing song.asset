@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Soothing Song
     abilityCost: 3
-    description: Lowers target attack
+    description: Lowers your target's Attack by 5.
     type: 1
     health: 0
     mana: 0

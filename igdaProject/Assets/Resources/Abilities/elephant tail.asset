@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Elephant Tail
     abilityCost: 0
-    description: Health +5 Speed -2
+    description: Increase Health while lowering Speed.
     type: 2
     health: 5
     mana: 0

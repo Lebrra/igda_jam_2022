@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Meow
     abilityCost: 0
-    description: Crit +2
+    description: Increase Crit.
     type: 2
     health: 0
     mana: 0

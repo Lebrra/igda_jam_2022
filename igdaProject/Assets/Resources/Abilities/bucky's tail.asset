@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Bucky's Tail
     abilityCost: 0
-    description: Damage +1
+    description: Increase Damage.
     type: 2
     health: 0
     mana: 0

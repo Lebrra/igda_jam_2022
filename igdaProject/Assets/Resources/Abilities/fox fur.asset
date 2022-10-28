@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Fox Fur
     abilityCost: 0
-    description: Mana +1 Damage +1 Crit +1
-    type: 2
+    description: '"Increase Mana'
+    type: 3
     health: 0
-    mana: 1
-    dodge: 0
+    mana: 0
+    dodge: 1
     speed: 0
-    crit: 1
+    crit: 0
     attack: 1
-    targetOpponent: FALSE
+    targetOpponent: 1

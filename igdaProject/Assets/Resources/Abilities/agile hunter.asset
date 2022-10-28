@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Agile Hunter
     abilityCost: 0
-    description: Speed +2 Crit+1
+    description: Increase Speed and Crit.
     type: 2
     health: 0
     mana: 0

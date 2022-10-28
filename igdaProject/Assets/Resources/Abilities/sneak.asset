@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Sneak
     abilityCost: 0
-    description: Chance to attack first
+    description: Chance to attack first.
     type: 2
     health: 0
     mana: 0

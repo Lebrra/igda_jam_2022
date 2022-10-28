@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Precision Hunter
     abilityCost: 0
-    description: Damage +3 Crit +2
+    description: Increase Damage and Crit.
     type: 2
     health: 0
     mana: 0

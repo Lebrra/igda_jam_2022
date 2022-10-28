@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Lemur Fur
     abilityCost: 0
-    description: Speed +1 Crit +1
+    description: Increase Speed and Crit.
     type: 2
     health: 0
     mana: 0

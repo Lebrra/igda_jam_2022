@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: BZZ
     abilityCost: 0
-    description: Dodge +2 Attack +1
+    description: Increase Dodge and Attack.
     type: 2
     health: 0
     mana: 0

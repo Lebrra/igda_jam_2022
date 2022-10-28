@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Gobble
-    abilityCost: 0
-    description: Regenerate 10 mana.
+    abilityCost: 4
+    description: Regenerate 10 Mana.
     type: 1
     health: 0
     mana: 10

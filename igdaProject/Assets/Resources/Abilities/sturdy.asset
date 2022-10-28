@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Sturdy
     abilityCost: 0
-    description: Chance to negate an attack
+    description: Chance to negate an attack.
     type: 2
     health: 0
     mana: 0

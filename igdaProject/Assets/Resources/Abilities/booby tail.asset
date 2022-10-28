@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Booby Tail
     abilityCost: 0
-    description: Mana +1 Crit+1
+    description: Increase Mana and Crit.
     type: 2
     health: 0
     mana: 1

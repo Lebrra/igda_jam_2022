@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Rock Solid
     abilityCost: 0
-    description: Reduce damage intake by x amount
+    description: Reduce damage intake by x amount.
     type: 2
     health: 0
     mana: 0

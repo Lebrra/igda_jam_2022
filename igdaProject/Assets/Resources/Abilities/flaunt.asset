@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Flaunt
     abilityCost: 3
-    description: Increase crit
+    description: Increase your Crit by 5.
     type: 1
     health: 0
     mana: 0
