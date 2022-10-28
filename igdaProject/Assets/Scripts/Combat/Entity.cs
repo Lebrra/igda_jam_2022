@@ -32,6 +32,7 @@ public class Entity : MonoBehaviour
     /// <param name="num"></param>
     public void AffectHealth(float num) {
         health += num;
+        health = Mathf.Clamp(health, 0, healthMax);
     }
 
     /// <summary>
@@ -40,6 +41,7 @@ public class Entity : MonoBehaviour
     /// <param name="num"></param>
     public void AffectMana(float num) {
         mana += num;
+        mana = Mathf.Clamp(mana, 0, manaMax);
     }
 
     /// <summary>
@@ -48,6 +50,7 @@ public class Entity : MonoBehaviour
     /// <param name="num"></param>
     public void AffectDodge(float num) {
         dodge += num;
+        dodge = Mathf.Clamp(dodge, 0, 50);  // 50% is the max
     }
 
     /// <summary>
@@ -64,6 +67,7 @@ public class Entity : MonoBehaviour
     /// <param name="num"></param>
     public void AffectCrit(float num) {
         crit += num;
+        crit = Mathf.Clamp(crit, 0, 50); // 50% is the max
     }
 
     /// <summary>
@@ -90,4 +94,10 @@ public class Entity : MonoBehaviour
         return useableAbilityList[rand];
     }
 
+    public bool CritCheck()
+    {
+        bool doesCrit = Random.Range(0, 100) < crit;
+        if (doesCrit) Debug.Log("CRIT");
+        return doesCrit;
+    }
 }

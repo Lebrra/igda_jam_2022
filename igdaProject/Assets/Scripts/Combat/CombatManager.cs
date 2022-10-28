@@ -295,7 +295,7 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
             if(a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+                AbilityManager.instance.UseAbility(a.abilityData.name, enemy, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
                 AudioManager.audioManager.playSoundClip("Attack", 1F);
             } else if(a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
@@ -314,7 +314,7 @@ public class CombatManager : MonoBehaviour
             var enemyAbility = enemy.GetRandomAbility();
             if (enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                     AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
@@ -364,7 +364,7 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
             if (a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+                AbilityManager.instance.UseAbility(a.abilityData.name, enemy, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
                 AudioManager.audioManager.playSoundClip("Attack", 1);
             }
@@ -384,7 +384,7 @@ public class CombatManager : MonoBehaviour
             var enemyAbility = enemy.GetRandomAbility();
             if(enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                     AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
