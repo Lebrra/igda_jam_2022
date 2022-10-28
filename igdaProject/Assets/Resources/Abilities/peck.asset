@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Peck
     abilityCost: 1
-    description: A quick peck that deals 2 damage.
+    description: A quick peck that deals 5 damage.
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
-    crit: 2
+    crit: 5
     attack: 0
     targetOpponent: TRUE

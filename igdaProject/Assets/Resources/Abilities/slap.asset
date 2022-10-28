@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Slap
     abilityCost: 3
-    description: Slap your target for 2 Damage.
+    description: Slap your target for 3 Damage.
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
-    crit: 2
+    crit: 3
     attack: 0
     targetOpponent: TRUE
