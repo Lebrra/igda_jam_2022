@@ -49,12 +49,15 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LevelAnims()
     {
-        int lastSquare = (currentLevel.currentStage * 3) + currentLevel.currentMatch;
-        var pawn = Instantiate(pawnPref, mapSquares[lastSquare].GetComponent<Transform>());
+        int lastSquare = (currentLevel.currentStage * 3) + currentLevel.currentMatch - 1;
+        RectTransform pawn;
+        if (lastSquare < 0) pawn = Instantiate(pawnPref, mapSquares[0].GetComponent<Transform>());
+        else pawn = Instantiate(pawnPref, mapSquares[lastSquare].GetComponent<Transform>());
         Instantiate(DataManager.instance.GetAnimalPartUI(GameManager.instance.playerdata.GetActiveAnimal().headID), pawn.GetChild(0));
         pawn.SetRotation(Vector3.zero);
         //pawn.localRotation.eulerAngles = Vector3.zero;
         //if (lastSquare % 6 > 2) pawn.localScale = new Vector3(pawn.localScale.x * -1F, pawn.localScale.y, 1F);
+        if (lastSquare < 0) yield return pawn.MoveTo(pawn.position.x - 200F, 0F, Axis.X);
 
         mapAnim.SetBool("Status", true);
         yield return 1F;
