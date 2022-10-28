@@ -52,6 +52,7 @@ public class DialogueManager : MonoBehaviour
         print("In Dialogue Beginning");
         dialogueisPlaying = false;
         dialoguePanel.SetActive(false);
+        Tutorial = true; 
         choicesText = new TextMeshProUGUI[choices.Length];
         int idex = 0;
         print("In Dialogue Middle");
