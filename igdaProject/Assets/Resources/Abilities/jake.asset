@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Jake
     abilityCost: 0
-    description: Dodge + 3 Mana + 1
+    description: Increase Mana and Dodge.
     type: 2
     health: 0
     mana: 1

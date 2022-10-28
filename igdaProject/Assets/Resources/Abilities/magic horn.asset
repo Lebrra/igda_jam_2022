@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Magic Horn
     abilityCost: 6
-    description: Health regen
+    description: Regenerate 5 Health.
     type: 1
     health: 5
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: I'm Blue
     abilityCost: 0
-    description: Mana +2 Speed+1
+    description: Increase Mana and Speed.
     type: 2
     health: 0
     mana: 2

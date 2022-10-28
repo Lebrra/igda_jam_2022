@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Swamp Sickness
     abilityCost: 0
-    description: Attacks apply poision for small damage at end of turn.
+    description: Attacks apply poision for 3 damage at the end of turn.
     type: 2
     health: 0
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Tapir Trunk
     abilityCost: 0
-    description: Health + 3
+    description: Increase Health.
     type: 2
     health: 3
     mana: 0

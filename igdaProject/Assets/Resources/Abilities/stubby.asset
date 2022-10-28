@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Stubby
     abilityCost: 0
-    description: Health +2 Damage+1 Speed -1
+    description: Increase Health and Damage while lowering speed.
     type: 2
     health: 2
     mana: 0

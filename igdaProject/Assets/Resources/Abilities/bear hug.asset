@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Bear Hug
     abilityCost: 4
-    description: Lowers target dodge
+    description: Lowers your target's Dodge by 5.
     type: 1
     health: 0
     mana: 0

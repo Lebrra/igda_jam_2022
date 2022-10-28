@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Turtle Shield
     abilityCost: 5
-    description: Reduce damage from next attack
+    description: Reduce the damage taken from the next attack.
     type: 1
     health: 0
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Tapir Tail
     abilityCost: 0
-    description: Health +1 Dodge +1
+    description: Increase Health and Dodge.
     type: 2
     health: 1
     mana: 0

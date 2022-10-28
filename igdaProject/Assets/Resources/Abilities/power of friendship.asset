@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Power of Friendship
     abilityCost: 0
-    description: Mana +10 Dodge +2
+    description: Increase Mana and Dodge.
     type: 2
     health: 0
     mana: 10

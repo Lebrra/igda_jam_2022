@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Lemur Tail
     abilityCost: 0
-    description: Dodge +1 Crit +1
+    description: Increase Dodge and Crit.
     type: 2
     health: 0
     mana: 0

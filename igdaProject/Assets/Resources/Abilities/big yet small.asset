@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Big Yet Small
     abilityCost: 0
-    description: Increase strength and dodge greatly
+    description: Increase Strength and Dodge greatly.
     type: 2
     health: 0
     mana: 0

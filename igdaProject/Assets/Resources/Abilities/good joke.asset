@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Good Joke
     abilityCost: 5
-    description: Lowers target dodge
+    description: Lowers your target's Dodge by 6.
     type: 1
     health: 0
     mana: 0

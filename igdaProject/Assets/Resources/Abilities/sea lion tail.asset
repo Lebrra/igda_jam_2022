@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Sea Lion Tail
     abilityCost: 0
-    description: Health +3 Damage +1
+    description: Increase Health and Damage.
     type: 2
     health: 3
     mana: 0

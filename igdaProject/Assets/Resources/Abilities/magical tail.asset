@@ -15,10 +15,10 @@ MonoBehaviour:
   abilityData:
     name: Magical Tail
     abilityCost: 0
-    description: More starting mana
+    description: Increase Mana greatly.
     type: 2
     health: 0
-    mana: 10
+    mana: 20
     dodge: 0
     speed: 0
     crit: 0

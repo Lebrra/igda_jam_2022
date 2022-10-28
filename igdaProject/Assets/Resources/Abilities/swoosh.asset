@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Swoosh
     abilityCost: 0
-    description: Speed +1 Crit+2 Dodge+1
-    type: 2
+    description: '"Incrase Speed'
+    type: 3
     health: 0
     mana: 0
-    dodge: 1
+    dodge: 0
     speed: 1
-    crit: 0
-    attack: 2
-    targetOpponent: FALSE
+    crit: 1
+    attack: 0
+    targetOpponent: 2

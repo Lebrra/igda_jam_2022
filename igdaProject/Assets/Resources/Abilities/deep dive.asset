@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Deep Dive
     abilityCost: 0
-    description: Rest gives more mana back
+    description: Resting gives you more mana back.
     type: 2
     health: 0
     mana: 20

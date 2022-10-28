@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: The Greatest
     abilityCost: 0
-    description: Health +3 dodge +1
+    description: Increase Health and Dodge.
     type: 2
     health: 3
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Fly
     abilityCost: 0
-    description: Increase dodge by 15.
+    description: Increase Dodge greatly.
     type: 2
     health: 0
     mana: 0

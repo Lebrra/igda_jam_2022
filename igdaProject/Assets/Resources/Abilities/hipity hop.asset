@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Hipity Hop
     abilityCost: 0
-    description: Damage +1 Dodge +2
+    description: Increase Dodge and Attack.
     type: 2
     health: 0
     mana: 0

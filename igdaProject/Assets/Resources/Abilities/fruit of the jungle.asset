@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Fruit of the Jungle
     abilityCost: 0
-    description: Chancen to heal at end of round
+    description: Chance to heal at the end of a round.
     type: 2
     health: 5
     mana: 0

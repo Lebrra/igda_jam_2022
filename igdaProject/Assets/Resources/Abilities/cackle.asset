@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Cackle
     abilityCost: 3
-    description: Lowers target mana
+    description: Lowers your target's Mana by 10.
     type: 1
     health: 0
     mana: 10

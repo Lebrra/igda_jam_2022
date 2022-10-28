@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Jump
     abilityCost: 15
-    description: Dodge next oppenent attack
+    description: Chance to dodge your oppenent's next attack.
     type: 1
     health: 0
     mana: 0

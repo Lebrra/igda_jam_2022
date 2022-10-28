@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Leopard Tail
     abilityCost: 0
-    description: Speed +2 Damage +1
+    description: Increase Speed and Damage.
     type: 2
     health: 0
     mana: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Cardinal Tail
     abilityCost: 0
-    description: Speed +1 Dodge +2
+    description: Increase Speed and Dodge.
     type: 2
     health: 0
     mana: 0

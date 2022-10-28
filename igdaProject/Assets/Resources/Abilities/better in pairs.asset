@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Better In Pairs
     abilityCost: 0
-    description: Damage +1 Health+2
+    description: Increase Health and Damage.
     type: 2
     health: 2
     mana: 0

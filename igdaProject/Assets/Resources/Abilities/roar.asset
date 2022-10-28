@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Roar
     abilityCost: 3
-    description: Lower opponent's dodge change by 5.
+    description: Lower your target's Dodge change by 5.
     type: 1
     health: 0
     mana: 0

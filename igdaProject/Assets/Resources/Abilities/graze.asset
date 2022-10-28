@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Graze
     abilityCost: 0
-    description: Health +4 Speed -1
+    description: Increase Health and lower Speed.
     type: 2
     health: 4
     mana: 0
