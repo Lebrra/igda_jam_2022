@@ -176,7 +176,7 @@ public class CombatManager : MonoBehaviour
         float targetHealth = currentHealth - amount;
         while(i < 1) {
             i += Time.deltaTime * speed;
-            healthBar.fillAmount = Mathf.Lerp((currentHealth / 100), (targetHealth / 100), i);
+            healthBar.fillAmount = Mathf.Lerp((currentHealth / e.healthMax), (targetHealth / e.healthMax), i);
             yield return null;
         }
         Debug.Log(e.animalName + "took " + amount + " damage!");
@@ -198,7 +198,7 @@ public class CombatManager : MonoBehaviour
         float targetMana = currentMana - amount;
         while (i < 1) {
             i += Time.deltaTime * speed;
-            manaBar.fillAmount = Mathf.Lerp((currentMana / 100), (targetMana / 100), i);
+            manaBar.fillAmount = Mathf.Lerp((currentMana / player.manaMax), (targetMana / player.manaMax), i);
             yield return null;
         }
     }
@@ -242,12 +242,12 @@ public class CombatManager : MonoBehaviour
 
         foreach (Ability a in entity.abilityList) {
             if(a.abilityData.type == AbilityType.passive) {
-                entity.healthMax = 100 + (a.abilityData.health);
-                entity.manaMax = 100 + (a.abilityData.mana);
-                entity.speedMax = 50 + (a.abilityData.speed);
-                entity.dodgeMax = 20 + (a.abilityData.dodge);
-                entity.critMax = (a.abilityData.crit);
-                entity.attackMax = 5 + (a.abilityData.attack);
+                entity.healthMax += (a.abilityData.health);
+                entity.manaMax += (a.abilityData.mana);
+                entity.speedMax += (a.abilityData.speed);
+                entity.dodgeMax += (a.abilityData.dodge);
+                entity.critMax += (a.abilityData.crit);
+                entity.attackMax += (a.abilityData.attack);
             }
         }
 

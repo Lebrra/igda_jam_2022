@@ -207,6 +207,7 @@ public class MonsterMakerGenerator : MonoBehaviour
                         Debug.Log(p.name);
                         thing.ChangeBodyPart(p.partData.id);
                         InventoryManager.instance.SetStat(p.partData.bodyPart, p.GetAbility());
+                        InventoryManager.instance.PartPopup(p.partData.id);
                         //Routine.Start(NameGeneratorAsync());
                     }
                 }

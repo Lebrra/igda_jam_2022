@@ -16,6 +16,15 @@ public class Entity : MonoBehaviour
     public List<Ability> abilityList = new List<Ability>();
     public List<Ability> useableAbilityList = new List<Ability>();
 
+    private void Start()
+    {
+        healthMax = (float)GameManager.BASE_HEALTH;
+        manaMax = (float)GameManager.BASE_MANA;
+        dodgeMax = (float)GameManager.BASE_DODGE;
+        speedMax = (float)GameManager.BASE_SPEED;
+        critMax = (float)GameManager.BASE_CRIT;
+        attackMax = (float)GameManager.BASE_DMG;
+    }
 
     /// <summary>
     /// Affects this entity's health. For reducing the value, use a negative int.

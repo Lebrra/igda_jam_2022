@@ -31,8 +31,6 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     Animator partTextAnim;
-    [SerializeField]
-    TextMeshProUGUI partText;
 
     [Header("Stats")]
     [SerializeField]
@@ -289,7 +287,7 @@ public class InventoryManager : MonoBehaviour
 
     public void PartPopup(string part)
     {
-        partText.text = part.Replace("_", " ");
+        partTextAnim.GetComponent<TextMeshProUGUI>().text = part.Replace("_", " ");
         partTextAnim.SetTrigger("Status");
     }
 }
