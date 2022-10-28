@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     Animator LoadingScreen;
     Routine loading;
 
+    public bool showCompletedPopup = false;
+
     void Awake()
     {
         if (instance) Destroy(instance);
@@ -51,7 +53,9 @@ public class GameManager : MonoBehaviour
         {
             // game ended!
             playerdata.currentLevel.activeRun = false;
+            playerdata.runsComplete++;
             Debug.Log("RUN COMPLETE, DO SOMETHING NICE");
+            showCompletedPopup = true;
         }
         else
         {

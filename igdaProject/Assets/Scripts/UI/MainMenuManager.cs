@@ -100,6 +100,17 @@ public class MainMenuManager : MonoBehaviour
         runActive = GameManager.instance.playerdata.currentLevel.activeRun;
         continueButton.gameObject.SetActive(runActive);
         continueText.text = GetContinueText();
+
+        if (GameManager.instance.showCompletedPopup)
+        {
+            // have a nice popup with stats
+            var popup = GameManager.instance.GeneralPopup;
+            popup.FillContent("You've completed an entire level, congrats!\nThanks for playing!\n\nTotal completed runs: " + GameManager.instance.playerdata.runsComplete, () => {
+                popup.Close();
+            }, "Hooray!");
+            popup.Open();
+            GameManager.instance.showCompletedPopup = false;
+        }
     }
 
     public void Close()

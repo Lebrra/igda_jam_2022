@@ -16,6 +16,7 @@ public class SaveData
 
     // progress saving
     public LevelData currentLevel;
+    public int runsComplete = 0;
 
     public AnimalPartsObject GetActiveAnimal()
     {
