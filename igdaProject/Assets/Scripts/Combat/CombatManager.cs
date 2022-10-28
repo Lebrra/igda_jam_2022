@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.VersionControl;
+
 public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
     public Player player;
     public Enemy enemy;
+    bool isLevelBattle = false;
 
     [Header("Combat Preview")]
     [SerializeField] Animator previewAnim;
@@ -31,6 +34,9 @@ public class CombatManager : MonoBehaviour
     [SerializeField] Image enemyHealthBar;
     [SerializeField] Image playerManaBar;
     [SerializeField] Image enemyManaBar;
+    [SerializeField] GameObject clickBlocker;
+    [SerializeField] GenericPopupLogic itemPopup;
+    [SerializeField] Image itemImage;
 
     //in combat variables
     [SerializeField] TextMeshProUGUI combatText;
@@ -45,8 +51,16 @@ public class CombatManager : MonoBehaviour
     }
 
     public void OpenPreview(bool randomize, AnimalPartsObject opponent) {
-        if (randomize) enemy.RandomizeBuild();
-        else enemy.BuildAnimal(opponent);
+        if (randomize)
+        {
+            enemy.RandomizeBuild();
+            isLevelBattle = false;
+        }
+        else
+        {
+            enemy.BuildAnimal(opponent);
+            isLevelBattle = true;
+        }
         previewAnim.SetBool("Status", true);
         playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true, AnimalPrefabBuilder.AnimationType.Bob);
         enemyObjPreview.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
@@ -72,7 +86,7 @@ public class CombatManager : MonoBehaviour
         combatAnim.SetBool("Status", true);
         playerObj.CreateAnimal(player.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
         enemyObj.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
-
+        clickBlocker.SetActive(false);
     }
 
     public void CloseCombat() {
@@ -204,7 +218,19 @@ public class CombatManager : MonoBehaviour
         }
 
         entity.ResetStatsToMax();
+        ResetBars();
     }
+
+    void ResetBars()
+    {
+        enemyHealthBar.fillAmount = 1F;
+        playerHealthBar.fillAmount = 1F;
+        enemyHealthBar.color = new Color(104, 191, 100);
+        playerHealthBar.color = new Color(104, 191, 100);
+        //playerManaBar.fillAmount = 1F;
+        //enemyManaBar.fillAmount = 1F;
+    }
+
     public void UseAbility(Ability a) {
         //when we use an ability, check speed differences
         if(player.speed >= enemy.speed) {
@@ -228,6 +254,7 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator TurnOne(Entity entity, Ability a) {
 
+        clickBlocker.SetActive(true);
         Entity opponent;
         var i = 0f;
         float speed = 0.2f;
@@ -276,12 +303,14 @@ public class CombatManager : MonoBehaviour
 
         if(player.health <= 0) {
             //player died
-            
+            EndBattle(false, isLevelBattle);
+            yield break;
         }
 
         if(enemy.health <= 0) {
             //enemy died
-            
+            EndBattle(true, isLevelBattle);
+            yield break;
         }
 
 
@@ -328,25 +357,125 @@ public class CombatManager : MonoBehaviour
         }
 
 
-
-        while (i < 1f) {
-            i += Time.deltaTime * speed;
-            yield return null;
-        }
+        yield return new WaitForSeconds(1F);
+        //while (i < 1f) {
+        //    i += Time.deltaTime * speed;
+        //    yield return null;
+        //}
 
         if (player.health <= 0) {
             //player died
-
+            EndBattle(false, isLevelBattle);
+            yield break;
         }
 
         if (enemy.health <= 0) {
             //enemy died
-
+            EndBattle(true, isLevelBattle);
+            yield break;
         }
+        clickBlocker.SetActive(false);
     }
 
     void SetAnimation(AnimalPrefabBuilder animal, AnimalPrefabBuilder.AnimationType anim)
     {
         animal.SetAnimationState(anim);
+    }
+
+    void EndBattle(bool win, bool isLevel)
+    {
+        if (isLevel)
+        {
+            if (win)
+            {
+                string newPart = GetRandomPart(enemyObj.GetCreatedAnimal());
+                if (newPart == "none")
+                {
+                    // cannot gain a part
+                    var popup = GameManager.instance.GeneralPopup;
+                    popup.FillContent("Victory!\nNo new parts gained.", () => {
+                        GameDirector.instance.CloseCombat();
+                        popup.Close();
+                        clickBlocker.SetActive(false);
+                    });
+                    popup.Open();
+                }
+                else
+                {
+                    // set up part window
+                    itemImage.sprite = DataManager.instance.GetAnimalPart(newPart).partData.image;
+                    itemPopup.FillContent("New Pet Part obtained!", () =>
+                    {
+                        GameDirector.instance.CloseCombat();
+                        itemPopup.Close();
+                        clickBlocker.SetActive(false);
+                    }, "Sounds Good!");
+                    itemPopup.Open();
+                }
+
+                GameManager.instance.IncrementProgression();
+
+            }
+            else
+            {
+                var popup = GameManager.instance.GeneralPopup;
+                popup.FillContent("You Lost!\n\nCreate a new creature and try again!", () => {
+                    GameDirector.instance.CloseCombat();
+                    popup.Close();
+                    clickBlocker.SetActive(false);
+                }, "Darn");
+                popup.Open();
+
+                GameManager.instance.playerdata.currentLevel.activeRun = false;
+            }
+        }
+        else
+        {
+            // use generic popup
+            var popup = GameManager.instance.GeneralPopup;
+            string message = "You Won!";
+            string buttonMessage = "Hooray!";
+            if (!win)
+            {
+                message = "You Lost!";
+                buttonMessage = "Oh no!";
+            }
+
+            popup.FillContent(message, () => {
+                GameDirector.instance.CloseCombat();
+                popup.Close();
+                clickBlocker.SetActive(false);
+            }, buttonMessage);
+            popup.Open();
+        }
+    }
+
+    string GetRandomPart(AnimalPartsObject animal)
+    {
+        int choices = 4;
+        while (choices > 0)
+        {
+            var chosen = Random.Range(0, choices);
+            string part = "";
+            switch (chosen)
+            {
+                case 0: 
+                    part = animal.headID;
+                    break;
+                case 1: 
+                    part = animal.bodyID;
+                    break;
+                case 2: 
+                    part = animal.legsID;
+                    break;
+                case 3: 
+                    part = animal.tailID;
+                    break;
+            }
+            if (MonsterMakerGenerator.instance.DoIHaveThis(part))
+                choices--;
+            else return part;
+        }
+        return "none";
     }
 }

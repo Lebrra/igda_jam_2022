@@ -42,6 +42,23 @@ public class GameManager : MonoBehaviour
         Debug.Log("PLAYER DATA SAVED");
     }
 
+    public void IncrementProgression()
+    {
+        var incremented = LevelGenerator.IncrementMatch(playerdata.currentLevel.currentStage, playerdata.currentLevel.currentMatch);
+        if (incremented.Item1 >= 6)
+        {
+            // game ended!
+            playerdata.currentLevel.activeRun = false;
+            Debug.Log("RUN COMPLETE, DO SOMETHING NICE");
+        }
+        else
+        {
+            playerdata.currentLevel.currentStage = incremented.Item1;
+            playerdata.currentLevel.currentMatch = incremented.Item2;
+        }
+        SaveData();
+    }
+
     #region Menu Transitions
 
     public static void ToMainMenu()

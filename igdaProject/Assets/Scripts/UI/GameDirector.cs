@@ -107,8 +107,14 @@ public class GameDirector : MonoBehaviour
         combatMan.OpenCombat();
     }
 
+    public void CloseCombat()
+    {
+        Routine.Start(DelayCloseCombat());
+    }
     IEnumerator DelayCloseCombat() {
+        combatMan.CloseCombat();
         yield return 0.5f;
+        menuMan.Open();
     }
 
     public void OpenLevel(bool newLevel)

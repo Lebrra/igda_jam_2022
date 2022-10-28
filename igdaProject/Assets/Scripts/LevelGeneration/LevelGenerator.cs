@@ -79,6 +79,15 @@ public class LevelGenerator : MonoBehaviour
         return newAnimal;
     }
 
+    /// <summary>
+    /// Returns (stage, match)
+    /// </summary>
+    public static (int, int) IncrementMatch(int stage, int match)
+    {
+        if (match == 2) return (stage + 1, 0);
+        else return (stage, match + 1);
+    }
+
     public Biome StringToBiome(string biomeStr)
     {
         foreach (var stages in allStages)

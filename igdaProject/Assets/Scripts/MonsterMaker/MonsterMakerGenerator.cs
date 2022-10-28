@@ -243,4 +243,9 @@ public class MonsterMakerGenerator : MonoBehaviour
         if (GameManager.instance && save) GameManager.instance.playerdata.SaveActiveAnimal(thing.GetCreatedAnimal());
         thing.DestroyAnimal();
     }
+
+    public bool DoIHaveThis(string part)
+    {
+        return partListdict.ContainsKey(part);
+    }
 }
