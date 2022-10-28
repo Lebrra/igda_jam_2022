@@ -354,7 +354,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         }
         else if (easyTesting)
         {
-            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true, AnimationType.Bob);
+            CreateAnimal(AnimalPart.AnimalToPartsObj(animal), true, true, AnimationType.InverseAttack);
         }
     }
 
@@ -375,13 +375,22 @@ public class AnimalPrefabBuilder : MonoBehaviour
             case AnimationType.HeadBob:
                 yield return AnimHeadBob();
                 break;
+            case AnimationType.Attack:
+                yield return AnimAttack();
+                break;
+            case AnimationType.InverseAttack:
+                yield return AnimInverseAttack();
+                break;
+            case AnimationType.Support:
+                yield return AnimHop();
+                break;
             default:
                 yield return null;
                 break;
         }
     }
 
-    IEnumerator AnimAttack()
+    IEnumerator AnimBadAttack()
     {
         yield return 2F;
 
@@ -464,10 +473,52 @@ public class AnimalPrefabBuilder : MonoBehaviour
         }
     }
 
+    IEnumerator AnimAttack()
+    {
+        Vector3 originalPos = animalTransform.position;
+        var tweens = new List<IEnumerator>();
+        tweens.Add(animalTransform.RotateTo(30F, 0.15F, Axis.Z));
+        tweens.Add(animalTransform.MoveTo(originalPos.x + 50F, 0.15F, Axis.X));
+        tweens.Add(animalTransform.MoveTo(originalPos.y + 80F, 0.15F, Axis.Y));
+        yield return Routine.Combine(tweens);
+
+        tweens = new List<IEnumerator>();
+        tweens.Add(animalTransform.RotateTo(0F, 0.2F, Axis.Z));
+        tweens.Add(animalTransform.MoveTo(originalPos.x, 0.2F, Axis.X));
+        tweens.Add(animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y));
+        yield return Routine.Combine(tweens);
+    }
+
+    IEnumerator AnimInverseAttack()
+    {
+        Vector3 originalPos = animalTransform.position;
+        var tweens = new List<IEnumerator>();
+        tweens.Add(animalTransform.RotateTo(-30F, 0.15F, Axis.Z));
+        tweens.Add(animalTransform.MoveTo(originalPos.x - 40F, 0.15F, Axis.X));
+        tweens.Add(animalTransform.MoveTo(originalPos.y - 60F, 0.15F, Axis.Y));
+        yield return Routine.Combine(tweens);
+
+        tweens = new List<IEnumerator>();
+        tweens.Add(animalTransform.RotateTo(0F, 0.2F, Axis.Z));
+        tweens.Add(animalTransform.MoveTo(originalPos.x, 0.2F, Axis.X));
+        tweens.Add(animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y));
+        yield return Routine.Combine(tweens);
+    }
+
+    IEnumerator AnimHop()
+    {
+        Vector3 originalPos = animalTransform.position;
+        yield return animalTransform.MoveTo(originalPos.y + 80F, 0.2F, Axis.Y);
+        yield return animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y);
+    }
+
     public enum AnimationType
     {
         None,
         HeadBob,
-        Bob
+        Bob,
+        Attack,
+        InverseAttack,
+        Support
     }
 }
