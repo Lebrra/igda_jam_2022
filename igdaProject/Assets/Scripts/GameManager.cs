@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static int BASE_DODGE = 0;
 
     public SaveData playerdata;
-
+    public bool Tutorial = true;
     public GenericPopupLogic GeneralPopup;
     [SerializeField]
     Animator LoadingScreen;
@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     {
         if (instance) Destroy(instance);
         instance = this;
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -33,7 +32,10 @@ public class GameManager : MonoBehaviour
     {
         loading.Replace(LoadInitialData());
     }
-
+    public bool getTutorial()
+    {
+        return Tutorial;
+    }
     public static void SaveData()
     {
         JSONEditor.DataToJSON(instance.playerdata, SAVE_NAME);
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
             instance.playerdata.inventoryStr = DEFAULT_INVENTORY;
         }
         yield return GameDirector.instance.LoadingStuff();
-
+        yield return DialogueManager.getInstance().initializeDialogue();
         SetLoadingScreen(false);
         ToTitle();
     }

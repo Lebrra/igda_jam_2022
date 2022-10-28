@@ -82,6 +82,8 @@ public class TitleManager : MonoBehaviour
 
     void NewGame()
     {
+        GameManager.SetLoadingScreen(true);
+        DialogueManager.getInstance().startTutorial();
         GameManager.instance.playerdata = defaultSave;
         GameManager.instance.playerdata.inventoryStr = GameManager.DEFAULT_INVENTORY;
         GameManager.SaveData();

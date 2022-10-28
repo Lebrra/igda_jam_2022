@@ -21,7 +21,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private bool Tutorial;
     public bool dialogueisPlaying { get; private set; }
-    [SerializeField]private Button continueButton;
     [SerializeField]
     private bool starttheTutorial = false;
     [SerializeField]
@@ -38,27 +37,32 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     GameObject battlePanel;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        //if(GameManager.instance.getTutorial())
-        if(instance == null)
-        instance = this;
+        if (instance == null)
+            instance = this;
         else Destroy(this);
-
+    }
+    public IEnumerator initializeDialogue()
+    {
+        print("In Dialogue Beginning");
         dialogueisPlaying = false;
         dialoguePanel.SetActive(false);
         choicesText = new TextMeshProUGUI[choices.Length];
         int idex = 0;
-        foreach(GameObject choice in choices)
-        {/*
-            choice.gameObject.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                MakeChoice(idex);
-            });*/
+        print("In Dialogue Middle");
+        foreach (GameObject choice in choices)
+        {
             choicesText[idex] = choice.GetComponentInChildren<TextMeshProUGUI>();
             idex++;
         }
-        
+        print("In Dialogue after loop");
+        yield return new WaitForEndOfFrame();
+
+    }
+    public void startTutorial()
+    {
+        starttheTutorial = true;
     }
     /*
     IEnumerator startTutorial()
@@ -94,14 +98,6 @@ public class DialogueManager : MonoBehaviour
     }
     public void continueTheStory()
     {
-        /*
-        if (!dialogueisPlaying)
-        {
-            return;
-        }
-        else
-        {
-        */
         
         if (CurrentStory.canContinue)
         {
@@ -134,6 +130,10 @@ public class DialogueManager : MonoBehaviour
                         tutorialPanelInner.GetComponent<Animator>().SetBool("Status", false);
                         TutorialPanel.SetActive(false);
                         inkAsset = FactScript;
+                        GameManager.instance.Tutorial = Tutorial;
+                        GameManager.instance.playerdata.Tutorial = Tutorial;
+                        GameManager.SaveData();
+                        GameManager.SetLoadingScreen(false);
                         break;
                     case "openerPanel":
                         if(baseGamePanel != null)
@@ -191,19 +191,6 @@ public class DialogueManager : MonoBehaviour
         //{
         //Debug.Log("To many choices");
         //}
-        /*
-        if (CurrentStory.currentChoices.Count > 0)
-        {
-            for (int i = 0; i < CurrentStory.currentChoices.Count; i++)
-            {
-                Choice choice = CurrentStory.currentChoices[i];
-                Button button = CreateChoiceView(choice.text.Trim());
-                // Tell the button what to do when we press it
-                button.onClick.AddListener(delegate {
-                    OnClickChoiceButton(choice);
-                });
-            }
-        }*/
         int index = 0;
         foreach (Choice choice in currentChoices)
         {
@@ -219,9 +206,6 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
-        //StartCoroutine(SelectFirstChoice());
-        
-
     }
     private IEnumerator SelectFirstChoice()
     {

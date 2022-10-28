@@ -9,7 +9,7 @@ public class SaveData
     public bool musicEnabled = true;
 
     // everything that needs to be saved here
-
+    public bool Tutorial {get;set;}
     public string inventoryStr;
     public AnimalPartsObject[] animalPresets;   // default these, always 3
     public int selectedPreset = 0;
