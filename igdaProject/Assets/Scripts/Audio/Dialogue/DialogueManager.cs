@@ -93,6 +93,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (starttheTutorial)
         {
+            TutorialPanel.SetActive(true);
             starttheTutorial = false;
             inkAsset = tutorialScript;
             tutorialPanelInner.GetComponent<Animator>().SetBool("Status", true);
@@ -131,13 +132,13 @@ public class DialogueManager : MonoBehaviour
                 {
                     case "TutorialDone":
                         ExitDialogueMode();
-                        Tutorial = false;
+                        //Tutorial = false;
                         tutorialPanelInner.GetComponent<Animator>().SetBool("Status", false);
                         TutorialPanel.SetActive(false);
                         inkAsset = FactScript;
-                        GameManager.instance.Tutorial = Tutorial;
-                        GameManager.instance.playerdata.Tutorial = Tutorial;
-                        GameManager.SaveData();
+                        //GameManager.instance.Tutorial = Tutorial;
+                        //GameManager.instance.playerdata.Tutorial = Tutorial;
+                        //GameManager.SaveData();
                         GameManager.SetLoadingScreen(false);
                         break;
                     case "openerPanel":
