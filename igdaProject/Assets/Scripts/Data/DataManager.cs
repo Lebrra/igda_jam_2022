@@ -116,7 +116,7 @@ public class DataManager : MonoBehaviour
 
     public Ability GetAbility(string id)
     {
-        var results = allAbilities.Where((x) => x.abilityData.name.ToLower() == id.ToLower()).ToList();
+        var results = allAbilities.Where((x) => x.name.ToLower() == id.ToLower()).ToList();
         if (results == null) return null;
         else if (results.Count == 0) return null;
 

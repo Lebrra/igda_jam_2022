@@ -37,6 +37,8 @@ public class CombatManager : MonoBehaviour
     [SerializeField] GameObject clickBlocker;
     [SerializeField] GenericPopupLogic itemPopup;
     [SerializeField] Image itemImage;
+    [SerializeField] Ability bash;
+    [SerializeField] Ability rest;
 
     //in combat variables
     [SerializeField] TextMeshProUGUI combatText;
@@ -106,8 +108,8 @@ public class CombatManager : MonoBehaviour
         GainPassiveStats(player);
         GainPassiveStats(enemy);
 
-        ability_rest.onClick.AddListener(() => AbilityManager.instance.UseAbility("Rest", player));
-        ability_basicBash.onClick.AddListener(() => AbilityManager.instance.UseAbility("BasicBash", enemy));
+        ability_rest.onClick.AddListener(() => UseAbility(rest)); //AbilityManager.instance.UseAbility("Rest", player));
+        ability_basicBash.onClick.AddListener(() => UseAbility(bash)); //AbilityManager.instance.UseAbility("BasicBash", enemy));
         button_ability_one.onClick.AddListener(() => UseAbility(player.abilityList[0]));
         button_ability_two.onClick.AddListener(() => UseAbility(player.abilityList[1]));
         button_ability_three.onClick.AddListener(() => UseAbility(player.abilityList[2]));
@@ -225,8 +227,8 @@ public class CombatManager : MonoBehaviour
     {
         enemyHealthBar.fillAmount = 1F;
         playerHealthBar.fillAmount = 1F;
-        enemyHealthBar.color = new Color(104, 191, 100);
-        playerHealthBar.color = new Color(104, 191, 100);
+        enemyHealthBar.color = new Color32(104, 191, 100, 255);
+        playerHealthBar.color = new Color32(104, 191, 100, 255);
         //playerManaBar.fillAmount = 1F;
         //enemyManaBar.fillAmount = 1F;
     }
@@ -263,9 +265,11 @@ public class CombatManager : MonoBehaviour
             if(a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
+                AudioManager.audioManager.playSoundClip("Attack", 1F);
             } else if(a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
+                AudioManager.audioManager.playSoundClip("Support", 0.3F);
             }
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
@@ -280,14 +284,19 @@ public class CombatManager : MonoBehaviour
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
+                    AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
+                    AudioManager.audioManager.playSoundClip("Attack", 0.15F);
                 }
             }
             else {
                 AbilityManager.instance.UseAbility("BasicBash", player);
+                SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
+                AudioManager.audioManager.playSoundClip("Attack", 0.5F);
+
             }
 
             combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
@@ -325,10 +334,12 @@ public class CombatManager : MonoBehaviour
             if (a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
+                AudioManager.audioManager.playSoundClip("Attack", 1);
             }
             else if (a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
+                AudioManager.audioManager.playSoundClip("Attack", 0.3F);
             }
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
@@ -343,13 +354,17 @@ public class CombatManager : MonoBehaviour
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
+                    AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
+                    AudioManager.audioManager.playSoundClip("Attack", 0.15F);
                 }
             } else {
                 AbilityManager.instance.UseAbility("BasicBash", player);
+                SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
+                AudioManager.audioManager.playSoundClip("Attack", 0.5F);
             }
             
             combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
