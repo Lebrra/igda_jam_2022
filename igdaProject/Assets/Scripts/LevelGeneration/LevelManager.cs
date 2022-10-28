@@ -90,4 +90,10 @@ public class LevelManager : MonoBehaviour
         }
         yield return pawn.RotateTo(0F, reducedTime, Axis.Z);
     }
+
+    public void SetNextOpponent()
+    {
+        var playerLevel = GameManager.instance.playerdata.currentLevel;
+        GameManager.instance.playerdata.currentLevel.currentGeneratedOpponent = levelGen.CreateOpponent(playerLevel.selectedStages[playerLevel.currentStage]);
+    }
 }

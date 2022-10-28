@@ -70,10 +70,10 @@ public class DataImporter : Editor
         d.type = Ability.StringToAbility(list[3]);
         int.TryParse(list[4], out d.health);
         int.TryParse(list[5], out d.mana);
-        int.TryParse(list[6], out d.dodge);
-        int.TryParse(list[7], out d.speed);
-        int.TryParse(list[8], out d.crit);
-        int.TryParse(list[9], out d.attack);
+        int.TryParse(list[6], out d.speed);
+        int.TryParse(list[7], out d.dodge);
+        int.TryParse(list[8], out d.attack);
+        int.TryParse(list[9], out d.crit);
         //bool.TryParse(list[10], out d.targetOpponent);
         d.targetOpponent = list[10];
 

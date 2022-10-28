@@ -21,6 +21,6 @@ MonoBehaviour:
     mana: 0
     dodge: 0
     speed: 0
-    crit: 3
-    attack: 1
+    crit: 1
+    attack: 3
     targetOpponent: FALSE

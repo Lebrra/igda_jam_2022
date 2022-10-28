@@ -139,7 +139,7 @@ public class CombatManager : MonoBehaviour
         button_ability_three.onClick.AddListener(() => UseAbility(player.abilityList[2]));
         button_ability_four.onClick.AddListener(() => UseAbility(player.abilityList[3]));
 
-        
+        combatText.text = "";
 
     }
 

@@ -19,8 +19,8 @@ MonoBehaviour:
     type: 2
     health: 0
     mana: 0
-    dodge: 0
-    speed: 6
-    crit: 6
-    attack: 0
+    dodge: 6
+    speed: 0
+    crit: 0
+    attack: 6
     targetOpponent: FALSE

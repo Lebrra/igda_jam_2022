@@ -138,6 +138,10 @@ public class GameDirector : MonoBehaviour
         // set opponent
         combatMan.OpenPreview(false, opponent);
     }
+    public void GenerateNewOpponent()
+    {
+        levelMan.SetNextOpponent();
+    }
 
 
     public IEnumerator LoadingStuff()

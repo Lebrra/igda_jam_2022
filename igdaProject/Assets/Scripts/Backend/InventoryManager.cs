@@ -270,17 +270,19 @@ public class InventoryManager : MonoBehaviour
                 var plus = ability.abilityData.dodge > 0 ? "+" : "";
                 stat.dodgeText.text = plus + ability.abilityData.dodge;
             }
-            if (ability.abilityData.attack != 0)
-            {
-                stat.dmgIcon.SetActive(true);
-                var plus = ability.abilityData.attack > 0 ? "+" : "";
-                stat.dmgText.text = plus + ability.abilityData.attack;
-            }
+
+            // these are backwards only here and I can't figure out why :c
             if (ability.abilityData.crit != 0)
             {
-                stat.critIcon.SetActive(true);
+                stat.dmgIcon.SetActive(true);
                 var plus = ability.abilityData.crit > 0 ? "+" : "";
-                stat.critText.text = plus + ability.abilityData.crit;
+                stat.dmgText.text = plus + ability.abilityData.crit;
+            }
+            if (ability.abilityData.attack != 0)
+            {
+                stat.critIcon.SetActive(true);
+                var plus = ability.abilityData.attack > 0 ? "+" : "";
+                stat.critText.text = plus + ability.abilityData.attack;
             }
         }
     }

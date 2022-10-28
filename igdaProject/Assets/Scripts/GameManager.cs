@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             playerdata.currentLevel.currentStage = incremented.Item1;
             playerdata.currentLevel.currentMatch = incremented.Item2;
+            GameDirector.instance.GenerateNewOpponent();
         }
         SaveData();
     }
