@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Inegration '
+  m_text: Integration
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
   m_sharedMaterial: {fileID: -7972552514993119248, guid: 4e86cabef62c7694a9eeade1a60de4cc, type: 2}
