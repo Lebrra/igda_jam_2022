@@ -10,7 +10,7 @@ Professor: Welcome to the lab!
 === My_Choices ===
 #mumble
 Professor: Are you ready to get started or would you like me to run you through the basics?
-+ [Please guide me senpai!] ->TutorialBegin
++ [Tell me more doc!] ->TutorialBegin
 + [I can figure it out on my own.] ->AskAgain
  
  ===AskAgain===
@@ -50,7 +50,7 @@ Professor: Which task would you like to hear about first?
 ===Tutorial===
 +[Research New Creatures.] ->Tutorial.research
 +[Collect Materials]       ->Tutorial.combat
-+[I've hear enough.]
++[I've heard enough.]
 #mumble
 Professor: Goodluck!
 #mumble
