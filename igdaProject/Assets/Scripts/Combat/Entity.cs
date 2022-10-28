@@ -76,6 +76,7 @@ public class Entity : MonoBehaviour
     /// <param name="num"></param>
     public void AffectAttack(float num) {
         attack += num;
+        attack = Mathf.Clamp(attack, 0, 1000);
     }
 
     public void ResetStatsToMax() {
@@ -99,5 +100,12 @@ public class Entity : MonoBehaviour
         bool doesCrit = Random.Range(0, 100) < crit;
         if (doesCrit) Debug.Log("CRIT");
         return doesCrit;
+    }
+
+    public bool DodgeCheck()
+    {
+        bool doesDodge = Random.Range(0, 100) < dodge;
+        if (doesDodge) Debug.Log("DODGE");
+        return doesDodge;
     }
 }

@@ -146,7 +146,10 @@ public class CombatManager : MonoBehaviour
     /// <summary>
     /// When a pet is dealt damage, this will change the UI of their healthbar.
     /// </summary>
-    public void DealtDamage(Entity entity, float amount) {
+    public void DealtDamage(Entity entity, float amount, bool crit, bool dodged) {
+        if (crit) amount *= 1.5F;
+        if (dodged) amount = 0F;
+
         if(entity == player) {
 
             StartCoroutine(UIHealthbarScaler(entity, playerHealthBar, player.health, amount));
@@ -155,6 +158,34 @@ public class CombatManager : MonoBehaviour
          
             StartCoroutine(UIHealthbarScaler(entity, enemyHealthBar, enemy.health, amount));
         }
+        if (crit || dodged) StartCoroutine(CritOrDodgeText(entity, crit, dodged));
+    }
+
+    IEnumerator CritOrDodgeText(Entity entity, bool crit, bool dodged)
+    {
+        yield return new WaitForSeconds(0.8F);
+        if (dodged)
+        {
+            combatText.text = entity.animalName + " has dodged the attack!";
+        }
+        else if (crit)
+        {
+            string name;
+            if (entity == player) name = enemy.animalName;
+            else name = player.animalName;
+            combatText.text = name + " has crit for extra damage!";
+        }
+    }
+
+    public void ShowSupportText(string message)
+    {
+        StartCoroutine(SupportText(message));
+    }
+
+    IEnumerator SupportText(string message)
+    {
+        yield return new WaitForSeconds(0.8F);
+        combatText.text = message;
     }
 
     public void SpentMana(Entity entity, float amount) {
@@ -336,7 +367,7 @@ public class CombatManager : MonoBehaviour
             opponent = player;
         }
 
-        yield return new WaitForSeconds(1F);
+        yield return new WaitForSeconds(2F);
         //while(i < 1f) {
         //    i += Time.deltaTime * speed;
         //    yield return null;
@@ -404,7 +435,7 @@ public class CombatManager : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(1F);
+        yield return new WaitForSeconds(2F);
         //while (i < 1f) {
         //    i += Time.deltaTime * speed;
         //    yield return null;
