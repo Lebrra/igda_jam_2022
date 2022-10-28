@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Big Bear Chase Me!
     abilityCost: 0
-    description: '"Increase Health'
-    type: 3
-    health: 0
-    mana: 1
+    description: Increase Health Damage and Crit.
+    type: 2
+    health: 1
+    mana: 0
     dodge: 0
     speed: 0
-    crit: 0
+    crit: 1
     attack: 1
-    targetOpponent: 1
+    targetOpponent: FALSE

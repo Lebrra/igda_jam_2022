@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Chomp
     abilityCost: 2
-    description: Chomp your target for 10 damage.
+    description: Chomp your target for 4 damage.
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
-    crit: 10
+    crit: 4
     attack: 0
     targetOpponent: TRUE
