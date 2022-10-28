@@ -44,11 +44,12 @@ public class CombatManager : MonoBehaviour
         backButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(false));
     }
 
-    public void OpenPreview() {
-        enemy.RandomizeBuild();
+    public void OpenPreview(bool randomize, AnimalPartsObject opponent) {
+        if (randomize) enemy.RandomizeBuild();
+        else enemy.BuildAnimal(opponent);
         previewAnim.SetBool("Status", true);
-        playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true);
-        enemyObjPreview.CreateAnimal(enemy.animal, true, true);
+        playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true, AnimalPrefabBuilder.AnimationType.Bob);
+        enemyObjPreview.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
     }
 
     public void ClosePreview() {
@@ -69,8 +70,8 @@ public class CombatManager : MonoBehaviour
         InitializeCombat();
 
         combatAnim.SetBool("Status", true);
-        playerObj.CreateAnimal(player.animal, true, true);
-        enemyObj.CreateAnimal(enemy.animal, true, true);
+        playerObj.CreateAnimal(player.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
+        enemyObj.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
 
     }
 
@@ -78,6 +79,13 @@ public class CombatManager : MonoBehaviour
         combatAnim.SetBool("Status", false);
         playerObj.DestroyAnimal();
         enemyObj.DestroyAnimal();
+
+        ability_rest.onClick.RemoveAllListeners();
+        ability_basicBash.onClick.RemoveAllListeners();
+        button_ability_one.onClick.RemoveAllListeners();
+        button_ability_two.onClick.RemoveAllListeners();
+        button_ability_three.onClick.RemoveAllListeners();
+        button_ability_four.onClick.RemoveAllListeners();
     }
 
     public void InitializeCombat() {
@@ -227,12 +235,13 @@ public class CombatManager : MonoBehaviour
 
             if(a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+                SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
             } else if(a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, player);
+                SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
             }
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
-
 
             combatText.text = player.animalName + " used " + a.abilityData.name + "!";
 
@@ -243,9 +252,11 @@ public class CombatManager : MonoBehaviour
             if (enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                    SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                    SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
                 }
             }
             else {
@@ -257,10 +268,11 @@ public class CombatManager : MonoBehaviour
             opponent = player;
         }
 
-        while(i < 1f) {
-            i += Time.deltaTime * speed;
-            yield return null;
-        }
+        yield return new WaitForSeconds(1F);
+        //while(i < 1f) {
+        //    i += Time.deltaTime * speed;
+        //    yield return null;
+        //}
 
         if(player.health <= 0) {
             //player died
@@ -283,9 +295,11 @@ public class CombatManager : MonoBehaviour
 
             if (a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, enemy);
+                SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
             }
             else if (a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
                 AbilityManager.instance.UseAbility(a.abilityData.name, player);
+                SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
             }
 
             //AbilityManager.instance.UseAbility(a.abilityData.name, a.abilityData.type == AbilityType.attack ? enemy : player);
@@ -299,9 +313,11 @@ public class CombatManager : MonoBehaviour
             if(enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player);
+                    SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
                     AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                    SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
                 }
             } else {
                 AbilityManager.instance.UseAbility("BasicBash", player);
@@ -328,5 +344,9 @@ public class CombatManager : MonoBehaviour
 
         }
     }
-    
+
+    void SetAnimation(AnimalPrefabBuilder animal, AnimalPrefabBuilder.AnimationType anim)
+    {
+        animal.SetAnimationState(anim);
+    }
 }

@@ -33,6 +33,9 @@ public class AnimalPrefabBuilder : MonoBehaviour
     public AnimalPartsObject testAnimal;
 
     Routine animator;
+    Vector3 bodyDefault = Vector3.zero;
+    Vector3 headDefault = Vector3.zero;
+    Vector3 tailDefault = Vector3.zero;
 
     IEnumerator CreateWithValidation(AnimalPartsObject animal, bool animated, bool zeroOut)
     {
@@ -106,6 +109,10 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tailPart.transform.SetAsLastSibling();      // 4
         legsBLPart.transform.SetAsLastSibling();    // 5
         legsFLPart.transform.SetAsLastSibling();    // 6
+
+        bodyDefault = bodyPart.transform.position;
+        tailDefault = tailPart.transform.position;
+        headDefault = headPart.transform.position;
     }
 
     public void CreateAnimal(AnimalPartsObject animal, bool animated = true, bool zeroOut = false, AnimationType anim = AnimationType.None)
@@ -158,6 +165,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         headPart.transform.SetParent(animalTransform);
         headPart.transform.SetSiblingIndex(3);
         headPart.transform.localScale = Vector2.zero;
+        headDefault = headPart.transform.position;
         yield return GrowSpawnObject(headPart.GetComponent<RectTransform>());
     }
 
@@ -190,6 +198,7 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tailPart.transform.SetParent(animalTransform);
         tailPart.transform.SetSiblingIndex(4);
         tailPart.transform.localScale = Vector2.zero;
+        tailDefault = tailPart.transform.position;
         yield return GrowSpawnObject(tailPart.GetComponent<RectTransform>());
     }
 
@@ -425,12 +434,14 @@ public class AnimalPrefabBuilder : MonoBehaviour
         float dif = 7F;
         float time = 0.5F;
         var bodyRect = bodyPart.GetComponent<RectTransform>();
-        var bodyOriginalPos = bodyRect.position.y;
+        var bodyOriginalPos = bodyDefault.y;
         var headRect = headPart.GetComponent<RectTransform>();
-        var headOriginalPos = headRect.position.y;
+        var headOriginalPos = headDefault.y;
         var tailRect = tailPart.GetComponent<RectTransform>();
-        var tailOriginalPos = tailRect.position.y;
-        
+        var tailOriginalPos = tailDefault.y;
+
+        yield return Random.Range(0F, 0.2F);
+
         while (true)
         {
             var bobs = new List<IEnumerator>();
@@ -487,6 +498,8 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tweens.Add(animalTransform.MoveTo(originalPos.x, 0.2F, Axis.X));
         tweens.Add(animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y));
         yield return Routine.Combine(tweens);
+
+        SetAnimationState(AnimationType.Bob);
     }
 
     IEnumerator AnimInverseAttack()
@@ -503,6 +516,8 @@ public class AnimalPrefabBuilder : MonoBehaviour
         tweens.Add(animalTransform.MoveTo(originalPos.x, 0.2F, Axis.X));
         tweens.Add(animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y));
         yield return Routine.Combine(tweens);
+
+        SetAnimationState(AnimationType.Bob);
     }
 
     IEnumerator AnimHop()
@@ -510,6 +525,8 @@ public class AnimalPrefabBuilder : MonoBehaviour
         Vector3 originalPos = animalTransform.position;
         yield return animalTransform.MoveTo(originalPos.y + 80F, 0.2F, Axis.Y);
         yield return animalTransform.MoveTo(originalPos.y, 0.2F, Axis.Y);
+
+        SetAnimationState(AnimationType.Bob);
     }
 
     public enum AnimationType

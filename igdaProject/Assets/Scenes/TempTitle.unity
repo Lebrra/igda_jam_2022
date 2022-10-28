@@ -1503,16 +1503,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 46dcd290ac8dea747bc8ba651e25a88e, type: 2}
   - stages:
     - {fileID: 11400000, guid: b9545eec8d38026468590985dddc2b88, type: 2}
-  testLevel:
-    activeRun: 0
-    selectedStages: []
-    currentGeneratedOpponent:
-      headID: 
-      bodyID: 
-      legsID: 
-      tailID: 
-    currentStage: 0
-    currentMatch: 0
 --- !u!4 &1480155940
 Transform:
   m_ObjectHideFlags: 0

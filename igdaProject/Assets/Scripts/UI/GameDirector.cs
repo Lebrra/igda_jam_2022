@@ -79,7 +79,7 @@ public class GameDirector : MonoBehaviour
     IEnumerator DelayOpenCombatPreview() {
         CloseMainMenu();
         yield return 0.5f;
-        combatMan.OpenPreview();
+        combatMan.OpenPreview(true, new AnimalPartsObject());
     }
 
     public void ClosePreviewToCombat(bool b) {
@@ -87,11 +87,12 @@ public class GameDirector : MonoBehaviour
     }
     IEnumerator DelayCloseCombatPreview(bool inCombat) {
         combatMan.ClosePreview();
-        yield return 0.5f;
+        yield return 0.2f;
         if (inCombat) {
             //going to combat
             OpenCombat();
         } else {
+            yield return 0.3F;
             OpenMainMenu();
         }
     }
@@ -129,7 +130,7 @@ public class GameDirector : MonoBehaviour
         // LevelMan handles delay there
 
         // set opponent
-        combatMan.OpenPreview();
+        combatMan.OpenPreview(false, opponent);
     }
 
 

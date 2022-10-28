@@ -72,7 +72,7 @@ public class LevelGenerator : MonoBehaviour
         else
         {
             randomChosen = UnityEngine.Random.Range(0, biome.animalCodes.Count);
-            newAnimal.legsID = biome.animalCodes[randomChosen] + "_tail";
+            newAnimal.tailID = biome.animalCodes[randomChosen] + "_tail";
         }
 
         Debug.Log("Created new level");
