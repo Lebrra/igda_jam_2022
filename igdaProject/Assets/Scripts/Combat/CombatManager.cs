@@ -501,29 +501,19 @@ public class CombatManager : MonoBehaviour
 
     string GetRandomPart(AnimalPartsObject animal)
     {
+        List<string> options = new List<string>();
+        options.Add(animal.headID);
+        options.Add(animal.bodyID);
+        options.Add(animal.legsID);
+        options.Add(animal.tailID);
+
         int choices = 4;
         while (choices > 0)
         {
             var chosen = Random.Range(0, choices);
-            string part = "";
-            switch (chosen)
-            {
-                case 0: 
-                    part = animal.headID;
-                    break;
-                case 1: 
-                    part = animal.bodyID;
-                    break;
-                case 2: 
-                    part = animal.legsID;
-                    break;
-                case 3: 
-                    part = animal.tailID;
-                    break;
-            }
-            if (MonsterMakerGenerator.instance.DoIHaveThis(part))
-                choices--;
-            else return part;
+            if (MonsterMakerGenerator.instance.DoIHaveThis(options[chosen]))
+                options.RemoveAt(chosen);
+            else return options[chosen];
         }
         return "none";
     }
