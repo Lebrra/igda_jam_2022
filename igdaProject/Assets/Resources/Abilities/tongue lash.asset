@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Tongue Lash
     abilityCost: 3
-    description: Lowers your target's Speed by 8.
+    description: Lowers your target's Speed by 4.
     type: 1
     health: 0
     mana: 0
     dodge: 0
-    speed: 8
+    speed: -4
     crit: 0
     attack: 0
     targetOpponent: TRUE

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Sting
     abilityCost: 2
-    description: A quick sting to deal 2 Damage.
+    description: An unavoidable quick sting to deal 2 extra damage.
     type: 0
     health: 0
     mana: 0

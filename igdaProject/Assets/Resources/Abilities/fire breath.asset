@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Fire breath
     abilityCost: 10
-    description: Breath fire on your target for 7 Damage.
+    description: Breath fire on your target for 7 extra damage.
     type: 0
     health: 0
     mana: 0

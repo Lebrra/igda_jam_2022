@@ -348,11 +348,11 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
             if(a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, enemy, player);
+                AbilityManager.instance.UseAbility(a, enemy, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
                 AudioManager.audioManager.playSoundClip("Attack", 1F);
             } else if(a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, player);
+                AbilityManager.instance.UseAbility(a, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
                 AudioManager.audioManager.playSoundClip("Support", 0.3F);
             }
@@ -367,18 +367,18 @@ public class CombatManager : MonoBehaviour
             var enemyAbility = enemy.GetRandomAbility(bash, rest);
             if (enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
+                    AbilityManager.instance.UseAbility(enemyAbility, player, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                     AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                    AbilityManager.instance.UseAbility(enemyAbility, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
                     AudioManager.audioManager.playSoundClip("Attack", 0.15F);
                 }
             }
             else {
-                AbilityManager.instance.UseAbility("BasicBash", player);
+                AbilityManager.instance.UseAbility(bash, player);
                 SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                 AudioManager.audioManager.playSoundClip("Attack", 0.5F);
 
@@ -417,12 +417,12 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
             if (a.abilityData.type == AbilityType.attack || a.abilityData.targetOpponent == "TRUE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, enemy, player);
+                AbilityManager.instance.UseAbility(a, enemy, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Attack);
                 AudioManager.audioManager.playSoundClip("Attack", 1);
             }
             else if (a.abilityData.type == AbilityType.support || a.abilityData.targetOpponent == "FALSE") {
-                AbilityManager.instance.UseAbility(a.abilityData.name, player);
+                AbilityManager.instance.UseAbility(a, player);
                 SetAnimation(playerObj, AnimalPrefabBuilder.AnimationType.Support);
                 AudioManager.audioManager.playSoundClip("Attack", 0.3F);
             }
@@ -437,17 +437,17 @@ public class CombatManager : MonoBehaviour
             var enemyAbility = enemy.GetRandomAbility(bash, rest);
             if(enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, player, enemy);
+                    AbilityManager.instance.UseAbility(enemyAbility, player, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                     AudioManager.audioManager.playSoundClip("Attack", 0.5F);
                 }
                 else if (enemyAbility.abilityData.type == AbilityType.support || enemyAbility.abilityData.targetOpponent == "FALSE") {
-                    AbilityManager.instance.UseAbility(enemyAbility.abilityData.name, enemy);
+                    AbilityManager.instance.UseAbility(enemyAbility, enemy);
                     SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.Support);
                     AudioManager.audioManager.playSoundClip("Attack", 0.15F);
                 }
             } else {
-                AbilityManager.instance.UseAbility("BasicBash", player);
+                AbilityManager.instance.UseAbility(bash, player);
                 SetAnimation(enemyObj, AnimalPrefabBuilder.AnimationType.InverseAttack);
                 AudioManager.audioManager.playSoundClip("Attack", 0.5F);
             }

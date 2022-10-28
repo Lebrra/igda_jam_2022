@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Kick
     abilityCost: 4
-    description: Kick your target for 3 Damage.
+    description: Kick your target for 3 extra damage.
     type: 0
     health: 0
     mana: 0

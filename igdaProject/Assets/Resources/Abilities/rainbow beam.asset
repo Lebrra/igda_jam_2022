@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Rainbow Beam
     abilityCost: 25
-    description: Deal 30 damage to your target.
+    description: Deal 30 extra damage to your target.
     type: 0
     health: 0
     mana: 0

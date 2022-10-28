@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Rolly Polly
     abilityCost: 3
-    description: Roll over your target dealing 5 damage.
+    description: Roll over your target dealing 5 extra damage.
     type: 0
     health: 0
     mana: 0

@@ -8,16 +8,18 @@ public class AbilityManager : MonoBehaviour
 
     public Entity attacker; // who's stats should I use?
     public Entity target; //the current entity that abilities will target. 
+    Ability currentAbility = null;  // ability to pull data from
     private void Awake() {
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
     }
 
-    public void UseAbility(string abilityName, Entity target, Entity attacker = null) {
+    public void UseAbility(Ability ability, Entity target, Entity attacker = null) {
         this.target = target;
         this.attacker = attacker;
-        abilityName = abilityName.Replace(" ", "").ToLower();
-        switch (abilityName) {
+        currentAbility = ability;
+        string abil = currentAbility.abilityData.name.Replace(" ", "").ToLower();
+        switch (abil) {
             case "rest": Rest(); break;
             case "basicbash": BasicBash(); break;
 
@@ -52,68 +54,68 @@ public class AbilityManager : MonoBehaviour
             case "tailwhip": TailWhip(); break;
             case "tickle": Tickle(); break;
             case "gobble": break;
-            default: Debug.LogError("Ability not found! " + abilityName); break;
+            default: Debug.LogError("Ability not found! " + ability); break;
         }
 
     }
     
     public void Rest() {
-        target.AffectMana(5);
+        target.AffectMana(currentAbility.abilityData.mana);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased mana!");
-        CombatManager.instance.GainMana(target, 5);
+        CombatManager.instance.GainMana(target, currentAbility.abilityData.mana);
     }
     public void BasicBash() {
        // target.AffectHealth(-5);
-        CombatManager.instance.DealtDamage(target, 5, false, target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, currentAbility.abilityData.attack, false, target.DodgeCheck());
     }
 
     #region ATTACK ABILITIES
     public void ClawSwipe() {
-        CombatManager.instance.DealtDamage(target, (5 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Chomp() {
-        CombatManager.instance.DealtDamage(target, (4 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Peck() {
-        CombatManager.instance.DealtDamage(target, (2 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Bite() {
-        CombatManager.instance.DealtDamage(target, (1 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void FireBreath() {
-        CombatManager.instance.DealtDamage(target, (7 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Stomp() {
-        CombatManager.instance.DealtDamage(target, (4 + attacker.attack), attacker.CritCheck(), false);
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), false);
     }
 
     public void Kick() {
-        CombatManager.instance.DealtDamage(target, (3 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Slap() {
-        CombatManager.instance.DealtDamage(target, (2 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void WingSlash() {
-        CombatManager.instance.DealtDamage(target, (4 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Sting() {
-        CombatManager.instance.DealtDamage(target, (2 + attacker.attack), attacker.CritCheck(), false);
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), false);
     }
 
     public void RollyPolly() {
-        CombatManager.instance.DealtDamage(target, (5 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void RainbowBeam() {
-        CombatManager.instance.DealtDamage(target, (30 + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
     public void Charge()
@@ -126,23 +128,23 @@ public class AbilityManager : MonoBehaviour
     #region SUPPORT ABILITIES
     public void Bark() {
 
-        target.AffectAttack(1);
+        target.AffectAttack(currentAbility.abilityData.attack);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased attack!");
     }
 
     public void SoothingSong() {
 
-        target.AffectAttack(-5);
+        target.AffectAttack(currentAbility.abilityData.attack);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased attack!");
     }
 
     public void Roar() {
-        target.AffectDodge(-5);
+        target.AffectDodge(currentAbility.abilityData.dodge);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased dodge!");
     }
 
     public void SharkBait() {
-        target.AffectSpeed(-6);
+        target.AffectSpeed(currentAbility.abilityData.speed);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased speed!");
     }
 
@@ -151,12 +153,12 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void TongueLash() {
-        target.AffectDodge(8);
+        target.AffectDodge(currentAbility.abilityData.dodge);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge!");
     }
 
     public void MagicHorn() {
-        target.AffectHealth(5);
+        target.AffectHealth(currentAbility.abilityData.health);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased health!");
     }
 
@@ -165,12 +167,12 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void GoodJoke() {
-        target.AffectDodge(-6);
+        target.AffectDodge(currentAbility.abilityData.dodge);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased dodge!");
     }
 
     public void Flaunt() {
-        target.AffectCrit(5);
+        target.AffectCrit(currentAbility.abilityData.crit);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased crit!");
     }
 
@@ -183,30 +185,30 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void BearHug() {
-        target.AffectDodge(-5);
+        target.AffectDodge(currentAbility.abilityData.dodge);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased dodge!");
     }
 
     public void Cackle() {
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased mana!");
-        CombatManager.instance.SpentMana(target, 5);
+        CombatManager.instance.SpentMana(target, -currentAbility.abilityData.mana);
     }
 
     public void TailWhip() {
-        target.AffectSpeed(-5);
+        target.AffectSpeed(currentAbility.abilityData.speed);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased speed!");
     }
 
     public void Tickle() {
-        target.AffectDodge(5);
+        target.AffectDodge(currentAbility.abilityData.dodge);
         CombatManager.instance.ShowSupportText(target.animalName + " has decreased dodge!");
     }
 
     public void Gobble()
     {
-        target.AffectMana(10);
+        target.AffectMana(currentAbility.abilityData.mana);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased mana!");
-        CombatManager.instance.GainMana(target, 10);
+        CombatManager.instance.GainMana(target, currentAbility.abilityData.mana);
     }
 
     #endregion

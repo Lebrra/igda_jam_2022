@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Bite
     abilityCost: 3
-    description: Bite your targett for 3 damage.
+    description: Bite your target for 1 extra damage.
     type: 0
     health: 0
     mana: 0

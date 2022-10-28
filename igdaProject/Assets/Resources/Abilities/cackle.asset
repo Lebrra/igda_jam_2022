@@ -18,9 +18,9 @@ MonoBehaviour:
     description: Lowers your target's Mana by 10.
     type: 1
     health: 0
-    mana: 10
+    mana: -10
     dodge: 0
     speed: 0
     crit: 0
-    attack: 5
+    attack: 0
     targetOpponent: TRUE
