@@ -62,6 +62,8 @@ public class MainMenuManager : MonoBehaviour
     TextMeshProUGUI speedStat;
     [SerializeField]
     TextMeshProUGUI dodgeStat;
+    [SerializeField]
+    TextMeshProUGUI countText;
     [Space]
     [SerializeField]
     AnimalPrefabBuilder animalBuilder;
@@ -111,6 +113,12 @@ public class MainMenuManager : MonoBehaviour
             popup.Open();
             GameManager.instance.showCompletedPopup = false;
         }
+
+        if (GameManager.instance.playerdata.runsComplete > 0)
+        {
+            countText.text = "Completed Playthroughs: <b>" + GameManager.instance.playerdata.runsComplete;
+        }
+        else countText.text = "";
     }
 
     public void Close()
