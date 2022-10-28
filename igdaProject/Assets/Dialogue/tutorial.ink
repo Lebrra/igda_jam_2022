@@ -63,7 +63,7 @@ Professor: But be careful intern. Try not to take on more than you can handle. W
 =research
 #openerPanel
 #mumble
-Professor: First, please take a look at that magnifying glass.
+Professor: First, please take a look at that <b>pencil</b> in the corner.
 #mumble
 #closeOpener
 #creatureCreationPanel
