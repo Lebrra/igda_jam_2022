@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9114222305004025770}
   - component: {fileID: 9114222305004025771}
-  - component: {fileID: 9114222305004025780}
   - component: {fileID: 9114222305004025781}
+  - component: {fileID: 9114222305004025780}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -68,7 +68,7 @@ MonoBehaviour:
   - clipName: Mumble3
     audioClip: {fileID: 8300000, guid: 7d4c89911f88edb4fa863a9109b69f89, type: 3}
   transTime: 3
---- !u!82 &9114222305004025780
+--- !u!82 &9114222305004025781
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &9114222305004025781
+--- !u!82 &9114222305004025780
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

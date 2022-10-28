@@ -46,7 +46,21 @@ public class AudioManager : MonoBehaviour
         volume = musicAudioSource.volume;
         maxVolume = musicAudioSource.volume;
         //Routine.Start(songManager());
+        playBackgroundMusic();
     }
+
+    public void MuteAudio()
+    {
+        clipAudioSource.mute = true;
+        musicAudioSource.mute = true;
+    }
+
+    public void UnMuteAudio()
+    {
+        clipAudioSource.mute = false;
+        musicAudioSource.mute = false;
+    }
+
     public AudioClip StringToClip(string s)
     {
         var test = audioClips.Where(x => x.clipName == s).ToList();
