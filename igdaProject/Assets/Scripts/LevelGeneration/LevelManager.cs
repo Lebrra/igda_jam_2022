@@ -52,7 +52,9 @@ public class LevelManager : MonoBehaviour
         int lastSquare = (currentLevel.currentStage * 3) + currentLevel.currentMatch;
         var pawn = Instantiate(pawnPref, mapSquares[lastSquare].GetComponent<Transform>());
         Instantiate(DataManager.instance.GetAnimalPartUI(GameManager.instance.playerdata.GetActiveAnimal().headID), pawn.GetChild(0));
-        if (lastSquare % 6 > 2) pawn.localScale = new Vector3(pawn.localScale.x * -1F, pawn.localScale.y, 1F);
+        pawn.SetRotation(Vector3.zero);
+        //pawn.localRotation.eulerAngles = Vector3.zero;
+        //if (lastSquare % 6 > 2) pawn.localScale = new Vector3(pawn.localScale.x * -1F, pawn.localScale.y, 1F);
 
         mapAnim.SetBool("Status", true);
         yield return 1F;
@@ -66,6 +68,11 @@ public class LevelManager : MonoBehaviour
 
         pawn.SetParent(mapSquares[lastSquare + 1].GetComponent<RectTransform>());
         yield return 0.4F;
+
+        mapAnim.SetBool("Status", false);
+        yield return 0.8F;
+        GameDirector.instance.OpenPreviewFromLevel(currentLevel.currentGeneratedOpponent);
+        Destroy(pawn.gameObject);
     }
 
     IEnumerator TwistPawn(RectTransform pawn, float time)
