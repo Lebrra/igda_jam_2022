@@ -131,12 +131,12 @@ public class GameDirector : MonoBehaviour
         levelMan.LoadLevel();
     }
 
-    public void OpenPreviewFromLevel(AnimalPartsObject opponent)
+    public void OpenPreviewFromLevel(AnimalPartsObject opponent, bool isBoss)
     {
         // LevelMan handles delay there
 
         // set opponent
-        combatMan.OpenPreview(false, opponent);
+        combatMan.OpenPreview(false, opponent, isBoss);
     }
     public void GenerateNewOpponent()
     {

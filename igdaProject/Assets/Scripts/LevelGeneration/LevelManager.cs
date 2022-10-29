@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
 
         mapAnim.SetBool("Status", false);
         yield return 0.8F;
-        GameDirector.instance.OpenPreviewFromLevel(currentLevel.currentGeneratedOpponent);
+        GameDirector.instance.OpenPreviewFromLevel(currentLevel.currentGeneratedOpponent, currentLevel.currentMatch == 2);
         Destroy(pawn.gameObject);
     }
 

@@ -9,6 +9,7 @@ public class Entity : MonoBehaviour
     public string animalName;
     [Header("Stats")]
     public float healthMax, manaMax, dodgeMax, speedMax, critMax, attackMax;
+    public float bossMulti = 1F;
 
     public float health, mana, dodge, speed, crit, attack; //current values
 
@@ -21,12 +22,7 @@ public class Entity : MonoBehaviour
     public bool revive = false;
     private void Start()
     {
-        healthMax = (float)GameManager.BASE_HEALTH;
-        manaMax = (float)GameManager.BASE_MANA;
-        dodgeMax = (float)GameManager.BASE_DODGE;
-        speedMax = (float)GameManager.BASE_SPEED;
-        critMax = (float)GameManager.BASE_CRIT;
-        attackMax = (float)GameManager.BASE_DMG;
+        ResetStatsToDefault();
     }
 
     /// <summary>
@@ -83,12 +79,22 @@ public class Entity : MonoBehaviour
     }
 
     public void ResetStatsToMax() {
-        health = healthMax;
+        health = healthMax * bossMulti;
         mana = manaMax;
         dodge = dodgeMax;
         speed = speedMax;
         crit = critMax;
         attack = attackMax;
+    }
+
+    public void ResetStatsToDefault()
+    {
+        healthMax = (float)GameManager.BASE_HEALTH;
+        manaMax = (float)GameManager.BASE_MANA;
+        dodgeMax = (float)GameManager.BASE_DODGE;
+        speedMax = (float)GameManager.BASE_SPEED;
+        critMax = (float)GameManager.BASE_CRIT;
+        attackMax = (float)GameManager.BASE_DMG;
     }
 
     public Ability GetRandomAbility(Ability bash, Ability rest) {

@@ -56,7 +56,7 @@ public class CombatManager : MonoBehaviour
         backButton.onClick.AddListener(() => GameDirector.instance.ClosePreviewToCombat(false));
     }
 
-    public void OpenPreview(bool randomize, AnimalPartsObject opponent) {
+    public void OpenPreview(bool randomize, AnimalPartsObject opponent, bool boss = false) {
         if (randomize)
         {
             enemy.RandomizeBuild();
@@ -67,6 +67,9 @@ public class CombatManager : MonoBehaviour
             enemy.BuildAnimal(opponent);
             isLevelBattle = true;
         }
+        if (boss) enemy.bossMulti = 1.5F;
+        else enemy.bossMulti = 1F;
+
         previewAnim.SetBool("Status", true);
         playerObjPreview.CreateAnimal(GameManager.instance.playerdata.GetActiveAnimal(), true, true, AnimalPrefabBuilder.AnimationType.Bob);
         enemyObjPreview.CreateAnimal(enemy.animal, true, true, AnimalPrefabBuilder.AnimationType.Bob);
@@ -286,6 +289,7 @@ public class CombatManager : MonoBehaviour
         
         entity.abilityList.Clear();
         entity.useableAbilityList.Clear();
+        entity.ResetStatsToDefault();
 
         Ability ability1 = DataManager.instance.GetAnimalPart(entity.animal.headID).GetAbility();
         Ability ability2 = DataManager.instance.GetAnimalPart(entity.animal.bodyID).GetAbility();
@@ -640,10 +644,9 @@ public class CombatManager : MonoBehaviour
         options.Add(animal.legsID);
         options.Add(animal.tailID);
 
-        int choices = 4;
-        while (choices > 0)
+        while (options.Count > 0)
         {
-            var chosen = Random.Range(0, choices);
+            var chosen = Random.Range(0, options.Count);
             if (MonsterMakerGenerator.instance.DoIHaveThis(options[chosen]))
                 options.RemoveAt(chosen);
             else return options[chosen];

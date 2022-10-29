@@ -437,6 +437,7 @@ MonoBehaviour:
   speedMax: 0
   critMax: 0
   attackMax: 0
+  bossMulti: 1
   health: 0
   mana: 0
   dodge: 0
@@ -1305,6 +1306,7 @@ MonoBehaviour:
   speedMax: 0
   critMax: 0
   attackMax: 0
+  bossMulti: 1
   health: 100
   mana: 0
   dodge: 0
@@ -2971,9 +2973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generator: {fileID: 461261864}
-  Testing: 1
+  Testing: 0
   GenerateDefaultInventory: 0
-  hasPart: 1
+  hasPart: 0
   closeButton: {fileID: 1522839614}
   saveButton: {fileID: 1074148700}
   anim: {fileID: 295009423}
