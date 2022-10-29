@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
 
     public Ability holdingAbility;
 
+    public bool revive = false;
     private void Start()
     {
         healthMax = (float)GameManager.BASE_HEALTH;

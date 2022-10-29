@@ -233,7 +233,29 @@ public class CombatManager : MonoBehaviour
             //#e66767
             healthBar.color = new Color32(230, 103, 103, 255);
         }
+    }
 
+    private IEnumerator UIHealthbarScalerHEAL(Entity e, Image healthBar, float currentHealth, float amount) {
+        var i = 0f;
+        float speed = 4f;
+        float targetHealth = currentHealth + amount;
+        while (i < 1) {
+            i += Time.deltaTime * speed;
+            healthBar.fillAmount = Mathf.Lerp((currentHealth / e.healthMax), (targetHealth / e.healthMax), i);
+            yield return null;
+        }
+        healthBar.fillAmount = targetHealth / e.healthMax;
+        Debug.LogWarning("HEY HEY HEY HEY HEU*HIUEHIHIAHU");
+        e.AffectHealth(amount);
+
+        if (currentHealth <= GainPercentage(e, 60) && currentHealth >= GainPercentage(e, 20)) {
+            // #f5cd79
+            healthBar.color = new Color32(245, 205, 121, 255);
+        }
+        else if (currentHealth < GainPercentage(e, 20)) {
+            //#e66767
+            healthBar.color = new Color32(230, 103, 103, 255);
+        }
     }
 
     private IEnumerator UIManabarScaler(Image manaBar, float currentMana, float amount) {
@@ -403,15 +425,28 @@ public class CombatManager : MonoBehaviour
         //}
 
         if(player.health <= 0) {
-            //player died
-            EndBattle(false, isLevelBattle);
-            yield break;
+            if (!player.revive) {
+                //player died
+                EndBattle(false, isLevelBattle);
+                yield break;
+            } else {
+                player.revive = false;
+                StartCoroutine(UIHealthbarScalerHEAL(player, playerHealthBar, 0, 10));
+            }
+            
         }
 
         if(enemy.health <= 0) {
             //enemy died
-            EndBattle(true, isLevelBattle);
-            yield break;
+            if (!enemy.revive) {
+               
+                EndBattle(true, isLevelBattle);
+                yield break;
+            }
+            else {
+                enemy.revive = false;
+                StartCoroutine(UIHealthbarScalerHEAL(enemy, enemyHealthBar, 0, 10));
+            }
         }
 
 
@@ -482,16 +517,32 @@ public class CombatManager : MonoBehaviour
         //}
 
         if (player.health <= 0) {
-            //player died
-            EndBattle(false, isLevelBattle);
-            yield break;
+            if (!player.revive) {
+                //player died
+                EndBattle(false, isLevelBattle);
+                yield break;
+            }
+            else {
+                player.revive = false;
+                StartCoroutine(UIHealthbarScalerHEAL(player, playerHealthBar, 0, 10));
+            }
+
         }
 
         if (enemy.health <= 0) {
             //enemy died
-            EndBattle(true, isLevelBattle);
-            yield break;
+            if (!enemy.revive) {
+
+                EndBattle(true, isLevelBattle);
+                yield break;
+            }
+            else {
+                enemy.revive = false;
+                StartCoroutine(UIHealthbarScalerHEAL(enemy, enemyHealthBar, 0, 10));
+            }
         }
+
+       
 
         if (player.holdingAbility != null) UseAbility(player.holdingAbility);
 

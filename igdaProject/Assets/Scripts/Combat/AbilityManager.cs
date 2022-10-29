@@ -76,6 +76,8 @@ public class AbilityManager : MonoBehaviour
         CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
+    
+
     #region ATTACK ABILITIES
 
     public void BigBite() {
@@ -137,11 +139,16 @@ public class AbilityManager : MonoBehaviour
         CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
-    
+
 
     #endregion
 
     #region SUPPORT ABILITIES
+
+    public void FromTheAshes() {
+        target.revive = true;
+        CombatManager.instance.ShowSupportText(target.animalName + " has prepared for lethal damage!");
+    }
     public void Bark() {
 
         target.AffectAttack(currentAbility.abilityData.attack);
@@ -165,7 +172,9 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void TurtleShield() {
-        CombatManager.instance.ShowSupportText(target.animalName + " does nothing!");
+        target.AffectDodge(currentAbility.abilityData.dodge);
+        target.AffectSpeed(currentAbility.abilityData.speed);
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge and lowered speed!");
     }
 
     public void TongueLash() {
@@ -179,7 +188,8 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void Jump() {
-        CombatManager.instance.ShowSupportText(target.animalName + " does nothing!");
+        target.AffectDodge(currentAbility.abilityData.dodge);
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge!");
     }
 
     public void GoodJoke() {
@@ -193,12 +203,12 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void BirdOfPrey() {
-        CombatManager.instance.ShowSupportText(target.animalName + " does nothing!");
+        target.AffectAttack(currentAbility.abilityData.attack);
+        target.AffectDodge(currentAbility.abilityData.dodge);
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased attack and lowered dodge!");
     }
 
-    public void FromTheAshes() {
-        CombatManager.instance.ShowSupportText(target.animalName + " does nothing!");
-    }
+    
 
     public void BearHug() {
         target.AffectDodge(currentAbility.abilityData.dodge);
