@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityData:
     name: Turtle Shield
     abilityCost: 8
-    description: 'Increases dodge by 10 and reduces speed by 5. '
+    description: Increases dodge by 10 but lowers speed by 5.
     type: 1
     health: 0
     mana: 0

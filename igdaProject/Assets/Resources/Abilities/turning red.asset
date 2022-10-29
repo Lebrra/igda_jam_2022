@@ -17,9 +17,9 @@ MonoBehaviour:
     abilityCost: 0
     description: Increase Health and Dodge.
     type: 2
-    health: 2
+    health: 4
     mana: 0
-    dodge: 2
+    dodge: 3
     speed: 0
     crit: 0
     attack: 0

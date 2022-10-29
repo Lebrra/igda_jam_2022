@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Jump
-    abilityCost: 15
+    abilityCost: 9
     description: Chance to dodge your oppenent's next attack.
     type: 1
     health: 0
     mana: 0
-    dodge: 0
+    dodge: 8
     speed: 0
     crit: 0
     attack: 0

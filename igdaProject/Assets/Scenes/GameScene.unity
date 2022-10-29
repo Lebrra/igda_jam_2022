@@ -446,6 +446,7 @@ MonoBehaviour:
   abilityList: []
   useableAbilityList: []
   holdingAbility: {fileID: 0}
+  revive: 0
 --- !u!4 &188241957
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,6 +1314,7 @@ MonoBehaviour:
   abilityList: []
   useableAbilityList: []
   holdingAbility: {fileID: 0}
+  revive: 0
 --- !u!4 &467877078
 Transform:
   m_ObjectHideFlags: 0
@@ -1580,7 +1582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 154.16
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263250582578, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1668,7 +1670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 148.175
       objectReference: {fileID: 0}
     - target: {fileID: 5325305263665947025, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1760,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 228.73
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264166822040, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1896,7 +1898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 164.32
       objectReference: {fileID: 0}
     - target: {fileID: 5325305264384470313, guid: 5a57385052c8a204b96810068d2abd0d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3444,22 +3446,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5013820843868809914, guid: 27696977a63d4ea4d8cc586afe47327d, type: 3}
-      propertyPath: tailList.Array.size
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013820843868809914, guid: 27696977a63d4ea4d8cc586afe47327d, type: 3}
-      propertyPath: allAbilities.Array.size
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013820843868809914, guid: 27696977a63d4ea4d8cc586afe47327d, type: 3}
-      propertyPath: tailList.Array.data[33]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4ec7a2dcbca75b049823bbddaeacc471, type: 2}
-    - target: {fileID: 5013820843868809914, guid: 27696977a63d4ea4d8cc586afe47327d, type: 3}
-      propertyPath: allAbilities.Array.data[98]
-      value: 
-      objectReference: {fileID: 11400000, guid: d2cbbe639a2885945b5ec905bc17e0e1, type: 2}
     - target: {fileID: 5013820843868809915, guid: 27696977a63d4ea4d8cc586afe47327d, type: 3}
       propertyPath: m_RootOrder
       value: 8

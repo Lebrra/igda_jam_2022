@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Magic Horn
-    abilityCost: 6
-    description: Regenerate 5 Health.
+    abilityCost: 8
+    description: Regenerate 20 Health.
     type: 1
-    health: 5
+    health: 20
     mana: 0
     dodge: 0
     speed: 0

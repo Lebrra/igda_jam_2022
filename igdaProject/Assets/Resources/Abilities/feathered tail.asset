@@ -20,7 +20,7 @@ MonoBehaviour:
     health: 0
     mana: 0
     dodge: 0
-    speed: 1
+    speed: 4
     crit: 0
     attack: 1
     targetOpponent: FALSE

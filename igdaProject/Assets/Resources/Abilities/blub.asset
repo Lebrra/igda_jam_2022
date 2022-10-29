@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 2
     health: 0
     mana: 0
-    dodge: 2
+    dodge: 5
     speed: 0
     crit: 0
     attack: 0

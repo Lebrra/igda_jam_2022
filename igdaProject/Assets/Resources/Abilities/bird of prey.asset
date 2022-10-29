@@ -15,11 +15,11 @@ MonoBehaviour:
   abilityData:
     name: Bird of Prey
     abilityCost: 4
-    description: Increase damage on your next attack by 3.
+    description: Increase attack but lower dodge.
     type: 1
     health: 0
     mana: 0
-    dodge: 0
+    dodge: -3
     speed: 0
     crit: 0
     attack: 3

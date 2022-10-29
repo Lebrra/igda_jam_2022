@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Goat Tail
     abilityCost: 0
-    description: Increase Health and Damage.
+    description: Increase Health and Crit.
     type: 2
-    health: 1
+    health: 4
     mana: 0
     dodge: 0
     speed: 0
-    crit: 0
-    attack: 1
+    crit: 4
+    attack: 0
     targetOpponent: FALSE

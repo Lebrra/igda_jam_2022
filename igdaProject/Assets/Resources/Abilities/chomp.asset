@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Chomp
-    abilityCost: 2
+    abilityCost: 6
     description: Chomp your target for 4 extra damage.
     type: 0
     health: 0

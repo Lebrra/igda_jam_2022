@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Stomp
-    abilityCost: 5
-    description: Stomp your target for 4 unavoidable extra damage.
+    abilityCost: 8
+    description: Stomp your target for 6 unavoidable extra damage.
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
     crit: 0
-    attack: 4
+    attack: 6
     targetOpponent: TRUE

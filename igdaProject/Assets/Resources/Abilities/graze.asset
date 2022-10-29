@@ -17,10 +17,10 @@ MonoBehaviour:
     abilityCost: 0
     description: Increase Health and lower Speed.
     type: 2
-    health: 4
+    health: 6
     mana: 0
     dodge: 0
-    speed: -1
+    speed: -2
     crit: 0
     attack: 0
     targetOpponent: FALSE

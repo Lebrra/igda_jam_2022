@@ -573,11 +573,13 @@ MonoBehaviour:
   allAbilities:
   - {fileID: 11400000, guid: ccaa0ca9bf9203c43ab05613afbe862f, type: 2}
   - {fileID: 11400000, guid: 665a20c25958fed4a8d7386dfa1002a0, type: 2}
+  - {fileID: 11400000, guid: 6e68137a7bd93124db1d06c293af311e, type: 2}
   - {fileID: 11400000, guid: 27bd046fc0cc70747a38d435446b24ea, type: 2}
   - {fileID: 11400000, guid: 8caf8f58571984c4684012916dd26f8a, type: 2}
   - {fileID: 11400000, guid: 17e57afc536dd5d408e3d01eb67197ca, type: 2}
   - {fileID: 11400000, guid: 59391c6081bcbf54c8a6f74990de2fb6, type: 2}
   - {fileID: 11400000, guid: 545e340e8ba544049b68177b649255f0, type: 2}
+  - {fileID: 11400000, guid: 2a7aab046515d574d9097e5f5578fdd9, type: 2}
   - {fileID: 11400000, guid: 184790665d6c13f4badda5b7551b91a4, type: 2}
   - {fileID: 11400000, guid: 9192e6b9220cfc747bce7cda0f77d201, type: 2}
   - {fileID: 11400000, guid: 16150bd5bf720d84da1803f6d70688d8, type: 2}
@@ -639,6 +641,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aebbcb6339213324b8bae152390b7bc2, type: 2}
   - {fileID: 11400000, guid: 23678d424df165f46a48ac2db0fba59f, type: 2}
   - {fileID: 11400000, guid: 01ca664f097437f4d974b92d0ad7d3d2, type: 2}
+  - {fileID: 11400000, guid: bb4b1e5fe2b2b3546b8590d3c9185154, type: 2}
   - {fileID: 11400000, guid: 8dc48680ffff76f4ebe0548e94111d10, type: 2}
   - {fileID: 11400000, guid: 09d0c2ce1ff40a448993fdfe14573e0c, type: 2}
   - {fileID: 11400000, guid: 5c3d952ebf9a636478a4e67bdfc3beac, type: 2}
@@ -647,6 +650,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d7cea49d9901174abc64ea67c827584, type: 2}
   - {fileID: 11400000, guid: efd8be38193b9794f9d6f8666fdb5b7d, type: 2}
   - {fileID: 11400000, guid: ad95c733373875242af6d31f74044610, type: 2}
+  - {fileID: 11400000, guid: d2cbbe639a2885945b5ec905bc17e0e1, type: 2}
   - {fileID: 11400000, guid: 65cc35891c70d00458f8a9ce4dbf2e4b, type: 2}
   - {fileID: 11400000, guid: e5688d0931fe0ed4a9f836819c02505e, type: 2}
   - {fileID: 11400000, guid: 0412e162c04eabc46824034ad1470e5d, type: 2}
@@ -655,6 +659,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae9d730011b3e6348ba6dca94122b632, type: 2}
   - {fileID: 11400000, guid: b803fe5f7d964924fb96d202b5d38f7e, type: 2}
   - {fileID: 11400000, guid: bf1098a4447d04142b74955f0fd6b375, type: 2}
+  - {fileID: 11400000, guid: 65c6846b201a28745bb61679e767e6e3, type: 2}
   - {fileID: 11400000, guid: 54b3666826fc8aa46af8661b78360dde, type: 2}
   - {fileID: 11400000, guid: 25df2a4a39d0ef64aa6666265fa036f5, type: 2}
   - {fileID: 11400000, guid: a8bc6fec26521a240a770bb92f5a8a4e, type: 2}

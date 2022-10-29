@@ -15,12 +15,12 @@ MonoBehaviour:
   abilityData:
     name: Bear Rage
     abilityCost: 0
-    description: Increase Health and Damage.
+    description: Increase Health and Crit.
     type: 2
-    health: 2
+    health: 5
     mana: 0
     dodge: 0
     speed: 0
-    crit: 0
-    attack: 2
+    crit: 5
+    attack: 0
     targetOpponent: FALSE

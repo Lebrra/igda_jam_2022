@@ -17,5 +17,5 @@ MonoBehaviour:
     animal: Spinosarus
     namePart: spin
     bodyPart: 0
-    abilityName: Bite
+    abilityName: Chomp
     image: {fileID: -1460274209, guid: 64def77c39020544ea503b1d2fc94e54, type: 3}

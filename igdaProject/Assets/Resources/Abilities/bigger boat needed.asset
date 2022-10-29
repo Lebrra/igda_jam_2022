@@ -17,10 +17,10 @@ MonoBehaviour:
     abilityCost: 0
     description: Increase Health and Crit.
     type: 2
-    health: 1
+    health: 7
     mana: 0
     dodge: 0
     speed: 0
-    crit: 2
+    crit: 5
     attack: 0
     targetOpponent: FALSE
