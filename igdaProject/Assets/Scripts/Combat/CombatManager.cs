@@ -195,7 +195,7 @@ public class CombatManager : MonoBehaviour
         if (entity == player) {
 
         
-            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, -amount));
+            StartCoroutine(UpdateManaBar(-amount));
         }
         else {
             entity.AffectMana(-amount);
@@ -208,7 +208,7 @@ public class CombatManager : MonoBehaviour
     {
         if (entity == player)
         {
-            StartCoroutine(UIManabarScaler(playerManaBar, player.mana, amount));
+            StartCoroutine(UpdateManaBarAdding(amount));
         }
         else
         {
@@ -259,6 +259,38 @@ public class CombatManager : MonoBehaviour
             //#e66767
             healthBar.color = new Color32(230, 103, 103, 255);
         }
+    }
+
+    IEnumerator UpdateManaBar(float amount)
+    {
+        player.AffectMana(amount);
+        float maxMana = player.manaMax;
+        float finalMana = Mathf.Clamp(player.mana + amount, 0, maxMana);
+        float time = 0F;
+        float maxTime = 0.25F;
+        while (time < maxTime)
+        {
+            playerManaBar.fillAmount = Mathf.Lerp(player.mana / maxMana, finalMana / maxMana, time / maxTime);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        playerManaBar.fillAmount = finalMana / maxMana;
+    }
+
+    IEnumerator UpdateManaBarAdding(float amount)
+    {
+        player.AffectMana(amount);
+        float maxMana = player.manaMax;
+        float finalMana = Mathf.Clamp(player.mana + amount, 0, maxMana);
+        float time = 0F;
+        float maxTime = 0.5F;
+        while (time < maxTime)
+        {
+            playerManaBar.fillAmount = Mathf.Lerp(player.mana / maxMana, finalMana / maxMana, time / maxTime);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        playerManaBar.fillAmount = finalMana / maxMana;
     }
 
     private IEnumerator UIManabarScaler(Image manaBar, float currentMana, float amount) {
