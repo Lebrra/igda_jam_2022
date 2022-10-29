@@ -35,7 +35,9 @@ public class AbilityManager : MonoBehaviour
             case "sting": Sting(); break;
             case "rollypolly": RollyPolly(); break;
             case "rainbowbeam": RainbowBeam(); break;
-            case "charge": break;
+            case "charge": Charge();  break;
+            case "smash": SMASH(); break;
+            case "bigbite": BigBite(); break;
 
             case "soothingsong": SoothingSong(); break;
             case "roar": Roar(); break;
@@ -60,7 +62,6 @@ public class AbilityManager : MonoBehaviour
     }
     
     public void Rest() {
-        target.AffectMana(currentAbility.abilityData.mana);
         CombatManager.instance.ShowSupportText(target.animalName + " has increased mana!");
         CombatManager.instance.GainMana(target, currentAbility.abilityData.mana);
     }
@@ -69,7 +70,25 @@ public class AbilityManager : MonoBehaviour
         CombatManager.instance.DealtDamage(target, currentAbility.abilityData.attack, false, target.DodgeCheck());
     }
 
+    public void SMASH() {
+       
+        attacker.holdingAbility = null;
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
+    }
+
     #region ATTACK ABILITIES
+
+    public void BigBite() {
+
+        CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), true, target.DodgeCheck());
+
+
+    }
+
+    public void Charge() {
+        attacker.holdingAbility = DataManager.instance.GetAbility("SMASH");
+        CombatManager.instance.DealtDamage(target, 0, false, false);
+    }
     public void ClawSwipe() {
         CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
@@ -118,10 +137,7 @@ public class AbilityManager : MonoBehaviour
         CombatManager.instance.DealtDamage(target, (currentAbility.abilityData.attack + attacker.attack), attacker.CritCheck(), target.DodgeCheck());
     }
 
-    public void Charge()
-    {
-
-    }
+    
 
     #endregion
 

@@ -364,7 +364,14 @@ public class CombatManager : MonoBehaviour
             opponent = enemy;
         }
         else {
-            var enemyAbility = enemy.GetRandomAbility(bash, rest);
+            Ability enemyAbility;
+
+            if (enemy.holdingAbility == null) {
+                enemyAbility = enemy.GetRandomAbility(bash, rest);
+            }
+            else {
+                enemyAbility = enemy.holdingAbility;
+            }
             if (enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility, player, enemy);
@@ -434,7 +441,14 @@ public class CombatManager : MonoBehaviour
 
         }
         else {
-            var enemyAbility = enemy.GetRandomAbility(bash, rest);
+            Ability enemyAbility;  
+            
+            if(enemy.holdingAbility == null) {
+                enemyAbility = enemy.GetRandomAbility(bash, rest);
+            } else {
+                enemyAbility = enemy.holdingAbility;
+            }
+
             if(enemyAbility != null) {
                 if (enemyAbility.abilityData.type == AbilityType.attack || enemyAbility.abilityData.targetOpponent == "TRUE") {
                     AbilityManager.instance.UseAbility(enemyAbility, player, enemy);
@@ -454,6 +468,9 @@ public class CombatManager : MonoBehaviour
             SpentMana(enemy, enemyAbility.abilityData.abilityCost);
 
             combatText.text = enemy.animalName + " used " + enemyAbility.abilityData.name + "!";
+
+
+            
 
         }
 
@@ -475,7 +492,13 @@ public class CombatManager : MonoBehaviour
             EndBattle(true, isLevelBattle);
             yield break;
         }
+
+        if (player.holdingAbility != null) UseAbility(player.holdingAbility);
+
         clickBlocker.SetActive(false);
+
+
+
     }
 
     void SetAnimation(AnimalPrefabBuilder animal, AnimalPrefabBuilder.AnimationType anim)
