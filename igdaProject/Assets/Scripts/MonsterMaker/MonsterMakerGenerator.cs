@@ -182,8 +182,7 @@ public class MonsterMakerGenerator : MonoBehaviour
         try
         {
             if (inventoryToggles.ContainsKey(p.partData.id)) return;
-            GameObject tmp = Instantiate(ButtonTemplate);
-            tmp.transform.parent = place.transform;
+            GameObject tmp = Instantiate(ButtonTemplate, place.transform);
             tmp.GetComponent<Toggle>().group = place.GetComponent<ToggleGroup>();
             Image[] children = tmp.transform.GetComponentsInChildren<Image>();
 

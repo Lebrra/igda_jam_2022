@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource clipAudioSource;
     public AudioSource musicAudioSource;
+    public AudioSource dialogAudioSource;
+
     [SerializeField]
     List<SoundClips> BackGroundMusic = new List<SoundClips>();
     [SerializeField]
@@ -85,6 +87,16 @@ public class AudioManager : MonoBehaviour
 
         clipAudioSource.PlayOneShot(clip, clipVolume);
     }
+
+    public void playDialogClip(string clipName)
+    {
+        var clip = StringToClip(clipName);
+
+        dialogAudioSource.clip = clip;
+
+        dialogAudioSource.Play();
+    }
+
     public void playBackgroundMusic()
     {
         Routine.Stop("battleSongManager");
@@ -104,7 +116,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (!song.Equals(null))
                 {
-                    musicAudioSource.PlayOneShot(song.audioClip);
+                    musicAudioSource.PlayOneShot(song.audioClip, .1f);
                     //Routine.Start(playWithFade(song));
                     yield return new WaitForSeconds(song.audioClip.length);
                     //Routine.Stop("playWithFade");
@@ -122,7 +134,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (!song.Equals(null))
                 {
-                    musicAudioSource.PlayOneShot(song.audioClip);
+                    musicAudioSource.PlayOneShot(song.audioClip, .1f);
                     //Routine.Start(playWithFade(song));
                     yield return new WaitForSeconds(song.audioClip.length);
                     //Routine.Stop("playWithFade");
