@@ -165,7 +165,9 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void TurtleShield() {
-        CombatManager.instance.ShowSupportText(target.animalName + " does nothing!");
+        target.AffectDodge(currentAbility.abilityData.dodge);
+        target.AffectSpeed(currentAbility.abilityData.speed);
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge and lowered speed!");
     }
 
     public void TongueLash() {

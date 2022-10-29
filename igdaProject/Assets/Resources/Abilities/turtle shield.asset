@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityData:
     name: Turtle Shield
-    abilityCost: 5
-    description: Reduce the damage taken from the next attack.
+    abilityCost: 8
+    description: 'Increases dodge by 10 and reduces speed by 5. '
     type: 1
     health: 0
     mana: 0
-    dodge: 0
-    speed: 0
+    dodge: 10
+    speed: -5
     crit: 0
     attack: 0
     targetOpponent: FALSE
