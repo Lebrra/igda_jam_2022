@@ -176,14 +176,14 @@ public class DialogueManager : MonoBehaviour
 
                             int i = Random.Range(0, 1);
                             if (i == 0)
-                                AudioManager.audioManager.playSoundClip("Mumble1", 1);
+                                AudioManager.audioManager.playDialogClip("Mumble1");
                             else
-                                AudioManager.audioManager.playSoundClip("Mumble3", 1);
+                                AudioManager.audioManager.playDialogClip("Mumble3");
                         }
                         break;
                     case "mumbleAngry":
                         if (AudioManager.audioManager != null)
-                            AudioManager.audioManager.playSoundClip("Mumble2", 1);
+                            AudioManager.audioManager.playDialogClip("Mumble2");
                         break;
 
                 }
