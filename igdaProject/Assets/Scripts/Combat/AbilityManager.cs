@@ -178,8 +178,8 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void TongueLash() {
-        target.AffectDodge(currentAbility.abilityData.dodge);
-        CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge!");
+        target.AffectDodge(currentAbility.abilityData.speed);
+        CombatManager.instance.ShowSupportText(target.animalName + " has decreased speed!");
     }
 
     public void MagicHorn() {
@@ -227,7 +227,7 @@ public class AbilityManager : MonoBehaviour
 
     public void Tickle() {
         target.AffectDodge(currentAbility.abilityData.dodge);
-        CombatManager.instance.ShowSupportText(target.animalName + " has decreased dodge!");
+        CombatManager.instance.ShowSupportText(target.animalName + " has increased dodge!");
     }
 
     public void Gobble()
