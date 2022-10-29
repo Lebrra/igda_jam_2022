@@ -264,10 +264,15 @@ public class CombatManager : MonoBehaviour
         float targetMana = Mathf.Clamp(currentMana + amount, 0, player.manaMax);
         while (i < 1) {
             i += Time.deltaTime * speed;
-            manaBar.fillAmount = Mathf.Lerp((currentMana / player.manaMax), (targetMana / player.manaMax), i);
+            if(currentMana == 0)
+                manaBar.fillAmount = Mathf.Lerp(0, (targetMana / player.manaMax), i);
+            else
+                manaBar.fillAmount = Mathf.Lerp((currentMana / player.manaMax), (targetMana / player.manaMax), i);
+
             yield return null;
         }
-        manaBar.fillAmount = targetMana / player.manaMax;
+        
+        manaBar.fillAmount = (targetMana / player.manaMax);
         player.AffectMana(amount);
     }
 
