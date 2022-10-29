@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour
     public List<Ability> abilityList = new List<Ability>();
     public List<Ability> useableAbilityList = new List<Ability>();
 
+    public Ability holdingAbility;
+
     private void Start()
     {
         healthMax = (float)GameManager.BASE_HEALTH;

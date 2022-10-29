@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 609b9c2a3ff9a654886ffc0033d7453b, type: 3}
-  m_Name: charge
+  m_Name: SMASH
   m_EditorClassIdentifier: 
   abilityData:
-    name: Charge
-    abilityCost: 8
-    description: Big damage but need to wait a turn.
+    name: SMASH
+    abilityCost: 0
+    description: Big damage
     type: 0
     health: 0
     mana: 0
     dodge: 0
     speed: 0
     crit: 0
-    attack: 0
+    attack: 10
     targetOpponent: TRUE
