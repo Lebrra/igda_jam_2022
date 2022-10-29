@@ -1,49 +1,49 @@
 #mumble
-Professor: Oh, a new intern!
+Doc: Oh, a new intern!
 #mumbleAngry
-Professor: You're late!
+Doc: You're late!
 #mumble
-Professor: Welcome to the lab!
+Doc: Welcome to the lab!
 
 ->My_Choices
 
 === My_Choices ===
 #mumble
-Professor: Are you ready to get started or would you like me to run you through the basics?
+Doc: Are you ready to get started or would you like me to run you through the basics?
 + [Tell me more doc!] ->TutorialBegin
 + [I can figure it out on my own.] ->AskAgain
  
  ===AskAgain===
  #mumble
- Professor: Are you sure?
+ Doc: Are you sure?
  +[yes] ->theEnding
  +[no] ->My_Choices
  
  ===theEnding===
 #mumbleAngry
-  Professor: Okay, good luck intern!
+  Doc: Okay, good luck intern!
   #mumble
-  Professor: Try not to get a papercut.
+  Doc: Try not to get a papercut.
   #mumble
-  Professor: KEKEKEKEKE!
+  Doc: KEKEKEKEKE!
  #TutorialDone
  ->END
 
 ===TutorialBegin===
 #mumble
-Professor: Okay, so there are two main tasks we perform.
+Doc: Okay, so there are two main tasks we perform.
 #mumble
-Professor: To help you perform these tasks initially, you will be given two different types of animals to begin working with.
+Doc: To help you perform these tasks initially, you will be given two different types of animals to begin working with.
 #mumble
-Professor: The <b>Cat</b> and the <b>Dog</b>, simple <b>House</b> creatures.
+Doc: The <b>Cat</b> and the <b>Dog</b>, simple <b>House</b> creatures.
 #mumble
-Professor: There are many different types of <b>BIOMES</b>. One we had covered, the <b>House</b> biome.
+Doc: There are many different types of <b>BIOMES</b>. One we had covered, the <b>House</b> biome.
 #mumble
-Professor: There are many other <b>BIOMES</b> which you will learn about in your time here which include <b>Forest</b>, <b>Mountain</b>, <b>Ocean</b>, and many more.
+Doc: There are many other <b>BIOMES</b> which you will learn about in your time here which include <b>Forest</b>, <b>Mountain</b>, <b>Ocean</b>, and many more.
 #mumble
-Professor: The two tasks are <b>Collecting Materials(Combat)</b> and <b>Researching New Creatures</b>.
+Doc: The two tasks are <b>Collecting Materials(Combat)</b> and <b>Researching New Creatures</b>.
 #mumble
-Professor: Which task would you like to hear about first?
+Doc: Which task would you like to hear about first?
 ->Tutorial
 
 
@@ -52,54 +52,54 @@ Professor: Which task would you like to hear about first?
 +[Collecting Materials]       ->Tutorial.combat
 +[I've heard enough.]
 #mumble
-Professor: Goodluck!
+Doc: Goodluck!
 #mumble
-Professor: There are even rumors of <b>mythical</b> creatures.
+Doc: There are even rumors of <b>mythical</b> creatures.
 #mumble
-Professor: But be careful intern. Try not to take on more than you can handle. We only have so much tape and glue sticks on hand with the recent budget cuts.
+Doc: But be careful intern. Try not to take on more than you can handle. We only have so much tape and glue sticks on hand with the recent budget cuts.
 #TutorialDone
 ->END
 
 =research
 #openerPanel
 #mumble
-Professor: First, please take a look at that <b>pencil</b> in the corner.
+Doc: First, please take a look at that <b>pencil</b> in the corner.
 #mumble
 #closeOpener
 #creatureCreationPanel
-Professor: You will be able to click that and pick between the <b>4</b> different body parts.
+Doc: You will be able to click that and pick between the <b>4</b> different body parts.
 #mumble
-Professor: The <b>Head</b>, the <b>Legs</b>, the <b>Body</b> and the <b>Tail</b>.
+Doc: The <b>Head</b>, the <b>Legs</b>, the <b>Body</b> and the <b>Tail</b>.
 #mumble
-Professor: You will find many different types of <b>parts</b>.
+Doc: You will find many different types of <b>parts</b>.
 #mumble
-Professor: Mix and match to your heart's content.
+Doc: Mix and match to your heart's content.
 #mumble
-Professor: The possibilities are endless!
+Doc: The possibilities are endless!
 #closeAll
 #mumble
-Professor: Would you like to hear about anything else?
+Doc: Would you like to hear about anything else?
 ->Tutorial
 =combat
 #combatPanel
-Professor: So, your creatures have a certain level of strength. That strength can be augmented by using the parts of other creatures.
+Doc: So, your creatures have a certain level of strength. That strength can be augmented by using the parts of other creatures.
 #mumble
-Professor: This augmentation will introduce new <b>abilities</b> both passively and actively.
+Doc: This augmentation will introduce new <b>abilities</b> both passively and actively.
 #mumbleAngry
-Professor: YES!!! New Abilities.
+Doc: YES!!! New Abilities.
 #mumble
-Professor: It's very marvelous to experience.
+Doc: It's very marvelous to experience.
 #mumble
-Professor: There are two different ways you can combat creatures.
+Doc: There are two different ways you can combat creatures.
 #mumble
-Professor: You can go on an <b>Adventure</b> into the nearby wilderness.
+Doc: You can go on an <b>Adventure</b> into the nearby wilderness.
 #mumble
-Professor: Or...
+Doc: Or...
 #mumble
-Professor: You can <b>Randomly Battle</b> creatures created by other lab assistants.
+Doc: You can <b>Randomly Battle</b> creatures created by other lab assistants.
 #mumble
-Professor: The latter will not yield any new parts but you can see many interesting creatures like the one here.
+Doc: The latter will not yield any new parts but you can see many interesting creatures like the one here.
 #mumble
 #closeAll
-Professor: Would you like to hear about anything else?
+Doc: Would you like to hear about anything else?
 ->Tutorial
