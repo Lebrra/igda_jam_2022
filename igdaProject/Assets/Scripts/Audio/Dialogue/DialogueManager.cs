@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     bool dialogueScene;
     [SerializeField]
-    float textTime = 0.15f;
+    float textTime = 0.05f;
     bool ableMakeChoice = false;
     // Start is called before the first frame update
     private void Awake()
@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
             }
 
 
-            if (text[index].Contains("<b>") && text[index].Contains("</br>"))
+            if (text[index].Contains("<b>") && text[index].Contains("</b>"))
             {
                 char[] word = text[index++].ToCharArray();
                 dialogueText.text += "<b>";
@@ -139,7 +139,7 @@ public class DialogueManager : MonoBehaviour
                     dialogueText.text += "</b> ";
                 }
             }
-            else if (text[index].Contains("<b>") && !text[index].Contains("</br>"))
+            else if (text[index].Contains("<b>") && !text[index].Contains("</b>"))
             {
                 char[] word = text[index++].ToCharArray();
                 dialogueText.text += "<b>";
@@ -152,7 +152,7 @@ public class DialogueManager : MonoBehaviour
                     dialogueText.text += " ";
                  
             }
-            else if (text[index].Contains("</b>") && !text[index].Contains("<br>"))
+            else if (text[index].Contains("</b>") && !text[index].Contains("<b>"))
             {
                 char[] word = text[index++].ToCharArray();
                 if (word[word.Length - 1] == '.')
@@ -201,7 +201,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
         dialogueText.text = str;
-        ableMakeChoice = true;
+        //ableMakeChoice = true;
         DisplayChoices();
         yield return null;
     }

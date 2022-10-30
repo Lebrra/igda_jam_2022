@@ -266,8 +266,8 @@ MonoBehaviour:
   baseGamePanel: {fileID: 0}
   creationPanel: {fileID: 0}
   battlePanel: {fileID: 0}
-  dialogueScene: 0
-  textTime: 0.15
+  dialogueScene: 1
+  textTime: 0.05
 --- !u!4 &466045778
 Transform:
   m_ObjectHideFlags: 0
