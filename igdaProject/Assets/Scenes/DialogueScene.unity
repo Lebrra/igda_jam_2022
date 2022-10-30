@@ -251,12 +251,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkAsset: {fileID: 4900000, guid: 57bd7176f692a1149990ef90ad44bcb0, type: 3}
-  tutorialScript: {fileID: 0}
-  FactScript: {fileID: 0}
+  tutorialScript: {fileID: 4900000, guid: 57bd7176f692a1149990ef90ad44bcb0, type: 3}
+  FactScript: {fileID: 4900000, guid: 57bd7176f692a1149990ef90ad44bcb0, type: 3}
   dialoguePanel: {fileID: 1817174232}
   dialogueText: {fileID: 74805865}
   Tutorial: 1
-  continueButton: {fileID: 0}
   starttheTutorial: 0
   choices:
   - {fileID: 112681890}
@@ -267,6 +266,8 @@ MonoBehaviour:
   baseGamePanel: {fileID: 0}
   creationPanel: {fileID: 0}
   battlePanel: {fileID: 0}
+  dialogueScene: 0
+  textTime: 0.15
 --- !u!4 &466045778
 Transform:
   m_ObjectHideFlags: 0
@@ -451,6 +452,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &897630844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897630846}
+  - component: {fileID: 897630845}
+  m_Layer: 0
+  m_Name: StartObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &897630845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897630844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7eeb44c9c146f479b378b77842b10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &897630846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897630844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1521.1848, y: 1636.5042, z: -11.426269}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244063681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,6 +503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 216276912}
     m_Modifications:
+    - target: {fileID: 1808872890, guid: a4ac90bfe064c0e4da6a6ca69b1e80ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4792975316707233406, guid: a4ac90bfe064c0e4da6a6ca69b1e80ca, type: 3}
       propertyPath: m_Name
       value: DialogContainer

@@ -9,8 +9,13 @@ public class DialogueButton : MonoBehaviour, IPointerClickHandler
     {
 
         if (DialogueManager.getInstance().getTutorial())
-            if (DialogueManager.getInstance().dialogueisPlaying)
-                DialogueManager.getInstance().continueTheStory();
+        {
+            //if (DialogueManager.getInstance().dialogueisPlaying)
+            //{
+            DialogueManager.getInstance().setChange(true);
+            DialogueManager.getInstance().continueTheStory();
+            // }
+        }
         //Debug.Log("I clicked");
     }
 

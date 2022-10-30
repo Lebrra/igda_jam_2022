@@ -38,6 +38,9 @@ public class DialogueManager : MonoBehaviour
     GameObject battlePanel;
     [SerializeField]
     bool dialogueScene;
+    [SerializeField]
+    float textTime = 0.15f;
+    bool ableMakeChoice = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -80,6 +83,128 @@ public class DialogueManager : MonoBehaviour
         }
         yield return null;
     }*/
+    public void setChange(bool tr)
+    {
+        ableMakeChoice = tr;
+    }
+    public IEnumerator readDialogue(string[] text, string str)
+    {
+        int index = 0;
+        dialogueText.text = "";
+        ableMakeChoice = false;
+        while(index < text.Length)
+        {
+            if(ableMakeChoice)
+            {
+                break;
+            }
+            if (index == 0)
+            { 
+                dialogueText.text += text[index++] + " "; 
+            }
+
+
+            if (text[index].Contains("<b>") && text[index].Contains("</br>"))
+            {
+                char[] word = text[index++].ToCharArray();
+                dialogueText.text += "<b>";
+                if (word[word.Length - 1] == '.')
+                {
+                    for (int i = 3; i < word.Length - 5; i++)
+                    {
+                        print(word[i]);
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b>. ";
+                }
+                else if (word[word.Length - 1] == ',')
+                {
+                    for (int i = 3; i < word.Length - 5; i++)
+                    {
+                        print(word[i]);
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b>, ";
+                }
+                else
+                {
+                    for (int i = 3; i < word.Length - 4; i++)
+                    {
+                        print(word[i]);
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b> ";
+                }
+            }
+            else if (text[index].Contains("<b>") && !text[index].Contains("</br>"))
+            {
+                char[] word = text[index++].ToCharArray();
+                dialogueText.text += "<b>";
+                
+                    for (int i = 3; i < word.Length; i++)
+                    {
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += " ";
+                 
+            }
+            else if (text[index].Contains("</b>") && !text[index].Contains("<br>"))
+            {
+                char[] word = text[index++].ToCharArray();
+                if (word[word.Length - 1] == '.')
+                {
+                    for (int i = 0; i < word.Length - 5; i++)
+                    {
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b>. ";
+                }
+                else if (word[word.Length - 1] == ',')
+                {
+                    for (int i = 0; i < word.Length - 5; i++)
+                    {
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b>, ";
+                }
+                else
+                {
+                    for (int i = 0; i < word.Length - 4; i++)
+                    {
+                        dialogueText.text += word[i];
+                        yield return new WaitForSeconds(textTime);
+                    }
+                    dialogueText.text += "</b> ";
+                }
+            }
+            else
+            {
+                char[] word = text[index++].ToCharArray();
+                for (int i = 0; i < word.Length; i++)
+                {
+                    dialogueText.text += word[i];
+                    yield return new WaitForSeconds(textTime);
+                }
+                dialogueText.text += " ";
+                /*
+                if (index == 0)
+                    dialogueText.text += text[index++];
+                else
+                    dialogueText.text += " " + text[index++];
+                */
+            }
+        }
+        dialogueText.text = str;
+        ableMakeChoice = true;
+        DisplayChoices();
+        yield return null;
+    }
     public bool getTutorial()
     {
         return Tutorial;
@@ -104,12 +229,17 @@ public class DialogueManager : MonoBehaviour
     }
     public void continueTheStory()
     {
-        
         if (CurrentStory.canContinue)
         {
-            dialogueText.text = CurrentStory.Continue();
+            string str = "";
+            //dialogueText.text = CurrentStory.Continue();
+            Routine.Stop("readDialogue");
+            if (str != "")
+                dialogueText.text = str;
+            str = CurrentStory.Continue();
+            Routine.Start(readDialogue(str.Split(" "), str));
             TagHandler();
-            DisplayChoices();
+            //DisplayChoices();
         }
         else if (CurrentStory.currentChoices.Count > 0)
         {
@@ -203,10 +333,23 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
+    IEnumerator getChoiceBool()
+    {
+        while (true)
+        {
+            if (ableMakeChoice)
+            {
+                break;
+            }
+        }
+        yield return null;
+    }
     private void DisplayChoices()
     {
+
         List<Choice> currentChoices = CurrentStory.currentChoices;
-        //print(currentChoices.Count);
+        //if (currentChoices.Count == 0)
+            //return;
         //if(currentChoices.Count > choices.Length)
         //{
         //Debug.Log("To many choices");
@@ -239,7 +382,10 @@ public class DialogueManager : MonoBehaviour
         {
             CurrentStory.ChooseChoiceIndex(ChoiceIndex);
             foreach (GameObject choice in choices)
+            {
+                choice.gameObject.SetActive(false);
                 choice.GetComponent<Button>().onClick.RemoveAllListeners();
+            }
             continueTheStory();
         }
         catch(System.Exception e)
