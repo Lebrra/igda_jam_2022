@@ -89,119 +89,46 @@ public class DialogueManager : MonoBehaviour
     }
     public IEnumerator readDialogue(string[] text, string str)
     {
+        //Whenever there's a < load until > and then add to text
         int index = 0;
         dialogueText.text = "";
+        
+        bool bracket = false;
+        string bracketed = "";
         ableMakeChoice = false;
-        while(index < text.Length)
+        while (index < text.Length)
         {
-            if(ableMakeChoice)
-            {
+            if (ableMakeChoice)
                 break;
-            }
             if (index == 0)
-            { 
-                dialogueText.text += text[index++] + " "; 
-            }
-
-
-            if (text[index].Contains("<b>") && text[index].Contains("</b>"))
             {
-                char[] word = text[index++].ToCharArray();
-                dialogueText.text += "<b>";
-                if (word[word.Length - 1] == '.')
-                {
-                    for (int i = 3; i < word.Length - 5; i++)
-                    {
-                        print(word[i]);
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b>. ";
-                }
-                else if (word[word.Length - 1] == ',')
-                {
-                    for (int i = 3; i < word.Length - 5; i++)
-                    {
-                        print(word[i]);
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b>, ";
-                }
-                else
-                {
-                    for (int i = 3; i < word.Length - 4; i++)
-                    {
-                        print(word[i]);
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b> ";
-                }
+                dialogueText.text = text[index++] + " ";
             }
-            else if (text[index].Contains("<b>") && !text[index].Contains("</b>"))
+            char[] word = text[index++].ToCharArray();
+            for (int i = 0; i < word.Length; i++)
             {
-                char[] word = text[index++].ToCharArray();
-                dialogueText.text += "<b>";
-                
-                    for (int i = 3; i < word.Length; i++)
-                    {
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += " ";
-                 
-            }
-            else if (text[index].Contains("</b>") && !text[index].Contains("<b>"))
-            {
-                char[] word = text[index++].ToCharArray();
-                if (word[word.Length - 1] == '.')
-                {
-                    for (int i = 0; i < word.Length - 5; i++)
-                    {
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b>. ";
-                }
-                else if (word[word.Length - 1] == ',')
-                {
-                    for (int i = 0; i < word.Length - 5; i++)
-                    {
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b>, ";
-                }
-                else
-                {
-                    for (int i = 0; i < word.Length - 4; i++)
-                    {
-                        dialogueText.text += word[i];
-                        yield return new WaitForSeconds(textTime);
-                    }
-                    dialogueText.text += "</b> ";
-                }
-            }
-            else
-            {
-                char[] word = text[index++].ToCharArray();
-                for (int i = 0; i < word.Length; i++)
+                if (word[i] == '<')
+                    bracket = true;
+                if (!bracket)
                 {
                     dialogueText.text += word[i];
                     yield return new WaitForSeconds(textTime);
                 }
-                dialogueText.text += " ";
-                /*
-                if (index == 0)
-                    dialogueText.text += text[index++];
                 else
-                    dialogueText.text += " " + text[index++];
-                */
+                {
+                    bracketed += word[i];
+                    if (word[i] == '>')
+                    {
+                        //bracketed += word[i];
+                        dialogueText.text += bracketed;
+                        bracket = false;
+                        bracketed = "";
+                    }
+                }
             }
+            dialogueText.text += " ";
         }
         dialogueText.text = str;
-        //ableMakeChoice = true;
         DisplayChoices();
         yield return null;
     }
